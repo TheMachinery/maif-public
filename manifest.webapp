@@ -1,0 +1,157 @@
+{
+    "name": "Espace Décès",
+    "slug": "maifMachinery",
+    "icon": "media/logo.svg",
+    "description": "Description maifMachinery",
+    "version": "3.0.0",
+    "licence": "AGPL-3.0",
+    "source": "https://github.com/zanmi/test.git@build",
+    "editor": "",
+    "category": "maif",
+    "developer": {
+        "name": "The Machinery",
+        "url": "https://themachinery.fr"
+    },
+    "tracking": true,
+    "default_locale": "fr",
+    "locales": {},
+    "routes": {
+        "/": {
+            "folder": "/",
+            "index": "index.html",
+            "public": false
+        },
+        "/Documents": {
+            "folder": "/",
+            "index": "index.html",
+            "public": false
+        },
+        "/rappels": {
+            "folder": "/",
+            "index": "index.html",
+            "public": false
+        },
+        "/donnees": {
+            "folder": "/",
+            "index": "index.html",
+            "public": false
+        },
+        "/contacts": {
+            "folder": "/",
+            "index": "index.html",
+            "public": false
+        },
+        "/corbeille": {
+            "folder": "/",
+            "index": "index.html",
+            "public": false
+        },
+        "/public": {
+            "folder": "/public",
+            "index":  "index.html",
+            "public": true
+        }
+    },
+    "permissions": {
+        "settings": {
+            "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+            "type": "io.cozy.settings",
+            "verbs": ["GET"]
+        },
+        "apps": {
+            "description": "Required by the cozy-bar to display the icons of the apps",
+            "type": "io.cozy.apps",
+            "verbs": ["GET"]
+        },
+        "files": {
+            "description": "App required files access",
+            "type": "io.cozy.files"
+        },
+        "contact": {
+            "description": "App required contact access",
+            "type": "io.cozy.contacts"
+        },
+        "data-equipment": {
+            "description": "App required data equipment access",
+            "type": "com.empreinte.equipment"
+        },
+        "data-funerals-lastwill": {
+            "description": "App required data Last Will access",
+            "type": "com.empreinte.FLastWill"
+        },
+        "data-funerals-contacts": {
+            "description": "App required data Last Will access",
+            "type": "com.empreinte.Fcontacts"
+        },
+          "data-funerals-custom-contacts": {
+            "description": "App required data Last Will access",
+            "type": "com.empreinte.Fcustomcontacts"
+        },
+        "data-work": {
+            "description": "App required data work access",
+            "type": "com.empreinte.work"
+        },
+        "data-maintenance": {
+            "description": "App required data maintenance access",
+            "type": "com.empreinte.maintenance"
+        },
+        "data-diagnosis": {
+            "description": "App required data diagnosis access",
+            "type": "com.empreinte.diagnosis"
+        },
+        "data-homeData": {
+            "description": "App required data homeData access",
+            "type": "com.empreinte.homeData"
+        },
+        "contacts": {
+            "description": "App required contacts access",
+            "type": "com.empreinte.contacts"
+        },
+        "analytics": {
+            "description": "App required analytics access",
+            "type": "com.empreinte.analytics"
+        },
+        "recalls": {
+            "description": "App required recalls access",
+            "type": "com.empreinte.recalls"
+        },
+        "metas": {
+            "description": "App required metas access",
+            "type": "com.empreinte.meta"
+        },
+        "news": {
+            "description": "App required access to news",
+            "type": "com.empreinte.news"
+        },
+        "tasks": {
+            "description": "App required access to tasks list (moment de vie)",
+            "type": "com.empreinte.tasks"
+        },
+        "mail": {
+            "description": "Required to send a congratulations email to your friends",
+            "type": "io.cozy.jobs",
+            "selector": "worker",
+            "verbs": ["GET", "POST", "DELETE"]
+        },
+        "mail-enqueue": {
+            "description": "Required to know the number of jobs in the sendmail queues",
+            "type": "io.cozy.queues",
+            "verbs": ["GET"],
+            "selector": "worker"
+        },
+        "mail-trigger": {
+            "description": "Required to send regularly mails from the user to his/her friends",
+            "type": "io.cozy.triggers",
+            "verbs": ["POST", "GET", "DELETE"],
+            "selector": "worker"
+        },
+        "unzip-to-a-directory": {
+            "description": "Required to unzip a file inside the cozy",
+            "type": "io.cozy.jobs",
+            "verbs": ["POST"],
+            "selector": "worker",
+            "values": ["unzip"]
+        }
+
+    }
+}
