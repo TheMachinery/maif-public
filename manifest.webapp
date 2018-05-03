@@ -1,8 +1,8 @@
 {
     "name": "Espace Décès",
-    "slug": "maifobseque",
+    "slug": "maifobseque2",
     "icon": "media/logo.svg",
-    "description": "Description maifobseque",
+    "description": "Description maifobseque2",
     "version": "3.0.0",
     "licence": "AGPL-3.0",
     "source": "github.com/TheMachinery/maif-public.git",
