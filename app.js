@@ -19659,9 +19659,19 @@ var ContactModal = function (_Component) {
         address: address,
         statut: statut,
         birth: birth
+      };
 
-        // SEND SHARING MAIL
-      };cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+      var infos = null;
+
+      cozy.client.settings.getInstance().then(function (result) {
+        console.log(result);
+        infos = result;
+      }).catch(function (error) {
+        console.log(error);
+      });
+
+      // SEND SHARING MAIL
+      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
         data: {
           type: 'io.cozy.permissions',
           attributes: {
@@ -19711,8 +19721,8 @@ var ContactModal = function (_Component) {
 
         var job = cozy.client.jobs.create('sendmail', {
           mode: 'from',
-          to: [{ name: 'Support', email: newContact.email }],
-          subject: 'Ask support for cozy-desktop',
+          to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
+          subject: infos.attributes.public_name + ' vous donne accès à ses informations.',
           parts: [{ type: 'text/plain', body: window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/' }]
         }).then(function (res) {
           console.log(res);
