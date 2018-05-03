@@ -971,6 +971,7 @@ var contactsNew = exports.contactsNew = function contactsNew(name, data) {
 };
 
 var contactsSave = exports.contactsSave = function contactsSave(id, data) {
+    debug.log(data);
     return function () {
         var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch, getState) {
             var contact;

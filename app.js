@@ -1467,6 +1467,7 @@ var contactsNew = exports.contactsNew = function contactsNew(name, data) {
 };
 
 var contactsSave = exports.contactsSave = function contactsSave(id, data) {
+    debug.log(data);
     return function () {
         var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch, getState) {
             var contact;
@@ -11270,62 +11271,6 @@ var Index = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
-      data: {
-        type: 'io.cozy.permissions',
-        attributes: {
-          permissions: {
-            "settings": {
-              "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
-              "type": "io.cozy.settings",
-              "verbs": ["GET"]
-            },
-            "data-funerals-lastwill": {
-              "description": "App required data Last Will access",
-              "type": "com.empreinte.FLastWill",
-              "verbs": ["GET"]
-            },
-            "data-funerals-contacts": {
-              "description": "App required data Last Will access",
-              "type": "com.empreinte.Fcontacts",
-              "verbs": ["GET"]
-            },
-            "data-funerals-custom-contacts": {
-              "description": "App required data Last Will access",
-              "type": "com.empreinte.Fcustomcontacts",
-              "verbs": ["GET"]
-            },
-            "data-homeData": {
-              "description": "App required data homeData access",
-              "type": "com.empreinte.homeData"
-            },
-            "contacts": {
-              "description": "App required contacts access",
-              "type": "com.empreinte.contacts"
-            },
-            "metas": {
-              "description": "App required metas access",
-              "type": "com.empreinte.meta"
-            },
-            "contact": {
-              "description": "App required contact access",
-              "type": "io.cozy.contacts"
-            }
-          }
-        }
-      }
-    }).then(function (result) {
-      _this.sharing = result.attributes.codes['partage'];
-      console.log(_this.sharing);
-
-      var job = cozy.client.jobs.create('sendmail', {
-        mode: 'from',
-        to: [{ name: 'Support', email: 'amaury@themachinery.fr' }],
-        subject: 'Ask support for cozy-desktop',
-        parts: [{ type: 'text/plain', body: 'app.cozy.tools:8080/' + _this.sharing + '#/' }]
-      });
-    });
-
     props.history.push('/home');
     return _this;
   }
@@ -19682,6 +19627,8 @@ var ContactModal = function (_Component) {
   }, {
     key: 'save',
     value: function save(e) {
+      var _this2 = this;
+
       //create new object
       var _state = this.state,
           civility = _state.civility,
@@ -19712,7 +19659,65 @@ var ContactModal = function (_Component) {
         address: address,
         statut: statut,
         birth: birth
-      };
+
+        // SEND SHARING MAIL
+      };cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+        data: {
+          type: 'io.cozy.permissions',
+          attributes: {
+            permissions: {
+              "settings": {
+                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": ["GET"]
+              },
+              "data-funerals-lastwill": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.FLastWill",
+                "verbs": ["GET"]
+              },
+              "data-funerals-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcontacts",
+                "verbs": ["GET"]
+              },
+              "data-funerals-custom-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcustomcontacts",
+                "verbs": ["GET"]
+              },
+              "data-homeData": {
+                "description": "App required data homeData access",
+                "type": "com.empreinte.homeData"
+              },
+              "contacts": {
+                "description": "App required contacts access",
+                "type": "com.empreinte.contacts"
+              },
+              "metas": {
+                "description": "App required metas access",
+                "type": "com.empreinte.meta"
+              },
+              "contact": {
+                "description": "App required contact access",
+                "type": "io.cozy.contacts"
+              }
+            }
+          }
+        }
+      }).then(function (result) {
+        _this2.sharing = result.attributes.codes['partage'];
+        console.log(_this2.sharing);
+
+        var job = cozy.client.jobs.create('sendmail', {
+          mode: 'from',
+          to: [{ name: 'Support', email: newContact.email }],
+          subject: 'Ask support for cozy-desktop',
+          parts: [{ type: 'text/plain', body: window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/' }]
+        }).then(function (res) {
+          console.log(res);
+        });
+      });
 
       this.props.onSave(newContact);
       this.close(e);
@@ -19753,7 +19758,7 @@ var ContactModal = function (_Component) {
   }, {
     key: 'renderEdition',
     value: function renderEdition() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
@@ -19803,7 +19808,7 @@ var ContactModal = function (_Component) {
                   placeholder: 'Civilit\xE9',
                   value: this.state.civility,
                   onChange: function onChange(e) {
-                    return _this2.setState({ civility: e.target.value });
+                    return _this3.setState({ civility: e.target.value });
                   } },
                 _react2.default.createElement(
                   'option',
@@ -19836,7 +19841,7 @@ var ContactModal = function (_Component) {
                 value: this.state.lastName,
                 style: ifStyle(this.state.warn && this.state.lastName === '', { border: '1px solid orangered' }),
                 onChange: function onChange(e) {
-                  return _this2.setState({ lastName: e.target.value });
+                  return _this3.setState({ lastName: e.target.value });
                 } })
             ),
             _react2.default.createElement(
@@ -19853,7 +19858,7 @@ var ContactModal = function (_Component) {
                 placeholder: 'Pr\xE9nom',
                 value: this.state.firstName,
                 onChange: function onChange(e) {
-                  return _this2.setState({ firstName: e.target.value });
+                  return _this3.setState({ firstName: e.target.value });
                 } })
             )
           ),
@@ -19873,8 +19878,8 @@ var ContactModal = function (_Component) {
                 placeholder: 'Jour',
                 value: this.state.birth.day,
                 onChange: function onChange(e) {
-                  return _this2.setState({
-                    birth: _extends({}, _this2.state.birth, {
+                  return _this3.setState({
+                    birth: _extends({}, _this3.state.birth, {
                       day: e.target.value
                     }) });
                 } })
@@ -19893,8 +19898,8 @@ var ContactModal = function (_Component) {
                   placeholder: 'Mois',
                   value: this.state.birth.month,
                   onChange: function onChange(e) {
-                    return _this2.setState({
-                      birth: _extends({}, _this2.state.birth, {
+                    return _this3.setState({
+                      birth: _extends({}, _this3.state.birth, {
                         month: e.target.value
                       }) });
                   } },
@@ -19973,8 +19978,8 @@ var ContactModal = function (_Component) {
                 placeholder: 'Ann\xE9e',
                 value: this.state.birth.year,
                 onChange: function onChange(e) {
-                  return _this2.setState({
-                    birth: _extends({}, _this2.state.birth, {
+                  return _this3.setState({
+                    birth: _extends({}, _this3.state.birth, {
                       year: e.target.value
                     }) });
                 } })
@@ -19996,8 +20001,8 @@ var ContactModal = function (_Component) {
                 placeholder: 'Adresse',
                 value: this.state.address.way,
                 onChange: function onChange(e) {
-                  return _this2.setState({
-                    address: _extends({}, _this2.state.address, {
+                  return _this3.setState({
+                    address: _extends({}, _this3.state.address, {
                       way: e.target.value
                     })
                   });
@@ -20015,8 +20020,8 @@ var ContactModal = function (_Component) {
                 placeholder: 'Code postal',
                 value: this.state.address.code,
                 onChange: function onChange(e) {
-                  return _this2.setState({
-                    address: _extends({}, _this2.state.address, {
+                  return _this3.setState({
+                    address: _extends({}, _this3.state.address, {
                       code: e.target.value
                     })
                   });
@@ -20030,8 +20035,8 @@ var ContactModal = function (_Component) {
                 placeholder: 'Ville',
                 value: this.state.address.city,
                 onChange: function onChange(e) {
-                  return _this2.setState({
-                    address: _extends({}, _this2.state.address, {
+                  return _this3.setState({
+                    address: _extends({}, _this3.state.address, {
                       city: e.target.value
                     })
                   });
@@ -20045,8 +20050,8 @@ var ContactModal = function (_Component) {
                 placeholder: 'Pays',
                 value: this.state.address.land,
                 onChange: function onChange(e) {
-                  return _this2.setState({
-                    address: _extends({}, _this2.state.address, {
+                  return _this3.setState({
+                    address: _extends({}, _this3.state.address, {
                       land: e.target.value
                     })
                   });
@@ -20069,7 +20074,7 @@ var ContactModal = function (_Component) {
                 placeholder: 'Email',
                 value: this.state.email,
                 onChange: function onChange(e) {
-                  return _this2.setState({ email: e.target.value });
+                  return _this3.setState({ email: e.target.value });
                 } })
             ),
             _react2.default.createElement(
@@ -20090,7 +20095,7 @@ var ContactModal = function (_Component) {
                     value: item.phone,
                     onChange: function onChange(e) {
                       item.phone = e.target.value;
-                      _this2.setState({});
+                      _this3.setState({});
                     } })
                 );
               })
@@ -20109,7 +20114,7 @@ var ContactModal = function (_Component) {
                   placeholder: 'Prochqsdfe \xE0 pr\xE9venir ou proche r\xE9f\xE9rent',
                   value: this.state.statut,
                   onChange: function onChange(e) {
-                    return _this2.setState({ statut: e.target.value });
+                    return _this3.setState({ statut: e.target.value });
                   }
                 },
                 _react2.default.createElement(
@@ -20132,7 +20137,7 @@ var ContactModal = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: (0, _classnames2.default)("col-md-6", _ContactRecallModal2.default.importCard), onClick: function onClick() {
-                return _this2.onimport();
+                return _this3.onimport();
               } },
             _react2.default.createElement('i', { className: "ion-ios-person" }),
             ' ',
@@ -20171,7 +20176,7 @@ var ContactModal = function (_Component) {
               'button',
               {
                 onClick: function onClick(e) {
-                  return _this2.close(e);
+                  return _this3.close(e);
                 },
                 className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight, _ContactRecallModal2.default.button)
               },
@@ -20182,7 +20187,7 @@ var ContactModal = function (_Component) {
               {
                 className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default, _ContactRecallModal2.default.button),
                 onClick: function onClick(e) {
-                  return _this2.save(e);
+                  return _this3.save(e);
                 } },
               'VALIDER'
             )
@@ -20193,7 +20198,7 @@ var ContactModal = function (_Component) {
   }, {
     key: 'renderView',
     value: function renderView() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         'div',
@@ -20318,7 +20323,7 @@ var ContactModal = function (_Component) {
               {
                 className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default, _ContactRecallModal2.default.button),
                 onClick: function onClick(e) {
-                  return _this3.edit(e);
+                  return _this4.edit(e);
                 } },
               _react2.default.createElement(
                 'span',
@@ -20330,7 +20335,7 @@ var ContactModal = function (_Component) {
               'button',
               {
                 onClick: function onClick(e) {
-                  return _this3.remove(e);
+                  return _this4.remove(e);
                 },
                 className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.assertive, _ContactRecallModal2.default.button) },
               _react2.default.createElement(
@@ -20343,7 +20348,7 @@ var ContactModal = function (_Component) {
               'button',
               {
                 onClick: function onClick(e) {
-                  return _this3.close(e);
+                  return _this4.close(e);
                 },
                 className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default, _ContactRecallModal2.default.button)
               },
