@@ -5,7 +5,7 @@
     "description": "Description maifMachinery",
     "version": "3.0.0",
     "licence": "AGPL-3.0",
-    "source": "https://github.com/zanmi/test.git@build",
+    "source": "github.com/TheMachinery/maif-public.git",
     "editor": "",
     "category": "maif",
     "developer": {
