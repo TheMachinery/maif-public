@@ -12880,12 +12880,21 @@ var Letter = function (_React$Component) {
   }, {
     key: 'handleLetter',
     value: function handleLetter() {
-      this.setState({
-        organism: document.getElementById('caisse').value.length > 0 ? document.getElementById('caisse').value : document.getElementById('caisse').placeholder,
-        way: document.getElementById('rue').value.length > 0 ? document.getElementById('rue').value : document.getElementById('rue').placeholder,
-        code: document.getElementById('postale').value.length > 0 ? document.getElementById('postale').value : document.getElementById('postale').placeholder,
-        city: document.getElementById('ville').value.length > 0 ? document.getElementById('ville').value : document.getElementById('ville').placeholder
-      });
+
+      if (this.state.value.forms.value.hasOwnProperty('organism')) {
+        this.setState({
+          organism: document.getElementById('caisse').value.length > 0 ? document.getElementById('caisse').value : document.getElementById('caisse').placeholder
+        });
+      }
+
+      if (this.state.value.forms.value.hasOwnProperty('address')) {
+        this.setState({
+          way: document.getElementById('rue').value.length > 0 ? document.getElementById('rue').value : document.getElementById('rue').placeholder,
+          code: document.getElementById('postale').value.length > 0 ? document.getElementById('postale').value : document.getElementById('postale').placeholder,
+          city: document.getElementById('ville').value.length > 0 ? document.getElementById('ville').value : document.getElementById('ville').placeholder
+        });
+      }
+
       console.log(this.state.organism);
       console.log(this.state);
     }
