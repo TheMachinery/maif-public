@@ -12880,10 +12880,6 @@ var Letter = function (_React$Component) {
   }, {
     key: 'handleLetter',
     value: function handleLetter() {
-      console.log(this.state.organism);
-      console.log(document.getElementById('caisse').value);
-      console.log(document.getElementById('caisse').value.length);
-      console.log(document.getElementById('caisse').value.length > 0);
       this.setState({
         organism: document.getElementById('caisse').value.length > 0 ? document.getElementById('caisse').value : document.getElementById('caisse').placeholder,
         way: document.getElementById('rue').value.length > 0 ? document.getElementById('rue').value : document.getElementById('rue').placeholder,
