@@ -3991,6 +3991,10 @@ var _DonDevis = __webpack_require__("./src/public/containers/DonDevis.js");
 
 var _DonDevis2 = _interopRequireDefault(_DonDevis);
 
+var _Profile = __webpack_require__("./src/public/components/elements/Profile.jsx");
+
+var _Profile2 = _interopRequireDefault(_Profile);
+
 var _Retraite = __webpack_require__("./src/public/containers/Retraite.js");
 
 var _Retraite2 = _interopRequireDefault(_Retraite);
@@ -4109,21 +4113,8 @@ var App = function App(props) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/dossier', component: _Dossier2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/don', component: _Don2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/don-corps', component: _DonDevis2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/retraite', component: _Retraite2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/complementaire-maladie', component: _Complementaire2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/banque', component: _Banque2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/mairie', component: _Mairie2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/employeur', component: _Employeur2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/medecin', component: _Medecin2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/credit', component: _Credit2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/association', component: _Association2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/securite-sociale', component: _SecuriteSociale2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/assurance', component: _Assurance2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/notaire', component: _Notaire2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/bailleur', component: _Bailleur2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/caf', component: _CaisseAllocation2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/organisme', component: _Organisme2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/impot', component: _Impot2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/profil', component: _Profile2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/dernieres-volontees', component: _Profile2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/letter/:slug/:id', component: _Letter2.default }),
             _react2.default.createElement(_Footer2.default, null)
           )
@@ -10919,10 +10910,6 @@ var Dossier = function (_Component) {
       console.log(res);
     });
 
-    (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
-      console.log(res);
-    });
-
     (0, _meta.getMeta)().then(function (result) {
       _this.setTypeGroup(result[0].value);
 
@@ -11060,7 +11047,7 @@ var Dossier = function (_Component) {
           { className: _Contacts2.default.data },
           _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/profile' },
+            { to: '/profil' },
             _react2.default.createElement(
               'div',
               { className: _Contacts2.default.divContact },
@@ -11080,7 +11067,7 @@ var Dossier = function (_Component) {
           ),
           _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/funerals' },
+            { to: '/dernieres-volontees' },
             _react2.default.createElement(
               'div',
               { className: _Contacts2.default.divContact },
@@ -14184,6 +14171,262 @@ var Prestataire = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Prestataire;
+
+/***/ }),
+
+/***/ "./src/public/components/elements/Profile.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Page = __webpack_require__("./src/public/components/elements/Page.js");
+
+var _Page2 = _interopRequireDefault(_Page);
+
+var _buttons = __webpack_require__("./src/public/styles/buttons.scss");
+
+var _buttons2 = _interopRequireDefault(_buttons);
+
+var _FuneralList = __webpack_require__("./src/public/styles/FuneralList.scss");
+
+var _FuneralList2 = _interopRequireDefault(_FuneralList);
+
+var _Retraite = __webpack_require__("./src/public/styles/Retraite.scss");
+
+var _Retraite2 = _interopRequireDefault(_Retraite);
+
+var _html2canvas = __webpack_require__("./node_modules/html2canvas/dist/npm/index.js");
+
+var _html2canvas2 = _interopRequireDefault(_html2canvas);
+
+var _share = __webpack_require__("./src/public/constants/data/share.json");
+
+var _share2 = _interopRequireDefault(_share);
+
+var _tools = __webpack_require__("./src/tools/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Profile = function (_React$Component) {
+  _inherits(Profile, _React$Component);
+
+  function Profile(props) {
+    _classCallCheck(this, Profile);
+
+    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+
+    _this.state = { getData: false };
+
+    (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
+      _this.setState({ data: res, getData: true });
+      console.log(_this.state);
+    });
+    return _this;
+  }
+
+  _createClass(Profile, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return this.state.getData === true ? _react2.default.createElement(
+        _Page2.default,
+        { title: this.state.data.name, subtitle: 'subtitle' },
+        _react2.default.createElement(
+          'div',
+          { className: _FuneralList2.default.main },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h3',
+                { className: _Retraite2.default.titleRetraite },
+                'TITLE'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'h3',
+              { className: _Retraite2.default.titleRetraite },
+              'Coordonn\xE9es'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Civilit\xE9'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.civilite
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-5' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Nom'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.name
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-5' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Pr\xE9nom'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.irstname
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-12' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Date de naissance'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.birthdate.day,
+                '/',
+                this.state.data.birthdate.month,
+                '/',
+                this.state.data.birthdate.year
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-12' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Voie'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.address.way
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Code Postal'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.address.code
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Ville'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.address.city
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'T\xE9l\xE9phone'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.telephone
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Email'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.email
+              )
+            )
+          )
+        )
+      ) : _react2.default.createElement(
+        'span',
+        null,
+        'Chargement ...'
+      );
+    }
+  }]);
+
+  return Profile;
+}(_react2.default.Component);
+
+exports.default = Profile;
 
 /***/ }),
 
