@@ -14235,7 +14235,7 @@ var Profile = function (_React$Component) {
     _this.state = { getData: false };
 
     (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
-      _this.setState({ data: res, getData: true });
+      _this.setState({ data: res[0], getData: true });
       console.log(_this.state);
     });
 
@@ -14250,9 +14250,173 @@ var Profile = function (_React$Component) {
     key: 'render',
     value: function render() {
       return this.state.getData === true ? _react2.default.createElement(
-        'span',
-        null,
-        'MDDR'
+        _Page2.default,
+        { title: this.state.data.name, subtitle: 'subtitle' },
+        _react2.default.createElement(
+          'div',
+          { className: _FuneralList2.default.main },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h3',
+                { className: _Retraite2.default.titleRetraite },
+                'TITLE'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'h3',
+              { className: _Retraite2.default.titleRetraite },
+              'Coordonn\xE9es'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Civilit\xE9'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.civilite
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-5' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Nom'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.name
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-5' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Pr\xE9nom'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.irstname
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-12' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Date de naissance'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.birthdate.day,
+                '/',
+                this.state.data.birthdate.month,
+                '/',
+                this.state.data.birthdate.year
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-12' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Voie'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.address.way
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Code Postal'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.address.code
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Ville'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.address.city
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'T\xE9l\xE9phone'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.telephone
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Email'
+              ),
+              ' ',
+              _react2.default.createElement(
+                'div',
+                { className: _FuneralList2.default.vitem },
+                this.state.data.email
+              )
+            )
+          )
+        )
       ) : _react2.default.createElement(
         'span',
         null,
