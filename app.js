@@ -1115,7 +1115,6 @@ var App = function App(props) {
       _react2.default.createElement(
         'div',
         { className: _App2.default.container },
-        'PRIVATE',
         _react2.default.createElement(_Navigation2.default, null),
         _react2.default.createElement(
           'div',
@@ -6335,7 +6334,7 @@ exports.default = DataTable;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -6443,272 +6442,273 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Devis = function (_React$Component) {
-    _inherits(Devis, _React$Component);
+  _inherits(Devis, _React$Component);
 
-    function Devis(props) {
-        _classCallCheck(this, Devis);
+  function Devis(props) {
+    _classCallCheck(this, Devis);
 
-        var _this = _possibleConstructorReturn(this, (Devis.__proto__ || Object.getPrototypeOf(Devis)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Devis.__proto__ || Object.getPrototypeOf(Devis)).call(this, props));
 
-        _this.state = {
-            open: false,
-            modalOpen: false,
-            edition: false,
-            current: null,
-            hiddenType: '',
-            search: '',
-            typeGroup: [],
-            customTypeGroup: [],
-            TypeOpen: false,
-            InfoOpen: false,
-            infoHeader: "",
-            infoText: "",
-            firstname: "",
-            formType: "",
-            newTypeType: "",
-            lastname: "",
-            link: '',
-            file: '',
-            imagePreviewUrl: '',
-            devis: '',
-            urlFile: '',
-            pdfViewerUrl: ''
-        };
-        _this.idDetected = false;
-        return _this;
+    _this.state = {
+      open: false,
+      modalOpen: false,
+      edition: false,
+      current: null,
+      hiddenType: '',
+      search: '',
+      typeGroup: [],
+      customTypeGroup: [],
+      TypeOpen: false,
+      InfoOpen: false,
+      infoHeader: "",
+      infoText: "",
+      firstname: "",
+      formType: "",
+      newTypeType: "",
+      lastname: "",
+      link: '',
+      file: '',
+      imagePreviewUrl: '',
+      devis: '',
+      urlFile: '',
+      pdfViewerUrl: ''
+    };
+    _this.idDetected = false;
+    return _this;
+  }
+
+  _createClass(Devis, [{
+    key: 'add',
+    value: function add() {
+      this.setState({
+        current: null,
+        modalOpen: true,
+        edition: true
+      });
     }
+  }, {
+    key: 'open',
+    value: function open(item) {
+      this.setState({
+        current: item,
+        modalOpen: true
+      });
+    }
+  }, {
+    key: 'select',
+    value: function select(item) {
+      this.props.onSelectContact(item);
+    }
+  }, {
+    key: 'remove',
+    value: function remove() {
+      if (!this.state.current) return;
+      this.props.onRemoveContacts([this.state.current]);
+      this.setState({
+        modalOpen: false,
+        current: null
+      });
+    }
+  }, {
+    key: 'addOrSaveContact',
+    value: function addOrSaveContact(contact) {
+      if (this.state.current) {
+        this.props.onSaveContact(this.state.current._id, contact);
+      } else {
+        this.props.onNewContact(contact.firstName, contact);
+      }
+      this.setState({
+        modalOpen: false,
+        current: null
+      });
+    }
+  }, {
+    key: 'handlePdf',
+    value: function handlePdf(elem) {
+      elem.preventDefault();
+      this.setState({
+        pdfViewerUrl: elem.target.id
+      });
+    }
+  }, {
+    key: 'printPdf',
+    value: function printPdf(e) {
+      e.preventDefault();
+      window.open(this.state.pdfViewerUrl, 'print').print();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
 
-    _createClass(Devis, [{
-        key: 'add',
-        value: function add() {
-            this.setState({
-                current: null,
-                modalOpen: true,
-                edition: true
-            });
-        }
-    }, {
-        key: 'open',
-        value: function open(item) {
-            this.setState({
-                current: item,
-                modalOpen: true
-            });
-        }
-    }, {
-        key: 'select',
-        value: function select(item) {
-            this.props.onSelectContact(item);
-        }
-    }, {
-        key: 'remove',
-        value: function remove() {
-            if (!this.state.current) return;
-            this.props.onRemoveContacts([this.state.current]);
-            this.setState({
-                modalOpen: false,
-                current: null
-            });
-        }
-    }, {
-        key: 'addOrSaveContact',
-        value: function addOrSaveContact(contact) {
-            if (this.state.current) {
-                this.props.onSaveContact(this.state.current._id, contact);
-            } else {
-                this.props.onNewContact(contact.firstName, contact);
-            }
-            this.setState({
-                modalOpen: false,
-                current: null
-            });
-        }
-    }, {
-        key: 'handlePdf',
-        value: function handlePdf(elem) {
-            elem.preventDefault();
-            this.setState({
-                pdfViewerUrl: elem.target.id
-            });
-        }
-    }, {
-        key: 'printPdf',
-        value: function printPdf(e) {
-            e.preventDefault();
-            window.open(this.state.pdfViewerUrl, 'print').print();
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var add = _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        return _this2.add();
-                    }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-                _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'media/add.svg' }),
-                'AJOUTER UN DEVIS'
-            );
-            // const dir = cozy.client.files.statById(COZY_ROOT_ID);
-            var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/Mes Obsèques');
-            var data = [];
-            var files = [];
-            var result = [];
-            var urlPDF = [];
-            dir.then(function (result) {
-                var files = result.relationships.contents.data;
-                files.map(function (index, item) {
-                    data.push(index.id);
-                });
-            }).then(function (item) {
-                data.map(function (item, index) {
-                    files.push(cozy.client.files.statById(item));
-                    cozy.client.files.getDownloadLinkById(item).then(function (url) {
-                        return cozy.client.fullpath(url);
-                    }).then(function (url) {
-                        return urlPDF.push(url);
-                    });
-                });
-            }).then(function (item) {
-                Promise.all(files).then(function (item) {
-                    result.push(item);
-                    result = result[0];
-                    // console.log(result)
-                    _this2.state.devis = result;
-                    // urlPDF.reverse();
-                    _this2.state.urlFile = urlPDF;
-                }).catch(function (e) {
-                    console.log(e);
-                });
-            });
-            return _react2.default.createElement(
-                _Page2.default,
-                { actions: [add], title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
-                _react2.default.createElement(
+      var add = _react2.default.createElement(
+        'button',
+        { onClick: function onClick() {
+            return _this2.add();
+          }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+        _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'public/media/add.svg' }),
+        'AJOUTER UN DEVIS'
+      );
+      // const dir = cozy.client.files.statById(COZY_ROOT_ID);
+      var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/presta-funeraire');
+      var data = [];
+      var files = [];
+      var result = [];
+      var urlPDF = [];
+      dir.then(function (result) {
+        var files = result.relationships.contents.data;
+        files.map(function (index, item) {
+          data.push(index.id);
+        });
+      }).then(function (item) {
+        data.map(function (item, index) {
+          files.push(cozy.client.files.statById(item));
+          cozy.client.files.getDownloadLinkById(item).then(function (url) {
+            return cozy.client.fullpath(url);
+          }).then(function (url) {
+            return urlPDF.push(url);
+          });
+        });
+      }).then(function (item) {
+        Promise.all(files).then(function (item) {
+          result.push(item);
+          result = result[0];
+          // console.log(result)
+          _this2.state.devis = result;
+          // urlPDF.reverse();
+          _this2.state.urlFile = urlPDF;
+        }).catch(function (e) {
+          console.log(e);
+        });
+      });
+      return _react2.default.createElement(
+        _Page2.default,
+        { actions: [add], title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+        _react2.default.createElement(
+          'div',
+          { className: [_FuneralList2.default.main, _Devis2.default.mainDevis].join(' ') },
+          _react2.default.createElement(
+            'div',
+            { className: [_FuneralList2.default.header, _Devis2.default.mainDevis].join(' ') },
+            _react2.default.createElement(
+              'div',
+              { className: [_Prestataire2.default.titlePresta, _Devis2.default.titleDevis].join(' ') },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Stocker les devis'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in ex vel dolor sagittis aliquet. Nullam eget dolor euismod, laoreet diam vehicula, dignissim magna'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Devis2.default.contentDevisUpload },
+              _react2.default.createElement(
+                'h3',
+                null,
+                ' Devis re\xE7us '
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Devis2.default.contentDevis },
+              _react2.default.createElement(
+                'div',
+                null,
+                this.state.devis.length ? this.state.devis.map(function (d, key) {
+                  return _react2.default.createElement(
                     'div',
-                    { className: [_FuneralList2.default.main, _Devis2.default.mainDevis].join(' ') },
+                    { className: _Devis2.default.dataDevis, key: _this2.state._id },
                     _react2.default.createElement(
-                        'div',
-                        { className: [_FuneralList2.default.header, _Devis2.default.mainDevis].join(' ') },
-                        _react2.default.createElement(
-                            'div',
-                            { className: [_Prestataire2.default.titlePresta, _Devis2.default.titleDevis].join(' ') },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                'Stocker les devis'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in ex vel dolor sagittis aliquet. Nullam eget dolor euismod, laoreet diam vehicula, dignissim magna'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: _Devis2.default.contentDevisUpload },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                ' Devis re\xE7us '
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: _Devis2.default.contentDevis },
-                            _react2.default.createElement(
-                                'div',
-                                null,
-                                this.state.devis.length ? this.state.devis.map(function (d, key) {
-                                    return _react2.default.createElement(
-                                        'div',
-                                        { className: _Devis2.default.dataDevis, key: _this2.state._id },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: _Devis2.default.txtDataDevis, key: _this2.state._id },
-                                            _react2.default.createElement(
-                                                'h3',
-                                                { onClick: _this2.handlePdf.bind(_this2), id: _this2.state.urlFile[key] },
-                                                d.attributes.name,
-                                                ' >'
-                                            ),
-                                            _react2.default.createElement(
-                                                'p',
-                                                null,
-                                                'Lorem ipsus dolor sit amet consectetur adipiscing elit. Nullam odio'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: _Devis2.default.ctnDataDateDevis },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: _Devis2.default.dateDataDevis },
-                                                _react2.default.createElement(
-                                                    'p',
-                                                    null,
-                                                    'Devis re\xE7u le ',
-                                                    d.attributes.created_at.slice(0, 10)
-                                                )
-                                            )
-                                        )
-                                    );
-                                }) : _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    'Pas de devis enregistr\xE9s'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: _Devis2.default.contentDevisUpload },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                ' Un devis type (PDF)'
-                            ),
-                            _react2.default.createElement(
-                                'button',
-                                { className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
-                                'IMPRIMER'
-                            )
-                        )
+                      'div',
+                      { className: _Devis2.default.txtDataDevis, key: _this2.state._id },
+                      _react2.default.createElement(
+                        'h3',
+                        { onClick: _this2.handlePdf.bind(_this2), id: _this2.state.urlFile[key] },
+                        d.attributes.name,
+                        ' >'
+                      ),
+                      _react2.default.createElement(
+                        'p',
+                        null,
+                        'Lorem ipsus dolor sit amet consectetur adipiscing elit. Nullam odio'
+                      )
                     ),
                     _react2.default.createElement(
+                      'div',
+                      { className: _Devis2.default.ctnDataDateDevis },
+                      _react2.default.createElement(
                         'div',
-                        { className: _Devis2.default.previewPDF },
-                        function () {
-                            switch (_this2.state.pdfViewerUrl) {
-                                case "":
-                                    return "";
-                                default:
-                                    return _react2.default.createElement(_reactPdfJs2.default, { file: _this2.state.pdfViewerUrl });
-                            }
-                        }()
+                        { className: _Devis2.default.dateDataDevis },
+                        _react2.default.createElement(
+                          'p',
+                          null,
+                          'Devis re\xE7u le ',
+                          d.attributes.created_at.slice(0, 10)
+                        )
+                      )
                     )
-                ),
-                _react2.default.createElement(
-                    _reactPortal2.default,
-                    { isOpened: this.state.modalOpen, closeOnEsc: true, onClose: function onClose() {
-                            return _this2.setState({ modalOpen: false, current: null, edition: false });
-                        } },
-                    _react2.default.createElement(
-                        _Modal2.default,
-                        null,
-                        _react2.default.createElement(_Importer2.default, {
-                            onImportDone: function onImportDone(files) {
-                                return files;
-                            }
-                        })
-                    )
+                  );
+                }) : _react2.default.createElement(
+                  'li',
+                  null,
+                  'Pas de devis enregistr\xE9s'
                 )
-            );
-        }
-    }]);
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Devis2.default.contentDevisUpload },
+              _react2.default.createElement(
+                'h3',
+                null,
+                ' Un devis type (PDF)'
+              ),
+              _react2.default.createElement(
+                'button',
+                { className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
+                'IMPRIMER'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _Devis2.default.previewPDF },
+            function () {
+              switch (_this2.state.pdfViewerUrl) {
+                case "":
+                  return "";
+                default:
+                  return _react2.default.createElement(_reactPdfJs2.default, { file: _this2.state.pdfViewerUrl });
+              }
+            }()
+          )
+        ),
+        _react2.default.createElement(
+          _reactPortal2.default,
+          { isOpened: this.state.modalOpen, closeOnEsc: true, onClose: function onClose() {
+              return _this2.setState({ modalOpen: false, current: null, edition: false });
+            } },
+          _react2.default.createElement(
+            _Modal2.default,
+            null,
+            _react2.default.createElement(_Importer2.default, {
+              folder: 'presta-funeraire',
+              onImportDone: function onImportDone(files) {
+                return files;
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
 
-    return Devis;
+  return Devis;
 }(_react2.default.Component);
 
 exports.default = Devis;
@@ -7683,6 +7683,7 @@ var DonDevis = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            console.log("coucou");
             var add = _react2.default.createElement(
                 'button',
                 { onClick: function onClick() {
@@ -7692,13 +7693,15 @@ var DonDevis = function (_React$Component) {
                 'AJOUTER UN DEVIS'
             );
             // const dir = cozy.client.files.statById(COZY_ROOT_ID);
-            var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/Mes Obsèques');
+            var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/don-corps');
+            console.log(dir);
             var data = [];
             var files = [];
             var result = [];
             var urlPDF = [];
             dir.then(function (result) {
                 var files = result.relationships.contents.data;
+                console.log(files);
                 files.map(function (index, item) {
                     data.push(index.id);
                 });
@@ -7834,6 +7837,7 @@ var DonDevis = function (_React$Component) {
                         _Modal2.default,
                         null,
                         _react2.default.createElement(_Importer2.default, {
+                            folder: 'don-corps',
                             onImportDone: function onImportDone(files) {
                                 return files;
                             }
@@ -9041,7 +9045,9 @@ var FuneralList = function (_React$Component) {
       lastname: "",
       link: ''
     };
+
     (0, _tools.getDataElements)(_constants.DOCTYPE_HOMEDATA).then(function (res) {
+      console.log(res);
       if (res.length > 0) {
         console.log(res);
         var link = '/data/homedata/' + res[0]._id;
@@ -19698,19 +19704,23 @@ var ContactModal = function (_Component) {
               },
               "data-homeData": {
                 "description": "App required data homeData access",
-                "type": "com.empreinte.homeData"
+                "type": "com.empreinte.homeData",
+                "verbs": ["GET"]
               },
               "contacts": {
                 "description": "App required contacts access",
-                "type": "com.empreinte.contacts"
+                "type": "com.empreinte.contacts",
+                "verbs": ["GET"]
               },
               "metas": {
                 "description": "App required metas access",
-                "type": "com.empreinte.meta"
+                "type": "com.empreinte.meta",
+                "verbs": ["GET"]
               },
               "contact": {
                 "description": "App required contact access",
-                "type": "io.cozy.contacts"
+                "type": "io.cozy.contacts",
+                "verbs": ["GET"]
               }
             }
           }
@@ -20537,8 +20547,9 @@ var ImporterModal = function (_Component) {
         value: function _import(e) {
             var _this2 = this;
 
+            console.log(this.props.folder);
             if (this.state.documents.length > 0) {
-                cozy.client.files.statByPath(_constants.ROOT_PATH + '/Mes Obsèques').then(function (stat) {
+                cozy.client.files.statByPath(_constants.ROOT_PATH + '/' + this.props.folder).then(function (stat) {
                     return _this2.props.onImport(_this2.state.documents, stat._id);
                     location.reload();
                 }).then(function (data) {
@@ -20548,7 +20559,7 @@ var ImporterModal = function (_Component) {
                         });
                         if (toImport.length > 0) {
                             _this2.props.onImportDone(toImport);
-                            location.reload();
+                            // location.reload();
                         }
                     }
                 });
@@ -21527,7 +21538,7 @@ var DATA_LIST = exports.DATA_LIST = [{
     slug: 'dpe'
 }];
 
-var FOLDER_LIST = exports.FOLDER_LIST = [ROOT_PATH + '/Mes Obsèques'];
+var FOLDER_LIST = exports.FOLDER_LIST = [ROOT_PATH + '/presta-funeraire', ROOT_PATH + '/don-corps'];
 
 var STATUS_DONE = exports.STATUS_DONE = 'loaded';
 var STATUS_LOAD = exports.STATUS_LOAD = 'pending';
@@ -25090,7 +25101,7 @@ var importerTree = exports.importerTree = function importerTree() {
 };
 
 var importerFilesUpload = exports.importerFilesUpload = function importerFilesUpload(files, dirId) {
-    //console.log('Data', files);
+    console.log('Data', files);
     return function () {
         var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState) {
             var newFiles, conflits, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, data, file, newDir, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, _file, fullName, lastIndex, name, extention, action, currentDir;

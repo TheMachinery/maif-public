@@ -3872,7 +3872,7 @@ var DATA_LIST = exports.DATA_LIST = [{
     slug: 'dpe'
 }];
 
-var FOLDER_LIST = exports.FOLDER_LIST = [ROOT_PATH + '/Mes Obsèques'];
+var FOLDER_LIST = exports.FOLDER_LIST = [ROOT_PATH + '/presta-funeraire', ROOT_PATH + '/don-corps'];
 
 var STATUS_DONE = exports.STATUS_DONE = 'loaded';
 var STATUS_LOAD = exports.STATUS_LOAD = 'pending';
@@ -4105,10 +4105,10 @@ var App = function App(props) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/preferences', component: _Preferences2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/prestataire', component: _Prestataire2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/localisation-funeraire', component: _Localisation2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/devis', component: _Devis2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/presta-funeraire', component: _Devis2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/dossier', component: _Dossier2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/don', component: _Don2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/devis-don', component: _DonDevis2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/don-corps', component: _DonDevis2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/retraite', component: _Retraite2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/complementaire-maladie', component: _Complementaire2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/banque', component: _Banque2.default }),
@@ -6207,7 +6207,7 @@ var importerTree = exports.importerTree = function importerTree() {
 };
 
 var importerFilesUpload = exports.importerFilesUpload = function importerFilesUpload(files, dirId) {
-    //console.log('Data', files);
+    console.log('Data', files);
     return function () {
         var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState) {
             var newFiles, conflits, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, data, file, newDir, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, _file, fullName, lastIndex, name, extention, action, currentDir;
@@ -9439,6 +9439,40 @@ var Devis = function (_React$Component) {
             pdfViewerUrl: ''
         };
         _this.idDetected = false;
+
+        var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/presta-funeraire');
+        var data = [];
+        var files = [];
+        var result = [];
+        var urlPDF = [];
+        dir.then(function (result) {
+            var files = result.relationships.contents.data;
+            files.map(function (index, item) {
+                data.push(index.id);
+            });
+        }).then(function (item) {
+            data.map(function (item, index) {
+                files.push(cozy.client.files.statById(item));
+                cozy.client.files.getDownloadLinkById(item).then(function (url) {
+                    return cozy.client.fullpath(url);
+                }).then(function (url) {
+                    return urlPDF.push(url);
+                });
+            });
+        }).then(function (item) {
+            Promise.all(files).then(function (item) {
+                result.push(item);
+                result = result[0];
+                console.log(result);
+
+                _this.setState({
+                    devis: result,
+                    urlFile: urlPDF
+                });
+            }).catch(function (e) {
+                console.log(e);
+            });
+        });
         return _this;
     }
 
@@ -9506,49 +9540,9 @@ var Devis = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            var add = _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        return _this2.add();
-                    }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-                _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'public/media/add.svg' }),
-                'AJOUTER UN DEVIS'
-            );
-            // const dir = cozy.client.files.statById(COZY_ROOT_ID);
-            var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/Mes Obsèques');
-            var data = [];
-            var files = [];
-            var result = [];
-            var urlPDF = [];
-            dir.then(function (result) {
-                var files = result.relationships.contents.data;
-                files.map(function (index, item) {
-                    data.push(index.id);
-                });
-            }).then(function (item) {
-                data.map(function (item, index) {
-                    files.push(cozy.client.files.statById(item));
-                    cozy.client.files.getDownloadLinkById(item).then(function (url) {
-                        return cozy.client.fullpath(url);
-                    }).then(function (url) {
-                        return urlPDF.push(url);
-                    });
-                });
-            }).then(function (item) {
-                Promise.all(files).then(function (item) {
-                    result.push(item);
-                    result = result[0];
-                    // console.log(result)
-                    _this2.state.devis = result;
-                    // urlPDF.reverse();
-                    _this2.state.urlFile = urlPDF;
-                }).catch(function (e) {
-                    console.log(e);
-                });
-            });
             return _react2.default.createElement(
                 _Page2.default,
-                { actions: [add], title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+                { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
                 _react2.default.createElement(
                     'div',
                     { className: [_FuneralList2.default.main, _Devis2.default.mainDevis].join(' ') },
@@ -9662,6 +9656,7 @@ var Devis = function (_React$Component) {
                         _Modal2.default,
                         null,
                         _react2.default.createElement(_Importer2.default, {
+                            folder: 'presta-funeraire',
                             onImportDone: function onImportDone(files) {
                                 return files;
                             }
@@ -10580,6 +10575,40 @@ var DonDevis = function (_React$Component) {
             pdfViewerUrl: ''
         };
         _this.idDetected = false;
+
+        var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/don-corps');
+        var data = [];
+        var files = [];
+        var result = [];
+        var urlPDF = [];
+        dir.then(function (result) {
+            var files = result.relationships.contents.data;
+            files.map(function (index, item) {
+                data.push(index.id);
+            });
+        }).then(function (item) {
+            data.map(function (item, index) {
+                files.push(cozy.client.files.statById(item));
+                cozy.client.files.getDownloadLinkById(item).then(function (url) {
+                    return cozy.client.fullpath(url);
+                }).then(function (url) {
+                    return urlPDF.push(url);
+                });
+            });
+        }).then(function (item) {
+            Promise.all(files).then(function (item) {
+                result.push(item);
+                result = result[0];
+                console.log(result);
+
+                _this.setState({
+                    devis: result,
+                    urlFile: urlPDF
+                });
+            }).catch(function (e) {
+                console.log(e);
+            });
+        });
         return _this;
     }
 
@@ -10647,49 +10676,9 @@ var DonDevis = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            var add = _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        return _this2.add();
-                    }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-                _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'public/media/add.svg' }),
-                'AJOUTER UN DEVIS'
-            );
-            // const dir = cozy.client.files.statById(COZY_ROOT_ID);
-            var dir = cozy.client.files.statByPath(_index.ROOT_PATH + '/Mes Obsèques');
-            var data = [];
-            var files = [];
-            var result = [];
-            var urlPDF = [];
-            dir.then(function (result) {
-                var files = result.relationships.contents.data;
-                files.map(function (index, item) {
-                    data.push(index.id);
-                });
-            }).then(function (item) {
-                data.map(function (item, index) {
-                    files.push(cozy.client.files.statById(item));
-                    cozy.client.files.getDownloadLinkById(item).then(function (url) {
-                        return cozy.client.fullpath(url);
-                    }).then(function (url) {
-                        return urlPDF.push(url);
-                    });
-                });
-            }).then(function (item) {
-                Promise.all(files).then(function (item) {
-                    result.push(item);
-                    result = result[0];
-                    // console.log(result)
-                    _this2.state.devis = result;
-                    // urlPDF.reverse();
-                    _this2.state.urlFile = urlPDF;
-                }).catch(function (e) {
-                    console.log(e);
-                });
-            });
             return _react2.default.createElement(
                 _Page2.default,
-                { actions: [add], title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+                { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
                 _react2.default.createElement(
                     'div',
                     { className: [_FuneralList2.default.main, _Devis2.default.mainDevis].join(' ') },
@@ -10926,6 +10915,14 @@ var Dossier = function (_Component) {
       _this.arr.push(_shareHome2.default[key]);
     });
 
+    (0, _tools.getDataElements)('com.empreinte.FLastWill').then(function (res) {
+      console.log(res);
+    });
+
+    (0, _tools.getDataElements)('com.empreinte.FLastWill').then(function (res) {
+      console.log(res);
+    });
+
     (0, _meta.getMeta)().then(function (result) {
       _this.setTypeGroup(result[0].value);
 
@@ -10993,6 +10990,8 @@ var Dossier = function (_Component) {
 
     cozy.client.settings.getInstance().then(function (res) {
       console.log(res);
+      _this.user = res.attributes;
+      console.log(_this.user);
     });
     return _this;
   }
@@ -11046,7 +11045,7 @@ var Dossier = function (_Component) {
 
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
-        { title: 'Mon dossier obs\xE8ques', subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
+        { title: this.user.public_name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
         _react2.default.createElement(
           'div',
           { className: _Contacts2.default.row },
@@ -11071,52 +11070,10 @@ var Dossier = function (_Component) {
                 _react2.default.createElement(
                   'p',
                   { className: _Contacts2.default.contactName },
-                  'Profil de Sahra Vadrot'
+                  'Profil de ',
+                  this.user.public_name
                 ),
                 _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/profile' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Pr\xE9venir Parnasse-MAIF'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/relation' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Les proches r\xE9f\xE9rents'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici'
               ),
               _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
             )
@@ -11147,7 +11104,7 @@ var Dossier = function (_Component) {
           ),
           _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/prestataire' },
+            { to: '/relation' },
             _react2.default.createElement(
               'div',
               { className: _Contacts2.default.divContact },
@@ -11157,62 +11114,14 @@ var Dossier = function (_Component) {
                 _react2.default.createElement(
                   'p',
                   { className: _Contacts2.default.contactName },
-                  'Prestataire fun\xE9raire'
+                  'Les proches r\xE9f\xE9rents'
                 ),
                 _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
               ),
               _react2.default.createElement(
                 'p',
                 null,
-                ' Ce service vous permet de g\xE9olocaliser les prestataires fun\xE9raires, faire des demandes de devis, stocker le devis retenu.'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/profile' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Don du corps \xE0 la science'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Toutes les informations pour donner son corps \xE0 la science ou pour stipuler son refus de don d\u2019organe.'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/profile' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Refus du don d\'organe'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Toutes les informations pour donner son corps \xE0 la science ou pour stipuler son refus de don d\u2019organe.'
+                'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici'
               ),
               _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
             )
@@ -11237,6 +11146,54 @@ var Dossier = function (_Component) {
                 'p',
                 null,
                 'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
+              ),
+              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+            )
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/presta-funeraire' },
+            _react2.default.createElement(
+              'div',
+              { className: _Contacts2.default.divContact },
+              _react2.default.createElement(
+                'div',
+                { className: _Contacts2.default.contentContact },
+                _react2.default.createElement(
+                  'p',
+                  { className: _Contacts2.default.contactName },
+                  'Prestataire fun\xE9raire'
+                ),
+                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                ' Ce service vous permet de g\xE9olocaliser les prestataires fun\xE9raires, faire des demandes de devis, stocker le devis retenu.'
+              ),
+              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+            )
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/don-corps' },
+            _react2.default.createElement(
+              'div',
+              { className: _Contacts2.default.divContact },
+              _react2.default.createElement(
+                'div',
+                { className: _Contacts2.default.contentContact },
+                _react2.default.createElement(
+                  'p',
+                  { className: _Contacts2.default.contactName },
+                  'Don du corps \xE0 la science'
+                ),
+                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Toutes les informations pour donner son corps \xE0 la science ou pour stipuler son refus de don d\u2019organe.'
               ),
               _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
             )
@@ -11607,6 +11564,7 @@ var FuneralList = function (_React$Component) {
       lastname: "",
       link: ''
     };
+
     (0, _tools.getDataElements)(_constants.DOCTYPE_HOMEDATA).then(function (res) {
       if (res.length > 0) {
         console.log(res);
@@ -12817,51 +12775,84 @@ var Letter = function (_React$Component) {
       var _this2 = this;
 
       this.type = this.props.match.params.slug;
-      this.setState({});
+      this.state.value = _share2.default[this.type];
 
-      if (this.props.match.params.id == null) {
-        console.log('ID Null');
-      } else {
-        var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
-        console.log(doctype);
-        cozy.client.data.find(doctype, this.props.match.params.id).then(function (res) {
-          _this2.setState({
-            data: res,
-            value: _share2.default[_this2.type]
-          });
-          if (_this2.state.value.forms.value.hasOwnProperty('organism')) {
-            _this2.setState({
-              organism: _this2.state.data.organism == null ? _this2.state.value.forms.value.organism.value.organism : _this2.state.data.organism
-            });
-          }
+      cozy.client.settings.getInstance().then(function (res) {
+        console.log(res);
+        _this2.user = res.attributes;
+        console.log(_this2.user);
+      });
 
-          if (_this2.state.value.forms.value.hasOwnProperty('interlocutor')) {
-            _this2.setState({
-              gender: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.gender : _this2.state.data.interlocuteur.civility,
-              firstname: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.firstName : _this2.state.data.interlocuteur.firstname,
-              lastname: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.lastName : _this2.state.data.interlocuteur.lastname
-            });
-          }
-
-          if (_this2.state.value.forms.value.hasOwnProperty('address')) {
-            _this2.setState({
-              way: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.way : _this2.state.data.address.way,
-              code: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.code : _this2.state.data.address.code,
-              city: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.city : _this2.state.data.address.city
-            });
-          }
-
-          if (_this2.state.value.forms.value.hasOwnProperty('infos')) {
-            _this2.setState({
-              telephone: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.telephone : _this2.state.data.telephone,
-              telecopie: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.telecopie : _this2.state.data.telecopie,
-              email: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.email : _this2.state.data.email
-            });
-          }
-
-          console.log(_this2.state);
+      var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      console.log(doctype);
+      cozy.client.data.find(doctype, this.props.match.params.id).then(function (res) {
+        _this2.setState({
+          data: res
         });
+      });
+
+      if (this.state.value.forms.value.hasOwnProperty('organism')) {
+        if (this.state.hasOwnProperty('data')) {
+          this.setState({
+            organism: this.state.data.organism == null ? this.state.value.forms.value.organism.value.organism : this.state.data.organism
+          });
+        } else {
+          this.setState({
+            organism: this.state.value.forms.value.organism.value.organism
+          });
+        }
       }
+
+      if (this.state.value.forms.value.hasOwnProperty('interlocutor')) {
+        if (this.state.hasOwnProperty('data')) {
+          this.setState({
+            gender: this.state.data.interlocuteur == null ? this.state.value.forms.value.interlocutor.value.gender : this.state.data.interlocuteur.civility,
+            firstname: this.state.data.interlocuteur == null ? this.state.value.forms.value.interlocutor.value.firstName : this.state.data.interlocuteur.firstname,
+            lastname: this.state.data.interlocuteur == null ? this.state.value.forms.value.interlocutor.value.lastName : this.state.data.interlocuteur.lastname
+          });
+        } else {
+          this.setState({
+            gender: this.state.value.forms.value.interlocutor.value.gender,
+            firstname: this.state.value.forms.value.interlocutor.value.firstName,
+            lastname: this.state.value.forms.value.interlocutor.value.lastName
+          });
+        }
+      }
+
+      if (this.state.value.forms.value.hasOwnProperty('address')) {
+        if (this.state.hasOwnProperty('data')) {
+
+          this.setState({
+            way: this.state.data.address == null ? this.state.value.forms.value.address.value.way : this.state.data.address.way,
+            code: this.state.data.address == null ? this.state.value.forms.value.address.value.code : this.state.data.address.code,
+            city: this.state.data.address == null ? this.state.value.forms.value.address.value.city : this.state.data.address.city
+          });
+        } else {
+          this.setState({
+            way: this.state.value.forms.value.address.value.way,
+            code: this.state.value.forms.value.address.value.code,
+            city: this.state.value.forms.value.address.value.city
+          });
+        }
+      }
+
+      if (this.state.value.forms.value.hasOwnProperty('infos')) {
+        if (this.state.hasOwnProperty('data')) {
+
+          this.setState({
+            telephone: this.state.data.way == null ? this.state.value.forms.value.infos.value.telephone : this.state.data.telephone,
+            telecopie: this.state.data.way == null ? this.state.value.forms.value.infos.value.telecopie : this.state.data.telecopie,
+            email: this.state.data.way == null ? this.state.value.forms.value.infos.value.email : this.state.data.email
+          });
+        } else {
+          this.setState({
+            telephone: this.state.value.forms.value.infos.value.telephone,
+            telecopie: this.state.value.forms.value.infos.value.telecopie,
+            email: this.state.value.forms.value.infos.value.email
+          });
+        }
+      }
+      console.log(this.state);
     }
   }, {
     key: 'printElem',
@@ -13220,9 +13211,9 @@ var Letter = function (_React$Component) {
     key: 'render',
     value: function render() {
 
-      return this.state.data ? _react2.default.createElement(
+      return _react2.default.createElement(
         _Page2.default,
-        { title: 'Sahra Vadrot', subtitle: this.state.value.title },
+        { title: this.user.public_name, subtitle: this.state.value.title },
         _react2.default.createElement(
           'div',
           { className: _FuneralList2.default.main },
@@ -13285,10 +13276,6 @@ var Letter = function (_React$Component) {
             this.myLetter()
           )
         )
-      ) : _react2.default.createElement(
-        'span',
-        null,
-        'Aucune donn\xE9e ...'
       );
     }
   }]);
@@ -24766,14 +24753,14 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/share.json":
 /***/ (function(module, exports) {
 
-module.exports = {"medecin":{"title":"Le medecin","infos":"<p className={styleRetraite.dataTxt} >Quel que soit le lieu du décès, celui-ci doit être officiellement constaté. Ce constat, généralement effectué par un médecin, est une formalité obligatoire précédant l’établissement de l’acte de décès.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À","content":"","body":"<p>Je vous faire part de son décés. < br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"mairie":{"title":"La mairie","infos":"<p className={styleRetraite.dataTxt} >Il faut se rendre à la mairie du lieu du décès pour déclarer le décès. La mairie doit établir l'acte de décès. Ce document, à faire établir en plusieurs exemplaires (au moins une dizaine), vous sera indispensable pour les démarches administratives et vous servira également de justificatif auprès de votre employeur si votre lien de parenté avec le défunt vous ouvre droit à une absence rémunérée pour événement familial.\n\r Dans le cas d’un décès dans un établissement public hospitalier, dans une clinique privée ou dans une maison de retraite, la déclaration de décès est effectuée par l’établissement après constatation du décès par le médecin.\nPour tout décès ayant lieu hors du domicile ou hors d’un établissement à caractère hospitalier (voie publique, lieu de travail, à l’étranger...), la déclaration et le certificat de décès sont soumis à des règles spécifiques.</p>","forms":{"view":true,"value":{"organism":{"view":true,"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"view":true,"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"view":true,"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"view":true,"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}}},"employeur":{"title":"L'employeur","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À l’employeur","content":"qui était employé(e) au sein de votre entreprise, en qualité de......................................................,","body":"<p>A ces fins, je vous saurais gré : <br />- de verser les sommes restant dues,<br />- de me faire parvenir : <br />&nbsp; &nbsp; - le solde de tout compte, <br />&nbsp; &nbsp; - un certificat de travail, <br />&nbsp; &nbsp; - une attestation de présence dans votre entreprise, <br />&nbsp; &nbsp; - une attestation de salaire, <br />&nbsp &nbsp; - les trois derniers bulletins de salaire, <br />- de me préciser quelles sont les aides ou prestations prévues dans votre société <br />et de m'indiquer la démarche à effectuer pour y prétendre.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"pole-emploi":{"title":"Pôle Emploi","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À Pôle Emploi","content":"qui était employé(e) au sein de votre entreprise, en qualité de......................................................,","body":"<p>A ces fins, je vous saurais gré : <br />- de verser les sommes restant dues,<br />- de me faire parvenir : <br />&nbsp; &nbsp; - le solde de tout compte, <br />&nbsp; &nbsp; - un certificat de travail, <br />&nbsp; &nbsp; - une attestation de présence dans votre entreprise, <br />&nbsp; &nbsp; - une attestation de salaire, <br />&nbsp &nbsp; - les trois derniers bulletins de salaire, <br />- de me préciser quelles sont les aides ou prestations prévues dans votre société <br />et de m'indiquer la démarche à effectuer pour y prétendre.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"salarie-association":{"title":"Salarié ou association de service à domicile","infos":"Dans le cadre d’emploi direct, le décès de l’employeur met fin <i>ipso facto</i> au contrat de travail qui liait celui-ci à son salarié. Les héritiers devront verser au salarié le dernier salaire et les cotisations sociales ainsi que les indemnités auxquelles il peut prétendre: préavis, licenciement et indemnités de congés payés. Ils devront également fournir au salarié certains documents : certificat de travail, attestation pour Pôle Emploi. En cas d’emploi d’un salarié, il convient d’informer l’Urssaf ou le Cesu (en cas de paiement par Chèque emploi service universel).<br />En cas d’emploi direct par une association mandataire, il faut également prévenir l’association qui préparera les documents de fin de contrat de travail (les frais de gestion restant dûs seront facturés).<br />En ce qui concerne les associations prestataires de services, il s’agit de les informer du décès afin qu’elles interrompent les interventions et leur demander l’envoi de la dernière facture des heures effectuées, le cas échéant, au notaire chargé de la succession","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"Aux salariés/associations","content":"","body":"domicilié .....................................................................................................................................................<br />......................................................................................................................................................,<br /> je procède aux formalités qui m’incombent.À ces fins, je vous saurais gré :<br /> – de bien vouloir arrêter vos interventions pour le compte de M............................. en cas d’emploi par une association mandataire,<br /> – de dresser un état estimatif des sommes restant dues en cas d’emploi direct. Le solde de tout compte vous parviendra dans les meilleurs délais.<br />","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"banque":{"title":"Banque","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"Bloquer le compte n°"}},"letter":{"to":"À la banque","content":"","body":"<p>Aussi, je vous prie de : <br />- bloquer le(s) comptes(s) n° <span> {this.state.compte} </span> <br />- transformer le compte joint n° <span> {this.state.compte} </span><br />en compte personnel au nom de <span>.................................</span><br />- m'indiquer la marche à suivre pour bénéficier de la clause d'assurance décès <br />du(des) prêts n° <span>.....................................................</span><br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"credit":{"title":"Organisme de crédit et assurance-vie","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° de contrat"}},"letter":{"to":"À l’organisme de crédit","content":"","body":"<p>Je vous saurai gré de : <br />- m'indiquer les piéces nécessaires à fournir pour l'arrêt du crédit référencé <span>{this.state.immatriculation}</span><br />ci-dessus, sachant qu'une assurance décés a été souscrite,<br />- m'indiquer le montant des sommes vous restant dûes, ce crédit n'étant pas assorti d'une assurance décés,<br />- m'indiquer si ce crédit était assorti d'une assurance crédit,<br />- m'indiquer les conditions éventuelles de reprise du crédit, <br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"assurance":{"title":"Assurance","infos":"<p>Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.</p><p>Obtenir le remboursement éventuel du trop-perçu des primes acquittées.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À l’assureur","content":"","body":"<p>A ces fins, je vous saurais gré : <br />- de maintenir l'ensemble des contrats et de les transférer au nom de ...................<br />- résilier les contrats {this.state.immatriculation}<br />- prendre note que l'adresse et le mode de facturation ne changent pas,<br />- adresser la facturation au nom et à l'adresse suivante.........................<br />.............................................................................................<br />- cesser les prélévements, le compte étant bloqué dans l'attente du réglement<br />de la succession,<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour <br />la période du ................................... au ............................ ,<br />- vous mettre en rapport avec Maître ........................, domicilié .................,<br />....................................................................................................,<br />chargé de la succession.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"complementaire-sante":{"title":"Organisme de santé complémentaire","infos":"<p>La prévenir pour obtenir les sommes dues au défunt au jour du décès.</p><p className={styleRetraite.dataTxt} >Suivant la formule souscrite et les conditions générales et particulières, vérifier si celui-ci propose la prise en charge des frais d'obsèques, le versement d'un capital décès et le remboursement d'une partie des cotisations acquittées.</p><p className={styleRetraite.dataTxt} >Vérifier éventuellement le maintien des droits du conjoint survivant.</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'assuré"}},"letter":{"to":"À l’assurance complémentaire maladie","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- maintenir l'ensemble des contrats et de les tranférer au nom de <span>...............................</span><br />- résilier les contrats<span>.............................................</span><br />- prendre note que l'adresse et le mode de facturation de changent pas,<br />- adresser la facturation au nom  et à l'adresse suivante <span>...............................</span><br /><span>...........................................................................................</span><br />- cesser les prévèlements, le compte étant bloqué dans l'attente du réglement de la succession<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour  <br />la période du <span>...............................</span> au <span>...............................</span>  <br />- vous mettre au rapport avec Maître <span>...............................</span>, domicilié <span>...............................</span><br /><span>...........................................................................................,</span><br />chargé de la succession<br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"notaire":{"title":"Notaire","infos":"<p><b>Le recours au notaire est indispensable si le défunt possédait des biens immobiliers</b></p><p>En effet, leur transmission doit être constatée dans une attestation notariée publiée au bureau des hypothèques.</p><p>En cas de donation au dernier vivant ou de testament, le notaire se chargera d’organiser la    succession et d’établir la déclaration de succession, si nécessaire</p>","forms":{"value":{"organism":{"value":{"label":"Nom & prénom","organism":"Nom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"Au notaire","content":"","body":"Aussi, je vous demande de procéder à l’ouverture de la succession.","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"caisse-retraite":{"title":"Caisse de retraite","infos":"<p>Les caisses de retraite, principales et complémentaires, doivent être informées du décès pour interrompre les versements.</p><p>Pour vérifier les droits au capital décès si le défunt est décédé dans les trois mois suivant la notification de retraite.Ou faire valoir les droits à la pension de réversion pour le conjoint.</p><p>Le conjoint survivant même divorcé, s’il n’est pas remarié, peut bénéficier, sous certaines conditions, de la réversion des droits à la retraite du défunt si celui-ci percevait une retraite ou pouvait y prétendre</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'inscription"}},"letter":{"to":"À la caisse de retraite","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- vérifier mes droits ou ceux de <span>...............................</span> au capital décés,<br />- faire valoir mes droits ou ceux de <span>.........................</span> à la pension de réversion,<br />- de procéder au réglement des arriérés dus à la date du décés.<br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"bailleur":{"title":"Bailleur","infos":"<p>Dans le cas d’une location, il faut prévenir le bailleur ou l’agence de location.<br />Dans le cas d’une copropriété, il faut prévenir le syndic de copropriété.</p><p>Si le défunt était locataire (locaux loués vides ou ne relevant pas de la loi de 1948), et qu’aucun membre de la famille ne souhaite reprendre le bail à son nom, celui-ci cesse à la date du décès</p><p>Si le défunt était propriétaire bailleur, le bail continue à courir après son décès. Il convient alors d’informer les locataires des coordonnées du nouveau bénéficiaire du loyer (notaire, héritier) ainsi que le syndic éventuel</p>","forms":{"value":{"organism":{"value":{"label":"Nom du bailleur","organism":"Nom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"Au bailleur","content":"","body":"<p>A ces fins, je vous demande de bien vouloir : <br />- résilier sans délai le bail établi le .................... au bénéfice du défunt,<br />- maintenir le bail en l'état dans l'attente du réglement de la succession, <br />- transférer le bail au nom de .................................................<br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"caf":{"title":"Caisse d'allocations familiales","infos":"<p>Informer pour arrêter le versement des prestations sociales éventuelles.</p><p>Demander une nouvelle immatriculation pour le conjoint survivant.</p><p>Faire valoir d’éventuels droits</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'allocataire"}},"letter":{"to":"À la Caisse d’allocations familiales","content":"n° d’allocataire..............................................................................................................................................,","body":"<p>Je vous saurai gré de : <br />- de bien vouloir me faire parvenir les formulaire pour :<br />&nbsp; - l'allocation de parent isolé, <br />&nbsp; - l'allocation de soutien familial,<br />- d'étudier ma nouvelle situation ou celle de .........................................................<br />afin de vérifier si d'autres droits me sont / lui sont ouverts, <br />- d'effectuer le changement d'allocataire ,<br />- d'arrêter le versement des prestations sociales éventuelles.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"impot":{"title":"Centre d'impot","infos":"<p>Régulariser la situation concernant :</p><p>– l’impôt sur le revenu,</p><p>– la taxe foncière,</p><p>– et la taxe d’habitation.</p><p>Lui adresser la déclaration de succession.</p><p>Si un notaire est chargé de la succession, c’est lui qui, en principe, est mandaté par les héritiers pour accomplir ces démarches</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À la Caisse d’allocations familiales","content":"","body":"<p>À ces fins, je vous saurais gré de me faire parvenir un formulaire de déclaration de revenus et de m’indiquer les autres formalités à accomplir auprès de vos services.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"organism":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"cpam":{"title":"Organisme de santé général","infos":"<p>La prévenir pour obtenir les sommes dues au défunt au jour du décès.</p><p>Suivant la formule souscrite et les conditions générales et particulières, vérifier si celui-ci propose la prise en charge des frais d'obsèques, le versement d'un capital décès et le remboursement d'une partie des cotisations acquittées.</p><p>Vérifier éventuellement le maintien des droits du conjoint survivant.</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'immatriculation"}},"letter":{"to":"À la CPAM","content":"n° de sécurité sociale ..............................................................................................................................................,","body":"<p>Je vous saurai gré : <br />- de m’indiquer la marche à suivre pour faire valoir mes droits éventuels, ou ceux de :<br />&nbsp; - l'allocation de parent isolé, <br />&nbsp; - au capital décès,<br />&nbsp; - à l’allocation veuvage,<br />&nbsp; - à la pension de veuf ou veuve invalide,<br />- de procéder aux remboursements des frais de maladie restant dus au défunt,<br />- de procéder à mon immatriculation personnelle.<br /><br />Merci de préciser éventuellement si d’autres démarches sont à effectuer pour faire valoir mes droits ou ceux de........................................................................................<p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"custom":{"title":"Organisme Payeur","infos":"<p>Autre Organisme.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}}}
+module.exports = {"medecin":{"title":"Le medecin","infos":"<p className={styleRetraite.dataTxt} >Quel que soit le lieu du décès, celui-ci doit être officiellement constaté. Ce constat, généralement effectué par un médecin, est une formalité obligatoire précédant l’établissement de l’acte de décès.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À","content":"","body":"<p>Je vous faire part de son décés. < br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"mairie":{"title":"La mairie","infos":"<p className={styleRetraite.dataTxt} >Il faut se rendre à la mairie du lieu du décès pour déclarer le décès. La mairie doit établir l'acte de décès. Ce document, à faire établir en plusieurs exemplaires (au moins une dizaine), vous sera indispensable pour les démarches administratives et vous servira également de justificatif auprès de votre employeur si votre lien de parenté avec le défunt vous ouvre droit à une absence rémunérée pour événement familial.\n\r Dans le cas d’un décès dans un établissement public hospitalier, dans une clinique privée ou dans une maison de retraite, la déclaration de décès est effectuée par l’établissement après constatation du décès par le médecin.\nPour tout décès ayant lieu hors du domicile ou hors d’un établissement à caractère hospitalier (voie publique, lieu de travail, à l’étranger...), la déclaration et le certificat de décès sont soumis à des règles spécifiques.</p>","forms":{"view":true,"value":{"organism":{"view":true,"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"view":true,"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"view":true,"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"view":true,"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}}},"employeur":{"title":"L'employeur","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À l’employeur","content":"qui était employé(e) au sein de votre entreprise, en qualité de......................................................,","body":"<p>A ces fins, je vous saurais gré : <br />- de verser les sommes restant dues,<br />- de me faire parvenir : <br />&nbsp; &nbsp; - le solde de tout compte, <br />&nbsp; &nbsp; - un certificat de travail, <br />&nbsp; &nbsp; - une attestation de présence dans votre entreprise, <br />&nbsp; &nbsp; - une attestation de salaire, <br />&nbsp &nbsp; - les trois derniers bulletins de salaire, <br />- de me préciser quelles sont les aides ou prestations prévues dans votre société <br />et de m'indiquer la démarche à effectuer pour y prétendre.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"pole-emploi":{"title":"Pôle Emploi","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À Pôle Emploi","content":"qui était employé(e) au sein de votre entreprise, en qualité de......................................................,","body":"<p>A ces fins, je vous saurais gré : <br />- de verser les sommes restant dues,<br />- de me faire parvenir : <br />&nbsp; &nbsp; - le solde de tout compte, <br />&nbsp; &nbsp; - un certificat de travail, <br />&nbsp; &nbsp; - une attestation de présence dans votre entreprise, <br />&nbsp; &nbsp; - une attestation de salaire, <br />&nbsp &nbsp; - les trois derniers bulletins de salaire, <br />- de me préciser quelles sont les aides ou prestations prévues dans votre société <br />et de m'indiquer la démarche à effectuer pour y prétendre.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"salarie-association":{"title":"Salarié ou association de service à domicile","infos":"Dans le cadre d’emploi direct, le décès de l’employeur met fin <i>ipso facto</i> au contrat de travail qui liait celui-ci à son salarié. Les héritiers devront verser au salarié le dernier salaire et les cotisations sociales ainsi que les indemnités auxquelles il peut prétendre: préavis, licenciement et indemnités de congés payés. Ils devront également fournir au salarié certains documents : certificat de travail, attestation pour Pôle Emploi. En cas d’emploi d’un salarié, il convient d’informer l’Urssaf ou le Cesu (en cas de paiement par Chèque emploi service universel).<br />En cas d’emploi direct par une association mandataire, il faut également prévenir l’association qui préparera les documents de fin de contrat de travail (les frais de gestion restant dûs seront facturés).<br />En ce qui concerne les associations prestataires de services, il s’agit de les informer du décès afin qu’elles interrompent les interventions et leur demander l’envoi de la dernière facture des heures effectuées, le cas échéant, au notaire chargé de la succession","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"Aux salariés/associations","content":"","body":"domicilié .....................................................................................................................................................<br />......................................................................................................................................................,<br /> je procède aux formalités qui m’incombent.À ces fins, je vous saurais gré :<br /> – de bien vouloir arrêter vos interventions pour le compte de M............................. en cas d’emploi par une association mandataire,<br /> – de dresser un état estimatif des sommes restant dues en cas d’emploi direct. Le solde de tout compte vous parviendra dans les meilleurs délais.<br />","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"banque":{"title":"Banque","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"Bloquer le compte n°"}},"letter":{"to":"À la banque","content":"","body":"<p>Aussi, je vous prie de : <br />- bloquer le(s) comptes(s) n° <span> {this.state.compte} </span> <br />- transformer le compte joint n° <span> {this.state.compte} </span><br />en compte personnel au nom de <span>.................................</span><br />- m'indiquer la marche à suivre pour bénéficier de la clause d'assurance décès <br />du(des) prêts n° <span>.....................................................</span><br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"credit":{"title":"Organisme de crédit et assurance-vie","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° de contrat"}},"letter":{"to":"À l’organisme de crédit","content":"","body":"<p>Je vous saurai gré de : <br />- m'indiquer les piéces nécessaires à fournir pour l'arrêt du crédit référencé <span>{this.state.immatriculation}</span><br />ci-dessus, sachant qu'une assurance décés a été souscrite,<br />- m'indiquer le montant des sommes vous restant dûes, ce crédit n'étant pas assorti d'une assurance décés,<br />- m'indiquer si ce crédit était assorti d'une assurance crédit,<br />- m'indiquer les conditions éventuelles de reprise du crédit, <br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"assurance":{"title":"Assurance","infos":"<p>Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.</p><p>Obtenir le remboursement éventuel du trop-perçu des primes acquittées.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À l’assureur","content":"","body":"<p>A ces fins, je vous saurais gré : <br />- de maintenir l'ensemble des contrats et de les transférer au nom de ...................<br />- résilier les contrats {this.state.immatriculation}<br />- prendre note que l'adresse et le mode de facturation ne changent pas,<br />- adresser la facturation au nom et à l'adresse suivante.........................<br />.............................................................................................<br />- cesser les prélévements, le compte étant bloqué dans l'attente du réglement<br />de la succession,<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour <br />la période du ................................... au ............................ ,<br />- vous mettre en rapport avec Maître ........................, domicilié .................,<br />....................................................................................................,<br />chargé de la succession.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"complementaire-sante":{"title":"Organisme de santé complémentaire","infos":"<p>La prévenir pour obtenir les sommes dues au défunt au jour du décès.</p><p className={styleRetraite.dataTxt} >Suivant la formule souscrite et les conditions générales et particulières, vérifier si celui-ci propose la prise en charge des frais d'obsèques, le versement d'un capital décès et le remboursement d'une partie des cotisations acquittées.</p><p className={styleRetraite.dataTxt} >Vérifier éventuellement le maintien des droits du conjoint survivant.</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'assuré"}},"letter":{"to":"À l’assurance complémentaire maladie","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- maintenir l'ensemble des contrats et de les tranférer au nom de <span>...............................</span><br />- résilier les contrats<span>.............................................</span><br />- prendre note que l'adresse et le mode de facturation de changent pas,<br />- adresser la facturation au nom  et à l'adresse suivante <span>...............................</span><br /><span>...........................................................................................</span><br />- cesser les prévèlements, le compte étant bloqué dans l'attente du réglement de la succession<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour  <br />la période du <span>...............................</span> au <span>...............................</span>  <br />- vous mettre au rapport avec Maître <span>...............................</span>, domicilié <span>...............................</span><br /><span>...........................................................................................,</span><br />chargé de la succession<br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"notaire":{"title":"Notaire","infos":"<p><b>Le recours au notaire est indispensable si le défunt possédait des biens immobiliers</b></p><p>En effet, leur transmission doit être constatée dans une attestation notariée publiée au bureau des hypothèques.</p><p>En cas de donation au dernier vivant ou de testament, le notaire se chargera d’organiser la    succession et d’établir la déclaration de succession, si nécessaire</p>","forms":{"value":{"organism":{"value":{"label":"Nom & prénom","organism":"Nom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"Au notaire","content":"","body":"Aussi, je vous demande de procéder à l’ouverture de la succession.","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"caisse-retraite":{"title":"Caisse de retraite","infos":"<p>Les caisses de retraite, principales et complémentaires, doivent être informées du décès pour interrompre les versements.</p><p>Pour vérifier les droits au capital décès si le défunt est décédé dans les trois mois suivant la notification de retraite.Ou faire valoir les droits à la pension de réversion pour le conjoint.</p><p>Le conjoint survivant même divorcé, s’il n’est pas remarié, peut bénéficier, sous certaines conditions, de la réversion des droits à la retraite du défunt si celui-ci percevait une retraite ou pouvait y prétendre</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'inscription"}},"letter":{"to":"À la caisse de retraite","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- vérifier mes droits ou ceux de <span>...............................</span> au capital décés,<br />- faire valoir mes droits ou ceux de <span>.........................</span> à la pension de réversion,<br />- de procéder au réglement des arriérés dus à la date du décés.<br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"bailleur":{"title":"Bailleur","infos":"<p>Dans le cas d’une location, il faut prévenir le bailleur ou l’agence de location.<br />Dans le cas d’une copropriété, il faut prévenir le syndic de copropriété.</p><p>Si le défunt était locataire (locaux loués vides ou ne relevant pas de la loi de 1948), et qu’aucun membre de la famille ne souhaite reprendre le bail à son nom, celui-ci cesse à la date du décès</p><p>Si le défunt était propriétaire bailleur, le bail continue à courir après son décès. Il convient alors d’informer les locataires des coordonnées du nouveau bénéficiaire du loyer (notaire, héritier) ainsi que le syndic éventuel</p>","forms":{"value":{"organism":{"value":{"label":"Nom du bailleur","organism":"Nom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"Au bailleur","content":"","body":"<p>A ces fins, je vous demande de bien vouloir : <br />- résilier sans délai le bail établi le .................... au bénéfice du défunt,<br />- maintenir le bail en l'état dans l'attente du réglement de la succession, <br />- transférer le bail au nom de .................................................<br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"caf":{"title":"Caisse d'allocations familiales","infos":"<p>Informer pour arrêter le versement des prestations sociales éventuelles.</p><p>Demander une nouvelle immatriculation pour le conjoint survivant.</p><p>Faire valoir d’éventuels droits</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'allocataire"}},"letter":{"to":"À la Caisse d’allocations familiales","content":"n° d’allocataire..............................................................................................................................................,","body":"<p>Je vous saurai gré de : <br />- de bien vouloir me faire parvenir les formulaire pour :<br />&nbsp; - l'allocation de parent isolé, <br />&nbsp; - l'allocation de soutien familial,<br />- d'étudier ma nouvelle situation ou celle de .........................................................<br />afin de vérifier si d'autres droits me sont / lui sont ouverts, <br />- d'effectuer le changement d'allocataire ,<br />- d'arrêter le versement des prestations sociales éventuelles.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"impot":{"title":"Centre d'impot","infos":"<p>Régulariser la situation concernant :</p><p>– l’impôt sur le revenu,</p><p>– la taxe foncière,</p><p>– et la taxe d’habitation.</p><p>Lui adresser la déclaration de succession.</p><p>Si un notaire est chargé de la succession, c’est lui qui, en principe, est mandaté par les héritiers pour accomplir ces démarches</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À la Caisse d’allocations familiales","content":"","body":"<p>À ces fins, je vous saurais gré de me faire parvenir un formulaire de déclaration de revenus et de m’indiquer les autres formalités à accomplir auprès de vos services.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"prefecture":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"poste":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"telecom":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"conseil":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"eau":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"energie":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"cpam":{"title":"Organisme de santé général","infos":"<p>La prévenir pour obtenir les sommes dues au défunt au jour du décès.</p><p>Suivant la formule souscrite et les conditions générales et particulières, vérifier si celui-ci propose la prise en charge des frais d'obsèques, le versement d'un capital décès et le remboursement d'une partie des cotisations acquittées.</p><p>Vérifier éventuellement le maintien des droits du conjoint survivant.</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'immatriculation"}},"letter":{"to":"À la CPAM","content":"n° de sécurité sociale ..............................................................................................................................................,","body":"<p>Je vous saurai gré : <br />- de m’indiquer la marche à suivre pour faire valoir mes droits éventuels, ou ceux de :<br />&nbsp; - l'allocation de parent isolé, <br />&nbsp; - au capital décès,<br />&nbsp; - à l’allocation veuvage,<br />&nbsp; - à la pension de veuf ou veuve invalide,<br />- de procéder aux remboursements des frais de maladie restant dus au défunt,<br />- de procéder à mon immatriculation personnelle.<br /><br />Merci de préciser éventuellement si d’autres démarches sont à effectuer pour faire valoir mes droits ou ceux de........................................................................................<p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"custom":{"title":"Organisme Payeur","infos":"<p>Autre Organisme.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, e vous saurai gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}}}
 
 /***/ }),
 
 /***/ "./src/public/constants/data/shareHome.json":
 /***/ (function(module, exports) {
 
-module.exports = {"medecin":{"slug":"medecin","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"mairie":{"slug":"mairie","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"pole-emploi":{"slug":"pole-emploi","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"employeur":{"slug":"employeur","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"banque":{"slug":"banque","chrono":"DANS LA SEMAINE","title":"Banque","content":"L'une des premières démarches d'ordre administratif à effectuer est de transmettre un acte de décès à la banque du défunt. L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.","id":"Banque"},"credit":{"slug":"credit","chrono":"DANS LA SEMAINE","title":"Organisme de crédit","content":"En cas de crédit en cours de remboursement, l'organisme prêteur doit être prévenu du décès. L'assurance éventuellement souscrite pourra alors acquitter les sommes restantes dues. Sinon, ce sont les avoirs du défunt qui servent à solder les dettes en cours.","id":"Organisme de crédit et assurance-vie"},"complementaire-sante":{"slug":"complementaire-sante","chrono":"DANS LA SEMAINE","title":"Organisme de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"salarie-association":{"slug":"salarie-association","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Organisme de santé général","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"assurance":{"slug":"assurance","chrono":"DANS LE MOIS","title":"Assurances","content":"Prévenir la mutuelle d'assurance est l'une des actions prioritaires à effectuer. La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.","id":"Assurance"},"notaire":{"slug":"notaire","chrono":"DANS LE MOIS","title":"Notaire","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Notaire"},"caisse-retraite":{"slug":"caisse-retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"organism","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"conseil":{"slug":"organism","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"organism","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energie":{"slug":"organism","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"eau":{"slug":"organism","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"organism","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
+module.exports = {"medecin":{"slug":"medecin","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"mairie":{"slug":"mairie","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"pole-emploi":{"slug":"pole-emploi","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"employeur":{"slug":"employeur","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"banque":{"slug":"banque","chrono":"DANS LA SEMAINE","title":"Banque","content":"L'une des premières démarches d'ordre administratif à effectuer est de transmettre un acte de décès à la banque du défunt. L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.","id":"Banque"},"credit":{"slug":"credit","chrono":"DANS LA SEMAINE","title":"Organisme de crédit","content":"En cas de crédit en cours de remboursement, l'organisme prêteur doit être prévenu du décès. L'assurance éventuellement souscrite pourra alors acquitter les sommes restantes dues. Sinon, ce sont les avoirs du défunt qui servent à solder les dettes en cours.","id":"Organisme de crédit et assurance-vie"},"complementaire-sante":{"slug":"complementaire-sante","chrono":"DANS LA SEMAINE","title":"Organisme de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"salarie-association":{"slug":"salarie-association","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Organisme de santé général","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"assurance":{"slug":"assurance","chrono":"DANS LE MOIS","title":"Assurances","content":"Prévenir la mutuelle d'assurance est l'une des actions prioritaires à effectuer. La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.","id":"Assurance"},"notaire":{"slug":"notaire","chrono":"DANS LE MOIS","title":"Notaire","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Notaire"},"caisse-retraite":{"slug":"caisse-retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"caf","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"prefecture","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"conseil":{"slug":"conseil","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"poste","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energie":{"slug":"energie","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"eau":{"slug":"eau","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"telecom","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
 
 /***/ }),
 
