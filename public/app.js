@@ -10919,7 +10919,7 @@ var Dossier = function (_Component) {
       console.log(res);
     });
 
-    (0, _tools.getDataElements)('com.empreinte.FLastWill').then(function (res) {
+    (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
       console.log(res);
     });
 
