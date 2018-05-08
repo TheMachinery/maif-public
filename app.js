@@ -8941,7 +8941,7 @@ var Row = function Row(props) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { id: props.id },
     _react2.default.createElement(
       'div',
       { onClick: function onClick(e) {
@@ -8955,7 +8955,7 @@ var Row = function Row(props) {
           null,
           props.title,
           ' ',
-          _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' })
+          _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'public/media/chevronpurple.svg' })
         ),
         _react2.default.createElement(
           'div',
@@ -8966,8 +8966,8 @@ var Row = function Row(props) {
       _react2.default.createElement(
         'div',
         { className: (0, _classnames2.default)(_FuneralList2.default.check, _FuneralList2.default.checked, _defineProperty({}, _FuneralList2.default.checked, props.check)) },
-        props.check && _react2.default.createElement('img', { className: _FuneralList2.default.done, src: 'media/done.png' }),
-        !props.check && _react2.default.createElement('img', { className: _FuneralList2.default.done, src: 'media/waiting.png' })
+        props.check && _react2.default.createElement('img', { className: _FuneralList2.default.done, src: 'public/media/done.png' }),
+        !props.check && _react2.default.createElement('img', { className: _FuneralList2.default.done, src: 'public/media/waiting.png' })
       )
     ),
     _react2.default.createElement('div', { className: _FuneralList2.default.separator })
@@ -9004,7 +9004,6 @@ var FuneralList = function (_React$Component) {
     };
 
     (0, _tools.getDataElements)(_constants.DOCTYPE_HOMEDATA).then(function (res) {
-      console.log(res);
       if (res.length > 0) {
         console.log(res);
         var link = '/data/homedata/' + res[0]._id;
@@ -9177,79 +9176,19 @@ var FuneralList = function (_React$Component) {
       e.stopPropagation();
       this.setState({ InfoOpen: true, infoText: text, infoHeader: header });
     }
-  }, {
-    key: 'profilePreview',
-    value: function profilePreview() {
-      var _this3 = this;
-
-      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
-        data: {
-          type: 'io.cozy.permissions',
-          attributes: {
-            permissions: {
-              "settings": {
-                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
-                "type": "io.cozy.settings",
-                "verbs": ["GET"]
-              },
-              "data-funerals-lastwill": {
-                "description": "App required data Last Will access",
-                "type": "com.empreinte.FLastWill",
-                "verbs": ["GET"]
-              },
-              "data-funerals-contacts": {
-                "description": "App required data Last Will access",
-                "type": "com.empreinte.Fcontacts",
-                "verbs": ["GET"]
-              },
-              "data-funerals-custom-contacts": {
-                "description": "App required data Last Will access",
-                "type": "com.empreinte.Fcustomcontacts",
-                "verbs": ["GET"]
-              },
-              "data-homeData": {
-                "description": "App required data homeData access",
-                "type": "com.empreinte.homeData",
-                "verbs": ["GET"]
-              },
-              "contacts": {
-                "description": "App required contacts access",
-                "type": "com.empreinte.contacts",
-                "verbs": ["GET"]
-              },
-              "metas": {
-                "description": "App required metas access",
-                "type": "com.empreinte.meta",
-                "verbs": ["GET"]
-              },
-              "contact": {
-                "description": "App required contact access",
-                "type": "io.cozy.contacts",
-                "verbs": ["GET"]
-              }
-            }
-          }
-        }
-      }).then(function (result) {
-        _this3.sharing = result.attributes.codes['partage'];
-        console.log(_this3.sharing);
-        window.open('/public?sharecode=' + _this3.sharing + '#/', '_blank');
-      });
-    }
-
     // render
 
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       var add = _react2.default.createElement(
         'button',
         { onClick: function onClick() {
-            return _this4.clickOnAddContacts();
+            return _this3.clickOnAddContacts();
           }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-        _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'media/add.svg' }),
+        _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'public/media/add.svg' }),
         'AJOUTER UN CONTACT'
       );
       return _react2.default.createElement(
@@ -9282,8 +9221,8 @@ var FuneralList = function (_React$Component) {
               { className: 'col-md-4' },
               _react2.default.createElement(
                 'a',
-                { className: _FuneralList2.default.profileLink, onClick: function onClick() {
-                    return _this4.profilePreview();
+                { className: _FuneralList2.default.profileLink, onClick: function onClick(e) {
+                    return _this3.clickOninfo(e, 'Aperçu de votre profil', 'Cette fonctionnalité va vous permettre de visualiser ce que vos proches verront lorsqu’ils auront accès à votre espace décès. Ils pourront accéder aux démarches à réaliser en s’appuyant sur les contacts que vous avez renseignés.');
                   } },
                 'Aper\xE7u de votre profil'
               )
@@ -9316,9 +9255,10 @@ var FuneralList = function (_React$Component) {
               'ul',
               { className: _FuneralList2.default.list },
               Doctypes.map(function (item, key) {
-                var checked = _lodash2.default.find(_this4.props.dataCreated, function (t) {
+                var checked = _lodash2.default.find(_this3.props.dataCreated, function (t) {
                   return t.doctype === item.doctype;
                 });
+                console.log(item);
                 return _react2.default.createElement(
                   'li',
                   { key: key },
@@ -9327,15 +9267,15 @@ var FuneralList = function (_React$Component) {
                       if (item.unique && checked) {
                         (0, _tools.getDataElements)(item.doctype).then(function (res) {
                           if (res.length > 0) {
-                            _this4.props.history.push('/data/' + item.slug + '/' + res[0]._id);
+                            _this3.props.history.push('/data/' + item.slug + '/' + res[0]._id);
                           }
                         });
                       } else if (item.internpath) {
-                        _this4.props.history.push(item.internpath);
+                        _this3.props.history.push(item.internpath);
                       } else if (typeof item.internModal != "undefined" && item.internModal.text != "") {
-                        _this4.clickOninfo(e, item.display, item.internModal.text);
+                        _this3.clickOninfo(e, item.display, item.internModal.text);
                       } else {
-                        _this4.clickOnWill(item);
+                        _this3.clickOnWill(item);
                       }
                     } })
                 );
@@ -9434,12 +9374,12 @@ var FuneralList = function (_React$Component) {
                         return _react2.default.createElement(
                           'li',
                           { key: key },
-                          _react2.default.createElement(Row, { title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
+                          _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                             onAdd: function onAdd(e) {
                               if (item.checked) {
-                                _this4.props.history.push('/data/fcontacts/' + item._id);
+                                _this3.props.history.push('/data/fcontacts/' + item._id);
                               } else {
-                                _this4.clickOnContacts(item);
+                                _this3.clickOnContacts(item);
                               }
                             } })
                         );
@@ -9466,9 +9406,9 @@ var FuneralList = function (_React$Component) {
                           _react2.default.createElement(Row, { title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                             onAdd: function onAdd(e) {
                               if (item.checked) {
-                                _this4.props.history.push('/data/fcustomcontacts/' + item._id);
+                                _this3.props.history.push('/data/fcustomcontacts/' + item._id);
                               } else {
-                                _this4.clickOnCustomContacts(item);
+                                _this3.clickOnCustomContacts(item);
                               }
                             } })
                         );
@@ -9485,7 +9425,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.open, closeOnEsc: true, onClose: function onClose() {
-              return _this4.setState({ open: false });
+              return _this3.setState({ open: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9496,7 +9436,7 @@ var FuneralList = function (_React$Component) {
               formType: this.state.formType,
               hiddenType: this.state.hiddenType,
               close: function close() {
-                _this4.setState({ open: false });
+                _this3.setState({ open: false });
               }
             })
           )
@@ -9504,7 +9444,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.InfoOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this4.setState({ TypeOpen: false });
+              return _this3.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9549,7 +9489,7 @@ var FuneralList = function (_React$Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this4.setState({ InfoOpen: false, infoText: '' });
+                          return _this3.setState({ InfoOpen: false, infoText: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -9564,7 +9504,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.TypeOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this4.setState({ TypeOpen: false });
+              return _this3.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9610,7 +9550,7 @@ var FuneralList = function (_React$Component) {
                           type: 'text',
                           placeholder: 'Employeur',
                           value: this.state.newTypeType, onChange: function onChange(e) {
-                            return _this4.setState({ newTypeType: e.target.value });
+                            return _this3.setState({ newTypeType: e.target.value });
                           } },
                         _types2.default.map(function (item, key) {
                           if (!item.unique) return _react2.default.createElement(
@@ -9638,7 +9578,7 @@ var FuneralList = function (_React$Component) {
                         placeholder: 'Mairie, Medecin traitant, Banque',
                         value: this.state.newTypeName,
                         onChange: function onChange(e) {
-                          return _this4.setState({ newTypeName: e.target.value });
+                          return _this3.setState({ newTypeName: e.target.value });
                         } })
                     )
                   ),
@@ -9657,7 +9597,7 @@ var FuneralList = function (_React$Component) {
                         type: 'text',
                         placeholder: 'Courte description du contact',
                         onChange: function onChange(e) {
-                          return _this4.setState({ newTypeExcerpt: e.target.value });
+                          return _this3.setState({ newTypeExcerpt: e.target.value });
                         } })
                     )
                   )
@@ -9672,7 +9612,7 @@ var FuneralList = function (_React$Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this4.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
+                          return _this3.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -9683,7 +9623,7 @@ var FuneralList = function (_React$Component) {
                       {
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default),
                         onClick: function onClick(e) {
-                          return _this4.addTypeGroup(e);
+                          return _this3.addTypeGroup(e);
                         } },
                       'VALIDER'
                     )
@@ -9831,9 +9771,6 @@ var Doctypes = [{
 }];
 
 var Row = function Row(props) {
-
-  var button = props.unique ? props.check ? "Modifier" : "Compléter" : props.check ? "Ajouter un nouveau" : "Compléter";
-
   return _react2.default.createElement(
     'div',
     { onClick: function onClick(e) {
@@ -9885,12 +9822,13 @@ var Home = function (_React$Component) {
       infoText: "",
       hiddenType: '',
       search: '',
-      data: []
+      data: [],
+      typeGroup: []
     };
 
     (0, _meta.getMeta)().then(function (result) {
       _this.setTypeGroup(result[0].value);
-      console.log(result);
+
       (0, _tools.getDataElements)(_index.DOCTYPE_F_CONTACTS).then(function (res) {
         if (res.length > 0) {
           (function () {
@@ -9912,12 +9850,7 @@ var Home = function (_React$Component) {
             _this.setTypeGroup(type);
           })();
         }
-
         console.log(res);
-        _this.state.data = res;
-        console.log(_this.state.data);
-        _this.setState({ getData: true });
-        console.log(_this.state.getData);
       });
     });
 
@@ -9957,8 +9890,9 @@ var Home = function (_React$Component) {
     key: 'getValue',
     value: function getValue(name) {
       var i = 0;
-
+      console.log(name);
       while (i < this.state.data.length) {
+        console.log(this.state.data[i].type);
         if (this.state.data[i].type == name) {
           return true;
         }
@@ -10098,40 +10032,36 @@ var Home = function (_React$Component) {
               { className: _FuneralList2.default.introHome },
               ' L\'Espace priv\xE9 est instructif, riche d\'enseignements, pour prendre activement conscience des implications de votre d\xE9c\xE8s pour vos proches. La plateforme s\'appr\xE9hende comme un outil pratique, pour transmettre un relais dans des conditions de clart\xE9 et de s\xE9r\xE9nit\xE9. Il vous permet de r\xE9fl\xE9chir, de rep\xE9rer les \xE9ventuels oublis et de simplifier la t\xE2che de ceux qui organiseront vos obs\xE8ques selon vos d\xE9cisions.'
             ),
-            this.arr.length > 0 ? this.arr.map(function (item) {
-              return _this3.getValue(item.id) === false ? _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: "/letter/" + item.slug + "/" + _this3.getID(item.id) },
+            this.state.typeGroup.map(function (group, key) {
+              var docs = group.types;
+              if (docs && docs.length > 0) {
+                console.log(docs);
+                return _react2.default.createElement(
+                  'li',
+                  { key: key },
                   _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.divContact },
-                    _react2.default.createElement(
-                      'div',
-                      { className: _Contacts2.default.contentContact },
-                      _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.contactName },
-                        item.title
-                      ),
-                      _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: '/media/chevronpurple.svg' })
-                    ),
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      item.content
-                    ),
-                    _react2.default.createElement('hr', { className: _FuneralList2.default.seperator })
+                    'ul',
+                    { className: _FuneralList2.default.list },
+                    docs.map(function (item, key) {
+                      return item.hasOwnProperty("checked") ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                        'li',
+                        { key: key },
+                        _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
+                          onAdd: function onAdd(e) {
+                            if (item.checked) {
+                              _this3.props.history.push('/data/fcontacts/' + item._id);
+                            } else {
+                              _this3.clickOnContacts(item);
+                            }
+                          } })
+                      );
+                    })
                   )
-                )
-              ) : _react2.default.createElement('span', null);
-            }) : _react2.default.createElement(
-              'span',
-              null,
-              ' NULL '
-            ),
+                );
+              } else {
+                return null;
+              }
+            }),
             _react2.default.createElement(
               'div',
               { className: _FuneralList2.default.rowAd },
@@ -28359,7 +28289,7 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/shareHome.json":
 /***/ (function(module, exports) {
 
-module.exports = {"medecin":{"slug":"medecin","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"mairie":{"slug":"mairie","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"pole-emploi":{"slug":"pole-emploi","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"employeur":{"slug":"employeur","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"complementaire-sante":{"slug":"complementaire-sante","chrono":"DANS LA SEMAINE","title":"Mutuelle de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"salarie-association":{"slug":"salarie-association","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Régime Général de santé","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"caisse-retraite":{"slug":"caisse-retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"caf","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"prefecture","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"conseil":{"slug":"conseil","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"poste","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energie":{"slug":"energie","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"eau":{"slug":"eau","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"telecom","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
+module.exports = {"principal_doctor":{"slug":"principal_doctor","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"city_hall":{"slug":"city_hall","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"work_help":{"slug":"work_help","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"work":{"slug":"work","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"health_organism":{"slug":"health_organism","chrono":"DANS LA SEMAINE","title":"Mutuelle de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"home_help":{"slug":"home_help","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Régime Général de santé","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"retraite":{"slug":"retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"caf","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"prefecture","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"social_security":{"slug":"social_security","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"poste","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energy":{"slug":"energy","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"water":{"slug":"water","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"telecom","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
 
 /***/ }),
 
