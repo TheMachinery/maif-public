@@ -12998,7 +12998,7 @@ var Letter = function (_React$Component) {
 
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
         console.log(res);
-        _this2.setState({ user: res });
+        _this2.setState({ user: res[0] });
         console.log(_this2.user);
       });
 
