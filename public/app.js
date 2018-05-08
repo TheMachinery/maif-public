@@ -12981,7 +12981,8 @@ var Letter = function (_React$Component) {
       organism: '',
       way: '',
       code: '',
-      city: ''
+      city: '',
+      user: []
     };
     _this.handleLetter = _this.handleLetter.bind(_this);
     return _this;
@@ -12996,6 +12997,7 @@ var Letter = function (_React$Component) {
       this.state.value = _share2.default[this.type];
 
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
+        console.log(res[0]);
         console.log(_this2.state);
         _this2.setState({ user: res[0] });
         console.log(_this2.state);
@@ -13294,7 +13296,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'myLetter',
     value: function myLetter() {
-      if (this.state.value.hasOwnProperty('letter') && this.state.user) {
+      if (this.state.value.hasOwnProperty('letter') && this.state.user.hasOwnProperty('address')) {
         return _react2.default.createElement(
           'span',
           null,
