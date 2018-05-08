@@ -12981,8 +12981,7 @@ var Letter = function (_React$Component) {
       organism: '',
       way: '',
       code: '',
-      city: '',
-      user: []
+      city: ''
     };
     _this.handleLetter = _this.handleLetter.bind(_this);
     return _this;
@@ -12997,9 +12996,9 @@ var Letter = function (_React$Component) {
       this.state.value = _share2.default[this.type];
 
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
-        console.log(res);
+        console.log(_this2.state);
         _this2.setState({ user: res[0] });
-        console.log(_this2.user);
+        console.log(_this2.state);
       });
 
       var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
@@ -13295,7 +13294,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'myLetter',
     value: function myLetter() {
-      if (this.state.value.hasOwnProperty('letter')) {
+      if (this.state.value.hasOwnProperty('letter') && this.state.user) {
         return _react2.default.createElement(
           'span',
           null,
