@@ -4999,7 +4999,7 @@ var Contacts = function (_Component) {
                     { className: _Contacts2.default.row },
                     _react2.default.createElement(
                         'h3',
-                        { className: _Contacts2.default.titlePage, 'data-tip': 'Lorem Ipsum' },
+                        { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Lorem Ipsum' },
                         'Mes proches r\xE9f\xE9rents ',
                         _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
                     ),
@@ -5034,7 +5034,7 @@ var Contacts = function (_Component) {
                     { className: _Contacts2.default.row },
                     _react2.default.createElement(
                         'h3',
-                        { className: _Contacts2.default.titlePage, 'data-tip': 'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026). ' },
+                        { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026). ' },
                         'Mes autres proches \xE0 pr\xE9venir ',
                         _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
                     ),
@@ -5066,7 +5066,7 @@ var Contacts = function (_Component) {
                     { className: _Contacts2.default.row },
                     _react2.default.createElement(
                         'h3',
-                        { className: _Contacts2.default.titlePage, 'data-tip': 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches. ' },
+                        { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches. ' },
                         'Autres dossiers partag\xE9',
                         _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
                     )
@@ -7314,16 +7314,7 @@ var Don = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _Prestataire2.default.stepDiv },
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'Etape 1'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _Prestataire2.default.contentStep, 'data-tip': 'Donner son corps est payant : les frais de transport co\xFBtent entre 200 \xE0 900 euros, r\xE9gl\xE9s d\'avance).' },
+                        { className: _Prestataire2.default.contentStep, 'data-type': 'light', 'data-tip': 'Donner son corps est payant : les frais de transport co\xFBtent entre 200 \xE0 900 euros, r\xE9gl\xE9s d\'avance).' },
                         _react2.default.createElement(
                             'a',
                             { href: 'http://www.afif.asso.fr/francais/conseils/conseil15.html', target: '_blank' },
@@ -7343,16 +7334,7 @@ var Don = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _Prestataire2.default.stepDiv },
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'Etape 2'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _Prestataire2.default.contentStep, 'data-tip': 'Il est important de noter que les cendres sont rarement rendues \xE0 la famille, le corps non plus a fortiori. Pr\xE9parer vos proches \xE0 cette situation peut \xEAtre utile.' },
+                        { className: _Prestataire2.default.contentStep, 'data-type': 'light', 'data-tip': 'Il est important de noter que les cendres sont rarement rendues \xE0 la famille, le corps non plus a fortiori. Pr\xE9parer vos proches \xE0 cette situation peut \xEAtre utile.' },
                         _react2.default.createElement(
                             'a',
                             { href: 'http://www.afif.asso.fr/francais/conseils/conseil15.html', target: '_blank' },
@@ -7367,35 +7349,6 @@ var Don = function (_React$Component) {
                                 'p',
                                 null,
                                 'Vous trouverez ici un mod\xE8le de lettre que vous devrez recopier sur une feuille libre et la transmettre \xE0 la facult\xE9 dont vous d\xE9pendez. '
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _Prestataire2.default.stepDiv },
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'Etape 3'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _Prestataire2.default.contentStep },
-                        _react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { to: '/devis-don' },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                'scanner et stocker votre document ',
-                                _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
-                                ' '
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'Ici, vous pouvez stocker la carte de donateur que vous aura remise \xE0 la facult\xE9. Une fa\xE7on de s\xE9curiser la d\xE9marche, car la perte du document rend impossible la donation.'
                             )
                         )
                     ),
@@ -7434,6 +7387,19 @@ var Don = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
+                        { className: _FuneralList2.default.header },
+                        _react2.default.createElement(
+                            'div',
+                            { className: _Prestataire2.default.titlePresta },
+                            _react2.default.createElement(
+                                'h2',
+                                { className: _Don2.default.titleStep },
+                                'Scanner votre document'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
                         { className: _Prestataire2.default.contentStep },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
@@ -7441,7 +7407,7 @@ var Don = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'scanner et stocker votre document',
+                                'Scanner et stocker votre document',
                                 _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
                                 ' '
                             ),
@@ -9211,17 +9177,77 @@ var FuneralList = function (_React$Component) {
       e.stopPropagation();
       this.setState({ InfoOpen: true, infoText: text, infoHeader: header });
     }
+  }, {
+    key: 'profilePreview',
+    value: function profilePreview() {
+      var _this3 = this;
+
+      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+        data: {
+          type: 'io.cozy.permissions',
+          attributes: {
+            permissions: {
+              "settings": {
+                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": ["GET"]
+              },
+              "data-funerals-lastwill": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.FLastWill",
+                "verbs": ["GET"]
+              },
+              "data-funerals-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcontacts",
+                "verbs": ["GET"]
+              },
+              "data-funerals-custom-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcustomcontacts",
+                "verbs": ["GET"]
+              },
+              "data-homeData": {
+                "description": "App required data homeData access",
+                "type": "com.empreinte.homeData",
+                "verbs": ["GET"]
+              },
+              "contacts": {
+                "description": "App required contacts access",
+                "type": "com.empreinte.contacts",
+                "verbs": ["GET"]
+              },
+              "metas": {
+                "description": "App required metas access",
+                "type": "com.empreinte.meta",
+                "verbs": ["GET"]
+              },
+              "contact": {
+                "description": "App required contact access",
+                "type": "io.cozy.contacts",
+                "verbs": ["GET"]
+              }
+            }
+          }
+        }
+      }).then(function (result) {
+        _this3.sharing = result.attributes.codes['partage'];
+        console.log(_this3.sharing);
+        window.open('/public?sharecode=' + _this3.sharing + '#/', '_blank');
+      });
+    }
+
     // render
 
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var add = _react2.default.createElement(
         'button',
         { onClick: function onClick() {
-            return _this3.clickOnAddContacts();
+            return _this4.clickOnAddContacts();
           }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
         _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'media/add.svg' }),
         'AJOUTER UN CONTACT'
@@ -9256,8 +9282,8 @@ var FuneralList = function (_React$Component) {
               { className: 'col-md-4' },
               _react2.default.createElement(
                 'a',
-                { className: _FuneralList2.default.profileLink, onClick: function onClick(e) {
-                    return _this3.clickOninfo(e, 'Aperçu de votre profil', 'Cette fonctionnalité va vous permettre de visualiser ce que vos proches verront lorsqu’ils auront accès à votre espace décès. Ils pourront accéder aux démarches à réaliser en s’appuyant sur les contacts que vous avez renseignés.');
+                { className: _FuneralList2.default.profileLink, onClick: function onClick() {
+                    return _this4.profilePreview();
                   } },
                 'Aper\xE7u de votre profil'
               )
@@ -9290,7 +9316,7 @@ var FuneralList = function (_React$Component) {
               'ul',
               { className: _FuneralList2.default.list },
               Doctypes.map(function (item, key) {
-                var checked = _lodash2.default.find(_this3.props.dataCreated, function (t) {
+                var checked = _lodash2.default.find(_this4.props.dataCreated, function (t) {
                   return t.doctype === item.doctype;
                 });
                 return _react2.default.createElement(
@@ -9301,15 +9327,15 @@ var FuneralList = function (_React$Component) {
                       if (item.unique && checked) {
                         (0, _tools.getDataElements)(item.doctype).then(function (res) {
                           if (res.length > 0) {
-                            _this3.props.history.push('/data/' + item.slug + '/' + res[0]._id);
+                            _this4.props.history.push('/data/' + item.slug + '/' + res[0]._id);
                           }
                         });
                       } else if (item.internpath) {
-                        _this3.props.history.push(item.internpath);
+                        _this4.props.history.push(item.internpath);
                       } else if (typeof item.internModal != "undefined" && item.internModal.text != "") {
-                        _this3.clickOninfo(e, item.display, item.internModal.text);
+                        _this4.clickOninfo(e, item.display, item.internModal.text);
                       } else {
-                        _this3.clickOnWill(item);
+                        _this4.clickOnWill(item);
                       }
                     } })
                 );
@@ -9411,9 +9437,9 @@ var FuneralList = function (_React$Component) {
                           _react2.default.createElement(Row, { title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                             onAdd: function onAdd(e) {
                               if (item.checked) {
-                                _this3.props.history.push('/data/fcontacts/' + item._id);
+                                _this4.props.history.push('/data/fcontacts/' + item._id);
                               } else {
-                                _this3.clickOnContacts(item);
+                                _this4.clickOnContacts(item);
                               }
                             } })
                         );
@@ -9440,9 +9466,9 @@ var FuneralList = function (_React$Component) {
                           _react2.default.createElement(Row, { title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                             onAdd: function onAdd(e) {
                               if (item.checked) {
-                                _this3.props.history.push('/data/fcustomcontacts/' + item._id);
+                                _this4.props.history.push('/data/fcustomcontacts/' + item._id);
                               } else {
-                                _this3.clickOnCustomContacts(item);
+                                _this4.clickOnCustomContacts(item);
                               }
                             } })
                         );
@@ -9459,7 +9485,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.open, closeOnEsc: true, onClose: function onClose() {
-              return _this3.setState({ open: false });
+              return _this4.setState({ open: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9470,7 +9496,7 @@ var FuneralList = function (_React$Component) {
               formType: this.state.formType,
               hiddenType: this.state.hiddenType,
               close: function close() {
-                _this3.setState({ open: false });
+                _this4.setState({ open: false });
               }
             })
           )
@@ -9478,7 +9504,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.InfoOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this3.setState({ TypeOpen: false });
+              return _this4.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9523,7 +9549,7 @@ var FuneralList = function (_React$Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this3.setState({ InfoOpen: false, infoText: '' });
+                          return _this4.setState({ InfoOpen: false, infoText: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -9538,7 +9564,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.TypeOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this3.setState({ TypeOpen: false });
+              return _this4.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9584,7 +9610,7 @@ var FuneralList = function (_React$Component) {
                           type: 'text',
                           placeholder: 'Employeur',
                           value: this.state.newTypeType, onChange: function onChange(e) {
-                            return _this3.setState({ newTypeType: e.target.value });
+                            return _this4.setState({ newTypeType: e.target.value });
                           } },
                         _types2.default.map(function (item, key) {
                           if (!item.unique) return _react2.default.createElement(
@@ -9612,7 +9638,7 @@ var FuneralList = function (_React$Component) {
                         placeholder: 'Mairie, Medecin traitant, Banque',
                         value: this.state.newTypeName,
                         onChange: function onChange(e) {
-                          return _this3.setState({ newTypeName: e.target.value });
+                          return _this4.setState({ newTypeName: e.target.value });
                         } })
                     )
                   ),
@@ -9631,7 +9657,7 @@ var FuneralList = function (_React$Component) {
                         type: 'text',
                         placeholder: 'Courte description du contact',
                         onChange: function onChange(e) {
-                          return _this3.setState({ newTypeExcerpt: e.target.value });
+                          return _this4.setState({ newTypeExcerpt: e.target.value });
                         } })
                     )
                   )
@@ -9646,7 +9672,7 @@ var FuneralList = function (_React$Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this3.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
+                          return _this4.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -9657,7 +9683,7 @@ var FuneralList = function (_React$Component) {
                       {
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default),
                         onClick: function onClick(e) {
-                          return _this3.addTypeGroup(e);
+                          return _this4.addTypeGroup(e);
                         } },
                       'VALIDER'
                     )
@@ -9718,6 +9744,8 @@ var _Page = __webpack_require__("./src/components/elements/Page.js");
 
 var _Page2 = _interopRequireDefault(_Page);
 
+var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+
 var _fileTypes = __webpack_require__("./src/scripts/fileTypes.js");
 
 var _buttons = __webpack_require__("./src/styles/buttons.scss");
@@ -9727,6 +9755,10 @@ var _buttons2 = _interopRequireDefault(_buttons);
 var _FuneralList = __webpack_require__("./src/styles/FuneralList.scss");
 
 var _FuneralList2 = _interopRequireDefault(_FuneralList);
+
+var _Contacts = __webpack_require__("./src/styles/Contacts.scss");
+
+var _Contacts2 = _interopRequireDefault(_Contacts);
 
 var _Navigation = __webpack_require__("./src/styles/Navigation.scss");
 
@@ -9745,6 +9777,12 @@ var _DataForm = __webpack_require__("./src/containers/DataForm.js");
 var _DataForm2 = _interopRequireDefault(_DataForm);
 
 var _onboarding = __webpack_require__("./src/scripts/onboarding.js");
+
+var _meta = __webpack_require__("./src/scripts/meta.js");
+
+var _shareHome = __webpack_require__("./src/public/constants/data/shareHome.json");
+
+var _shareHome2 = _interopRequireDefault(_shareHome);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9846,14 +9884,90 @@ var Home = function (_React$Component) {
       infoHeader: "",
       infoText: "",
       hiddenType: '',
-      search: ''
+      search: '',
+      data: []
     };
 
-    console.log("HOMMMME");
+    (0, _meta.getMeta)().then(function (result) {
+      _this.setTypeGroup(result[0].value);
+      console.log(result);
+      (0, _tools.getDataElements)(_index.DOCTYPE_F_CONTACTS).then(function (res) {
+        if (res.length > 0) {
+          (function () {
+            var type = result[0].value;
+
+            var _loop = function _loop(n) {
+              var exist = _lodash2.default.find(res, function (t) {
+                return t.type === type[0].types[n].name;
+              });
+              if (exist) {
+                type[0].types[n].checked = true;
+                type[0].types[n]._id = exist._id;
+              }
+            };
+
+            for (var n in type[0].types) {
+              _loop(n);
+            }
+            _this.setTypeGroup(type);
+          })();
+        }
+
+        console.log(res);
+        _this.state.data = res;
+        console.log(_this.state.data);
+        _this.setState({ getData: true });
+        console.log(_this.state.getData);
+      });
+    });
+
+    console.log(_shareHome2.default);
+    _this.arr = [];
+    Object.keys(_shareHome2.default).forEach(function (key) {
+      _this.arr.push(_shareHome2.default[key]);
+    });
+
+    console.log(_this.arr);
     return _this;
   }
 
   _createClass(Home, [{
+    key: 'setTypeGroup',
+    value: function setTypeGroup(typeGroup) {
+      this.setState({ typeGroup: typeGroup });
+      this.render();
+    }
+  }, {
+    key: 'getID',
+    value: function getID(name) {
+      console.log(name);
+
+      var i = 0;
+
+      while (i < this.state.data.length) {
+        if (this.state.data[i].type == name) {
+          return this.state.data[i]._id;
+        }
+        i++;
+      }
+
+      return null;
+    }
+  }, {
+    key: 'getValue',
+    value: function getValue(name) {
+      var i = 0;
+
+      while (i < this.state.data.length) {
+        if (this.state.data[i].type == name) {
+          return true;
+        }
+        i++;
+      }
+
+      return false;
+    }
+  }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _this2 = this;
@@ -9984,37 +10098,39 @@ var Home = function (_React$Component) {
               { className: _FuneralList2.default.introHome },
               ' L\'Espace priv\xE9 est instructif, riche d\'enseignements, pour prendre activement conscience des implications de votre d\xE9c\xE8s pour vos proches. La plateforme s\'appr\xE9hende comme un outil pratique, pour transmettre un relais dans des conditions de clart\xE9 et de s\xE9r\xE9nit\xE9. Il vous permet de r\xE9fl\xE9chir, de rep\xE9rer les \xE9ventuels oublis et de simplifier la t\xE2che de ceux qui organiseront vos obs\xE8ques selon vos d\xE9cisions.'
             ),
-            _react2.default.createElement(
-              'ul',
-              { className: _FuneralList2.default.list },
-              Doctypes.map(function (item, key) {
-                var checked = _lodash2.default.find(_this3.props.dataCreated, function (t) {
-                  return t.doctype === item.doctype;
-                });
-                if (checked) {
-                  return null;
-                }
-                return _react2.default.createElement(
-                  'li',
-                  { key: key },
-                  _react2.default.createElement(Row, { title: item.display, excerpt: item.excerpt, check: checked, unique: item.unique,
-                    onAdd: function onAdd(e) {
-                      if (item.unique && checked) {
-                        (0, _tools.getDataElements)(item.doctype).then(function (res) {
-                          if (res.length > 0) {
-                            _this3.props.history.push('/data/' + item.slug + '/' + res[0]._id);
-                          }
-                        });
-                      } else if (item.internpath) {
-                        _this3.props.history.push(item.internpath);
-                      } else if (typeof item.internModal != "undefined" && item.internModal.text != "") {
-                        _this3.clickOninfo(e, item.display, item.internModal.text);
-                      } else {
-                        _this3.clickOnWill(item);
-                      }
-                    } })
-                );
-              })
+            this.arr.length > 0 ? this.arr.map(function (item) {
+              return _this3.getValue(item.id) === false ? _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: "/letter/" + item.slug + "/" + _this3.getID(item.id) },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.divContact },
+                    _react2.default.createElement(
+                      'div',
+                      { className: _Contacts2.default.contentContact },
+                      _react2.default.createElement(
+                        'p',
+                        { className: _Contacts2.default.contactName },
+                        item.title
+                      ),
+                      _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: '/media/chevronpurple.svg' })
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      item.content
+                    ),
+                    _react2.default.createElement('hr', { className: _FuneralList2.default.seperator })
+                  )
+                )
+              ) : _react2.default.createElement('span', null);
+            }) : _react2.default.createElement(
+              'span',
+              null,
+              ' NULL '
             ),
             _react2.default.createElement(
               'div',
@@ -11056,7 +11172,7 @@ var Prestataire = function (_React$Component) {
                             { to: '/devis' },
                             _react2.default.createElement(
                                 'h3',
-                                { 'data-tip': 'Le prestataire choisi, vous pouvez stocker ici le devis sign\xE9. Vos proches n\'auront qu\'\xE0 le faire valoir.' },
+                                { 'data-type': 'light', 'data-tip': 'Le prestataire choisi, vous pouvez stocker ici le devis sign\xE9. Vos proches n\'auront qu\'\xE0 le faire valoir.' },
                                 'Stocker les devis > '
                             ),
                             _react2.default.createElement(
@@ -28237,6 +28353,13 @@ module.exports = [{"name":"Mes dernieres Volontés","excerpt":"Les dernières vo
 /***/ (function(module, exports) {
 
 module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'identifier la personne détentrice de l'espace privé. ","group":[[{"name":"civilite","display":"Civilité","type":"list","values":["Madame","Monsieur","Autre"]},{"name":"name","display":"Nom"},{"name":"firstname","display":"Prénom"}],[{"name":"birthdate","type":"birthdate","display":"Date de naissance"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"email","display":"EMAIL","type":"email"}]]}]
+
+/***/ }),
+
+/***/ "./src/public/constants/data/shareHome.json":
+/***/ (function(module, exports) {
+
+module.exports = {"medecin":{"slug":"medecin","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"mairie":{"slug":"mairie","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"pole-emploi":{"slug":"pole-emploi","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"employeur":{"slug":"employeur","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"complementaire-sante":{"slug":"complementaire-sante","chrono":"DANS LA SEMAINE","title":"Mutuelle de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"salarie-association":{"slug":"salarie-association","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Régime Général de santé","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"caisse-retraite":{"slug":"caisse-retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"caf","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"prefecture","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"conseil":{"slug":"conseil","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"poste","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energie":{"slug":"energie","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"eau":{"slug":"eau","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"telecom","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
 
 /***/ }),
 
