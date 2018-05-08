@@ -9258,7 +9258,6 @@ var FuneralList = function (_React$Component) {
                 var checked = _lodash2.default.find(_this3.props.dataCreated, function (t) {
                   return t.doctype === item.doctype;
                 });
-                console.log(item);
                 return _react2.default.createElement(
                   'li',
                   { key: key },
@@ -9871,37 +9870,6 @@ var Home = function (_React$Component) {
       this.render();
     }
   }, {
-    key: 'getID',
-    value: function getID(name) {
-      console.log(name);
-
-      var i = 0;
-
-      while (i < this.state.data.length) {
-        if (this.state.data[i].type == name) {
-          return this.state.data[i]._id;
-        }
-        i++;
-      }
-
-      return null;
-    }
-  }, {
-    key: 'getValue',
-    value: function getValue(name) {
-      var i = 0;
-      console.log(name);
-      while (i < this.state.data.length) {
-        console.log(this.state.data[i].type);
-        if (this.state.data[i].type == name) {
-          return true;
-        }
-        i++;
-      }
-
-      return false;
-    }
-  }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _this2 = this;
@@ -9984,8 +9952,9 @@ var Home = function (_React$Component) {
     value: function clickOnContacts() {
       var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-      var item = (0, _dataFields.getInfosFromDoctype)(_constants.DOCTYPE_HOMEDATA);
-      this.setState({ current: item.slug, open: true, hiddenType: data.name });
+      console.log(data);
+      var item = (0, _dataFields.getInfosFromDoctype)(_index.DOCTYPE_F_CONTACTS);
+      this.setState({ current: item.slug, formType: data.type, open: true, hiddenType: data.name });
     }
   }, {
     key: 'clickOninfo',
