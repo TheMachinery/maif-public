@@ -5034,8 +5034,40 @@ var Contacts = function (_Component) {
                     { className: _Contacts2.default.row },
                     _react2.default.createElement(
                         'h3',
+                        { className: _Contacts2.default.titlePage, 'data-tip': 'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026). ' },
+                        'Mes autres proches \xE0 pr\xE9venir ',
+                        _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        { className: _Contacts2.default.actions },
+                        actions && actions.map(function (item, key) {
+                            return _react2.default.createElement(
+                                'li',
+                                { key: key },
+                                item
+                            );
+                        })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.row },
+                    _react2.default.createElement(
+                        'p',
+                        { className: _Contacts2.default.introProches },
+                        'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
+                    )
+                ),
+                _react2.default.createElement('div', { className: _Contacts2.default.dataPrevenir }),
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator }),
+                _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.row },
+                    _react2.default.createElement(
+                        'h3',
                         { className: _Contacts2.default.titlePage, 'data-tip': 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches. ' },
-                        'Mon dossier obs\xE8ques',
+                        'Autres dossiers partag\xE9',
                         _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
                     )
                 ),
@@ -5071,37 +5103,6 @@ var Contacts = function (_Component) {
                         )
                     )
                 ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'h3',
-                        { className: _Contacts2.default.titlePage, 'data-tip': 'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026). ' },
-                        'Mes autres proches \xE0 pr\xE9venir ',
-                        _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: _Contacts2.default.actions },
-                        actions && actions.map(function (item, key) {
-                            return _react2.default.createElement(
-                                'li',
-                                { key: key },
-                                item
-                            );
-                        })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.introProches },
-                        'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
-                    )
-                ),
-                _react2.default.createElement('div', { className: _Contacts2.default.dataPrevenir }),
                 _react2.default.createElement(_reactTooltip2.default, null),
                 _react2.default.createElement(
                     _reactPortal2.default,
@@ -6664,11 +6665,6 @@ var Devis = function (_React$Component) {
               'div',
               { className: _Devis2.default.contentDevisUpload },
               _react2.default.createElement(
-                'h3',
-                null,
-                ' Un devis type (PDF)'
-              ),
-              _react2.default.createElement(
                 'button',
                 { className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
                 'IMPRIMER'
@@ -7359,7 +7355,7 @@ var Don = function (_React$Component) {
                         { className: _Prestataire2.default.contentStep, 'data-tip': 'Il est important de noter que les cendres sont rarement rendues \xE0 la famille, le corps non plus a fortiori. Pr\xE9parer vos proches \xE0 cette situation peut \xEAtre utile.' },
                         _react2.default.createElement(
                             'a',
-                            { href: 'https://medecine.univ-amu.fr/fr/procedure-faire-don-son-corps-a-science', target: '_blank' },
+                            { href: 'http://www.afif.asso.fr/francais/conseils/conseil15.html', target: '_blank' },
                             _react2.default.createElement(
                                 'h3',
                                 null,
@@ -7392,7 +7388,7 @@ var Don = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Scanner et stocker dans cet espace ',
+                                'scanner et stocker votre document ',
                                 _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
                                 ' '
                             ),
@@ -7445,7 +7441,7 @@ var Don = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Scanner et stocker dans cet espace ',
+                                'scanner et stocker votre document',
                                 _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
                                 ' '
                             ),
@@ -7803,11 +7799,6 @@ var DonDevis = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: _Devis2.default.contentDevisUpload },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                ' Un devis type (PDF)'
-                            ),
                             _react2.default.createElement(
                                 'button',
                                 { className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
