@@ -9176,17 +9176,78 @@ var FuneralList = function (_React$Component) {
       e.stopPropagation();
       this.setState({ InfoOpen: true, infoText: text, infoHeader: header });
     }
+  }, {
+    key: 'profilePreview',
+    value: function profilePreview() {
+      var _this3 = this;
+
+      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+        data: {
+          type: 'io.cozy.permissions',
+          attributes: {
+            permissions: {
+              "settings": {
+                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": ["GET"]
+              },
+              "data-funerals-lastwill": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.FLastWill",
+                "verbs": ["GET"]
+              },
+              "data-funerals-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcontacts",
+                "verbs": ["GET"]
+              },
+              "data-funerals-custom-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcustomcontacts",
+                "verbs": ["GET"]
+              },
+              "data-homeData": {
+                "description": "App required data homeData access",
+                "type": "com.empreinte.homeData",
+                "verbs": ["GET"]
+              },
+              "contacts": {
+                "description": "App required contacts access",
+                "type": "com.empreinte.contacts",
+                "verbs": ["GET"]
+              },
+              "metas": {
+                "description": "App required metas access",
+                "type": "com.empreinte.meta",
+                "verbs": ["GET"]
+              },
+              "contact": {
+                "description": "App required contact access",
+                "type": "io.cozy.contacts",
+                "verbs": ["GET"]
+              }
+            }
+          }
+        }
+      }).then(function (result) {
+        _this3.sharing = result.attributes.codes['partage'];
+        console.log(_this3.sharing);
+
+        window.open('/public?sharecode=' + _this3.sharing + '#/', '_blank');
+      });
+    }
+
     // render
 
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var add = _react2.default.createElement(
         'button',
         { onClick: function onClick() {
-            return _this3.clickOnAddContacts();
+            return _this4.clickOnAddContacts();
           }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
         _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'public/media/add.svg' }),
         'AJOUTER UN CONTACT'
@@ -9221,8 +9282,8 @@ var FuneralList = function (_React$Component) {
               { className: 'col-md-4' },
               _react2.default.createElement(
                 'a',
-                { className: _FuneralList2.default.profileLink, onClick: function onClick(e) {
-                    return _this3.clickOninfo(e, 'Aperçu de votre profil', 'Cette fonctionnalité va vous permettre de visualiser ce que vos proches verront lorsqu’ils auront accès à votre espace décès. Ils pourront accéder aux démarches à réaliser en s’appuyant sur les contacts que vous avez renseignés.');
+                { className: _FuneralList2.default.profileLink, onClick: function onClick() {
+                    return _this4.profilePreview();
                   } },
                 'Aper\xE7u de votre profil'
               )
@@ -9255,7 +9316,7 @@ var FuneralList = function (_React$Component) {
               'ul',
               { className: _FuneralList2.default.list },
               Doctypes.map(function (item, key) {
-                var checked = _lodash2.default.find(_this3.props.dataCreated, function (t) {
+                var checked = _lodash2.default.find(_this4.props.dataCreated, function (t) {
                   return t.doctype === item.doctype;
                 });
                 return _react2.default.createElement(
@@ -9266,15 +9327,15 @@ var FuneralList = function (_React$Component) {
                       if (item.unique && checked) {
                         (0, _tools.getDataElements)(item.doctype).then(function (res) {
                           if (res.length > 0) {
-                            _this3.props.history.push('/data/' + item.slug + '/' + res[0]._id);
+                            _this4.props.history.push('/data/' + item.slug + '/' + res[0]._id);
                           }
                         });
                       } else if (item.internpath) {
-                        _this3.props.history.push(item.internpath);
+                        _this4.props.history.push(item.internpath);
                       } else if (typeof item.internModal != "undefined" && item.internModal.text != "") {
-                        _this3.clickOninfo(e, item.display, item.internModal.text);
+                        _this4.clickOninfo(e, item.display, item.internModal.text);
                       } else {
-                        _this3.clickOnWill(item);
+                        _this4.clickOnWill(item);
                       }
                     } })
                 );
@@ -9376,9 +9437,9 @@ var FuneralList = function (_React$Component) {
                           _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                             onAdd: function onAdd(e) {
                               if (item.checked) {
-                                _this3.props.history.push('/data/fcontacts/' + item._id);
+                                _this4.props.history.push('/data/fcontacts/' + item._id);
                               } else {
-                                _this3.clickOnContacts(item);
+                                _this4.clickOnContacts(item);
                               }
                             } })
                         );
@@ -9405,9 +9466,9 @@ var FuneralList = function (_React$Component) {
                           _react2.default.createElement(Row, { title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                             onAdd: function onAdd(e) {
                               if (item.checked) {
-                                _this3.props.history.push('/data/fcustomcontacts/' + item._id);
+                                _this4.props.history.push('/data/fcustomcontacts/' + item._id);
                               } else {
-                                _this3.clickOnCustomContacts(item);
+                                _this4.clickOnCustomContacts(item);
                               }
                             } })
                         );
@@ -9424,7 +9485,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.open, closeOnEsc: true, onClose: function onClose() {
-              return _this3.setState({ open: false });
+              return _this4.setState({ open: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9435,7 +9496,7 @@ var FuneralList = function (_React$Component) {
               formType: this.state.formType,
               hiddenType: this.state.hiddenType,
               close: function close() {
-                _this3.setState({ open: false });
+                _this4.setState({ open: false });
               }
             })
           )
@@ -9443,7 +9504,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.InfoOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this3.setState({ TypeOpen: false });
+              return _this4.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9488,7 +9549,7 @@ var FuneralList = function (_React$Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this3.setState({ InfoOpen: false, infoText: '' });
+                          return _this4.setState({ InfoOpen: false, infoText: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -9503,7 +9564,7 @@ var FuneralList = function (_React$Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.TypeOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this3.setState({ TypeOpen: false });
+              return _this4.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -9549,7 +9610,7 @@ var FuneralList = function (_React$Component) {
                           type: 'text',
                           placeholder: 'Employeur',
                           value: this.state.newTypeType, onChange: function onChange(e) {
-                            return _this3.setState({ newTypeType: e.target.value });
+                            return _this4.setState({ newTypeType: e.target.value });
                           } },
                         _types2.default.map(function (item, key) {
                           if (!item.unique) return _react2.default.createElement(
@@ -9577,7 +9638,7 @@ var FuneralList = function (_React$Component) {
                         placeholder: 'Mairie, Medecin traitant, Banque',
                         value: this.state.newTypeName,
                         onChange: function onChange(e) {
-                          return _this3.setState({ newTypeName: e.target.value });
+                          return _this4.setState({ newTypeName: e.target.value });
                         } })
                     )
                   ),
@@ -9596,7 +9657,7 @@ var FuneralList = function (_React$Component) {
                         type: 'text',
                         placeholder: 'Courte description du contact',
                         onChange: function onChange(e) {
-                          return _this3.setState({ newTypeExcerpt: e.target.value });
+                          return _this4.setState({ newTypeExcerpt: e.target.value });
                         } })
                     )
                   )
@@ -9611,7 +9672,7 @@ var FuneralList = function (_React$Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this3.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
+                          return _this4.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -9622,7 +9683,7 @@ var FuneralList = function (_React$Component) {
                       {
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default),
                         onClick: function onClick(e) {
-                          return _this3.addTypeGroup(e);
+                          return _this4.addTypeGroup(e);
                         } },
                       'VALIDER'
                     )
@@ -28216,7 +28277,7 @@ exports.default = CustomInput;
 /***/ "./src/public/constants/data/contact.json":
 /***/ (function(module, exports) {
 
-module.exports = [{"name":"Informations principales","group":[{"key":"city_hall","name":"Mairie","doctype":"com.empreinte.Fcontacts","excerpt":"C'est l'administration du lieu du décès qui établit l'acte de décès. Par précaution, le titulaire peut remplir le formulaire avec les coordonnées de sa commune de résidence","location":"/Empreinte/Funerals Contact","type":"city_hall","perso":0},{"key":"home_help","name":"Salarié ou associations","doctype":"com.empreinte.Fcontacts","excerpt":"Le décès de l'employeur met fin au contrat de travail qui liait celui-ci à son salarié. ","location":"/Empreinte/Funerals Contact","type":"home_help","perso":0},{"key":"work_help","name":"Pôle Emploi","doctype":"com.empreinte.Fcontacts","excerpt":"","location":"/Empreinte/Funerals Contact","type":"work_help","perso":0},{"key":"notaire","name":"Notaire","doctype":"com.empreinte.Fcontacts","excerpt":"Le recours au notaire est indispensable si le défunt possédait des biens immobiliers.","location":"/Empreinte/Funerals Contact","type":"notaire","perso":0},{"key":"bailleur","name":"Bailleur","doctype":"com.empreinte.Fcontacts","excerpt":"Prévenir le bailleur ou l'agence pour une location ou en cas de copropriété, prévenir le syndic.","location":"/Empreinte/Funerals Contact","type":"bailleur","perso":0},{"key":"prefecture","name":"Préfecture","doctype":"com.empreinte.Fcontacts","excerpt":"Pour modifier la carte grise d'un véhicule ","location":"/Empreinte/Funerals Contact","type":"prefecture","perso":0},{"key":"poste","name":"Poste","doctype":"com.empreinte.Fcontacts","excerpt":"Pour le réacheminement du courrier.","location":"/Empreinte/Funerals Contact","type":"poste","perso":0},{"key":"telecom","name":"Opérateur Télécom","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"bank","name":"Banque","doctype":"com.empreinte.Fcontacts","excerpt":"La banque fournit l'inventaire des biens du défunt ou bloquera les comptes en attendant la liquidation de la succession.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"credit","name":"Organisme de crédit","doctype":"com.empreinte.Fcontacts","excerpt":"L'organisme de crédit peut reporter ou bloquer les prélèvements jusqu'au règlement de la succession. ","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"assurance","name":"Assurance","doctype":"com.empreinte.Fcontacts","excerpt":"Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"impot","name":"Centre d'impot","doctype":"com.empreinte.Fcontacts","excerpt":"Le centre des impôts régularise la situation concernant l'impôt sur le revenu, la taxe foncière, la taxe d'habitation.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"energy","name":"Fournisseur d'énergie","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"water","name":"Réseau de l'eau","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"work","name":"Employeur","doctype":"com.empreinte.Fcontacts","excerpt":"Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …","location":"/Empreinte/Funerals Contact","type":"work","perso":0},{"key":"retraite","name":"Caisse de retraite","doctype":"com.empreinte.Fcontacts","excerpt":"Pour les informer du décès et interrompre les versements.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"caf","name":"Caisse d'allocations familiales","doctype":"com.empreinte.Fcontacts","excerpt":"Informer la caisse d'allocation familiales pour arrêter le versement des prestations sociales éventuelles.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"health_organism","name":"Organisme de santé","doctype":"com.empreinte.Fcontacts","excerpt":"En prévenant l'assurance complémentaire maladie, celle-ci verse les sommes dues au jour du décès.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"social_security","name":"Sécurité Sociale","doctype":"com.empreinte.Fcontacts","excerpt":"C'est auprès de Sécurité Sociale que les droits à pension de veuf ou de veuve sont demandés.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"principal_doctor","name":"Médecin Traitant","doctype":"com.empreinte.Fcontacts","excerpt":"Quel que soit le lieu du décès, celui-ci doit être officiellement constaté par un médecin.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0}]}]
+module.exports = [{"name":"Informations principales","group":[{"key":"city_hall","name":"Mairie","doctype":"com.empreinte.Fcontacts","excerpt":"C'est l'administration du lieu du décès qui établit l'acte de décès. Par précaution, le titulaire peut remplir le formulaire avec les coordonnées de sa commune de résidence","location":"/Empreinte/Funerals Contact","type":"city_hall","perso":0},{"key":"home_help","name":"Salarié ou associations","doctype":"com.empreinte.Fcontacts","excerpt":"Le décès de l'employeur met fin au contrat de travail qui liait celui-ci à son salarié. ","location":"/Empreinte/Funerals Contact","type":"home_help","perso":0},{"key":"work_help","name":"Pôle Emploi","doctype":"com.empreinte.Fcontacts","excerpt":"","location":"/Empreinte/Funerals Contact","type":"work_help","perso":0},{"key":"notaire","name":"Notaire","doctype":"com.empreinte.Fcontacts","excerpt":"Le recours au notaire est indispensable si le défunt possédait des biens immobiliers.","location":"/Empreinte/Funerals Contact","type":"notaire","perso":0},{"key":"bailleur","name":"Bailleur","doctype":"com.empreinte.Fcontacts","excerpt":"Prévenir le bailleur ou l'agence pour une location ou en cas de copropriété, prévenir le syndic.","location":"/Empreinte/Funerals Contact","type":"bailleur","perso":0},{"key":"prefecture","name":"Préfecture","doctype":"com.empreinte.Fcontacts","excerpt":"Pour modifier la carte grise d'un véhicule ","location":"/Empreinte/Funerals Contact","type":"prefecture","perso":0},{"key":"poste","name":"Poste","doctype":"com.empreinte.Fcontacts","excerpt":"Pour le réacheminement du courrier.","location":"/Empreinte/Funerals Contact","type":"poste","perso":0},{"key":"telecom","name":"Opérateur Télécom","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"bank","name":"Banque","doctype":"com.empreinte.Fcontacts","excerpt":"La banque fournit l'inventaire des biens du défunt ou bloquera les comptes en attendant la liquidation de la succession.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"credit","name":"Organisme de crédit","doctype":"com.empreinte.Fcontacts","excerpt":"L'organisme de crédit peut reporter ou bloquer les prélèvements jusqu'au règlement de la succession. ","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"assurance","name":"Assurance","doctype":"com.empreinte.Fcontacts","excerpt":"Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"impot","name":"Centre d'impot","doctype":"com.empreinte.Fcontacts","excerpt":"Le centre des impôts régularise la situation concernant l'impôt sur le revenu, la taxe foncière, la taxe d'habitation.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"energy","name":"Fournisseur d'énergie","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"water","name":"Réseau de l'eau","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"work","name":"Employeur","doctype":"com.empreinte.Fcontacts","excerpt":"Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …","location":"/Empreinte/Funerals Contact","type":"work","perso":0},{"key":"retraite","name":"Caisse de retraite","doctype":"com.empreinte.Fcontacts","excerpt":"Pour les informer du décès et interrompre les versements.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"caf","name":"Caisse d'allocations familiales","doctype":"com.empreinte.Fcontacts","excerpt":"Informer la caisse d'allocation familiales pour arrêter le versement des prestations sociales éventuelles.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"health_organism","name":"Régime Général de santé","doctype":"com.empreinte.Fcontacts","excerpt":"En prévenant l'assurance complémentaire maladie, celle-ci verse les sommes dues au jour du décès.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"social_security","name":"Sécurité Sociale","doctype":"com.empreinte.Fcontacts","excerpt":"C'est auprès de Sécurité Sociale que les droits à pension de veuf ou de veuve sont demandés.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"principal_doctor","name":"Médecin Traitant","doctype":"com.empreinte.Fcontacts","excerpt":"Quel que soit le lieu du décès, celui-ci doit être officiellement constaté par un médecin.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0}]}]
 
 /***/ }),
 
