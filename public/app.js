@@ -13014,69 +13014,71 @@ var Letter = function (_React$Component) {
         _this2.setState({
           data: res
         });
+
+        if (_this2.state.value.forms.value.hasOwnProperty('organism')) {
+          if (_this2.state.hasOwnProperty('data')) {
+            _this2.setState({
+              organism: _this2.state.data.organism == null ? _this2.state.value.forms.value.organism.value.organism : _this2.state.data.organism
+            });
+          } else {
+            _this2.setState({
+              organism: _this2.state.value.forms.value.organism.value.organism
+            });
+          }
+        }
+
+        if (_this2.state.value.forms.value.hasOwnProperty('interlocutor')) {
+          if (_this2.state.hasOwnProperty('data')) {
+            _this2.setState({
+              gender: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.gender : _this2.state.data.interlocuteur.civility,
+              firstname: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.firstName : _this2.state.data.interlocuteur.firstname,
+              lastname: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.lastName : _this2.state.data.interlocuteur.lastname
+            });
+          } else {
+            _this2.setState({
+              gender: _this2.state.value.forms.value.interlocutor.value.gender,
+              firstname: _this2.state.value.forms.value.interlocutor.value.firstName,
+              lastname: _this2.state.value.forms.value.interlocutor.value.lastName
+            });
+          }
+        }
+
+        if (_this2.state.value.forms.value.hasOwnProperty('address')) {
+          console.log(_this2.state.hasOwnProperty('data'));
+          if (_this2.state.hasOwnProperty('data')) {
+            console.log('OK');
+            _this2.setState({
+              way: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.way : _this2.state.data.address.way,
+              code: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.code : _this2.state.data.address.code,
+              city: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.city : _this2.state.data.address.city
+            });
+          } else {
+            _this2.setState({
+              way: _this2.state.value.forms.value.address.value.way,
+              code: _this2.state.value.forms.value.address.value.code,
+              city: _this2.state.value.forms.value.address.value.city
+            });
+          }
+        }
+
+        if (_this2.state.value.forms.value.hasOwnProperty('infos')) {
+          if (_this2.state.hasOwnProperty('data')) {
+
+            _this2.setState({
+              telephone: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.telephone : _this2.state.data.telephone,
+              telecopie: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.telecopie : _this2.state.data.telecopie,
+              email: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.email : _this2.state.data.email
+            });
+          } else {
+            _this2.setState({
+              telephone: _this2.state.value.forms.value.infos.value.telephone,
+              telecopie: _this2.state.value.forms.value.infos.value.telecopie,
+              email: _this2.state.value.forms.value.infos.value.email
+            });
+          }
+        }
       });
 
-      if (this.state.value.forms.value.hasOwnProperty('organism')) {
-        if (this.state.hasOwnProperty('data')) {
-          this.setState({
-            organism: this.state.data.organism == null ? this.state.value.forms.value.organism.value.organism : this.state.data.organism
-          });
-        } else {
-          this.setState({
-            organism: this.state.value.forms.value.organism.value.organism
-          });
-        }
-      }
-
-      if (this.state.value.forms.value.hasOwnProperty('interlocutor')) {
-        if (this.state.hasOwnProperty('data')) {
-          this.setState({
-            gender: this.state.data.interlocuteur == null ? this.state.value.forms.value.interlocutor.value.gender : this.state.data.interlocuteur.civility,
-            firstname: this.state.data.interlocuteur == null ? this.state.value.forms.value.interlocutor.value.firstName : this.state.data.interlocuteur.firstname,
-            lastname: this.state.data.interlocuteur == null ? this.state.value.forms.value.interlocutor.value.lastName : this.state.data.interlocuteur.lastname
-          });
-        } else {
-          this.setState({
-            gender: this.state.value.forms.value.interlocutor.value.gender,
-            firstname: this.state.value.forms.value.interlocutor.value.firstName,
-            lastname: this.state.value.forms.value.interlocutor.value.lastName
-          });
-        }
-      }
-
-      if (this.state.value.forms.value.hasOwnProperty('address')) {
-        if (this.state.hasOwnProperty('data')) {
-
-          this.setState({
-            way: this.state.data.address == null ? this.state.value.forms.value.address.value.way : this.state.data.address.way,
-            code: this.state.data.address == null ? this.state.value.forms.value.address.value.code : this.state.data.address.code,
-            city: this.state.data.address == null ? this.state.value.forms.value.address.value.city : this.state.data.address.city
-          });
-        } else {
-          this.setState({
-            way: this.state.value.forms.value.address.value.way,
-            code: this.state.value.forms.value.address.value.code,
-            city: this.state.value.forms.value.address.value.city
-          });
-        }
-      }
-
-      if (this.state.value.forms.value.hasOwnProperty('infos')) {
-        if (this.state.hasOwnProperty('data')) {
-
-          this.setState({
-            telephone: this.state.data.way == null ? this.state.value.forms.value.infos.value.telephone : this.state.data.telephone,
-            telecopie: this.state.data.way == null ? this.state.value.forms.value.infos.value.telecopie : this.state.data.telecopie,
-            email: this.state.data.way == null ? this.state.value.forms.value.infos.value.email : this.state.data.email
-          });
-        } else {
-          this.setState({
-            telephone: this.state.value.forms.value.infos.value.telephone,
-            telecopie: this.state.value.forms.value.infos.value.telecopie,
-            email: this.state.value.forms.value.infos.value.email
-          });
-        }
-      }
       console.log(this.state);
     }
   }, {

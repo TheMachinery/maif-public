@@ -1083,6 +1083,10 @@ var _Impot = __webpack_require__("./src/containers/Impot.js");
 
 var _Impot2 = _interopRequireDefault(_Impot);
 
+var _scroll = __webpack_require__("./src/tools/scroll.jsx");
+
+var _scroll2 = _interopRequireDefault(_scroll);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var history = (0, _history.createHashHistory)();
@@ -1107,7 +1111,7 @@ var App = function App(props) {
   return _react2.default.createElement(
     _reactRouter.Router,
     { onUpdate: function onUpdate() {
-        return window.scrollTo(0, 0);
+        return document.body.scrollTop = 0;
       }, history: history },
     _react2.default.createElement(
       'div',
@@ -1116,6 +1120,7 @@ var App = function App(props) {
         'div',
         { className: _App2.default.container },
         _react2.default.createElement(_Navigation2.default, null),
+        _react2.default.createElement(_scroll2.default, null),
         _react2.default.createElement(
           'div',
           { className: _App2.default.page },
@@ -4862,9 +4867,69 @@ var Contacts = function (_Component) {
             });
         }
     }, {
+        key: 'profilePreview',
+        value: function profilePreview() {
+            var _this2 = this;
+
+            cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+                data: {
+                    type: 'io.cozy.permissions',
+                    attributes: {
+                        permissions: {
+                            "settings": {
+                                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                                "type": "io.cozy.settings",
+                                "verbs": ["GET"]
+                            },
+                            "data-funerals-lastwill": {
+                                "description": "App required data Last Will access",
+                                "type": "com.empreinte.FLastWill",
+                                "verbs": ["GET"]
+                            },
+                            "data-funerals-contacts": {
+                                "description": "App required data Last Will access",
+                                "type": "com.empreinte.Fcontacts",
+                                "verbs": ["GET"]
+                            },
+                            "data-funerals-custom-contacts": {
+                                "description": "App required data Last Will access",
+                                "type": "com.empreinte.Fcustomcontacts",
+                                "verbs": ["GET"]
+                            },
+                            "data-homeData": {
+                                "description": "App required data homeData access",
+                                "type": "com.empreinte.homeData",
+                                "verbs": ["GET"]
+                            },
+                            "contacts": {
+                                "description": "App required contacts access",
+                                "type": "com.empreinte.contacts",
+                                "verbs": ["GET"]
+                            },
+                            "metas": {
+                                "description": "App required metas access",
+                                "type": "com.empreinte.meta",
+                                "verbs": ["GET"]
+                            },
+                            "contact": {
+                                "description": "App required contact access",
+                                "type": "io.cozy.contacts",
+                                "verbs": ["GET"]
+                            }
+                        }
+                    }
+                }
+            }).then(function (result) {
+                _this2.sharing = result.attributes.codes['partage'];
+                console.log(_this2.sharing);
+
+                window.open('/public?sharecode=' + _this2.sharing + '#/', '_blank');
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             cozy.client.data.findAll("com.empreinte.contacts").then(function (index) {
                 console.log(index);
@@ -4881,7 +4946,7 @@ var Contacts = function (_Component) {
             var add = _react2.default.createElement(
                 'button',
                 { onClick: function onClick() {
-                        return _this2.add();
+                        return _this3.add();
                     }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
                 _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'media/add.svg' }),
                 'AJOUTER UN PROCHE'
@@ -4895,7 +4960,7 @@ var Contacts = function (_Component) {
                     _react2.default.createElement(
                         'li',
                         { onClick: function onClick() {
-                                _this2.props.onSelectAll();
+                                _this3.props.onSelectAll();
                             } },
                         _react2.default.createElement(
                             'i',
@@ -4908,7 +4973,7 @@ var Contacts = function (_Component) {
             var remove = _react2.default.createElement(
                 'button',
                 { onClick: function onClick() {
-                        return _this2.props.onRemoveContacts(elements.filter(function (f) {
+                        return _this3.props.onRemoveContacts(elements.filter(function (f) {
                             return f.selected;
                         }));
                     }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.assertive) },
@@ -4963,9 +5028,9 @@ var Contacts = function (_Component) {
                             _react2.default.createElement(
                                 _ContactList2.default,
                                 { view: _constants.VIEW_LIST, onClickItem: function onClickItem(item) {
-                                        return _this2.open(item);
+                                        return _this3.open(item);
                                     }, onSelectItem: function onSelectItem(item) {
-                                        return _this2.select(item);
+                                        return _this3.select(item);
                                     } },
                                 peoples
                             )
@@ -5067,7 +5132,7 @@ var Contacts = function (_Component) {
                     _react2.default.createElement(
                         'h3',
                         { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches. ' },
-                        'Autres dossiers partag\xE9',
+                        'Mon dossier obs\xE8ques accessible par mes proches',
                         _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
                     )
                 ),
@@ -5077,15 +5142,17 @@ var Contacts = function (_Component) {
                     _react2.default.createElement(
                         'p',
                         { className: _Contacts2.default.introProches },
-                        'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.'
+                        'Les proches r\xE9f\xE9rents acc\xE8dent au dossier obs\xE8ques du titulaire. Il contient les derni\xE8res volont\xE9s de la personne ainsi qu\'un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.'
                     )
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: _Contacts2.default.dataObseque },
                     _react2.default.createElement(
-                        _reactRouterDom.Link,
-                        { to: '/dossier' },
+                        'span',
+                        { onClick: function onClick() {
+                                return _this3.profilePreview();
+                            } },
                         _react2.default.createElement(
                             'div',
                             { className: _Contacts2.default.divContact },
@@ -5095,7 +5162,7 @@ var Contacts = function (_Component) {
                                 _react2.default.createElement(
                                     'p',
                                     { className: _Contacts2.default.contactName },
-                                    'Sahra Vadrotte'
+                                    'Mon dossier obs\xE8que'
                                 ),
                                 _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'media/chevronpurple.svg' })
                             ),
@@ -5107,7 +5174,7 @@ var Contacts = function (_Component) {
                 _react2.default.createElement(
                     _reactPortal2.default,
                     { isOpened: this.state.modalOpen, closeOnEsc: true, onClose: function onClose() {
-                            return _this2.setState({ modalOpen: false, current: null, edition: false });
+                            return _this3.setState({ modalOpen: false, current: null, edition: false });
                         } },
                     _react2.default.createElement(
                         _Modal2.default,
@@ -5116,10 +5183,10 @@ var Contacts = function (_Component) {
                             item: this.state.current,
                             title: this.state.current ? "Modifier votre contact" : "Créer votre contact",
                             onSave: function onSave(contact) {
-                                return _this2.addOrSaveContact(contact);
+                                return _this3.addOrSaveContact(contact);
                             },
                             onRemove: function onRemove() {
-                                return _this2.remove();
+                                return _this3.remove();
                             },
                             edit: this.state.edition })
                     )
@@ -8790,7 +8857,11 @@ var Footer = function (_Component) {
     function Footer(props, context) {
         _classCallCheck(this, Footer);
 
-        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props, context));
+        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props, context));
+
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+        return _this;
     }
 
     _createClass(Footer, [{
@@ -9042,6 +9113,7 @@ var FuneralList = function (_React$Component) {
 
     (0, _meta.getMeta)().then(function (result) {
       _this.setTypeGroup(result[0].value);
+      console.log(result[0].value);
 
       (0, _tools.getDataElements)(_index.DOCTYPE_F_CONTACTS).then(function (res) {
         if (res.length > 0) {
@@ -10034,17 +10106,9 @@ var Home = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var add = _react2.default.createElement(
-        'button',
-        { onClick: function onClick() {
-            return _this3.openOnboarding();
-          }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-        _react2.default.createElement('img', { className: _FuneralList2.default.add, src: 'media/add.svg' }),
-        'RENSEIGNER LES INFORMATIONS'
-      );
       return _react2.default.createElement(
         _Page2.default,
-        { title: 'Votre espace priv\xE9 d\xE9c\xE8s', actions: [add],
+        { title: 'Votre espace priv\xE9 d\xE9c\xE8s',
           subtitle: 'Bienvenue dans votre espace priv\xE9. Quel que soit son \xE2ge, on a tous dans l\'id\xE9e de laisser nos \xAB\xA0affaires en ordre\xA0\xBB, au cas o\xF9... Ici, vous avez la possibilit\xE9 de le faire en toute qui\xE9tude, \xE0 votre rythme. Commencez, interrompez-vous, reprenez plus tard. L\'outil est souple, intuitif, regorge d\u2019informations. Visitez-le \xE0 votre guise. A mesure que vous avancerez, votre r\xE9flexion sur vos derni\xE8res volont\xE9s pourra s\'affiner. Et en plus, cet espace est enti\xE8rement priv\xE9 et s\xE9curis\xE9. Il vous est r\xE9serv\xE9.' },
         _react2.default.createElement(
           'div',
@@ -33528,6 +33592,58 @@ function string_to_slug(str) {
 
     return str;
 }
+
+/***/ }),
+
+/***/ "./src/tools/scroll.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__("./node_modules/react-router/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollToTop = function (_React$Component) {
+  _inherits(ScrollToTop, _React$Component);
+
+  function ScrollToTop() {
+    _classCallCheck(this, ScrollToTop);
+
+    return _possibleConstructorReturn(this, (ScrollToTop.__proto__ || Object.getPrototypeOf(ScrollToTop)).apply(this, arguments));
+  }
+
+  _createClass(ScrollToTop, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return null;
+    }
+  }]);
+
+  return ScrollToTop;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRouter.withRouter)(ScrollToTop);
 
 /***/ }),
 
