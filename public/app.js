@@ -121,7 +121,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".Contacts-add__knhv {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3VZR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__1oVp {\n  margin-left: 10px; }\n\n.Contacts-divContact__1Oiq {\n  margin: 10px; }\n\n.Contacts-divContact__1Oiq:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__1XrQ {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__1Ad7 {\n  margin-left: 10px; }\n\n.Contacts-seperator__3xJD {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__2JUb {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-row__Vpte {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__2Ipg {\n  font-size: 20px; }\n\n.Contacts-done__3LR2 {\n  max-width: 50px; }\n\n.Contacts-waiting__1F3j {\n  max-width: 50px; }\n", ""]);
+exports.push([module.i, ".Contacts-add__knhv {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3VZR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__1oVp {\n  margin-left: 10px; }\n\n.Contacts-divContact__1Oiq {\n  margin: 10px; }\n\n.Contacts-divContact__1Oiq:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__1XrQ {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__1Ad7 {\n  margin-left: 10px; }\n\n.Contacts-seperator__3xJD {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__2JUb {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-titlePageCollapse__18o4 {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n\n.Contacts-row__Vpte {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__2Ipg {\n  font-size: 20px; }\n\n.Contacts-done__3LR2 {\n  max-width: 50px; }\n\n.Contacts-waiting__1F3j {\n  max-width: 50px; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -133,6 +133,7 @@ exports.locals = {
 	"chevron": "Contacts-chevron__1Ad7",
 	"seperator": "Contacts-seperator__3xJD",
 	"titlePage": "Contacts-titlePage__2JUb",
+	"titlePageCollapse": "Contacts-titlePageCollapse__18o4",
 	"row": "Contacts-row__Vpte",
 	"introProches": "Contacts-introProches__2Ipg",
 	"done": "Contacts-done__3LR2",
@@ -11033,16 +11034,7 @@ var Dossier = function (_Component) {
         { title: this.user.public_name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
         _react2.default.createElement(
           _reactCollapsible2.default,
-          { trigger: 'Informations personnelles du d\xE9funt' },
-          _react2.default.createElement(
-            'div',
-            { className: _Contacts2.default.row },
-            _react2.default.createElement(
-              'h3',
-              { className: _Contacts2.default.titlePage },
-              'Informations personnelles du d\xE9funt'
-            )
-          ),
+          { triggerOpenedClassName: _Contacts2.default.titlePageCollapse, triggerClassName: _Contacts2.default.titlePageCollapse, trigger: 'Informations personnelles du d\xE9funt' },
           _react2.default.createElement(
             'div',
             { className: _Contacts2.default.data },
@@ -11190,16 +11182,7 @@ var Dossier = function (_Component) {
         ),
         _react2.default.createElement(
           _reactCollapsible2.default,
-          { trigger: 'D\xE9marches Administratives \xE0 r\xE9aliser' },
-          _react2.default.createElement(
-            'div',
-            { className: _Contacts2.default.row },
-            _react2.default.createElement(
-              'h3',
-              { className: _Contacts2.default.titlePage },
-              'D\xE9marches Administratives \xE0 r\xE9aliser'
-            )
-          ),
+          { triggerOpenedClassName: _Contacts2.default.titlePageCollapse, triggerClassName: _Contacts2.default.titlePageCollapse, trigger: 'D\xE9marches Administratives \xE0 r\xE9aliser' },
           _react2.default.createElement(
             'div',
             { className: _Contacts2.default.row },
