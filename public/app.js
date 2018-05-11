@@ -10835,6 +10835,14 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
 
+var _reactResponsiveAccordion = __webpack_require__("./node_modules/react-responsive-accordion/dist/Accordion.js");
+
+var _reactResponsiveAccordion2 = _interopRequireDefault(_reactResponsiveAccordion);
+
+var _reactCollapsible = __webpack_require__("./node_modules/react-collapsible/dist/Collapsible.js");
+
+var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
+
 var _Page = __webpack_require__("./src/public/components/elements/Page.js");
 
 var _Page2 = _interopRequireDefault(_Page);
@@ -11024,261 +11032,269 @@ var Dossier = function (_Component) {
         _Page2.default,
         { title: this.user.public_name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
         _react2.default.createElement(
-          'div',
-          { className: _Contacts2.default.row },
+          _reactCollapsible2.default,
+          { trigger: 'Informations personnelles du d\xE9funt' },
           _react2.default.createElement(
-            'h3',
-            { className: _Contacts2.default.titlePage },
-            'Informations personnelles du d\xE9funt'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: _Contacts2.default.data },
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/profil' },
+            'div',
+            { className: _Contacts2.default.row },
             _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Profil de ',
-                  this.user.public_name
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+              'h3',
+              { className: _Contacts2.default.titlePage },
+              'Informations personnelles du d\xE9funt'
             )
           ),
           _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/dernieres-volontees' },
+            'div',
+            { className: _Contacts2.default.data },
             _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
+              _reactRouterDom.Link,
+              { to: '/profil' },
               _react2.default.createElement(
                 'div',
-                { className: _Contacts2.default.contentContact },
+                { className: _Contacts2.default.divContact },
                 _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Ses derni\xE8res volont\xE9s'
+                  'div',
+                  { className: _Contacts2.default.contentContact },
+                  _react2.default.createElement(
+                    'p',
+                    { className: _Contacts2.default.contactName },
+                    'Profil de ',
+                    this.user.public_name
+                  ),
+                  _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
                 ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Expliquez \xE0 vos proches vos attentes pour ses obs\xE8ques'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/relation' },
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+              )
+            ),
             _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
+              _reactRouterDom.Link,
+              { to: '/dernieres-volontees' },
               _react2.default.createElement(
                 'div',
-                { className: _Contacts2.default.contentContact },
+                { className: _Contacts2.default.divContact },
                 _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Les proches r\xE9f\xE9rents'
+                  'div',
+                  { className: _Contacts2.default.contentContact },
+                  _react2.default.createElement(
+                    'p',
+                    { className: _Contacts2.default.contactName },
+                    'Ses derni\xE8res volont\xE9s'
+                  ),
+                  _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
                 ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/relation' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Proches \xE0 pr\xE9venir'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/presta-funeraire' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Prestataire fun\xE9raire'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                ' Ce service vous permet de g\xE9olocaliser les prestataires fun\xE9raires, faire des demandes de devis, stocker le devis retenu.'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/don-corps' },
-            _react2.default.createElement(
-              'div',
-              { className: _Contacts2.default.divContact },
-              _react2.default.createElement(
-                'div',
-                { className: _Contacts2.default.contentContact },
-                _react2.default.createElement(
-                  'p',
-                  { className: _Contacts2.default.contactName },
-                  'Don du corps \xE0 la science'
-                ),
-                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Toutes les informations pour donner son corps \xE0 la science ou pour stipuler son refus de don d\u2019organe.'
-              ),
-              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: _Contacts2.default.row },
-          _react2.default.createElement(
-            'h3',
-            { className: _Contacts2.default.titlePage },
-            'D\xE9marches Administratives \xE0 r\xE9aliser'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: _Contacts2.default.row },
-          _react2.default.createElement(
-            'p',
-            null,
-            ' Un d\xE9c\xE8s occasionne nombre de formalit\xE9s. Notre assistant administratif hi\xE9rarchise les priorit\xE9s, synchronise les donn\xE9es personnelles (noms, adresses, contacts ...) avec les courriers-types et permet le suivi de chaque d\xE9marche.'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: _Contacts2.default.dataObseque },
-          this.arr.map(function (item) {
-            return _react2.default.createElement(
-              'span',
-              null,
-              _react2.default.createElement(
-                'div',
-                { className: _Dossier2.default.delai },
                 _react2.default.createElement(
                   'p',
                   null,
-                  item.chrono
-                )
-              ),
-              _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: "/letter/" + item.slug + "/" + _this2.getID(item.id) },
-                _react2.default.createElement(
-                  'div',
-                  { className: _Contacts2.default.divContact },
-                  _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.contentContact },
-                    _react2.default.createElement(
-                      'p',
-                      { className: _Contacts2.default.contactName },
-                      item.title
-                    ),
-                    _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' }),
-                    _this2.getValue(item.id) && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' }),
-                    !_this2.getValue(item.id) && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/waiting.png' })
-                  ),
-                  _react2.default.createElement(
-                    'p',
-                    null,
-                    item.content
-                  ),
-                  _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-                )
+                  'Expliquez \xE0 vos proches vos attentes pour ses obs\xE8ques'
+                ),
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
               )
-            );
-          }),
-          this.state.customData.map(function (item) {
-            console.log(item);
-            return _react2.default.createElement(
-              'span',
-              null,
+            ),
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/relation' },
               _react2.default.createElement(
                 'div',
-                { className: _Dossier2.default.delai },
+                { className: _Contacts2.default.divContact },
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.contentContact },
+                  _react2.default.createElement(
+                    'p',
+                    { className: _Contacts2.default.contactName },
+                    'Les proches r\xE9f\xE9rents'
+                  ),
+                  _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
+                ),
                 _react2.default.createElement(
                   'p',
                   null,
-                  'DANS LES 6 MOIS'
-                )
-              ),
+                  'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici'
+                ),
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+              )
+            ),
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/relation' },
               _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: "/letter/" + item.formType + "/" + item._id },
+                'div',
+                { className: _Contacts2.default.divContact },
                 _react2.default.createElement(
                   'div',
-                  { className: _Contacts2.default.divContact },
+                  { className: _Contacts2.default.contentContact },
                   _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.contentContact },
-                    _react2.default.createElement(
-                      'p',
-                      { className: _Contacts2.default.contactName },
-                      item.type
-                    ),
-                    _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' }),
-                    _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' })
+                    'p',
+                    { className: _Contacts2.default.contactName },
+                    'Proches \xE0 pr\xE9venir'
                   ),
+                  _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
+                ),
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+              )
+            ),
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/presta-funeraire' },
+              _react2.default.createElement(
+                'div',
+                { className: _Contacts2.default.divContact },
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.contentContact },
+                  _react2.default.createElement(
+                    'p',
+                    { className: _Contacts2.default.contactName },
+                    'Prestataire fun\xE9raire'
+                  ),
+                  _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  ' Ce service vous permet de g\xE9olocaliser les prestataires fun\xE9raires, faire des demandes de devis, stocker le devis retenu.'
+                ),
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+              )
+            ),
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/don-corps' },
+              _react2.default.createElement(
+                'div',
+                { className: _Contacts2.default.divContact },
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.contentContact },
+                  _react2.default.createElement(
+                    'p',
+                    { className: _Contacts2.default.contactName },
+                    'Don du corps \xE0 la science'
+                  ),
+                  _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'Toutes les informations pour donner son corps \xE0 la science ou pour stipuler son refus de don d\u2019organe.'
+                ),
+                _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactCollapsible2.default,
+          { trigger: 'D\xE9marches Administratives \xE0 r\xE9aliser' },
+          _react2.default.createElement(
+            'div',
+            { className: _Contacts2.default.row },
+            _react2.default.createElement(
+              'h3',
+              { className: _Contacts2.default.titlePage },
+              'D\xE9marches Administratives \xE0 r\xE9aliser'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _Contacts2.default.row },
+            _react2.default.createElement(
+              'p',
+              null,
+              ' Un d\xE9c\xE8s occasionne nombre de formalit\xE9s. Notre assistant administratif hi\xE9rarchise les priorit\xE9s, synchronise les donn\xE9es personnelles (noms, adresses, contacts ...) avec les courriers-types et permet le suivi de chaque d\xE9marche.'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _Contacts2.default.dataObseque },
+            this.arr.map(function (item) {
+              return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: _Dossier2.default.delai },
                   _react2.default.createElement(
                     'p',
                     null,
-                    'LOREM IPSU'
-                  ),
-                  _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+                    item.chrono
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: "/letter/" + item.slug + "/" + _this2.getID(item.id) },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.divContact },
+                    _react2.default.createElement(
+                      'div',
+                      { className: _Contacts2.default.contentContact },
+                      _react2.default.createElement(
+                        'p',
+                        { className: _Contacts2.default.contactName },
+                        item.title
+                      ),
+                      _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' }),
+                      _this2.getValue(item.id) && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' }),
+                      !_this2.getValue(item.id) && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/waiting.png' })
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      item.content
+                    ),
+                    _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+                  )
                 )
-              )
-            );
-          })
+              );
+            }),
+            this.state.customData.map(function (item) {
+              console.log(item);
+              return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: _Dossier2.default.delai },
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'DANS LES 6 MOIS'
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: "/letter/" + item.formType + "/" + item._id },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.divContact },
+                    _react2.default.createElement(
+                      'div',
+                      { className: _Contacts2.default.contentContact },
+                      _react2.default.createElement(
+                        'p',
+                        { className: _Contacts2.default.contactName },
+                        item.type
+                      ),
+                      _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' }),
+                      _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' })
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'LOREM IPSU'
+                    ),
+                    _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+                  )
+                )
+              );
+            })
+          )
         )
       ) : _react2.default.createElement(
         'div',
