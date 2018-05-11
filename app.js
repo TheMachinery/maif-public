@@ -9473,7 +9473,7 @@ var FuneralList = function (_React$Component) {
               { className: _FuneralList2.default.sectionSearch },
               _react2.default.createElement(
                 'h3',
-                null,
+                { className: _FuneralList2.default.titleHome },
                 'Mes contacts administratifs'
               ),
               add
