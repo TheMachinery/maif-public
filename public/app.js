@@ -3794,7 +3794,7 @@ module.exports = [{"name":"Informations principales","group":[{"name":"type","di
 /***/ "./src/constants/data/funerals/contact.json":
 /***/ (function(module, exports) {
 
-module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"banque":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de la banque"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Transformer le compte join n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Assurance Décès du prêt n°"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"complementaire_maladie":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"notaire_address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"worker_address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"},{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
+module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"banque":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de la banque"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Transformer le compte join n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Assurance Décès du prêt n°"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}]]}],"complementaire_maladie":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}],[{"name":"name","hide":true}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"notaire_address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"worker_address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"},{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
 
 /***/ }),
 
@@ -8832,7 +8832,8 @@ var DataForm = function (_Component) {
 
             }
           } else {
-            _this3.props.closeModal('/data/' + _this3.infos.slug + '/' + data.data._id);
+            console.log(_this3.infos);
+            _this3.props.closeModal('/letter/' + _this3.infos.slug + '/' + data.data._id);
           }
         });
       } else {
@@ -8887,7 +8888,9 @@ var DataForm = function (_Component) {
                 _this3.props.close('/home');
             }
           } else {
-            _this3.props.closeModal('/data/' + _this3.infos.slug + '/' + data.data._id);
+            console.log(_this3.infos);
+            console.log(data);
+            _this3.props.closeModal('/letter/' + data.data.formType + '/' + data.data._id);
           }
         });
       }
@@ -13120,7 +13123,9 @@ var Letter = function (_React$Component) {
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
         console.log(res[0]);
         console.log(_this2.state);
-        _this2.setState({ user: res[0] });
+        _this2.setState({ user: res[0], firstname: res[0].firstname,
+          lastname: res[0].name,
+          address: res[0].address.way + " " + res[0].address.code + " " + res[0].address.city });
         console.log(_this2.state);
       });
 
@@ -13189,11 +13194,6 @@ var Letter = function (_React$Component) {
             'label',
             null,
             'Acte re\xE7u le '
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'D\xE9marche faite par'
           )
         ),
         _react2.default.createElement(
@@ -13204,15 +13204,36 @@ var Letter = function (_React$Component) {
             }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
           _react2.default.createElement('input', { onChange: function onChange(e) {
               return _this3.refs.deces.innerHTML = e.target.value;
-            }, type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-          _react2.default.createElement('input', { onChange: function onChange(e) {
-              return _this3.refs.nameRef.innerHTML = e.target.value;
-            }, type: 'text', id: 'faitePar', placeholder: 'Mr Dupont Pierre', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+            }, type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         ),
         _react2.default.createElement(
           'h3',
           { className: _Retraite2.default.titleRetraite },
           'R\xE9f\xE9rent'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.labelDemarche },
+          _react2.default.createElement(
+            'label',
+            null,
+            'D\xE9marche faite par '
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Lien de parent\xE9'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.adresse },
+          _react2.default.createElement('input', { onChange: function onChange(e) {
+              return _this3.refs.nameRef.innerHTML = e.target.value;
+            }, type: 'text', id: 'faitePar', placeholder: 'Mr Dupont Pierre', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { onChange: function onChange(e) {
+              return _this3.refs.parent.innerHTML = e.target.value;
+            }, type: 'text', id: 'faite', placeholder: 'Fr\xE8re', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         ),
         _react2.default.createElement(
           'div',
@@ -13479,7 +13500,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'renderLetter',
     value: function renderLetter() {
-
+      if (this.state.hasOwnProperty('address') === false) return null;
       if (this.state.hasOwnProperty('getData') === false) return null;
       var slug = this.props.match.params.slug;
       var d = this.state.data;
@@ -13511,7 +13532,14 @@ var Letter = function (_React$Component) {
               this.state.user.firstname,
               ' ',
               this.state.user.name,
-              ', mon/ma (indiquer le lien de parente\u0301)................................................................... ,survenu le ',
+              ', mon/ma ',
+              _react2.default.createElement(
+                'span',
+                {
+                  ref: 'parent' },
+                '...'
+              ),
+              ', survenu le ',
               _react2.default.createElement(
                 'span',
                 { ref: 'deces' },
@@ -13522,16 +13550,27 @@ var Letter = function (_React$Component) {
                 // use keyName to get current key's name
                 // and a[keyName] to get its value
                 console.log(keyName);
-                return _react2.default.createElement(
-                  'span',
-                  null,
-                  _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: _share2.default[slug][keyName] } }),
-                  d.hasOwnProperty(keyName) ? _react2.default.createElement(
+                if (d[address] === "address") {
+                  return _react2.default.createElement(
                     'span',
-                    { ref: keyName },
-                    d[keyName]
-                  ) : _react2.default.createElement('span', { ref: keyName })
-                );
+                    null,
+                    this.state.address
+                  );
+                } else if (d[address] === "notaire") {
+                  return _react2.default.createElement('span', null);
+                } else {
+
+                  return _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: _share2.default[slug][keyName] } }),
+                    d.hasOwnProperty(keyName) ? _react2.default.createElement(
+                      'span',
+                      { ref: keyName },
+                      d[keyName]
+                    ) : _react2.default.createElement('span', { ref: keyName })
+                  );
+                }
               })
             ),
             _react2.default.createElement(
@@ -13550,7 +13589,7 @@ var Letter = function (_React$Component) {
 
       return _react2.default.createElement(
         _Page2.default,
-        { title: this.state.user.name },
+        { title: this.state.firstname },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
@@ -24411,7 +24450,7 @@ var ContactModal = function (_Component) {
               _react2.default.createElement(
                 'select',
                 {
-                  placeholder: 'Prochqsdfe \xE0 pr\xE9venir ou proche r\xE9f\xE9rent',
+                  placeholder: 'Proche \xE0 pr\xE9venir ou proche r\xE9f\xE9rent',
                   value: this.state.statut,
                   onChange: function onChange(e) {
                     return _this2.setState({ statut: e.target.value });
@@ -25717,7 +25756,7 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/share.json":
 /***/ (function(module, exports) {
 
-module.exports = {"complementaire_maladie":{"health_number":" n° ","keep_person":",<br /> je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"},"employeur":{"info":"qui était employé(e) au sein de votre entreprise, en qualité de","end":",je procède aux formalités qui m’incombent.<br />Je vous saurais gré :<br />&nbsp;&nbsp;– de verser les sommes restant dues,<br />&nbsp;&nbsp;– de me faire parvenir :<br />&nbsp;&nbsp;- le solde de tout compte,<br />&nbsp;&nbsp;- un certificat de travail,<br />&nbsp;&nbsp;- une attestation de présence dans votre entreprise, - une attestation de salaire,<br />&nbsp;&nbsp;- les trois derniers bulletins de salaire,<br />&nbsp;&nbsp;– de me préciser quelles sont les aides ou prestations prévues dans votre société et de m’indiquer la démarche à effectuer pour y prétendre.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.<br />"}}
+module.exports = {"employeur":{"info":"qui était employé(e) au sein de votre entreprise, en qualité de","end":",je procède aux formalités qui m’incombent.<br />Je vous saurais gré :<br />&nbsp;&nbsp;– de verser les sommes restant dues,<br />&nbsp;&nbsp;– de me faire parvenir :<br />&nbsp;&nbsp;- le solde de tout compte,<br />&nbsp;&nbsp;- un certificat de travail,<br />&nbsp;&nbsp;- une attestation de présence dans votre entreprise, - une attestation de salaire,<br />&nbsp;&nbsp;- les trois derniers bulletins de salaire,<br />&nbsp;&nbsp;– de me préciser quelles sont les aides ou prestations prévues dans votre société et de m’indiquer la démarche à effectuer pour y prétendre.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.<br />"},"pole_emploi":{"identifiant":"n° d’identifiant ","contract_owner":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de procéder :<br />&nbsp;&nbsp;– au versement des sommes dues à la date du décès,<br />&nbsp;&nbsp;– de vérifier mes droits, les droits de  ","end":"<br/><br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"banque":{"account_to_delete":"je procède aux formalités qui m’incombent.<br />Aussi, je vous prie de :<br />&nbsp;&nbsp;– bloquer le(s) compte(s) n° :","account_to_transform":"<br/>&nbsp;&nbsp;– transformer le compte joint n°","person_name":"en compte personnel au nom de","assurence_number":"<br/>&nbsp;&nbsp;–m’indiquer la marche à suivre pour bénéficier de la clause d’assurance décès du(des) prêts n°","notaire":true,"end":"<br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"credit":{"credit_number":"n° de crédit.","then":"Je vous saurais gré de :<br />&nbsp;&nbsp;-– m’indiquer les pièces nécessaires à fournir pour l’arrêt du crédit référencé ci-dessus, sachant qu’une assurance décès a été soucrite,<br />&nbsp;&nbsp;– m’indiquer le montant des sommes vous restant dûes, ce crédit n’étant pas assorti d’une assurance décès,<br />&nbsp;&nbsp;-– m’indiquer si ce crédit était assorti d’une assurance crédit,<br />&nbsp;&nbsp;-– m’indiquer les conditions éventuelles de reprise du crédit,<br />","notaire":true,"end":"<br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"complementaire_maladie":{"health_number":" n° ","keep_person":",<br /> je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"},"salarie_association":{"start":"domicilié","address":true,"then":"À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de bien vouloir arrêter vos interventions pour le compte de","name":true,"end":"en cas d’emploi par une association mandataire,<br />&nbsp;&nbsp;– de dresser un état estimatif des sommes restant dues en cas d’emploi direct. Le solde de tout compte vous parviendra dans les meilleurs délais.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"cpam":{"ss_number":"n° de Sécurité sociale ","person":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;–– de m’indiquer la marche à suivre pour faire valoir mes droits éventuels, ou ceux de : - au capital décès,<br />&nbsp;&nbsp;–- à l’allocation veuvage,<br />&nbsp;&nbsp;–- à la pension de veuf ou veuve invalide,<br />&nbsp;&nbsp;–– de procéder aux remboursements des frais de maladie restant dus au défunt, – de procéder à mon immatriculation personnelle.<br />Merci de préciser éventuellement si d’autres démarches sont à effectuer pour faire valoir mes droits ou ceux de ","end":"<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"assurance_material":{"societaire_number":"n° de sociétaire","transfert_name":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de :<br />&nbsp;&nbsp;– maintenir l’ensemble des contrats et de les transférer au nom de","contrat_type":"<br />&nbsp;&nbsp;– résilier les contrats","new_address":"<br />&nbsp;&nbsp;– prendre note que l’adresse et le mode de facturation ne changent pas,<br />&nbsp;&nbsp;– adresser la facturation au nom et à l’adresse suivante","remboursement":"<br />&nbsp;&nbsp;– cesser les prélèvements, le compte étant bloqué dans l’attente du règlement de la succession,<br />&nbsp;&nbsp;– procéder au remboursement de la partie de la cotisation versée par anticipation pour la période du","notaire":true,"end":"<br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"assurance_person":{"societaire_number":"n° de contrat","presta_adresse":"<br />&nbsp;&nbsp;En tant que bénéficiaire je vous demande :<br />&nbsp;&nbsp;– de bien vouloir procéder au versement des capitaux prévus au contrat,<br />&nbsp;&nbsp;– ou, selon le contrat, de régler l’entreprise de pompes funèbres","end":"<br /><br />Je vous remercie par avance et vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"notaire":{"end":"Aussi, je vous demande de procéder à l’ouverture de la succession.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"retraite":{"subscribe_number":"n° d’inscription ","capital":"<br />&nbsp;&nbsp;je procède aux formalités qui m’incombent.<br />&nbsp;&nbsp;À ces fins, je vous saurais gré de :<br />&nbsp;&nbsp;– vérifier mes droits ou ceux de","pension":"au capital décès,<br />&nbsp;&nbsp;– faire valoir mes droits ou ceux de ","end":"à la pension de réversion, – de procéder au règlement des arriérés dus à la date du décès.<br />&nbsp;&nbsp;Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"bailleur":{"start":"votre locataire domicilié(e) ","address":true,"date":"<br />Je procède aux formalités qui m’incombent.<br />À ces fins, je vous demande de bien vouloir :<br />&nbsp;&nbsp;– résilier sans délai le bail établi le","bail":"au bénéfice du défunt,<br />&nbsp;&nbsp;– maintenir le bail en l’état dans l’attente du règlement de la succession,<br />&nbsp;&nbsp;– transférer le bail au nom de","notaire":true,"end":"Je reste à votre disposition pour l’état des lieux et la remise des clés.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"caf":{"allocation_number":"n° d’allocataire","contract_owner":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de bien vouloir me faire parvenir les formulaires pour : - l’allocation de parent isolé,<br />&nbsp;&nbsp;- l’allocation de soutien familial,<br />&nbsp;&nbsp;– d’étudier ma nouvelle situation ou celle de","end":"afin de vérifier si d’autres droits me sont / lui sont ouverts,<br />&nbsp;&nbsp;– d’effectuer le changement d’allocataire,<br />&nbsp;&nbsp;– d’arrêter le versement des prestations sociales éventuelles.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"organism_payer":{"start":"domicilié","address":true,"contract_number":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de résilier l’abonnement ou contrat n°","transfert":"<br />&nbsp;&nbsp;– de transférer cet abonnement ou contrat au nom de","compte_number":"<br />&nbsp;&nbsp;- d’effectuer le prélèvement sur le n° de compte","end":"(RIB/RIP ci-joint).<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"impot":{"start":"domicilié","address":true,"end":"<br />je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de me faire parvenir un formulaire de déclaration de revenus et de m’indiquer les autres formalités à accomplir auprès de vos services.<br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."}}
 
 /***/ }),
 
