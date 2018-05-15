@@ -4106,6 +4106,14 @@ var _Error = __webpack_require__("./src/components/elements/Error.jsx");
 
 var _Error2 = _interopRequireDefault(_Error);
 
+var _ProchesReferent = __webpack_require__("./src/public/components/elements/ProchesReferent.jsx");
+
+var _ProchesReferent2 = _interopRequireDefault(_ProchesReferent);
+
+var _ProchesPrevenir = __webpack_require__("./src/public/components/elements/ProchesPrevenir.jsx");
+
+var _ProchesPrevenir2 = _interopRequireDefault(_ProchesPrevenir);
+
 var _Letter = __webpack_require__("./src/public/components/elements/Letter.jsx");
 
 var _Letter2 = _interopRequireDefault(_Letter);
@@ -4162,6 +4170,8 @@ var App = function App(props) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/don-corps', component: _DonDevis2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/profil', component: _Profile2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/dernieres-volontees', component: _LastWill2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/proches-referents', component: _ProchesReferent2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/proches-a-prevenir', component: _ProchesPrevenir2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/letter/:slug/:id', component: _Letter2.default }),
             _react2.default.createElement(_Footer2.default, null)
           )
@@ -10878,6 +10888,10 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
 
+var _Modal = __webpack_require__("./src/public/components/modals/Modal.jsx");
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
 var _reactResponsiveAccordion = __webpack_require__("./node_modules/react-responsive-accordion/dist/Accordion.js");
 
 var _reactResponsiveAccordion2 = _interopRequireDefault(_reactResponsiveAccordion);
@@ -10898,13 +10912,13 @@ var _ContactList = __webpack_require__("./src/public/components/elements/Contact
 
 var _ContactList2 = _interopRequireDefault(_ContactList);
 
-var _Modal = __webpack_require__("./src/public/components/modals/Modal.jsx");
-
-var _Modal2 = _interopRequireDefault(_Modal);
-
 var _ContactsModal = __webpack_require__("./src/public/components/modals/ContactsModal.jsx");
 
 var _ContactsModal2 = _interopRequireDefault(_ContactsModal);
+
+var _DataForm = __webpack_require__("./src/public/containers/DataForm.js");
+
+var _DataForm2 = _interopRequireDefault(_DataForm);
 
 var _constants = __webpack_require__("./src/public/constants/index.js");
 
@@ -10916,9 +10930,15 @@ var _tools = __webpack_require__("./src/tools/index.js");
 
 var _meta2 = __webpack_require__("./src/public/scripts/meta.js");
 
+var _Navigation = __webpack_require__("./src/public/styles/Navigation.scss");
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
 var _shareHome = __webpack_require__("./src/public/constants/data/shareHome.json");
 
 var _shareHome2 = _interopRequireDefault(_shareHome);
+
+var _dataFields = __webpack_require__("./src/scripts/dataFields.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10927,6 +10947,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Row = function Row(props) {
+  return _react2.default.createElement(
+    'div',
+    { onClick: function onClick(e) {
+        return props.onAdd && props.onAdd(e);
+      } },
+    _react2.default.createElement(
+      'div',
+      { className: (0, _classnames2.default)(_Contacts2.default.row) },
+      _react2.default.createElement(
+        'div',
+        { className: _Contacts2.default.name },
+        _react2.default.createElement(
+          'div',
+          null,
+          props.title,
+          ' ',
+          _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.excerpt },
+          props.excerpt
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: (0, _classnames2.default)(_Contacts2.default.check, _Contacts2.default.checked, _defineProperty({}, _Contacts2.default.checked, props.check)) },
+        props.check && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' }),
+        !props.check && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/waiting.png' })
+      )
+    ),
+    _react2.default.createElement('div', { className: _Contacts2.default.separator })
+  );
+};
 
 var Dossier = function (_Component) {
   _inherits(Dossier, _Component);
@@ -10945,11 +11003,6 @@ var Dossier = function (_Component) {
       customData: [],
       getdata: false
     };
-
-    _this.arr = [];
-    Object.keys(_shareHome2.default).forEach(function (key) {
-      _this.arr.push(_shareHome2.default[key]);
-    });
 
     (0, _meta.getMeta)().then(function (result) {
       _this.setTypeGroup(result[0].value);
@@ -11035,6 +11088,15 @@ var Dossier = function (_Component) {
     value: function setCustomTypeGroup(typeGroup) {
       this.setState({ customTypeGroup: typeGroup });
       this.render();
+    }
+  }, {
+    key: 'clickOnContacts',
+    value: function clickOnContacts() {
+      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      console.log(data);
+      var item = (0, _dataFields.getInfosFromDoctype)(_constants2.DOCTYPE_F_CONTACTS);
+      this.setState({ current: item.slug, formType: data.type, open: true, hiddenType: data.name });
     }
   }, {
     key: 'getID',
@@ -11237,46 +11299,35 @@ var Dossier = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: _Contacts2.default.dataObseque },
-            this.arr.map(function (item) {
-              return _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { className: _Dossier2.default.delai },
+            this.state.typeGroup.map(function (group, key) {
+              var docs = group.types;
+              if (docs && docs.length > 0) {
+                console.log(docs);
+                return _react2.default.createElement(
+                  'li',
+                  { key: key },
                   _react2.default.createElement(
-                    'p',
-                    null,
-                    item.chrono
+                    'ul',
+                    { className: _Contacts2.default.list },
+                    docs.map(function (item, key) {
+                      return _react2.default.createElement(
+                        'li',
+                        { key: key },
+                        _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
+                          onAdd: function onAdd(e) {
+                            if (item.checked) {
+                              _this2.props.history.push("/letter/" + item.key + "/" + item._id);
+                            } else {
+                              _this2.clickOnContacts(item);
+                            }
+                          } })
+                      );
+                    })
                   )
-                ),
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: "/letter/" + item.slug + "/" + _this2.getID(item.id) },
-                  _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.divContact },
-                    _react2.default.createElement(
-                      'div',
-                      { className: _Contacts2.default.contentContact },
-                      _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.contactName },
-                        item.title
-                      ),
-                      _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' }),
-                      _this2.getValue(item.id) && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' }),
-                      !_this2.getValue(item.id) && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/waiting.png' })
-                    ),
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      item.content
-                    ),
-                    _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-                  )
-                )
-              );
+                );
+              } else {
+                return null;
+              }
             }),
             this.state.customData.map(function (item) {
               console.log(item);
@@ -11318,6 +11369,26 @@ var Dossier = function (_Component) {
                   )
                 )
               );
+            })
+          )
+        ),
+        _react2.default.createElement(
+          _reactPortal2.default,
+          { closeOnOutsideClick: false, isOpened: this.state.open, closeOnEsc: true, onClose: function onClose() {
+              return _this2.setState({ open: false });
+            } },
+          _react2.default.createElement(
+            _Modal2.default,
+            null,
+            _react2.default.createElement(_DataForm2.default, {
+              closeModal: this.props.history.replace,
+              slug: this.state.current,
+              hiddenType: this.state.hiddenType,
+              formType: this.state.formType,
+              onboard: false,
+              close: function close() {
+                _this2.setState({ open: false });
+              }
             })
           )
         )
@@ -14550,6 +14621,398 @@ var Prestataire = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Prestataire;
+
+/***/ }),
+
+/***/ "./src/public/components/elements/ProchesPrevenir.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _classnames = __webpack_require__("./node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _reactPortal = __webpack_require__("./node_modules/react-portal/build/portal.js");
+
+var _reactPortal2 = _interopRequireDefault(_reactPortal);
+
+var _buttons = __webpack_require__("./src/public/styles/buttons.scss");
+
+var _buttons2 = _interopRequireDefault(_buttons);
+
+var _Contacts = __webpack_require__("./src/public/styles/Contacts.scss");
+
+var _Contacts2 = _interopRequireDefault(_Contacts);
+
+var _Dossier = __webpack_require__("./src/public/styles/Dossier.scss");
+
+var _Dossier2 = _interopRequireDefault(_Dossier);
+
+var _ToolBoxOptions = __webpack_require__("./src/public/components/elements/ToolBoxOptions.js");
+
+var _ToolBoxOptions2 = _interopRequireDefault(_ToolBoxOptions);
+
+var _lodash = __webpack_require__("./node_modules/lodash/lodash.js");
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+
+var _Page = __webpack_require__("./src/public/components/elements/Page.js");
+
+var _Page2 = _interopRequireDefault(_Page);
+
+var _Loader = __webpack_require__("./src/public/components/elements/Loader.js");
+
+var _Loader2 = _interopRequireDefault(_Loader);
+
+var _ContactList = __webpack_require__("./src/public/components/elements/ContactList.js");
+
+var _ContactList2 = _interopRequireDefault(_ContactList);
+
+var _Modal = __webpack_require__("./src/public/components/modals/Modal.jsx");
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
+var _ContactsModal = __webpack_require__("./src/public/components/modals/ContactsModal.jsx");
+
+var _ContactsModal2 = _interopRequireDefault(_ContactsModal);
+
+var _constants = __webpack_require__("./src/public/constants/index.js");
+
+var _meta = __webpack_require__("./src/scripts/meta.js");
+
+var _constants2 = __webpack_require__("./src/constants/index.js");
+
+var _tools = __webpack_require__("./src/tools/index.js");
+
+var _meta2 = __webpack_require__("./src/public/scripts/meta.js");
+
+var _shareHome = __webpack_require__("./src/public/constants/data/shareHome.json");
+
+var _shareHome2 = _interopRequireDefault(_shareHome);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProchesPrevenir = function (_Component) {
+  _inherits(ProchesPrevenir, _Component);
+
+  function ProchesPrevenir(props, context) {
+    _classCallCheck(this, ProchesPrevenir);
+
+    var _this = _possibleConstructorReturn(this, (ProchesPrevenir.__proto__ || Object.getPrototypeOf(ProchesPrevenir)).call(this, props, context));
+
+    _this.state = {
+      current: null,
+      modalOpen: false,
+      edition: false,
+      id: 0,
+      data: [],
+      customData: [],
+      getdata: false
+    };
+
+    _this.arr = [];
+    Object.keys(_shareHome2.default).forEach(function (key) {
+      _this.arr.push(_shareHome2.default[key]);
+    });
+
+    (0, _meta.getMeta)().then(function (result) {
+      _this.setTypeGroup(result[0].value);
+
+      (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
+        if (res.length > 0) {
+          (function () {
+            var type = result[0].value;
+
+            var _loop = function _loop(n) {
+              var exist = _lodash2.default.find(res, function (t) {
+                return t.type === type[0].types[n].name;
+              });
+              if (exist) {
+                type[0].types[n].checked = true;
+                type[0].types[n]._id = exist._id;
+              }
+            };
+
+            for (var n in type[0].types) {
+              _loop(n);
+            }
+            _this.setTypeGroup(type);
+          })();
+        }
+
+        console.log(res);
+        _this.state.data = res;
+        console.log(_this.state.data);
+        _this.setState({ getData: true });
+        console.log(_this.state.getData);
+      });
+    });
+
+    (0, _meta2.getCustomContactMeta)().then(function (result) {
+      _this.setCustomTypeGroup(result[0].value);
+
+      (0, _tools.getDataElements)(_constants.DOCTYPE_F_CUSTOMCONTACTS).then(function (res) {
+        if (res.length > 0) {
+          (function () {
+            var type = result[0].value;
+
+            var _loop2 = function _loop2(n) {
+              var exist = _lodash2.default.find(res, function (t) {
+                return t.type === type[0].types[n].name;
+              });
+              if (exist) {
+                type[0].types[n].checked = true;
+                type[0].types[n]._id = exist._id;
+              }
+            };
+
+            for (var n in type[0].types) {
+              _loop2(n);
+            }
+            _this.setCustomTypeGroup(type);
+          })();
+        }
+        console.log(res);
+        _this.state.customData = res;
+        console.log(_this.state.customData);
+      });
+    });
+
+    _this.getID = _this.getID.bind(_this);
+
+    cozy.client.settings.getInstance().then(function (res) {
+      console.log(res);
+      _this.user = res.attributes;
+      console.log(_this.user);
+    });
+    return _this;
+  }
+
+  _createClass(ProchesPrevenir, [{
+    key: 'render',
+    value: function render() {}
+  }]);
+
+  return ProchesPrevenir;
+}(_react.Component);
+
+exports.default = ProchesPrevenir;
+
+/***/ }),
+
+/***/ "./src/public/components/elements/ProchesReferent.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _classnames = __webpack_require__("./node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _reactPortal = __webpack_require__("./node_modules/react-portal/build/portal.js");
+
+var _reactPortal2 = _interopRequireDefault(_reactPortal);
+
+var _buttons = __webpack_require__("./src/public/styles/buttons.scss");
+
+var _buttons2 = _interopRequireDefault(_buttons);
+
+var _Contacts = __webpack_require__("./src/public/styles/Contacts.scss");
+
+var _Contacts2 = _interopRequireDefault(_Contacts);
+
+var _Dossier = __webpack_require__("./src/public/styles/Dossier.scss");
+
+var _Dossier2 = _interopRequireDefault(_Dossier);
+
+var _ToolBoxOptions = __webpack_require__("./src/public/components/elements/ToolBoxOptions.js");
+
+var _ToolBoxOptions2 = _interopRequireDefault(_ToolBoxOptions);
+
+var _lodash = __webpack_require__("./node_modules/lodash/lodash.js");
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+
+var _Page = __webpack_require__("./src/public/components/elements/Page.js");
+
+var _Page2 = _interopRequireDefault(_Page);
+
+var _Loader = __webpack_require__("./src/public/components/elements/Loader.js");
+
+var _Loader2 = _interopRequireDefault(_Loader);
+
+var _ContactList = __webpack_require__("./src/public/components/elements/ContactList.js");
+
+var _ContactList2 = _interopRequireDefault(_ContactList);
+
+var _Modal = __webpack_require__("./src/public/components/modals/Modal.jsx");
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
+var _ContactsModal = __webpack_require__("./src/public/components/modals/ContactsModal.jsx");
+
+var _ContactsModal2 = _interopRequireDefault(_ContactsModal);
+
+var _constants = __webpack_require__("./src/public/constants/index.js");
+
+var _meta = __webpack_require__("./src/scripts/meta.js");
+
+var _constants2 = __webpack_require__("./src/constants/index.js");
+
+var _tools = __webpack_require__("./src/tools/index.js");
+
+var _meta2 = __webpack_require__("./src/public/scripts/meta.js");
+
+var _shareHome = __webpack_require__("./src/public/constants/data/shareHome.json");
+
+var _shareHome2 = _interopRequireDefault(_shareHome);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProchesReferent = function (_Component) {
+  _inherits(ProchesReferent, _Component);
+
+  function ProchesReferent(props, context) {
+    _classCallCheck(this, ProchesReferent);
+
+    var _this = _possibleConstructorReturn(this, (ProchesReferent.__proto__ || Object.getPrototypeOf(ProchesReferent)).call(this, props, context));
+
+    _this.state = {
+      current: null,
+      modalOpen: false,
+      edition: false,
+      id: 0,
+      data: [],
+      customData: [],
+      getdata: false
+    };
+
+    _this.arr = [];
+    Object.keys(_shareHome2.default).forEach(function (key) {
+      _this.arr.push(_shareHome2.default[key]);
+    });
+
+    (0, _meta.getMeta)().then(function (result) {
+      _this.setTypeGroup(result[0].value);
+
+      (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
+        if (res.length > 0) {
+          (function () {
+            var type = result[0].value;
+
+            var _loop = function _loop(n) {
+              var exist = _lodash2.default.find(res, function (t) {
+                return t.type === type[0].types[n].name;
+              });
+              if (exist) {
+                type[0].types[n].checked = true;
+                type[0].types[n]._id = exist._id;
+              }
+            };
+
+            for (var n in type[0].types) {
+              _loop(n);
+            }
+            _this.setTypeGroup(type);
+          })();
+        }
+
+        console.log(res);
+        _this.state.data = res;
+        console.log(_this.state.data);
+        _this.setState({ getData: true });
+        console.log(_this.state.getData);
+      });
+    });
+
+    (0, _meta2.getCustomContactMeta)().then(function (result) {
+      _this.setCustomTypeGroup(result[0].value);
+
+      (0, _tools.getDataElements)(_constants.DOCTYPE_F_CUSTOMCONTACTS).then(function (res) {
+        if (res.length > 0) {
+          (function () {
+            var type = result[0].value;
+
+            var _loop2 = function _loop2(n) {
+              var exist = _lodash2.default.find(res, function (t) {
+                return t.type === type[0].types[n].name;
+              });
+              if (exist) {
+                type[0].types[n].checked = true;
+                type[0].types[n]._id = exist._id;
+              }
+            };
+
+            for (var n in type[0].types) {
+              _loop2(n);
+            }
+            _this.setCustomTypeGroup(type);
+          })();
+        }
+        console.log(res);
+        _this.state.customData = res;
+        console.log(_this.state.customData);
+      });
+    });
+
+    _this.getID = _this.getID.bind(_this);
+
+    cozy.client.settings.getInstance().then(function (res) {
+      console.log(res);
+      _this.user = res.attributes;
+      console.log(_this.user);
+    });
+    return _this;
+  }
+
+  _createClass(ProchesReferent, [{
+    key: 'render',
+    value: function render() {}
+  }]);
+
+  return ProchesReferent;
+}(_react.Component);
+
+exports.default = ProchesReferent;
 
 /***/ }),
 
@@ -25377,7 +25840,7 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/share.json":
 /***/ (function(module, exports) {
 
-module.exports = {"health_organism":{"health_number":" n° ","keep_person":",<br />je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"}}
+module.exports = {"health_organism":{"health_number":" n° ","keep_person":",<br /> je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"}}
 
 /***/ }),
 
