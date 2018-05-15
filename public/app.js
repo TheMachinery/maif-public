@@ -13550,13 +13550,13 @@ var Letter = function (_React$Component) {
                 // use keyName to get current key's name
                 // and a[keyName] to get its value
                 console.log(keyName);
-                if (d[address] === "address") {
+                if (d[keyName] === "address") {
                   return _react2.default.createElement(
                     'span',
                     null,
                     this.state.address
                   );
-                } else if (d[address] === "notaire") {
+                } else if (d[keyName] === "notaire") {
                   return _react2.default.createElement('span', null);
                 } else {
 
