@@ -13587,6 +13587,7 @@ var Letter = function (_React$Component) {
     value: function render() {
       var _this5 = this;
 
+      if (this.state.hasOwnProperty('firstname') === false) return null;
       return _react2.default.createElement(
         _Page2.default,
         { title: this.state.firstname },
