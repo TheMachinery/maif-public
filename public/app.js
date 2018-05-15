@@ -3770,6 +3770,48 @@ exports.default = Error;
 
 /***/ }),
 
+/***/ "./src/constants/data/contact.json":
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Informations principales","group":[{"key":"city_hall","name":"Mairie","doctype":"com.empreinte.Fcontacts","excerpt":"C'est l'administration du lieu du décès qui établit l'acte de décès. Par précaution, le titulaire peut remplir le formulaire avec les coordonnées de sa commune de résidence","location":"/Empreinte/Funerals Contact","type":"city_hall","perso":0},{"key":"home_help","name":"Salarié ou associations","doctype":"com.empreinte.Fcontacts","excerpt":"Le décès de l'employeur met fin au contrat de travail qui liait celui-ci à son salarié. ","location":"/Empreinte/Funerals Contact","type":"home_help","perso":0},{"key":"work_help","name":"Pôle Emploi","doctype":"com.empreinte.Fcontacts","excerpt":"","location":"/Empreinte/Funerals Contact","type":"work_help","perso":0},{"key":"notaire","name":"Notaire","doctype":"com.empreinte.Fcontacts","excerpt":"Le recours au notaire est indispensable si le défunt possédait des biens immobiliers.","location":"/Empreinte/Funerals Contact","type":"notaire","perso":0},{"key":"bailleur","name":"Bailleur","doctype":"com.empreinte.Fcontacts","excerpt":"Prévenir le bailleur ou l'agence pour une location ou en cas de copropriété, prévenir le syndic.","location":"/Empreinte/Funerals Contact","type":"bailleur","perso":0},{"key":"prefecture","name":"Préfecture","doctype":"com.empreinte.Fcontacts","excerpt":"Pour modifier la carte grise d'un véhicule ","location":"/Empreinte/Funerals Contact","type":"prefecture","perso":0},{"key":"poste","name":"Poste","doctype":"com.empreinte.Fcontacts","excerpt":"Pour le réacheminement du courrier.","location":"/Empreinte/Funerals Contact","type":"poste","perso":0},{"key":"telecom","name":"Opérateur Télécom","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"bank","name":"Banque","doctype":"com.empreinte.Fcontacts","excerpt":"La banque fournit l'inventaire des biens du défunt ou bloquera les comptes en attendant la liquidation de la succession.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"credit","name":"Organisme de crédit","doctype":"com.empreinte.Fcontacts","excerpt":"L'organisme de crédit peut reporter ou bloquer les prélèvements jusqu'au règlement de la succession. ","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"assurance","name":"Assurance","doctype":"com.empreinte.Fcontacts","excerpt":"Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"impot","name":"Centre d'impot","doctype":"com.empreinte.Fcontacts","excerpt":"Le centre des impôts régularise la situation concernant l'impôt sur le revenu, la taxe foncière, la taxe d'habitation.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"energy","name":"Fournisseur d'énergie","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"water","name":"Réseau de l'eau","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"work","name":"Employeur","doctype":"com.empreinte.Fcontacts","excerpt":"Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …","location":"/Empreinte/Funerals Contact","type":"work","perso":0},{"key":"retraite","name":"Caisse de retraite","doctype":"com.empreinte.Fcontacts","excerpt":"Pour les informer du décès et interrompre les versements.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"caf","name":"Caisse d'allocations familiales","doctype":"com.empreinte.Fcontacts","excerpt":"Informer la caisse d'allocation familiales pour arrêter le versement des prestations sociales éventuelles.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"health_organism","name":"Organisme de santé","doctype":"com.empreinte.Fcontacts","excerpt":"En prévenant l'assurance complémentaire maladie, celle-ci verse les sommes dues au jour du décès.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"social_security","name":"Sécurité Sociale","doctype":"com.empreinte.Fcontacts","excerpt":"C'est auprès de Sécurité Sociale que les droits à pension de veuf ou de veuve sont demandés.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"principal_doctor","name":"Médecin Traitant","doctype":"com.empreinte.Fcontacts","excerpt":"Quel que soit le lieu du décès, celui-ci doit être officiellement constaté par un médecin.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0}]}]
+
+/***/ }),
+
+/***/ "./src/constants/data/diagnosis.json":
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Informations principales","group":[{"name":"type","display":"Type","type":"list","values":["DPE","ERNMT","Plomb (CREP)","Amiante (DAPP)","Installation intérieur élétricité","Installation intérieur de gaz","autre"],"required":true,"question":"Quel est le type de diagnostic effectué ?"},{"name":"name","display":"Nom","question":"Quel est l'intitulé du diagnostic ?"},{"name":"date","display":"Date de réalisation","type":"date","required":true,"question":"A quelle date ?"},{"name":"expirationDate","display":"Date d'expiration","type":"date","question":"Quand expire t-il ?"},{"name":"DPEEnergyClass","display":"Étiquette énergétique DPE","depend":{"key":"type","value":"DPE"},"question":"Quelle est l'étiquette énergétique calculée durant le diagnostic ?","type":"list","values":["A","B","C","D","E","F"]},{"name":"realEnergyConsommation","display":"consommation conventionnelle kWh/m².an","type":"number","depend":{"key":"type","value":"DPE"},"question":"Quelle est la consommation conventionnelle calculée durant le diagnostic ?"},{"name":"carbonClass","display":"Étiquette carbon","depend":{"key":"type","value":"DPE"},"question":"Quelle est l'étiquette carbone calculée durant le diagnostic ?","type":"list","values":["A","B","C","D","E","F"]},{"name":"CO2emission","display":"estimation émission kg eq CO2 / m².an","type":"number","depend":{"key":"type","value":"DPE"},"question":"Quelle est l'estimation d'émission calculée durant le diagnostic ?"},{"name":"cep","display":"Coefficient Cep","type":"number","depend":{"key":"type","value":"DPE"},"question":"Quel est le coefficient CEP calculé durant le diagnostic ?"},{"name":"bbio","display":"Coefficient Bbio","type":"number","depend":{"key":"type","value":"DPE"},"question":"Quel est le coefficient BBio calculé durant le diagnostic ?"},{"name":"tic","display":"Valeur TIC","type":"number","depend":{"key":"type","value":"DPE"},"question":"Quelle est la valeur TIC calculée durant le diagnostic ? (degré celsius)"}]},{"name":"Donnée","group":[{"name":"thermalBridge","display":"Pont thermal"},{"name":"ventilation","display":"Ventilation"},{"name":"lighting","display":"Lumière"}]},{"name":"Données d'équipements","group":[{"name":"heat","display":"Chaleur"},{"name":"cold","display":"Froid"},{"name":"sanitary","display":"Sanitaire"}]}]
+
+/***/ }),
+
+/***/ "./src/constants/data/equipment.json":
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Informations principales","group":[{"name":"type","display":"Type","type":"list","values":["Ventilation naturelle","VMC","VMC Gaz","Autre système de ventilation","Eau chaude sanitaire électrique","Eau chaude sanitaire thermodynamique","Eau chaude solaire","Chaudière à gaz","Chaudière fuel","Poêle à bois","Cheminée, foyer, insert","Radiateurs électriques","Chauffage solaire","Pompe à chaleur","Climatiseur","Installation photovoltaïques","Réfrigérateur","Lave-linge","Cuisinière","Table de cuisson","Four","Lave-vaisselle","Cave à vin","Sèche-linge","Box de pilotage maison","Box internet/télévision","Autre"],"required":true,"question":"De quel type est votre équipement ?"},{"name":"name","display":"Nom","question":"Quelle est le nom de votre équipement ?"},{"name":"brand","display":"Marque","question":"Quelle est la marque de votre équipement ?"},{"name":"model","display":"Modèle","depend":"brand","question":"Quel est le modèle de votre équipement ?"},{"name":"buyDate","display":"Date d'achat","type":"date","question":"Quand avez-vous acheté cet équipement ?"},{"name":"installDate","display":"Date d'installation","type":"date","question":"Quand avez-vous installé cet équipement ?"},{"name":"guaranteeEndDate","display":"Date de fin de garantie","type":"date","question":"Quelle est la date de fin de garantie ?"},{"name":"lastMaintenanceDate","display":"Date de la dernière maintenance","type":"date","question":"Quelle est la date du dernier entretien ?"},{"name":"energyClass","display":"Classe énergetique","question":"Quelle est la classe énergétique de cet équipement ?"}]}]
+
+/***/ }),
+
+/***/ "./src/constants/data/funerals/contact.json":
+/***/ (function(module, exports) {
+
+module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"banque":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de la banque"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Transformer le compte join n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Assurance Décès du prêt n°"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"complementaire_maladie":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"notaire_address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"worker_address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire","display":"Nom du notaire"}],[{"name":"adress_notaire","display":"Adresse du notaire"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"},{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"organism","display":"Nom"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
+
+/***/ }),
+
+/***/ "./src/constants/data/funerals/last_will.json":
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Mes dernieres Volontés","excerpt":"Les dernières volontés peuvent être des souhaits précis sur la manière dont seront organisées les obsèques.\n Ou uniquement des grandes lignes (cérémonie et sépulture) pour laisser aux proches le soin de l'organisation des obsèques.","description":" ","group":[[{"name":"conservation","display":"Les Soins de Conservation","type":"textarea"}],[{"name":"cercueil","display":"Les choix du cerceuil et de ses accessoires","type":"textarea"}],[{"name":"presentation","display":"La présentation du corps","type":"textarea"}],[{"name":"organisation","display":"L’Organisation des funérailles","type":"textarea"}],[{"name":"ceremonial","display":"Cérémonial","type":"textarea"}],[{"name":"incineration","display":"Crémation ou Inhumation","type":"textarea"},{"name":"ifIncineration","display":"Quel devenir pour les cendres ?","type":"textarea"}],[{"name":"wish","display":"Souhaits Particuliers","type":"textarea"}]]}]
+
+/***/ }),
+
+/***/ "./src/constants/data/home.json":
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'identifier la personne détentrice de l'espace privé. ","group":[[{"name":"civilite","display":"Civilité","type":"list","values":["Madame","Monsieur","Autre"]},{"name":"name","display":"Nom"},{"name":"firstname","display":"Prénom"}],[{"name":"birthdate","type":"birthdate","display":"Date de naissance"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"email","display":"EMAIL","type":"email"}]]}]
+
+/***/ }),
+
 /***/ "./src/constants/filetypes.json":
 /***/ (function(module, exports) {
 
@@ -12951,6 +12993,10 @@ var _Retraite = __webpack_require__("./src/public/styles/Retraite.scss");
 
 var _Retraite2 = _interopRequireDefault(_Retraite);
 
+var _DataTable = __webpack_require__("./src/public/components/elements/DataTable.jsx");
+
+var _DataTable2 = _interopRequireDefault(_DataTable);
+
 var _classnames = __webpack_require__("./node_modules/classnames/index.js");
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -12964,6 +13010,8 @@ var _share = __webpack_require__("./src/public/constants/data/share.json");
 var _share2 = _interopRequireDefault(_share);
 
 var _tools = __webpack_require__("./src/tools/index.js");
+
+var _dataFields = __webpack_require__("./src/scripts/dataFields.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13013,72 +13061,25 @@ var Letter = function (_React$Component) {
         _this2.setState({
           data: res
         });
-
-        if (_this2.state.value.forms.value.hasOwnProperty('organism')) {
-          if (_this2.state.hasOwnProperty('data')) {
-            _this2.setState({
-              organism: _this2.state.data.organism == null ? _this2.state.value.forms.value.organism.value.organism : _this2.state.data.organism
-            });
-          } else {
-            _this2.setState({
-              organism: _this2.state.value.forms.value.organism.value.organism
-            });
-          }
-        }
-
-        if (_this2.state.value.forms.value.hasOwnProperty('interlocutor')) {
-          if (_this2.state.hasOwnProperty('data')) {
-            _this2.setState({
-              gender: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.gender : _this2.state.data.interlocuteur.civility,
-              firstname: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.firstName : _this2.state.data.interlocuteur.firstname,
-              lastname: _this2.state.data.interlocuteur == null ? _this2.state.value.forms.value.interlocutor.value.lastName : _this2.state.data.interlocuteur.lastname
-            });
-          } else {
-            _this2.setState({
-              gender: _this2.state.value.forms.value.interlocutor.value.gender,
-              firstname: _this2.state.value.forms.value.interlocutor.value.firstName,
-              lastname: _this2.state.value.forms.value.interlocutor.value.lastName
-            });
-          }
-        }
-
-        if (_this2.state.value.forms.value.hasOwnProperty('address')) {
-          console.log(_this2.state.hasOwnProperty('data'));
-          if (_this2.state.hasOwnProperty('data')) {
-            console.log('OK');
-            _this2.setState({
-              way: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.way : _this2.state.data.address.way,
-              code: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.code : _this2.state.data.address.code,
-              city: _this2.state.data.address == null ? _this2.state.value.forms.value.address.value.city : _this2.state.data.address.city
-            });
-          } else {
-            _this2.setState({
-              way: _this2.state.value.forms.value.address.value.way,
-              code: _this2.state.value.forms.value.address.value.code,
-              city: _this2.state.value.forms.value.address.value.city
-            });
-          }
-        }
-
-        if (_this2.state.value.forms.value.hasOwnProperty('infos')) {
-          if (_this2.state.hasOwnProperty('data')) {
-
-            _this2.setState({
-              telephone: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.telephone : _this2.state.data.telephone,
-              telecopie: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.telecopie : _this2.state.data.telecopie,
-              email: _this2.state.data.way == null ? _this2.state.value.forms.value.infos.value.email : _this2.state.data.email
-            });
-          } else {
-            _this2.setState({
-              telephone: _this2.state.value.forms.value.infos.value.telephone,
-              telecopie: _this2.state.value.forms.value.infos.value.telecopie,
-              email: _this2.state.value.forms.value.infos.value.email
-            });
-          }
-        }
       });
 
       console.log(this.state);
+    }
+  }, {
+    key: 'save',
+    value: function save() {
+      this.setState({
+        edition: false
+      });
+
+      this.props.dataSave(this.infos.doctype, this.props.current);
+    }
+  }, {
+    key: 'edit',
+    value: function edit() {
+      this.setState({
+        edition: true
+      });
     }
   }, {
     key: 'printElem',
@@ -13251,253 +13252,353 @@ var Letter = function (_React$Component) {
   }, {
     key: 'myFormsSuivit',
     value: function myFormsSuivit() {
-      if (this.state.value.hasOwnProperty('suivit')) {
-        return _react2.default.createElement(
-          'span',
-          null,
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        'span',
+        null,
+        _react2.default.createElement(
+          'h3',
+          { className: _Retraite2.default.titleRetraite },
+          'Suivi de dossier'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.labelDemarche },
           _react2.default.createElement(
-            'h3',
-            { className: _Retraite2.default.titleRetraite },
-            'Suivi de dossier'
+            'label',
+            null,
+            'D\xE9marche faite le '
           ),
           _react2.default.createElement(
-            'div',
-            { className: _Retraite2.default.labelDemarche },
-            _react2.default.createElement(
-              'label',
-              null,
-              'D\xE9marche faite le '
-            ),
-            _react2.default.createElement(
-              'label',
-              null,
-              'Acte re\xE7u le '
-            ),
-            _react2.default.createElement(
-              'label',
-              null,
-              'D\xE9marche faite par'
-            )
+            'label',
+            null,
+            'Acte re\xE7u le '
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            'D\xE9marche faite par'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.adresse },
+          _react2.default.createElement('input', { onChange: function onChange(e) {
+              return _this3.refs.date.innerHTML = e.target.value;
+            }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { onChange: function onChange(e) {
+              return _this3.refs.deces.innerHTML = e.target.value;
+            }, type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { onChange: function onChange(e) {
+              return _this3.refs.nameRef.innerHTML = e.target.value;
+            }, type: 'text', id: 'faitePar', placeholder: 'Mr Dupont Pierre', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+        ),
+        _react2.default.createElement(
+          'h3',
+          { className: _Retraite2.default.titleRetraite },
+          'R\xE9f\xE9rent'
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'label',
+            null,
+            'Adresse'
           ),
           _react2.default.createElement(
             'div',
             { className: _Retraite2.default.adresse },
-            _react2.default.createElement('input', { type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-            _react2.default.createElement('input', { type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-            _react2.default.createElement('input', { type: 'text', id: 'faitePar', placeholder: 'Mr Dupont Pierre', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'label',
-              null,
-              'suite donn\xE9e ou \xE0 donner'
-            ),
-            _react2.default.createElement('input', { type: 'text', placeholder: '\xE0 imprimer', className: _Retraite2.default.inputForm })
+            _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: 'rue',
+              className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' '),
+              onChange: function onChange(e) {
+                return _this3.refs.wayref.innerHTML = e.target.value;
+              } })
           )
-        );
-      } else return null;
-    }
-  }, {
-    key: 'myLetter',
-    value: function myLetter() {
-      if (this.state.value.hasOwnProperty('letter') && this.state.user.hasOwnProperty('address')) {
-        return _react2.default.createElement(
-          'span',
+        ),
+        _react2.default.createElement(
+          'div',
           null,
           _react2.default.createElement(
-            'page',
-            { className: _Retraite2.default.afour, id: 'letter' },
+            'div',
+            { className: _Retraite2.default.adresse },
+            _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: 'CodePostale',
+              className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
+              onChange: function onChange(e) {
+                return _this3.refs.coderef.innerHTML = e.target.value;
+              } }),
+            _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: 'Ville',
+              className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
+              onChange: function onChange(e) {
+                return _this3.refs.cityref.innerHTML = e.target.value;
+              } })
+          )
+        )
+      );
+    }
+  }, {
+    key: 'myHeaderLetter',
+    value: function myHeaderLetter() {
+      return _react2.default.createElement(
+        'span',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.expediteur },
+          _react2.default.createElement(
+            'p',
+            { ref: 'nameRef' },
+            'Nom pr\xE9nom'
+          ),
+          _react2.default.createElement(
+            'p',
+            { ref: 'wayref' },
+            'Adresse'
+          ),
+          _react2.default.createElement(
+            'p',
+            { ref: 'coderef' },
+            'Code'
+          ),
+          _react2.default.createElement(
+            'p',
+            { ref: 'cityref' },
+            'Ville'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.ToCaisse },
+          _react2.default.createElement(
+            'p',
+            { ref: 'organisme' },
+            'A'
+          ),
+          _react2.default.createElement(
+            'p',
+            { ref: 'way' },
+            this.state.data.address.way
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
             _react2.default.createElement(
-              'div',
-              { className: _Retraite2.default.expediteur },
-              _react2.default.createElement(
-                'p',
-                null,
-                this.state.user.firstname,
-                ' ',
-                this.state.user.name
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                this.state.user.address.way
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                this.state.user.address.code
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                this.state.user.address.city
-              )
+              'span',
+              { ref: 'code' },
+              ' ',
+              this.state.data.address.code,
+              '  '
             ),
+            ' ',
             _react2.default.createElement(
-              'div',
-              { className: _Retraite2.default.ToCaisse },
-              _react2.default.createElement(
-                'p',
-                null,
-                this.state.value.letter.to
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  ' ',
-                  this.state.organism,
-                  ' '
-                )
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  ' ',
-                  this.state.way,
-                  ' '
-                )
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  ' ',
-                  this.state.code,
-                  ' ',
-                  this.state.city,
-                  ' FRANCE '
-                )
-              ),
-              _react2.default.createElement(
-                'p',
-                { className: _Retraite2.default.date },
-                'Le ',
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  this.state.faite
-                )
-              )
+              'span',
+              { ref: 'city' },
+              this.state.data.address.city,
+              '  '
             ),
+            'FRANCE'
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: _Retraite2.default.date },
+            'Le ',
             _react2.default.createElement(
-              'div',
-              { className: _Retraite2.default.contentLetter },
-              _react2.default.createElement(
-                'p',
-                null,
-                'Madame, Monsieur,'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Suite au d\xE9c\xE8s de Monsieur (Madame ou Mademoiselle), ',
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  '.............'
-                ),
-                ', mon/ma (indiquer le lien de parent\xE9)',
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  '...........'
-                ),
-                ', survenu le ',
-                _react2.default.createElement(
-                  'span',
-                  null,
-                  '.............'
-                ),
-                ',',
-                _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: this.state.value.letter.content } }),
-                'je proc\xE8de aux formalit\xE9s qui m\'incombent.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: this.state.value.letter.body } })
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Je vous prie d\'agr\xE9er, Madame, Monsieur, l\'expression de mes sentiments les meilleurs.'
-              ),
-              _react2.default.createElement(
-                'p',
-                { className: _Retraite2.default.signature },
-                'Signature'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: _Retraite2.default.mentionEmployeur },
-              _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: this.state.value.letter.footer } })
+              'span',
+              { ref: 'date' },
+              'jj/mm/yyyy'
             )
           )
-        );
-      } else return null;
+        )
+      );
     }
   }, {
     key: 'myLetterButton',
     value: function myLetterButton() {
-      if (this.state.value.hasOwnProperty('letter')) {
-        return _react2.default.createElement(
-          'span',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'h3',
-              { className: _Retraite2.default.titleRetraite },
-              'Courrier type'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'button',
-              { className: _Retraite2.default.buttonCustom, onClick: this.handleLetter },
-              'METTRE A JOUR'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'button',
-              { className: _Retraite2.default.buttonCustom, onClick: this.printElem },
-              'IMPRIMER'
-            )
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement('br', null),
+      return _react2.default.createElement(
+        'span',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'col-md-8' },
           _react2.default.createElement(
             'h3',
-            null,
-            ' ',
-            this.state.error,
-            ' '
+            { className: _Retraite2.default.titleRetraite },
+            'Courrier type'
           )
-        );
-      } else return null;
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-md-4' },
+          _react2.default.createElement(
+            'button',
+            { className: _Retraite2.default.buttonCustom, onClick: this.printElem },
+            'IMPRIMER'
+          )
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h3',
+          null,
+          ' ',
+          this.state.error,
+          ' '
+        )
+      );
+    }
+  }, {
+    key: 'renderData',
+    value: function renderData() {
+      var _this4 = this;
+
+      this.type = this.props.match.params.slug;
+      this.state.value = _share2.default[this.type];
+      var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      var fields = (0, _dataFields.getFields)(doctype, this.type);
+      if (!fields) return;
+
+      console.log(fields);
+
+      if (!this.state.data) return;
+
+      return _react2.default.createElement(
+        'span',
+        null,
+        fields[0].group.map(function (item) {
+          console.log(item);
+          if (item[0].hasOwnProperty('hide') === false) {
+            if (item[0].type == 'address') {
+              return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'label',
+                    null,
+                    'Adresse'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Retraite2.default.adresse },
+                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this4.state.data[item[0].name].way,
+                      className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' '),
+                      onChange: function onChange(e) {
+                        return _this4.refs.way.innerHTML = e.target.value;
+                      } })
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Retraite2.default.adresse },
+                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.data[item[0].name].code,
+                      className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
+                      onChange: function onChange(e) {
+                        return _this4.refs.code.innerHTML = e.target.value;
+                      } }),
+                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.data[item[0].name].city,
+                      className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
+                      onChange: function onChange(e) {
+                        return _this4.refs.city.innerHTML = e.target.value;
+                      } })
+                  )
+                )
+              );
+            } else {
+              return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  item[0].display
+                ),
+                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this4.state.data[item[0].name],
+                  onChange: function onChange(e) {
+                    return _this4.refs[item[0].name].innerHTML = e.target.value;
+                  },
+                  className: _Retraite2.default.inputForm })
+              );
+            }
+          }
+        }),
+        this.state.getData = true
+      );
+    }
+  }, {
+    key: 'renderLetter',
+    value: function renderLetter() {
+      if (this.state.hasOwnProperty('getData') === false) return null;
+      var slug = this.props.match.params.slug;
+      var d = this.state.data;
+      console.log(d);
+
+      return _react2.default.createElement(
+        'span',
+        null,
+        _react2.default.createElement(
+          'page',
+          { className: _Retraite2.default.afour, id: 'letter' },
+          this.myHeaderLetter(),
+          _react2.default.createElement(
+            'div',
+            { className: _Retraite2.default.contentLetter },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Madame, Monsieur,'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'Suite au de\u0301ce\u0300s de ',
+              this.state.user.civilite,
+              ' ',
+              this.state.user.firstname,
+              ' ',
+              this.state.user.name,
+              ', mon/ma (indiquer le lien de parente\u0301)................................................................... ,survenu le ',
+              _react2.default.createElement(
+                'span',
+                { ref: 'deces' },
+                'jj/mm/yyyy'
+              ),
+              ',',
+              Object.keys(_share2.default[slug]).map(function (keyName, keyIndex) {
+                // use keyName to get current key's name
+                // and a[keyName] to get its value
+                console.log(keyName);
+                return _react2.default.createElement(
+                  'span',
+                  null,
+                  _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: _share2.default[slug][keyName] } }),
+                  d.hasOwnProperty(keyName) ? _react2.default.createElement(
+                    'span',
+                    { ref: keyName },
+                    d[keyName]
+                  ) : _react2.default.createElement('span', { ref: keyName })
+                );
+              })
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: _Retraite2.default.signature },
+              'Signature'
+            )
+          )
+        )
+      );
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this5 = this;
 
       return _react2.default.createElement(
         _Page2.default,
@@ -13505,79 +13606,44 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this3.props.history.goBack();
+              return _this5.props.history.goBack();
             }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
           _react2.default.createElement('i', { className: 'ion-ios-arrow-thin-left' })
         ),
-        _react2.default.createElement(
-          'div',
-          { className: _FuneralList2.default.main },
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'h3',
-                { className: _Retraite2.default.titleRetraite },
-                this.state.value.title
-              )
-            ),
-            _react2.default.createElement('span', { className: _Retraite2.default.dataTxt, dangerouslySetInnerHTML: { __html: this.state.value.infos } })
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'h3',
-              { className: _Retraite2.default.titleRetraite },
-              'Coordonn\xE9es'
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myFormsOrganism()
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myFormsInterlocutor()
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myFormsAddress()
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myFormsInfos()
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myFormsNumber()
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myFormsSuivit()
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              this.myLetterButton()
-            )
-          ),
-          _react2.default.createElement(
-            'span',
-            null,
-            this.myLetter()
-          )
-        )
+        this.renderData(),
+        this.myFormsSuivit(),
+        this.myLetterButton(),
+        this.renderLetter()
       );
     }
+
+    /*render() {
+       return (
+          <Page title={this.state.user.name} subtitle={this.state.value.title}>
+           <button onClick={() => this.props.history.goBack()} className={classNames(button.button, button.stable, style.back)}><i className="ion-ios-arrow-thin-left"></i></button>
+            <div className={style.main}>
+              <div>
+                <div>
+                  <h3 className={styleRetraite.titleRetraite} >{this.state.value.title}</h3>
+                </div>
+                <span className={styleRetraite.dataTxt} dangerouslySetInnerHTML={{__html: this.state.value.infos }} />
+               </div>
+              <div>
+                <h3 className={styleRetraite.titleRetraite} >Coordonnées</h3>
+                  <span>{ this.myFormsOrganism() }</span>
+                <span>{ this.myFormsInterlocutor() }</span>
+                <span>{ this.myFormsAddress() }</span>
+                <span>{ this.myFormsInfos() }</span>
+                <span>{ this.myFormsNumber() }</span>
+                 <span>{ this.myFormsSuivit() }</span>
+                 <span>{ this.myLetterButton() }</span>
+               </div>
+              <span>{ this.myLetter() }</span>
+            </div>
+          </Page>
+      );
+    }*/
+
   }]);
 
   return Letter;
@@ -25290,7 +25356,7 @@ module.exports = [{"name":"Informations principales","group":[{"name":"type","di
 /***/ "./src/public/constants/data/funerals/contact.json":
 /***/ (function(module, exports) {
 
-module.exports = {"work":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"work_help":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"bank":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de contrat"}]]}],"health_organism":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}]]}],"home_help":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse du salarié","type":"address"}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"notaire_name","display":"Nom du notaire"}],[{"name":"notaire_address","display":"Adresse du notaire","type":"address"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"notaire_address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"worker_address","display":"Adresse du bailleur","type":"address"}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"name","display":"Nom du bailleur"}],[{"name":"location_name","display":"Nom du locataire"}],[{"name":"location_address","display":"Adresse du locataire","type":"address"}],[{"name":"notaire_name","display":"Nom du notaire"}],[{"name":"notaire_address","display":"Adresse du notaire","type":"address"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
+module.exports = {"work":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"job","display":"Intitulé de l'emploi","type":"info"}]]}],"work_help":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"bank":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de contrat"}]]}],"health_organism":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}]]}],"home_help":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse du salarié","type":"address"}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"notaire_name","display":"Nom du notaire"}],[{"name":"notaire_address","display":"Adresse du notaire","type":"address"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"notaire_address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"worker_address","display":"Adresse du bailleur","type":"address"}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"name","display":"Nom du bailleur"}],[{"name":"location_name","display":"Nom du locataire"}],[{"name":"location_address","display":"Adresse du locataire","type":"address"}],[{"name":"notaire_name","display":"Nom du notaire"}],[{"name":"notaire_address","display":"Adresse du notaire","type":"address"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"worker_address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
 
 /***/ }),
 
@@ -25311,7 +25377,7 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/share.json":
 /***/ (function(module, exports) {
 
-module.exports = {"principal_doctor":{"title":"Le medecin","infos":"<p className={styleRetraite.dataTxt} >Quel que soit le lieu du décès, celui-ci doit être officiellement constaté. Ce constat, généralement effectué par un médecin, est une formalité obligatoire précédant l’établissement de l’acte de décès.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}}},"city_hall":{"title":"La mairie","infos":"<p className={styleRetraite.dataTxt} >Il faut se rendre à la mairie du lieu du décès pour déclarer le décès. La mairie doit établir l'acte de décès. Ce document, à faire établir en plusieurs exemplaires (au moins une dizaine), vous sera indispensable pour les démarches administratives et vous servira également de justificatif auprès de votre employeur si votre lien de parenté avec le défunt vous ouvre droit à une absence rémunérée pour événement familial.\n\r Dans le cas d’un décès dans un établissement public hospitalier, dans une clinique privée ou dans une maison de retraite, la déclaration de décès est effectuée par l’établissement après constatation du décès par le médecin.\nPour tout décès ayant lieu hors du domicile ou hors d’un établissement à caractère hospitalier (voie publique, lieu de travail, à l’étranger...), la déclaration et le certificat de décès sont soumis à des règles spécifiques.</p>","suivit":true,"forms":{"view":true,"value":{"organism":{"view":true,"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"view":true,"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"view":true,"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"view":true,"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}}},"work":{"title":"L'employeur","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À l’employeur","content":"qui était employé(e) au sein de votre entreprise, en qualité de......................................................,","body":"<p>A ces fins, je vous saurais gré : <br />- de verser les sommes restant dues,<br />- de me faire parvenir : <br />&nbsp; &nbsp; - le solde de tout compte, <br />&nbsp; &nbsp; - un certificat de travail, <br />&nbsp; &nbsp; - une attestation de présence dans votre entreprise, <br />&nbsp; &nbsp; - une attestation de salaire, <br />&nbsp &nbsp; - les trois derniers bulletins de salaire, <br />- de me préciser quelles sont les aides ou prestations prévues dans votre société <br />et de m'indiquer la démarche à effectuer pour y prétendre.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"work_help":{"title":"Pôle Emploi","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À Pôle Emploi","content":"qui était employé(e) au sein de votre entreprise, en qualité de......................................................,","body":"<p>A ces fins, je vous saurais gré : <br />- de verser les sommes restant dues,<br />- de me faire parvenir : <br />&nbsp; &nbsp; - le solde de tout compte, <br />&nbsp; &nbsp; - un certificat de travail, <br />&nbsp; &nbsp; - une attestation de présence dans votre entreprise, <br />&nbsp; &nbsp; - une attestation de salaire, <br />&nbsp &nbsp; - les trois derniers bulletins de salaire, <br />- de me préciser quelles sont les aides ou prestations prévues dans votre société <br />et de m'indiquer la démarche à effectuer pour y prétendre.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"home_help":{"title":"Salarié ou association de service à domicile","infos":"Dans le cadre d’emploi direct, le décès de l’employeur met fin <i>ipso facto</i> au contrat de travail qui liait celui-ci à son salarié. Les héritiers devront verser au salarié le dernier salaire et les cotisations sociales ainsi que les indemnités auxquelles il peut prétendre: préavis, licenciement et indemnités de congés payés. Ils devront également fournir au salarié certains documents : certificat de travail, attestation pour Pôle Emploi. En cas d’emploi d’un salarié, il convient d’informer l’Urssaf ou le Cesu (en cas de paiement par Chèque emploi service universel).<br />En cas d’emploi direct par une association mandataire, il faut également prévenir l’association qui préparera les documents de fin de contrat de travail (les frais de gestion restant dûs seront facturés).<br />En ce qui concerne les associations prestataires de services, il s’agit de les informer du décès afin qu’elles interrompent les interventions et leur demander l’envoi de la dernière facture des heures effectuées, le cas échéant, au notaire chargé de la succession","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"Aux salariés/associations","content":"","body":"domicilié .....................................................................................................................................................<br />......................................................................................................................................................,<br /> je procède aux formalités qui m’incombent.À ces fins, je vous saurais gré :<br /> – de bien vouloir arrêter vos interventions pour le compte de M............................. en cas d’emploi par une association mandataire,<br /> – de dresser un état estimatif des sommes restant dues en cas d’emploi direct. Le solde de tout compte vous parviendra dans les meilleurs délais.<br />","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"bank":{"title":"Banque","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"Bloquer le compte n°"}},"letter":{"to":"À la banque","content":"","body":"<p>Aussi, je vous prie de : <br />- bloquer le(s) comptes(s) n° <span> {this.state.compte} </span> <br />- transformer le compte joint n° <span> {this.state.compte} </span><br />en compte personnel au nom de <span>.................................</span><br />- m'indiquer la marche à suivre pour bénéficier de la clause d'assurance décès <br />du(des) prêts n° <span>.....................................................</span><br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"credit":{"title":"Organisme de crédit et assurance-vie","infos":"L’(les) informer du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, l’attestation de présence dans l’entreprise, l’attestation de salaire, le salaire et les accessoires au salaire (participations, intéressement, primes...), les congés payés et les trois derniers bulletins de paie. Ces documents vous seront demandés par les organismes de retraite ou de versement de capital décès.<br />Ne pas oublier de demander les prestations figurant au règlement de l’entreprise ou aux conventions collectives. Dans le cadre d’un contrat souscrit par l’employeur, la famille d’un salarié peut percevoir un capital décès, même si le décès a lieu en dehors du lieu de travail. Le montant de ce capital peut être forfaitaire ou en fonction du salaire.\nSi le défunt était demandeur d’emploi, prévenir Pôle Emploi pour le règlement des sommes dues à la date du décès et vérifier s’il ouvrait des droits auprès de cet organisme en vue de clore le dossier.","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° de contrat"}},"letter":{"to":"À l’organisme de crédit","content":"","body":"<p>Je vous saurai gré de : <br />- m'indiquer les piéces nécessaires à fournir pour l'arrêt du crédit référencé <span>{this.state.immatriculation}</span><br />ci-dessus, sachant qu'une assurance décés a été souscrite,<br />- m'indiquer le montant des sommes vous restant dûes, ce crédit n'étant pas assorti d'une assurance décés,<br />- m'indiquer si ce crédit était assorti d'une assurance crédit,<br />- m'indiquer les conditions éventuelles de reprise du crédit, <br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"assurance_material":{"title":"Assurance","infos":"<p>Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.</p><p>Obtenir le remboursement éventuel du trop-perçu des primes acquittées.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À l’assureur","content":"","body":"<p>A ces fins, je vous saurais gré : <br />- de maintenir l'ensemble des contrats et de les transférer au nom de ...................<br />- résilier les contrats {this.state.immatriculation}<br />- prendre note que l'adresse et le mode de facturation ne changent pas,<br />- adresser la facturation au nom et à l'adresse suivante.........................<br />.............................................................................................<br />- cesser les prélévements, le compte étant bloqué dans l'attente du réglement<br />de la succession,<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour <br />la période du ................................... au ............................ ,<br />- vous mettre en rapport avec Maître ........................, domicilié .................,<br />....................................................................................................,<br />chargé de la succession.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"assurance_person":{"title":"Assurance","infos":"<p>Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.</p><p>Obtenir le remboursement éventuel du trop-perçu des primes acquittées.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À l’assureur","content":"","body":"<p>A ces fins, je vous saurais gré : <br />- de maintenir l'ensemble des contrats et de les transférer au nom de ...................<br />- résilier les contrats {this.state.immatriculation}<br />- prendre note que l'adresse et le mode de facturation ne changent pas,<br />- adresser la facturation au nom et à l'adresse suivante.........................<br />.............................................................................................<br />- cesser les prélévements, le compte étant bloqué dans l'attente du réglement<br />de la succession,<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour <br />la période du ................................... au ............................ ,<br />- vous mettre en rapport avec Maître ........................, domicilié .................,<br />....................................................................................................,<br />chargé de la succession.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"health_organism":{"title":"Mutuelle de santé complémentaire","infos":"<p>La prévenir pour obtenir les sommes dues au défunt au jour du décès.</p><p className={styleRetraite.dataTxt} >Suivant la formule souscrite et les conditions générales et particulières, vérifier si celui-ci propose la prise en charge des frais d'obsèques, le versement d'un capital décès et le remboursement d'une partie des cotisations acquittées.</p><p className={styleRetraite.dataTxt} >Vérifier éventuellement le maintien des droits du conjoint survivant.</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'assuré"}},"letter":{"to":"À l’assurance complémentaire maladie","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- maintenir l'ensemble des contrats et de les tranférer au nom de <span>...............................</span><br />- résilier les contrats<span>.............................................</span><br />- prendre note que l'adresse et le mode de facturation de changent pas,<br />- adresser la facturation au nom  et à l'adresse suivante <span>...............................</span><br /><span>...........................................................................................</span><br />- cesser les prévèlements, le compte étant bloqué dans l'attente du réglement de la succession<br />- procéder au remboursement de la partie de la cotisation versée par anticipation pour  <br />la période du <span>...............................</span> au <span>...............................</span>  <br />- vous mettre au rapport avec Maître <span>...............................</span>, domicilié <span>...............................</span><br /><span>...........................................................................................,</span><br />chargé de la succession<br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"notaire":{"title":"Notaire","infos":"<p><b>Le recours au notaire est indispensable si le défunt possédait des biens immobiliers</b></p><p>En effet, leur transmission doit être constatée dans une attestation notariée publiée au bureau des hypothèques.</p><p>En cas de donation au dernier vivant ou de testament, le notaire se chargera d’organiser la    succession et d’établir la déclaration de succession, si nécessaire</p>","forms":{"value":{"organism":{"value":{"label":"Nom & prénom","organism":"Nom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"Au notaire","content":"","body":"Aussi, je vous demande de procéder à l’ouverture de la succession.","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"retraite":{"title":"Caisse de retraite","infos":"<p>Les caisses de retraite, principales et complémentaires, doivent être informées du décès pour interrompre les versements.</p><p>Pour vérifier les droits au capital décès si le défunt est décédé dans les trois mois suivant la notification de retraite.Ou faire valoir les droits à la pension de réversion pour le conjoint.</p><p>Le conjoint survivant même divorcé, s’il n’est pas remarié, peut bénéficier, sous certaines conditions, de la réversion des droits à la retraite du défunt si celui-ci percevait une retraite ou pouvait y prétendre</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'inscription"}},"letter":{"to":"À la caisse de retraite","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- vérifier mes droits ou ceux de <span>...............................</span> au capital décés,<br />- faire valoir mes droits ou ceux de <span>.........................</span> à la pension de réversion,<br />- de procéder au réglement des arriérés dus à la date du décés.<br /></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"bailleur":{"title":"Bailleur","infos":"<p>Dans le cas d’une location, il faut prévenir le bailleur ou l’agence de location.<br />Dans le cas d’une copropriété, il faut prévenir le syndic de copropriété.</p><p>Si le défunt était locataire (locaux loués vides ou ne relevant pas de la loi de 1948), et qu’aucun membre de la famille ne souhaite reprendre le bail à son nom, celui-ci cesse à la date du décès</p><p>Si le défunt était propriétaire bailleur, le bail continue à courir après son décès. Il convient alors d’informer les locataires des coordonnées du nouveau bénéficiaire du loyer (notaire, héritier) ainsi que le syndic éventuel</p>","forms":{"value":{"organism":{"value":{"label":"Nom du bailleur","organism":"Nom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"Au bailleur","content":"","body":"<p>A ces fins, je vous demande de bien vouloir : <br />- résilier sans délai le bail établi le .................... au bénéfice du défunt,<br />- maintenir le bail en l'état dans l'attente du réglement de la succession, <br />- transférer le bail au nom de .................................................<br /></p><p>Je vous informe que le notaire chargé de la succession est Maître <span>.................................</span><br />domicilié <span>.............................................................................................</span><br /><span>.............................................................................................</span></p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"caf":{"title":"Caisse d'allocations familiales","infos":"<p>Informer pour arrêter le versement des prestations sociales éventuelles.</p><p>Demander une nouvelle immatriculation pour le conjoint survivant.</p><p>Faire valoir d’éventuels droits</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'allocataire"}},"letter":{"to":"À la Caisse d’allocations familiales","content":"n° d’allocataire..............................................................................................................................................,","body":"<p>Je vous saurai gré de : <br />- de bien vouloir me faire parvenir les formulaire pour :<br />&nbsp; - l'allocation de parent isolé, <br />&nbsp; - l'allocation de soutien familial,<br />- d'étudier ma nouvelle situation ou celle de .........................................................<br />afin de vérifier si d'autres droits me sont / lui sont ouverts, <br />- d'effectuer le changement d'allocataire ,<br />- d'arrêter le versement des prestations sociales éventuelles.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"impot":{"title":"Centre d'impot","infos":"<p>Régulariser la situation concernant :</p><p>– l’impôt sur le revenu,</p><p>– la taxe foncière,</p><p>– et la taxe d’habitation.</p><p>Lui adresser la déclaration de succession.</p><p>Si un notaire est chargé de la succession, c’est lui qui, en principe, est mandaté par les héritiers pour accomplir ces démarches</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}}}},"letter":{"to":"À la Caisse d’allocations familiales","content":"","body":"<p>À ces fins, je vous saurais gré de me faire parvenir un formulaire de déclaration de revenus et de m’indiquer les autres formalités à accomplir auprès de vos services.</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"prefecture":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"poste":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"telecom":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"social_security":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"water":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"energy":{"title":"Organisme Payeur","infos":"<p><b>La préfecture ou sous-préfecture</b> pour modifier la carte grise d’un véhicule. Lorsqu’un véhicule est immatriculé au nom du défunt, les proches peuvent l’utiliser le temps de régler la succession (sous réserve de l’accord de l’assureur). Par la suite, celui qui conserve le véhicule doit faire établir une carte grise à son nom en retirant un formulaire auprès de la préfecture, fournir une pièce d’identité, un justificatif de domicile, une attestation du notaire ou un acte de notoriété ainsi qu’une lettre de désistement des autres héritiers ou un certificat du notaire signifiant leur accord. Il n’existe aucun délai obligatoire pour effectuer la démarche de modification de la carte grise lorsque le conducteur du véhicule est le conjoint survivant. Dans les autres cas, la carte grise doit être modifiée en préfecture dans les quinze jours. Le contrat d’assurance du véhicule est maintenu après le décès. Il appartient ensuite aux héritiers, selon les cas, de transférer ou de résilier le contrat. <br /> Si les héritiers vendent le véhicule moins de trois mois après le décès, ou si celui-ci n’a pas circulé depuis le décès, l’établissement d’une nouvelle carte grise n’est pas nécessaire pour la vente.</p><p><b>Le conseil général</b> et autres organismes pour faire cesser les différentes allocations (Apa : allocation personnalisée d’autonomie, autres prestations sociales...).</p><p><b>La Poste</b> pour le réacheminement du courrier.</p><p><b>Électricité - Eau - Abonnements téléphoniques - Abonnements journaux, revues...</b> pour résiliation des contrats ou désignation d’un nouveau titulaire</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"cpam":{"title":"Régime Général de santé","infos":"<p>La prévenir pour obtenir les sommes dues au défunt au jour du décès.</p><p>Suivant la formule souscrite et les conditions générales et particulières, vérifier si celui-ci propose la prise en charge des frais d'obsèques, le versement d'un capital décès et le remboursement d'une partie des cotisations acquittées.</p><p>Vérifier éventuellement le maintien des droits du conjoint survivant.</p>","forms":{"value":{"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"number":"N° d'immatriculation"}},"letter":{"to":"À la CPAM","content":"n° de sécurité sociale ..............................................................................................................................................,","body":"<p>Je vous saurai gré : <br />- de m’indiquer la marche à suivre pour faire valoir mes droits éventuels, ou ceux de :<br />&nbsp; - l'allocation de parent isolé, <br />&nbsp; - au capital décès,<br />&nbsp; - à l’allocation veuvage,<br />&nbsp; - à la pension de veuf ou veuve invalide,<br />- de procéder aux remboursements des frais de maladie restant dus au défunt,<br />- de procéder à mon immatriculation personnelle.<br /><br />Merci de préciser éventuellement si d’autres démarches sont à effectuer pour faire valoir mes droits ou ceux de........................................................................................<p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}},"custom":{"title":"Organisme Payeur","infos":"<p>Autre Organisme.</p>","forms":{"value":{"organism":{"value":{"label":"Organisme","organism":"Nom"}},"interlocutor":{"value":{"label":"Interlocuteur","gender":"Civilité","lastName":"Nom","firstName":"Prénom"}},"address":{"value":{"label":"Adresse","way":"Voie","code":"Code Postale","city":"Ville"}},"infos":{"value":{"label":"Informations","telephone":"Téléphone","telecopie":"Télécopie","email":"Email"}}}},"letter":{"to":"À ....","content":"","body":"<p>A ces fins, je vous saurais gré de : <br />- de résilier l'abonnement ou contrat n° {this.state.immatriculation} <br />- de transférer cet abonnement ou contrat au nom de ......................... <br/>- d'effectuer le prélèvement sur le n° de compte {this.state.compte} <br/>(RIB/RIP ci-joint).</p>","footer":"P. J. : acte de décès.<br />Courrier en recommandé avec accusé de réception."}}}
+module.exports = {"health_organism":{"health_number":" n° ","keep_person":",<br />je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"}}
 
 /***/ }),
 
@@ -30487,6 +30553,199 @@ var viewMode = exports.viewMode = function viewMode() {
 };
 
 exports.default = viewMode;
+
+/***/ }),
+
+/***/ "./src/scripts/dataFields.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getInfosFromDoctype = exports.getInfosFromSlug = exports.getInfosFromPath = exports.getFields = exports.getEquipmentFields = exports.getHomeFields = exports.getDiagnosisFields = exports.getContactFields = undefined;
+
+var _contact = __webpack_require__("./src/constants/data/contact.json");
+
+var _contact2 = _interopRequireDefault(_contact);
+
+var _diagnosis = __webpack_require__("./src/constants/data/diagnosis.json");
+
+var _diagnosis2 = _interopRequireDefault(_diagnosis);
+
+var _home = __webpack_require__("./src/constants/data/home.json");
+
+var _home2 = _interopRequireDefault(_home);
+
+var _equipment = __webpack_require__("./src/constants/data/equipment.json");
+
+var _equipment2 = _interopRequireDefault(_equipment);
+
+var _contact3 = __webpack_require__("./src/constants/data/funerals/contact.json");
+
+var _contact4 = _interopRequireDefault(_contact3);
+
+var _constants = __webpack_require__("./src/constants/index.js");
+
+var _index = __webpack_require__("./src/constants/index.js");
+
+var _last_will = __webpack_require__("./src/constants/data/funerals/last_will.json");
+
+var _last_will2 = _interopRequireDefault(_last_will);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var getContactFields = exports.getContactFields = function getContactFields() {
+  return _contact2.default;
+};
+
+var getDiagnosisFields = exports.getDiagnosisFields = function getDiagnosisFields() {
+  return _diagnosis2.default;
+};
+
+var getHomeFields = exports.getHomeFields = function getHomeFields() {
+  return _home2.default;
+};
+
+var getEquipmentFields = exports.getEquipmentFields = function getEquipmentFields() {
+  return _equipment2.default;
+};
+
+var getFields = exports.getFields = function getFields(doctype) {
+  var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "default";
+
+  switch (doctype) {
+    case _constants.DOCTYPE_DIAGNOSIS:
+      return _diagnosis2.default;
+    case _constants.DOCTYPE_EQUIPMENTS:
+      return _equipment2.default;
+    case _constants.DOCTYPE_HOMEDATA:
+      return _home2.default;
+    case _index.DOCTYPE_F_LASTWILL:
+      return _last_will2.default;
+    case _index.DOCTYPE_F_CONTACTS:
+    case _constants.DOCTYPE_F_CUSTOMCONTACTS:
+      switch (type) {
+        case "work":
+          return _contact4.default.employeur;
+        case "work_help":
+          return _contact4.default.pole_emploi;
+        case "bank":
+          return _contact4.default.banque;
+        case "credit":
+          return _contact4.default.credit;
+        case "health_organism":
+          return _contact4.default.complementaire_maladie;
+        case "home_help":
+          return _contact4.default.salarie_association;
+        case "cpam":
+          return _contact4.default.cpam;
+        case "assurance_material":
+          return _contact4.default.assurance_material;
+        case "assurance_person":
+          return _contact4.default.assurance_person;
+        case "notaire":
+          return _contact4.default.notaire;
+        case "retraite":
+          return _contact4.default.retraite;
+        case "bailleur":
+          return _contact4.default.bailleur;
+        case "locataire":
+          return _contact4.default.locataire;
+        case "caf":
+          return _contact4.default.caf;
+        case "organism_payer":
+          return _contact4.default.organism_payer;
+        case "impot":
+          return _contact4.default.impot;
+        default:
+          return _contact4.default.default;
+      }
+  }
+};
+
+var getInfosFromPath = exports.getInfosFromPath = function getInfosFromPath(path) {
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = _constants.DATA_LIST[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var data = _step.value;
+
+      if (data.path === path) return data;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+};
+
+var getInfosFromSlug = exports.getInfosFromSlug = function getInfosFromSlug(slug) {
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = _constants.DATA_LIST[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var data = _step2.value;
+
+      if (data.slug === slug) return data;
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2.return) {
+        _iterator2.return();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
+  }
+};
+
+var getInfosFromDoctype = exports.getInfosFromDoctype = function getInfosFromDoctype(doctype) {
+  var _iteratorNormalCompletion3 = true;
+  var _didIteratorError3 = false;
+  var _iteratorError3 = undefined;
+
+  try {
+    for (var _iterator3 = _constants.DATA_LIST[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+      var data = _step3.value;
+
+      if (data.doctype === doctype) return data;
+    }
+  } catch (err) {
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion3 && _iterator3.return) {
+        _iterator3.return();
+      }
+    } finally {
+      if (_didIteratorError3) {
+        throw _iteratorError3;
+      }
+    }
+  }
+};
 
 /***/ }),
 
