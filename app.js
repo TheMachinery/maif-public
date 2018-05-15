@@ -9986,14 +9986,6 @@ var Home = function (_React$Component) {
       });
     });
 
-    console.log(_shareHome2.default);
-    _this.arr = [];
-    Object.keys(_shareHome2.default).forEach(function (key) {
-      _this.arr.push(_shareHome2.default[key]);
-    });
-
-    console.log(_this.arr);
-
     return _this;
   }
 
@@ -21522,7 +21514,7 @@ exports.default = CustomInput;
 /***/ "./src/constants/data/contact.json":
 /***/ (function(module, exports) {
 
-module.exports = [{"name":"Informations principales","group":[{"key":"city_hall","name":"Mairie","doctype":"com.empreinte.Fcontacts","excerpt":"C'est l'administration du lieu du décès qui établit l'acte de décès. Par précaution, le titulaire peut remplir le formulaire avec les coordonnées de sa commune de résidence","location":"/Empreinte/Funerals Contact","type":"city_hall","perso":0},{"key":"home_help","name":"Salarié ou associations","doctype":"com.empreinte.Fcontacts","excerpt":"Le décès de l'employeur met fin au contrat de travail qui liait celui-ci à son salarié. ","location":"/Empreinte/Funerals Contact","type":"home_help","perso":0},{"key":"work_help","name":"Pôle Emploi","doctype":"com.empreinte.Fcontacts","excerpt":"","location":"/Empreinte/Funerals Contact","type":"work_help","perso":0},{"key":"notaire","name":"Notaire","doctype":"com.empreinte.Fcontacts","excerpt":"Le recours au notaire est indispensable si le défunt possédait des biens immobiliers.","location":"/Empreinte/Funerals Contact","type":"notaire","perso":0},{"key":"bailleur","name":"Bailleur","doctype":"com.empreinte.Fcontacts","excerpt":"Prévenir le bailleur ou l'agence pour une location ou en cas de copropriété, prévenir le syndic.","location":"/Empreinte/Funerals Contact","type":"bailleur","perso":0},{"key":"prefecture","name":"Préfecture","doctype":"com.empreinte.Fcontacts","excerpt":"Pour modifier la carte grise d'un véhicule ","location":"/Empreinte/Funerals Contact","type":"prefecture","perso":0},{"key":"poste","name":"Poste","doctype":"com.empreinte.Fcontacts","excerpt":"Pour le réacheminement du courrier.","location":"/Empreinte/Funerals Contact","type":"poste","perso":0},{"key":"telecom","name":"Opérateur Télécom","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"bank","name":"Banque","doctype":"com.empreinte.Fcontacts","excerpt":"La banque fournit l'inventaire des biens du défunt ou bloquera les comptes en attendant la liquidation de la succession.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"credit","name":"Organisme de crédit","doctype":"com.empreinte.Fcontacts","excerpt":"L'organisme de crédit peut reporter ou bloquer les prélèvements jusqu'au règlement de la succession. ","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"assurance","name":"Assurance","doctype":"com.empreinte.Fcontacts","excerpt":"Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"impot","name":"Centre d'impot","doctype":"com.empreinte.Fcontacts","excerpt":"Le centre des impôts régularise la situation concernant l'impôt sur le revenu, la taxe foncière, la taxe d'habitation.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"energy","name":"Fournisseur d'énergie","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"water","name":"Réseau de l'eau","doctype":"com.empreinte.Fcontacts","excerpt":"Pour résilier le contrat ou désigner un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"work","name":"Employeur","doctype":"com.empreinte.Fcontacts","excerpt":"Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …","location":"/Empreinte/Funerals Contact","type":"work","perso":0},{"key":"retraite","name":"Caisse de retraite","doctype":"com.empreinte.Fcontacts","excerpt":"Pour les informer du décès et interrompre les versements.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"caf","name":"Caisse d'allocations familiales","doctype":"com.empreinte.Fcontacts","excerpt":"Informer la caisse d'allocation familiales pour arrêter le versement des prestations sociales éventuelles.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"health_organism","name":"Organisme de santé","doctype":"com.empreinte.Fcontacts","excerpt":"En prévenant l'assurance complémentaire maladie, celle-ci verse les sommes dues au jour du décès.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"social_security","name":"Sécurité Sociale","doctype":"com.empreinte.Fcontacts","excerpt":"C'est auprès de Sécurité Sociale que les droits à pension de veuf ou de veuve sont demandés.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0},{"key":"principal_doctor","name":"Médecin Traitant","doctype":"com.empreinte.Fcontacts","excerpt":"Quel que soit le lieu du décès, celui-ci doit être officiellement constaté par un médecin.","location":"/Empreinte/Funerals Contact","type":"administratif","perso":0}]}]
+module.exports = [{"name":"Informations principales","group":[{"key":"medecin","name":"Médecin Traitant","doctype":"com.empreinte.Fcontacts","excerpt":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","location":"/Empreinte/Funerals Contact","type":"medecin","letter":false,"delay":"IMMÉDIATEMENT","perso":0},{"key":"mairie","name":"Mairie","doctype":"com.empreinte.Fcontacts","excerpt":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","location":"/Empreinte/Funerals Contact","type":"mairie","letter":false,"delay":"DANS LES 24 HEURES","perso":0},{"key":"pole_emploi","name":"Pôle Emploi","doctype":"com.empreinte.Fcontacts","excerpt":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","location":"/Empreinte/Funerals Contact","type":"pole_emploi","letter":true,"delay":"DANS LES 48 HEURES","perso":0},{"key":"employeur","name":"Employeur","doctype":"com.empreinte.Fcontacts","excerpt":"Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …","location":"/Empreinte/Funerals Contact","type":"employeur","letter":true,"delay":"DANS LES 48 HEURES","perso":0},{"key":"banque","name":"Banque","doctype":"com.empreinte.Fcontacts","excerpt":"L'une des premières démarches d'ordre administratif à effectuer est de transmettre un acte de décès à la banque du défunt. L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.","location":"/Empreinte/Funerals Contact","type":"banque","letter":true,"delay":"DANS LA SEMAINE","perso":0},{"key":"credit","name":"Organisme de crédit","doctype":"com.empreinte.Fcontacts","excerpt":"En cas de crédit en cours de remboursement, l'organisme prêteur doit être prévenu du décès. L'assurance éventuellement souscrite pourra alors acquitter les sommes restantes dues. Sinon, ce sont les avoirs du défunt qui servent à solder les dettes en cours.","location":"/Empreinte/Funerals Contact","type":"credit","letter":true,"delay":"DANS LA SEMAINE","perso":0},{"key":"complementaire_maladie","name":"Mutuelle de santé complémentaire","doctype":"com.empreinte.Fcontacts","excerpt":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","location":"/Empreinte/Funerals Contact","type":"complementaire_maladie","letter":true,"delay":"DANS LA SEMAINE","perso":0},{"key":"service_domicile","name":"Salarié ou association de service à domicile","doctype":"com.empreinte.Fcontacts","excerpt":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","location":"/Empreinte/Funerals Contact","type":"salarie_association","letter":true,"delay":"DANS LES 7 JOURS","perso":0},{"key":"cpam","name":"Régime Général de santé","doctype":"com.empreinte.Fcontacts","excerpt":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","location":"/Empreinte/Funerals Contact","type":"cpam","letter":true,"delay":"DANS LES 7 JOURS","perso":0},{"key":"assurance_material","name":"Assurance matériel","doctype":"com.empreinte.Fcontacts","excerpt":"Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.","location":"/Empreinte/Funerals Contact","type":"assurance_material","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"assurance_person","name":"Assurance vie","doctype":"com.empreinte.Fcontacts","excerpt":"Prévenir la mutuelle d'assurance est l'une des actions prioritaires à effectuer. La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.","location":"/Empreinte/Funerals Contact","type":"assurance_person","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"notaire","name":"Notaire","doctype":"com.empreinte.Fcontacts","excerpt":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","location":"/Empreinte/Funerals Contact","type":"notaire","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"retraite","name":"Caisse de retraite","doctype":"com.empreinte.Fcontacts","excerpt":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","location":"/Empreinte/Funerals Contact","type":"retraite","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"caf","name":"Caisse d'allocations familiales","doctype":"com.empreinte.Fcontacts","excerpt":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","location":"/Empreinte/Funerals Contact","type":"administratif","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"bailleur","name":"Bailleur ou syndic si co-propriété","doctype":"com.empreinte.Fcontacts","excerpt":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","location":"/Empreinte/Funerals Contact","type":"bailleur","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"conseil_general","name":"Conseil général","doctype":"com.empreinte.Fcontacts","excerpt":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","location":"/Empreinte/Funerals Contact","type":"organism_payer","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"prefecture","name":"Préfecture","doctype":"com.empreinte.Fcontacts","excerpt":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","location":"/Empreinte/Funerals Contact","type":"organism_payer","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"poste","name":"Poste","doctype":"com.empreinte.Fcontacts","excerpt":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","location":"/Empreinte/Funerals Contact","type":"organism_payer","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"telecom","name":"Opérateur Télécom","doctype":"com.empreinte.Fcontacts","excerpt":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","location":"/Empreinte/Funerals Contact","type":"organism_payer","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"energy","name":"Fournisseur d'énergie","doctype":"com.empreinte.Fcontacts","excerpt":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","location":"/Empreinte/Funerals Contact","type":"organism_payer","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"water","name":"Régie de l'eau","doctype":"com.empreinte.Fcontacts","excerpt":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","location":"/Empreinte/Funerals Contact","type":"organism_payer","letter":true,"delay":"DANS LE MOIS","perso":0},{"key":"impot","name":"Centre d'impot","doctype":"com.empreinte.Fcontacts","excerpt":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","location":"/Empreinte/Funerals Contact","type":"impot","letter":true,"delay":"DANS LES 6 MOIS","perso":0}]}]
 
 /***/ }),
 
@@ -28385,7 +28377,7 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/shareHome.json":
 /***/ (function(module, exports) {
 
-module.exports = {"principal_doctor":{"slug":"principal_doctor","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"city_hall":{"slug":"city_hall","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"work_help":{"slug":"work_help","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"work":{"slug":"work","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"health_organism":{"slug":"health_organism","chrono":"DANS LA SEMAINE","title":"Mutuelle de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"home_help":{"slug":"home_help","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Régime Général de santé","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"retraite":{"slug":"retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"caf","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"prefecture","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"social_security":{"slug":"social_security","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"poste","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energy":{"slug":"energy","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"water":{"slug":"water","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"telecom","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
+module.exports = {"principal_doctor":{"slug":"principal_doctor","chrono":"IMMÉDIATEMENT","title":"Médecin traitant","content":"Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.","id":"Médecin Traitant"},"city_hall":{"slug":"city_hall","chrono":"DANS LES 24 HEURES","title":"Mairie","content":"Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.","id":"Mairie"},"work_help":{"slug":"work_help","chrono":"DANS LES 48 HEURES","title":"Pôle Emploi","content":"Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.","id":"Pôle Emploi"},"work":{"slug":"work","chrono":"DANS LES 48 HEURES","title":"Employeur","content":"Déjà, il semble humainement élémentaire de devoir prévenir l'employeur de la personne qui décède. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits aux ayants droits du défunt.","id":"Employeur"},"banque":{"slug":"banque","chrono":"DANS LA SEMAINE","title":"Banque","content":"L'une des premières démarches d'ordre administratif à effectuer est de transmettre un acte de décès à la banque du défunt. L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.","id":"Banque"},"credit":{"slug":"credit","chrono":"DANS LA SEMAINE","title":"Organisme de crédit","content":"En cas de crédit en cours de remboursement, l'organisme prêteur doit être prévenu du décès. L'assurance éventuellement souscrite pourra alors acquitter les sommes restantes dues. Sinon, ce sont les avoirs du défunt qui servent à solder les dettes en cours.","id":"Organisme de crédit et assurance-vie"},"health_organism":{"slug":"health_organism","chrono":"DANS LA SEMAINE","title":"Mutuelle de santé complémentaire","content":"Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.","id":"Organisme de santé complémentaire"},"home_help":{"slug":"home_help","chrono":"DANS LES 7 JOURS","title":"Salarié ou association de service à domicile","content":"Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.","id":"Salarié ou association de service à domicile"},"cpam":{"slug":"cpam","chrono":"immédiatement","title":"Régime Général de santé","content":"Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.","id":"Organisme de santé général"},"assurance":{"slug":"assurance","chrono":"DANS LE MOIS","title":"Assurances","content":"Prévenir la mutuelle d'assurance est l'une des actions prioritaires à effectuer. La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.","id":"Assurance"},"notaire":{"slug":"notaire","chrono":"DANS LE MOIS","title":"Notaire","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Notaire"},"retraite":{"slug":"retraite","chrono":"DANS LE MOIS","title":"Caisse de retraite","content":"Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.","id":"Caisse de retraite"},"bailleur":{"slug":"bailleur","chrono":"DANS LE MOIS","title":"Bailleur ou syndic si co-propriété","content":"Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.","id":"Bailleur ou syndic si co-propriété"},"caf":{"slug":"caf","chrono":"DANS LE MOIS","title":"Caisse d’allocations familiales","content":"La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.","id":"Caisse d’allocations familiales"},"prefecture":{"slug":"prefecture","chrono":"DANS LE MOIS","title":"Préfecture ou sous-préfecture","content":"Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.","id":"Préfecture"},"social_security":{"slug":"social_security","chrono":"DANS LE MOIS","title":"Conseil général","content":"Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.","id":"Conseil général"},"poste":{"slug":"poste","chrono":"DANS LE MOIS","title":"Poste","content":"Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.","id":"id"},"energy":{"slug":"energy","chrono":"DANS LE MOIS","title":"Fournisseur d’énergie","content":"Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.","id":"id"},"water":{"slug":"water","chrono":"DANS LE MOIS","title":"Régie de l’eau","content":"Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.","id":"id"},"telecom":{"slug":"telecom","chrono":"DANS LE MOIS","title":"Opérateur Télécom","content":"Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.","id":"id"},"impot":{"slug":"impot","chrono":"DANS LES 6 MOIS","title":"Centre d’Impôts","content":"Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.","id":"Centre d'impot"}}
 
 /***/ }),
 
@@ -31490,17 +31482,17 @@ var getFields = exports.getFields = function getFields(doctype) {
     case _index.DOCTYPE_F_CONTACTS:
     case _constants.DOCTYPE_F_CUSTOMCONTACTS:
       switch (type) {
-        case "work":
+        case "employeur":
           return _contact4.default.employeur;
-        case "work_help":
+        case "pole_emploi":
           return _contact4.default.pole_emploi;
-        case "bank":
+        case "banque":
           return _contact4.default.banque;
         case "credit":
           return _contact4.default.credit;
-        case "health_organism":
+        case "complementaire_maladie":
           return _contact4.default.complementaire_maladie;
-        case "home_help":
+        case "salarie_association":
           return _contact4.default.salarie_association;
         case "cpam":
           return _contact4.default.cpam;
@@ -31846,6 +31838,7 @@ var getCustomContactMeta = exports.getCustomContactMeta = function () {
     return _ref2.apply(this, arguments);
   };
 }();
+
 var contactExist = exports.contactExist = function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(name) {
     var indexRef, result;
@@ -31911,172 +31904,224 @@ var typeContact = {
   "name": "Mes contacts administratifs",
   "location": "/Contacts Administratifs",
   "types": [{
-    "key": "city_hall",
+    "key": "medecin",
+    "name": "Médecin Traitant",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "medecin",
+    "letter": false,
+    "delay": "IMMÉDIATEMENT",
+    "perso": 0
+  }, {
+    "key": "mairie",
     "name": "Mairie",
     "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "C'est l'administration du lieu du décès qui établit l'acte de décès. Par précaution, le titulaire peut remplir le formulaire avec les coordonnées de sa commune de résidence ",
+    "excerpt": "Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.",
     "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
+    "type": "mairie",
+    "letter": false,
+    "delay": "DANS LES 24 HEURES",
     "perso": 0
   }, {
-    "key": "home_help",
-    "name": "Salarié ou association de service à domicile",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Si vous ou votre proche employait une aide à domicile selon un contrat CESU), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "work_help",
+    "key": "pole_emploi",
     "name": "Pôle Emploi",
     "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Prévenir l’établissement public, pour interrompre le versement des allocations chômages et déclencher le versement d'éventuelles allocations décès pour le conjoint.",
+    "excerpt": "Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.",
     "location": "/Empreinte/Funerals Contact",
-    "type": "work_help",
+    "type": "pole_emploi",
+    "letter": true,
+    "delay": "DANS LES 48 HEURES",
+    "perso": 0
+  }, {
+    "key": "employeur",
+    "name": "Employeur",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "employeur",
+    "letter": true,
+    "delay": "DANS LES 48 HEURES",
+    "perso": 0
+  }, {
+    "key": "banque",
+    "name": "Banque",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "L'une des premières démarches d'ordre administratif à effectuer est de transmettre un acte de décès à la banque du défunt. L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "banque",
+    "letter": true,
+    "delay": "DANS LA SEMAINE",
+    "perso": 0
+  }, {
+    "key": "credit",
+    "name": "Organisme de crédit",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "En cas de crédit en cours de remboursement, l'organisme prêteur doit être prévenu du décès. L'assurance éventuellement souscrite pourra alors acquitter les sommes restantes dues. Sinon, ce sont les avoirs du défunt qui servent à solder les dettes en cours.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "credit",
+    "letter": true,
+    "delay": "DANS LA SEMAINE",
+    "perso": 0
+  }, {
+    "key": "complementaire_maladie",
+    "name": "Mutuelle de santé complémentaire",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "complementaire_maladie",
+    "letter": true,
+    "delay": "DANS LA SEMAINE",
+    "perso": 0
+  }, {
+    "key": "service_domicile",
+    "name": "Salarié ou association de service à domicile",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "salarie_association",
+    "letter": true,
+    "delay": "DANS LES 7 JOURS",
+    "perso": 0
+  }, {
+    "key": "cpam",
+    "name": "Régime Général de santé",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "cpam",
+    "letter": true,
+    "delay": "DANS LES 7 JOURS",
+    "perso": 0
+  }, {
+    "key": "assurance_material",
+    "name": "Assurance matériel",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "assurance_material",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "assurance_person",
+    "name": "Assurance vie",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Prévenir la mutuelle d'assurance est l'une des actions prioritaires à effectuer. La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "assurance_person",
+    "letter": true,
+    "delay": "DANS LE MOIS",
     "perso": 0
   }, {
     "key": "notaire",
     "name": "Notaire",
     "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Il est un intervenant clé dans le règlement de la succession. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.",
+    "excerpt": "Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.",
     "location": "/Empreinte/Funerals Contact",
     "type": "notaire",
-    "perso": 0
-  }, {
-    "key": "bailleur",
-    "name": "Bailleur ou syndic si co-propriété",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Vous êtes locataire de votre logement ou alors vous avez-vous mêmes des locataires, ou encore membre d'un syndic de copropriété ? Le décès les concerne pleinement, des démarches seront à effectuer auprès d’eux.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "bailleur",
-    "perso": 0
-  }, {
-    "key": "prefecture",
-    "name": "Préfecture ou Sous-Préfecture",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "poste",
-    "name": "Poste",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "telecom",
-    "name": "Opérateur Télécom",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire. ",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "bank",
-    "name": "Banque",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "bank",
-    "perso": 0
-  }, {
-    "key": "credit",
-    "name": "Organisme de crédit et assurance-vie",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "En cas de crédit en cours, l'organisme prêteur doit être prévenu du décès. L'assurance pourra acquitter les sommes restantes dues. Sinon, ce sont vos avoirs qui serviront à solder les dettes. ",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "credit",
-    "perso": 0
-  }, {
-    "key": "cpam",
-    "name": "Organisme de santé général",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Salarié, chômeur ou retraité, la Caisse Primaire d’Assurance Maladie, pourra verser un capital décès à votre conjoint, vos enfants ou ascendants.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "cpam",
-    "perso": 0
-  }, {
-    "key": "assurance",
-    "name": "Assurance",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "impot",
-    "name": "Centre d'impot",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Les contrats qui vous lient aux fournisseurs d'énergie devront être résiliés ou mis à jour s'ils étaient établis à votre nom.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "impot",
-    "perso": 0
-  }, {
-    "key": "energy",
-    "name": "Fournisseur d'énergie",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Pour résilier le contrat ou désigner un nouveau titulaire.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "water",
-    "name": "Régie de l'eau",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Comme tous les fournisseurs d'énergie, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
-    "perso": 0
-  }, {
-    "key": "work",
-    "name": "Employeur",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Déjà, il semble humainement élémentaire de prévenir votre employeur. Il sera ensuite tenu de verser les sommes dues pour les heures travaillées, l'épargne salariale... Dans certains cas, un organisme de prévoyance rattaché à la société ouvrira des droits à vos ayants droits.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "work",
+    "letter": true,
+    "delay": "DANS LE MOIS",
     "perso": 0
   }, {
     "key": "retraite",
     "name": "Caisse de retraite",
     "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme pourra initier les règlements dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.",
+    "excerpt": "Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.",
     "location": "/Empreinte/Funerals Contact",
     "type": "retraite",
+    "letter": true,
+    "delay": "DANS LE MOIS",
     "perso": 0
   }, {
     "key": "caf",
     "name": "Caisse d'allocations familiales",
     "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "caf",
-    "perso": 0
-  }, {
-    "key": "health_organism",
-    "name": "Organisme de santé complémentaire",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "En prévenant l'assurance complémentaire maladie, celle-ci verse les sommes dues au jour du décès.",
-    "location": "/Empreinte/Funerals Contact",
-    "type": "health_organism",
-    "perso": 0
-  }, {
-    "key": "social_security",
-    "name": "Conseil Général",
-    "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "L’organisme doit être prévenu dans de courts délais. La démarche déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.",
+    "excerpt": "La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.",
     "location": "/Empreinte/Funerals Contact",
     "type": "administratif",
+    "letter": true,
+    "delay": "DANS LE MOIS",
     "perso": 0
   }, {
-    "key": "principal_doctor",
-    "name": "Médecin Traitant",
+    "key": "bailleur",
+    "name": "Bailleur ou syndic si co-propriété",
     "doctype": "com.empreinte.Fcontacts",
-    "excerpt": "Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.",
+    "excerpt": "Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.",
     "location": "/Empreinte/Funerals Contact",
-    "type": "administratif",
+    "type": "bailleur",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "conseil_general",
+    "name": "Conseil général",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "prefecture",
+    "name": "Préfecture",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "poste",
+    "name": "Poste",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "telecom",
+    "name": "Opérateur Télécom",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "energy",
+    "name": "Fournisseur d'énergie",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "water",
+    "name": "Régie de l'eau",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "impot",
+    "name": "Centre d'impot",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "impot",
+    "letter": true,
+    "delay": "DANS LES 6 MOIS",
     "perso": 0
   }]
 };
