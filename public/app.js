@@ -13545,7 +13545,7 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this4.state.data[item[0].name].way,
+                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this4.state.hasOwnProperty(item[0].name) ? _this4.state.data[item[0].name].way : "voie",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.way.innerHTML = e.target.value;
@@ -13558,12 +13558,12 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.data[item[0].name].code,
+                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.hasOwnProperty(item[0].name) ? _this4.state.data[item[0].name].code : "code",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.code.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.data[item[0].name].city,
+                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.hasOwnProperty(item[0].name) ? _this4.state.data[item[0].name].city : "ville",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.city.innerHTML = e.target.value;
@@ -13586,12 +13586,12 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.data[item[0].name].firstname,
+                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.hasOwnProperty(item[0].name) ? _this4.state.data[item[0].name].firstname : "prenom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.firstname.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.data[item[0].name].lastname,
+                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.hasOwnProperty(item[0].name) ? _this4.state.data[item[0].name].lastname : "nom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.lastname.innerHTML = e.target.value;
