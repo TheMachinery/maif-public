@@ -13707,18 +13707,18 @@ var Letter = function (_React$Component) {
         _Page2.default,
         { title: this.state.firstname + " " + this.state.name },
         _react2.default.createElement(
-          'h3',
-          null,
-          _description2.default[slug].title
-        ),
-        _description2.default[slug].description,
-        _react2.default.createElement(
           'button',
           { onClick: function onClick() {
               return _this6.props.history.goBack();
             }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
           _react2.default.createElement('i', { className: 'ion-ios-arrow-thin-left' })
         ),
+        _react2.default.createElement(
+          'h3',
+          { className: _Retraite2.default.titleRetraite },
+          _description2.default[slug].title
+        ),
+        _react2.default.createElement('span', { className: _Retraite2.default.dataTxt, dangerouslySetInnerHTML: { __html: _description2.default[slug].description } }),
         this.renderData(),
         this.myFormsSuivit(),
         this.myLetterButton(),
