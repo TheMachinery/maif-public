@@ -13553,18 +13553,18 @@ var Letter = function (_React$Component) {
                 // use keyName to get current key's name
                 // and a[keyName] to get its value
                 console.log(keyName);
-                if (d[keyName] === "address") {
+                if (keyName === "address") {
                   return _react2.default.createElement(
                     'span',
                     null,
                     this.state.address
                   );
-                } else if (d[keyName] === "notaire") {
+                } else if (keyName === "notaire") {
                   var fields = (0, _dataFields.getFields)('io.cozy.contacts', 'notaire');
                   console.log(fields);
                   if (!fields) return null;
                   return _react2.default.createElement('span', null);
-                } else if (d[keyName] === "name") {
+                } else if (keyName === "name") {
                   return _react2.default.createElement(
                     'span',
                     null,
