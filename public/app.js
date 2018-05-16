@@ -13195,19 +13195,31 @@ var Letter = function (_React$Component) {
     }
   }, {
     key: 'save',
-    value: function save(type) {
-
-      console.log("save" + type);
+    value: function save(data) {
+      console.log(data);
       var myData = {};
 
-      var doctype = type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
-      var fields = (0, _dataFields.getFields)(doctype, type);
+      var fields = (0, _dataFields.getFields)(data._type, data.formType);
       console.log(fields);
       if (!fields) return;
 
       fields[0].group.map(function (item) {
         console.log(item);
+        if (!item[0].hasOwnProperty("hide")) {
+          if (item[0].name === "addresse") {
+            data[item[0].name].way = getElementById("rue").value === null ? getElementById("rue").placeholder : getElementById("rue").value;
+            data[item[0].name].code = getElementById("postale").value === null ? getElementById("postale").placeholder : getElementById("postale").value;
+            data[item[0].name].city = getElementById("ville").value === null ? getElementById("ville").placeholder : getElementById("ville").value;
+          } else if (item[0].name === "interlocuteur") {
+            data[item[0].name].firstname = getElementById("firstname").value === null ? getElementById("firstname").placeholder : getElementById("firstname").value;
+            data[item[0].name].lastname = getElementById("lastname").value === null ? getElementById("lastname").placeholder : getElementById("lastname").value;
+          } else {
+            data[item[0].name] = getElementById(item[0].name).value === null ? getElementById(item[0].name).placeholder : getElementById(item[0].name).value;
+          }
+        }
       });
+
+      console.log(data);
 
       // dataSave(this.infos.doctype, myData)
     }
@@ -13561,12 +13573,12 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].firstname : "prenom",
+                    _react2.default.createElement('input', { type: 'text', id: 'firstname', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].firstname : "prenom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.firstname.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].lastname : "nom",
+                    _react2.default.createElement('input', { type: 'text', id: 'lastname', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].lastname : "nom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
                         return _this4.refs.lastname.innerHTML = e.target.value;
@@ -13721,7 +13733,7 @@ var Letter = function (_React$Component) {
       if (this.state.hasOwnProperty('firstname') === false) return null;
 
       var mySave = function mySave() {
-        _this6.save(slug);
+        _this6.save(_this6.state.data);
       };
 
       return _react2.default.createElement(
