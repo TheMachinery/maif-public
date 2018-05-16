@@ -26249,7 +26249,7 @@ var _CustomInput2 = _interopRequireDefault(_CustomInput);
 
 var _constants = __webpack_require__("./src/public/constants/index.js");
 
-var _dataFields = __webpack_require__("./src/public/scripts/dataFields.js");
+var _dataFields = __webpack_require__("./src/scripts/dataFields.js");
 
 var _tools = __webpack_require__("./src/public/tools/index.js");
 
