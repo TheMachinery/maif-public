@@ -13552,6 +13552,8 @@ var Letter = function (_React$Component) {
   }, {
     key: 'renderLetter',
     value: function renderLetter() {
+      var _this5 = this;
+
       if (this.state.hasOwnProperty('address') === false) return null;
       if (this.state.hasOwnProperty('getData') === false) return null;
       var slug = this.props.match.params.slug;
@@ -13606,11 +13608,11 @@ var Letter = function (_React$Component) {
                   return _react2.default.createElement(
                     'span',
                     null,
-                    this.state.address
+                    _this5.state.address
                   );
                 } else if (keyName === "notaire") {
-                  console.log(this.state);
-                  if (this.state.hasOwnProperty('notaire')) {
+                  console.log(_this5.state);
+                  if (_this5.state.hasOwnProperty('notaire')) {
                     return _react2.default.createElement(
                       'span',
                       null,
@@ -13618,13 +13620,13 @@ var Letter = function (_React$Component) {
                         'p',
                         null,
                         'Je vous informe que le notaire charge\u0301 de la succession est Mai\u0302tre ',
-                        this.state.notaire.notaire_name,
+                        _this5.state.notaire.notaire_name,
                         ' domicili\xE9 ',
-                        this.state.notaire.address.way,
+                        _this5.state.notaire.address.way,
                         ' ',
-                        this.state.notaire.address.code,
+                        _this5.state.notaire.address.code,
                         ' ',
-                        this.state.notaire.address.ville,
+                        _this5.state.notaire.address.ville,
                         '.'
                       )
                     );
@@ -13633,9 +13635,9 @@ var Letter = function (_React$Component) {
                   return _react2.default.createElement(
                     'span',
                     null,
-                    this.state.firstname,
+                    _this5.state.firstname,
                     ' ',
-                    this.state.name,
+                    _this5.state.name,
                     ' '
                   );
                 } else {
@@ -13664,7 +13666,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this.state.hasOwnProperty('firstname') === false) return null;
       return _react2.default.createElement(
@@ -13673,7 +13675,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this5.props.history.goBack();
+              return _this6.props.history.goBack();
             }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
           _react2.default.createElement('i', { className: 'ion-ios-arrow-thin-left' })
         ),
