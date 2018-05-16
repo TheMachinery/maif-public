@@ -8741,6 +8741,9 @@ var DataForm = function (_Component) {
       } else {
         this.infos = (0, _dataFields.getInfosFromSlug)(this.props.slug);
         this.fields = (0, _dataFields.getFields)(this.infos.doctype, this.props.formType);
+        console.log(this.fields);
+        console.log(this.infos);
+        console.log(this.props.formType);
       }
       if (this.fields[0].import) {
         this.setState({ import: true });
@@ -11099,6 +11102,7 @@ var Dossier = function (_Component) {
       console.log(data);
       var item = (0, _dataFields.getInfosFromDoctype)(_constants2.DOCTYPE_F_CONTACTS);
       this.setState({ current: item.slug, formType: data.key, open: true, hiddenType: data.name });
+      console.log(this.state);
     }
   }, {
     key: 'getID',

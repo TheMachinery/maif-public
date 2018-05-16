@@ -26319,6 +26319,9 @@ var DataForm = function (_Component) {
       } else {
         this.infos = (0, _dataFields.getInfosFromSlug)(this.props.slug);
         this.fields = (0, _dataFields.getFields)(this.infos.doctype, this.props.formType);
+        console.log(this.fields);
+        console.log(this.infos);
+        console.log(this.props.formType);
       }
       if (this.fields[0].import) {
         this.setState({ import: true });
