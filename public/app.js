@@ -13741,7 +13741,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
-          { className: _Retraite2.default.buttonCustom, onClick: this.save() },
+          { className: _Retraite2.default.buttonCustom, onClick: this.save },
           'Enregistrer les donn\xE9es'
         ),
         this.myFormsSuivit(),
