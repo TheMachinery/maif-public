@@ -13701,6 +13701,7 @@ var Letter = function (_React$Component) {
       var _this6 = this;
 
       var slug = this.props.match.params.slug;
+      console.log(_description2.default);
       if (this.state.hasOwnProperty('firstname') === false) return null;
       return _react2.default.createElement(
         _Page2.default,
