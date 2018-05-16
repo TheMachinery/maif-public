@@ -13385,7 +13385,7 @@ var Letter = function (_React$Component) {
             'Ville'
           )
         ),
-        _react2.default.createElement(
+        this.state.hasOwnProperty('address') ? _react2.default.createElement(
           'div',
           { className: _Retraite2.default.ToCaisse },
           _react2.default.createElement(
@@ -13411,9 +13411,50 @@ var Letter = function (_React$Component) {
             ' ',
             _react2.default.createElement(
               'span',
-              { ref: 'city' },
+              {
+                ref: 'city' },
               this.state.data.address.city,
               '  '
+            ),
+            'FRANCE'
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: _Retraite2.default.date },
+            'Le ',
+            _react2.default.createElement(
+              'span',
+              { ref: 'date' },
+              'jj/mm/yyyy'
+            )
+          )
+        ) : _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.ToCaisse },
+          _react2.default.createElement(
+            'p',
+            { ref: 'organism' },
+            this.state.data.organism
+          ),
+          _react2.default.createElement(
+            'p',
+            { ref: 'way' },
+            '...'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'span',
+              { ref: 'code' },
+              ' ...'
+            ),
+            ' ',
+            _react2.default.createElement(
+              'span',
+              {
+                ref: 'city' },
+              '...'
             ),
             'FRANCE'
           ),
