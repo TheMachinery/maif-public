@@ -13066,6 +13066,8 @@ var _Retraite = __webpack_require__("./src/public/styles/Retraite.scss");
 
 var _Retraite2 = _interopRequireDefault(_Retraite);
 
+var _data = __webpack_require__("./src/public/actions/data.js");
+
 var _DataTable = __webpack_require__("./src/public/components/elements/DataTable.jsx");
 
 var _DataTable2 = _interopRequireDefault(_DataTable);
@@ -13194,18 +13196,20 @@ var Letter = function (_React$Component) {
   }, {
     key: 'save',
     value: function save() {
-      this.setState({
-        edition: false
+
+      var myData = {};
+
+      this.type = this.props.match.params.slug;
+
+      var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      var fields = (0, _dataFields.getFields)(doctype, this.type);
+      if (!fields) return;
+
+      fields[0].group.map(function (item) {
+        console.log(item);
       });
 
-      this.props.dataSave(this.infos.doctype, this.props.current);
-    }
-  }, {
-    key: 'edit',
-    value: function edit() {
-      this.setState({
-        edition: true
-      });
+      // dataSave(this.infos.doctype, myData)
     }
   }, {
     key: 'printElem',
@@ -13732,6 +13736,11 @@ var Letter = function (_React$Component) {
         ),
         _react2.default.createElement('span', { className: _Retraite2.default.dataTxt, dangerouslySetInnerHTML: { __html: _description2.default[slug].description } }),
         this.renderData(),
+        _react2.default.createElement(
+          'button',
+          { className: _Retraite2.default.buttonCustom, onClick: this.save() },
+          'Enregistrer les donn\xE9es'
+        ),
         this.myFormsSuivit(),
         this.myLetterButton(),
         this.renderLetter()
