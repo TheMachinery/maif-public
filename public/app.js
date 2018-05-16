@@ -13720,7 +13720,7 @@ var Letter = function (_React$Component) {
       console.log(_description2.default);
       if (this.state.hasOwnProperty('firstname') === false) return null;
 
-      mySave = function mySave() {
+      var mySave = function mySave() {
         _this6.save(slug);
       };
 
@@ -13744,7 +13744,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
-          { className: _Retraite2.default.buttonCustom, onClick: this.mySave },
+          { className: _Retraite2.default.buttonCustom, onClick: mySave },
           'Enregistrer les donn\xE9es'
         ),
         this.myFormsSuivit(),
