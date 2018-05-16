@@ -13153,7 +13153,7 @@ var Letter = function (_React$Component) {
         });
 
         console.log(notaire);
-        _this.setState({ notaire: notaire });
+        _this.state.notaire = notaire;
         console.log(_this.state);
       });
       console.log(_this.state);
