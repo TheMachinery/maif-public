@@ -13207,16 +13207,16 @@ var Letter = function (_React$Component) {
         console.log(item);
         if (!item[0].hasOwnProperty("hide")) {
           if (item[0].name === "address") {
-            data[item[0].name].way = document.getElementById("rue").value === null ? document.getElementById("rue").placeholder : document.getElementById("rue").value;
-            data[item[0].name].code = document.getElementById("postale").value === null ? document.getElementById("postale").placeholder : document.getElementById("postale").value;
-            data[item[0].name].city = document.getElementById("ville").value === null ? document.getElementById("ville").placeholder : document.getElementById("ville").value;
+            data[item[0].name].way = document.getElementById("rue").value === "" ? document.getElementById("rue").placeholder : document.getElementById("rue").value;
+            data[item[0].name].code = document.getElementById("postale").value === "" ? document.getElementById("postale").placeholder : document.getElementById("postale").value;
+            data[item[0].name].city = document.getElementById("ville").value === "" ? document.getElementById("ville").placeholder : document.getElementById("ville").value;
           } else if (item[0].name === "interlocuteur") {
-            data[item[0].name].firstname = document.getElementById("firstname").value === null ? document.getElementById("firstname").placeholder : document.getElementById("firstname").value;
-            data[item[0].name].lastname = document.getElementById("lastname").value === null ? document.getElementById("lastname").placeholder : document.getElementById("lastname").value;
+            data[item[0].name].firstname = document.getElementById("firstname").value === "" ? document.getElementById("firstname").placeholder : document.getElementById("firstname").value;
+            data[item[0].name].lastname = document.getElementById("lastname").value === "" ? document.getElementById("lastname").placeholder : document.getElementById("lastname").value;
           } else {
             console.log(document.getElementById(item[0].name).placeholder);
             console.log(document.getElementById(item[0].name).value);
-            data[item[0].name] = document.getElementById(item[0].name).value === null ? document.getElementById(item[0].name).placeholder : document.getElementById(item[0].name).value;
+            data[item[0].name] = document.getElementById(item[0].name).value === "" ? document.getElementById(item[0].name).placeholder : document.getElementById(item[0].name).value;
           }
         }
       });
