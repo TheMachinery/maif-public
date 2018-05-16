@@ -13195,13 +13195,13 @@ var Letter = function (_React$Component) {
     }
   }, {
     key: 'save',
-    value: function save() {
+    value: function save(type) {
 
-      console.log("save" + this.type);
+      console.log("save" + type);
       var myData = {};
 
-      var doctype = this.typetype === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
-      var fields = (0, _dataFields.getFields)(doctype, this.type);
+      var doctype = type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      var fields = (0, _dataFields.getFields)(doctype, type);
       console.log(fields);
       if (!fields) return;
 
@@ -13719,6 +13719,11 @@ var Letter = function (_React$Component) {
       var slug = this.props.match.params.slug;
       console.log(_description2.default);
       if (this.state.hasOwnProperty('firstname') === false) return null;
+
+      mySave = function mySave() {
+        _this6.save(slug);
+      };
+
       return _react2.default.createElement(
         _Page2.default,
         { title: this.state.firstname + " " + this.state.name },
@@ -13739,7 +13744,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
-          { className: _Retraite2.default.buttonCustom, onClick: this.save },
+          { className: _Retraite2.default.buttonCustom, onClick: this.mySave },
           'Enregistrer les donn\xE9es'
         ),
         this.myFormsSuivit(),
