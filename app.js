@@ -23765,6 +23765,8 @@ var dataNew = exports.dataNew = function dataNew(doctype, data) {
 };
 
 var dataSave = exports.dataSave = function dataSave(doctype, id, data) {
+    console.log("DATA SAVE");
+    console.log(data);
     return function () {
         var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch, getState) {
             var newData;
