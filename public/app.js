@@ -11073,7 +11073,6 @@ var Dossier = function (_Component) {
     _this.getID = _this.getID.bind(_this);
 
     cozy.client.settings.getInstance().then(function (res) {
-      console.log(res);
       _this.user = res.attributes;
       console.log(_this.user);
     });
@@ -11099,7 +11098,7 @@ var Dossier = function (_Component) {
 
       console.log(data);
       var item = (0, _dataFields.getInfosFromDoctype)(_constants2.DOCTYPE_F_CONTACTS);
-      this.setState({ current: item.slug, formType: data.type, open: true, hiddenType: data.name });
+      this.setState({ current: item.slug, formType: data.key, open: true, hiddenType: data.name });
     }
   }, {
     key: 'getID',
