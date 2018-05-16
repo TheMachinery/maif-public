@@ -13560,7 +13560,19 @@ var Letter = function (_React$Component) {
                     this.state.address
                   );
                 } else if (d[keyName] === "notaire") {
+                  var fields = (0, _dataFields.getFields)('io.cozy.contacts', 'notaire');
+                  console.log(fields);
+                  if (!fields) return null;
                   return _react2.default.createElement('span', null);
+                } else if (d[keyName] === "name") {
+                  return _react2.default.createElement(
+                    'span',
+                    null,
+                    this.state.firstname,
+                    ' ',
+                    this.state.name,
+                    ' '
+                  );
                 } else {
 
                   return _react2.default.createElement(
