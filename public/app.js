@@ -13197,12 +13197,14 @@ var Letter = function (_React$Component) {
     key: 'save',
     value: function save() {
 
+      console.log("save");
       var myData = {};
 
       this.type = this.props.match.params.slug;
 
       var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
       var fields = (0, _dataFields.getFields)(doctype, this.type);
+      console.log(fields);
       if (!fields) return;
 
       fields[0].group.map(function (item) {
@@ -13736,6 +13738,7 @@ var Letter = function (_React$Component) {
         ),
         _react2.default.createElement('span', { className: _Retraite2.default.dataTxt, dangerouslySetInnerHTML: { __html: _description2.default[slug].description } }),
         this.renderData(),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
           { className: _Retraite2.default.buttonCustom, onClick: this.save() },
