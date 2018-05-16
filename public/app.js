@@ -13385,7 +13385,7 @@ var Letter = function (_React$Component) {
             'Ville'
           )
         ),
-        this.state.hasOwnProperty('address') ? _react2.default.createElement(
+        this.state.data.hasOwnProperty('address') ? _react2.default.createElement(
           'div',
           { className: _Retraite2.default.ToCaisse },
           _react2.default.createElement(
