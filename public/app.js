@@ -13090,6 +13090,14 @@ var _tools = __webpack_require__("./src/tools/index.js");
 
 var _dataFields = __webpack_require__("./src/scripts/dataFields.js");
 
+var _constants = __webpack_require__("./src/constants/index.js");
+
+var _lodash = __webpack_require__("./node_modules/lodash/lodash.js");
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _meta = __webpack_require__("./src/scripts/meta.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13113,10 +13121,52 @@ var Letter = function (_React$Component) {
       city: '',
       user: []
     };
+
+    (0, _meta.getMeta)().then(function (result) {
+      console.log(result);
+
+      (0, _tools.getDataElements)(_constants.DOCTYPE_F_CONTACTS).then(function (res) {
+        if (res.length > 0) {
+          (function () {
+            var type = result[0].value;
+
+            var _loop = function _loop(n) {
+              var exist = _lodash2.default.find(res, function (t) {
+                return t.type === type[0].types[n].name;
+              });
+              if (exist) {
+                type[0].types[n].checked = true;
+                type[0].types[n]._id = exist._id;
+              }
+            };
+
+            for (var n in type[0].types) {
+              _loop(n);
+            }
+            _this.setTypeGroup(type);
+          })();
+        }
+
+        console.log(res);
+        var notaire = res.find(function (x) {
+          return x.formType === 'notaire';
+        });
+
+        console.log(notaire);
+        _this.setState({ notaire: notaire });
+        console.log(_this.state);
+      });
+    });
     return _this;
   }
 
   _createClass(Letter, [{
+    key: 'setTypeGroup',
+    value: function setTypeGroup(typeGroup) {
+      this.setState({ typeGroup: typeGroup });
+      this.render();
+    }
+  }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _this2 = this;
@@ -13560,10 +13610,25 @@ var Letter = function (_React$Component) {
                     this.state.address
                   );
                 } else if (keyName === "notaire") {
-                  var fields = (0, _dataFields.getFields)('io.cozy.contacts', 'notaire');
-                  console.log(fields);
-                  if (!fields) return null;
-                  return _react2.default.createElement('span', null);
+                  if (this.state.hasOwnProperty('notaire')) {
+                    return _react2.default.createElement(
+                      'span',
+                      null,
+                      _react2.default.createElement(
+                        'p',
+                        null,
+                        'Je vous informe que le notaire charge\u0301 de la succession est Mai\u0302tre ',
+                        this.state.notaire.notaire_name,
+                        ' domicili\xE9 ',
+                        this.state.notaire.notaire_address.way,
+                        ' ',
+                        this.state.notaire.notaire_address.code,
+                        ' ',
+                        this.state.notaire.notaire_address.ville,
+                        '.'
+                      )
+                    );
+                  }
                 } else if (keyName === "name") {
                   return _react2.default.createElement(
                     'span',
