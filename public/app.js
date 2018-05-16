@@ -13612,8 +13612,8 @@ var Letter = function (_React$Component) {
                   );
                 } else if (keyName === "notaire") {
                   console.log(_this5.state);
-                  console.log(_this5.state.hasOwnProperty('notaire'));
-                  console.log("notaire" in _this5.state);
+                  console.log(_this5.state.hasOwnProperty('data'));
+                  console.log("data" in _this5.state);
                   if (_this5.state.hasOwnProperty('notaire')) {
                     return _react2.default.createElement(
                       'span',
