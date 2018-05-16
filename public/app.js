@@ -13225,7 +13225,7 @@ var Letter = function (_React$Component) {
 
       console.log(data);
 
-      (0, _data.dataSave)(data._type, data._id, data);
+      cozy.client.data.updateAttributes(data._type, data._id, data);
     }
   }, {
     key: 'printElem',
