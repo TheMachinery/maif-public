@@ -9261,42 +9261,42 @@ var FuneralList = function (_React$Component) {
               "settings": {
                 "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
                 "type": "io.cozy.settings",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "data-funerals-lastwill": {
                 "description": "App required data Last Will access",
                 "type": "com.empreinte.FLastWill",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "data-funerals-contacts": {
                 "description": "App required data Last Will access",
                 "type": "com.empreinte.Fcontacts",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "data-funerals-custom-contacts": {
                 "description": "App required data Last Will access",
                 "type": "com.empreinte.Fcustomcontacts",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "data-homeData": {
                 "description": "App required data homeData access",
                 "type": "com.empreinte.homeData",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "contacts": {
                 "description": "App required contacts access",
                 "type": "com.empreinte.contacts",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "metas": {
                 "description": "App required metas access",
                 "type": "com.empreinte.meta",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               },
               "contact": {
                 "description": "App required contact access",
                 "type": "io.cozy.contacts",
-                "verbs": ["GET", 'PUT', 'POST']
+                "verbs": ["ALL"]
               }
             }
           }
