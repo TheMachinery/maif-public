@@ -13206,7 +13206,7 @@ var Letter = function (_React$Component) {
       fields[0].group.map(function (item) {
         console.log(item);
         if (!item[0].hasOwnProperty("hide")) {
-          if (item[0].name === "addresse") {
+          if (item[0].name === "address") {
             data[item[0].name].way = document.getElementById("rue").value === null ? document.getElementById("rue").placeholder : document.getElementById("rue").value;
             data[item[0].name].code = document.getElementById("postale").value === null ? document.getElementById("postale").placeholder : document.getElementById("postale").value;
             data[item[0].name].city = document.getElementById("ville").value === null ? document.getElementById("ville").placeholder : document.getElementById("ville").value;
