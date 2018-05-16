@@ -121,7 +121,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".Contacts-add__knhv {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3VZR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__1oVp {\n  margin-left: 10px; }\n\n.Contacts-divContact__1Oiq {\n  margin: 10px; }\n\n.Contacts-divContact__1Oiq:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__1XrQ {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__1Ad7 {\n  margin-left: 10px; }\n\n.Contacts-seperator__3xJD {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__2JUb {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-titlePageCollapse__18o4 {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n\n.Contacts-row__Vpte {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__2Ipg {\n  font-size: 20px; }\n\n.Contacts-done__3LR2 {\n  max-width: 50px; }\n\n.Contacts-waiting__1F3j {\n  max-width: 50px; }\n", ""]);
+exports.push([module.i, ".Contacts-add__knhv {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3VZR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__1oVp {\n  margin-left: 10px; }\n\n.Contacts-divContact__1Oiq {\n  margin: 10px; }\n\n.Contacts-divContact__1Oiq:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__1XrQ {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__1Ad7 {\n  margin-left: 10px; }\n\n.Contacts-seperator__3xJD {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__2JUb {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-titlePageCollapseOpen__1J7h {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n  .Contacts-titlePageCollapseOpen__1J7h:hover {\n    cursor: pointer; }\n  .Contacts-titlePageCollapseOpen__1J7h:after {\n    content: '  \\2193'; }\n\n.Contacts-titlePageCollapseClose__3BSq {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n  .Contacts-titlePageCollapseClose__3BSq:hover {\n    cursor: pointer; }\n  .Contacts-titlePageCollapseClose__3BSq:after {\n    content: '  \\2192'; }\n\n.Contacts-Collapsible__trigger__3JzT is-closed {\n  color: red; }\n\n.Contacts-row__Vpte {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__2Ipg {\n  font-size: 20px; }\n\n.Contacts-done__3LR2 {\n  max-width: 50px; }\n\n.Contacts-waiting__1F3j {\n  max-width: 50px; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -133,7 +133,9 @@ exports.locals = {
 	"chevron": "Contacts-chevron__1Ad7",
 	"seperator": "Contacts-seperator__3xJD",
 	"titlePage": "Contacts-titlePage__2JUb",
-	"titlePageCollapse": "Contacts-titlePageCollapse__18o4",
+	"titlePageCollapseOpen": "Contacts-titlePageCollapseOpen__1J7h",
+	"titlePageCollapseClose": "Contacts-titlePageCollapseClose__3BSq",
+	"Collapsible__trigger": "Contacts-Collapsible__trigger__3JzT",
 	"row": "Contacts-row__Vpte",
 	"introProches": "Contacts-introProches__2Ipg",
 	"done": "Contacts-done__3LR2",
@@ -664,6 +666,25 @@ exports.locals = {
 	"clear": "buttons-clear__3e6b",
 	"icon": "buttons-icon__23QM",
 	"text": "buttons-text__3V63"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?{\"modules\":true,\"localIdentName\":\"[name]-[local]__[hash:base64:4]\",\"importLoaders\":1}!./node_modules/sass-loader/lib/loader.js!./node_modules/postcss-loader/index.js!./src/styles/Collapse.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".Collapse-Collapsible__trigger__1ZOG:hover {\n  cursor: -webkit-zoom-in;\n  cursor: zoom-in; }\n\n.Collapse-Collapsible__trigger__1ZOG:after {\n  content: '>';\n  position: absolute;\n  right: 10px;\n  top: 10px;\n  display: block;\n  -webkit-transition: -webkit-transform 300ms;\n  transition: -webkit-transform 300ms;\n  -o-transition: transform 300ms;\n  transition: transform 300ms;\n  transition: transform 300ms, -webkit-transform 300ms; }\n\n.Collapse-Collapsible__trigger__1ZOG.Collapse-is-open__2uZB:after {\n  -webkit-transform: rotateZ(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotateZ(180deg); }\n\n.Collapse-Collapsible__trigger__1ZOG.Collapse-is-disabled__1NcV {\n  opacity: 0.5;\n  background-color: grey; }\n", ""]);
+
+// exports
+exports.locals = {
+	"Collapsible__trigger": "Collapse-Collapsible__trigger__1ZOG",
+	"is-open": "Collapse-is-open__2uZB",
+	"is-disabled": "Collapse-is-disabled__1NcV"
 };
 
 /***/ }),
@@ -10884,6 +10905,10 @@ var _Dossier = __webpack_require__("./src/public/styles/Dossier.scss");
 
 var _Dossier2 = _interopRequireDefault(_Dossier);
 
+var _FuneralList = __webpack_require__("./src/public/styles/FuneralList.scss");
+
+var _FuneralList2 = _interopRequireDefault(_FuneralList);
+
 var _ToolBoxOptions = __webpack_require__("./src/public/components/elements/ToolBoxOptions.js");
 
 var _ToolBoxOptions2 = _interopRequireDefault(_ToolBoxOptions);
@@ -10893,6 +10918,10 @@ var _lodash = __webpack_require__("./node_modules/lodash/lodash.js");
 var _lodash2 = _interopRequireDefault(_lodash);
 
 var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+
+var _Collapse = __webpack_require__("./src/styles/Collapse.scss");
+
+var _Collapse2 = _interopRequireDefault(_Collapse);
 
 var _Modal = __webpack_require__("./src/public/components/modals/Modal.jsx");
 
@@ -10964,10 +10993,10 @@ var Row = function Row(props) {
       } },
     _react2.default.createElement(
       'div',
-      { className: (0, _classnames2.default)(_Contacts2.default.row) },
+      { className: (0, _classnames2.default)(_FuneralList2.default.row) },
       _react2.default.createElement(
         'div',
-        { className: _Contacts2.default.name },
+        { className: _FuneralList2.default.name },
         _react2.default.createElement(
           'div',
           null,
@@ -10977,18 +11006,18 @@ var Row = function Row(props) {
         ),
         _react2.default.createElement(
           'div',
-          { className: _Contacts2.default.excerpt },
+          { className: _FuneralList2.default.excerpt },
           props.excerpt
         )
       ),
       _react2.default.createElement(
         'div',
-        { className: (0, _classnames2.default)(_Contacts2.default.check, _Contacts2.default.checked, _defineProperty({}, _Contacts2.default.checked, props.check)) },
-        props.check && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' }),
-        !props.check && _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/waiting.png' })
+        { className: (0, _classnames2.default)(_FuneralList2.default.check, _FuneralList2.default.checked, _defineProperty({}, _FuneralList2.default.checked, props.check)) },
+        props.check && _react2.default.createElement('img', { className: _FuneralList2.default.done, src: 'public/media/done.png' }),
+        !props.check && _react2.default.createElement('img', { className: _FuneralList2.default.done, src: 'public/media/waiting.png' })
       )
     ),
-    _react2.default.createElement('div', { className: _Contacts2.default.separator })
+    _react2.default.createElement('div', { className: _FuneralList2.default.separator })
   );
 };
 
@@ -11144,7 +11173,7 @@ var Dossier = function (_Component) {
         { title: this.user.public_name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
         _react2.default.createElement(
           _reactCollapsible2.default,
-          { triggerOpenedClassName: _Contacts2.default.titlePageCollapse, triggerClassName: _Contacts2.default.titlePageCollapse, trigger: 'Informations personnelles du d\xE9funt' },
+          { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: 'Informations personnelles du d\xE9funt' },
           _react2.default.createElement(
             'div',
             { className: _Contacts2.default.data },
@@ -11290,9 +11319,10 @@ var Dossier = function (_Component) {
             )
           )
         ),
+        _react2.default.createElement('hr', { className: _Contacts2.default.seperator }),
         _react2.default.createElement(
           _reactCollapsible2.default,
-          { triggerOpenedClassName: _Contacts2.default.titlePageCollapse, triggerClassName: _Contacts2.default.titlePageCollapse, trigger: 'D\xE9marches Administratives \xE0 r\xE9aliser' },
+          { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: 'D\xE9marches Administratives \xE0 r\xE9aliser' },
           _react2.default.createElement(
             'div',
             { className: _Contacts2.default.row },
@@ -11304,32 +11334,28 @@ var Dossier = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: _Contacts2.default.dataObseque },
+            { className: _FuneralList2.default.list },
             this.state.typeGroup.map(function (group, key) {
               var docs = group.types;
               if (docs && docs.length > 0) {
                 console.log(docs);
                 return _react2.default.createElement(
-                  'li',
-                  { key: key },
-                  _react2.default.createElement(
-                    'ul',
-                    { className: _Contacts2.default.list },
-                    docs.map(function (item, key) {
-                      return _react2.default.createElement(
-                        'li',
-                        { key: key },
-                        _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
-                          onAdd: function onAdd(e) {
-                            if (item.checked) {
-                              _this2.props.history.push("/letter/" + item.key + "/" + item._id);
-                            } else {
-                              _this2.clickOnContacts(item);
-                            }
-                          } })
-                      );
-                    })
-                  )
+                  'ul',
+                  { className: _FuneralList2.default.list },
+                  docs.map(function (item, key) {
+                    return _react2.default.createElement(
+                      'li',
+                      { key: key },
+                      _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
+                        onAdd: function onAdd(e) {
+                          if (item.checked) {
+                            _this2.props.history.push("/letter/" + item.key + "/" + item._id);
+                          } else {
+                            _this2.clickOnContacts(item);
+                          }
+                        } })
+                    );
+                  })
                 );
               } else {
                 return null;
@@ -31535,6 +31561,38 @@ var configureStore = function configureStore() {
 };
 // import eventTrackerMiddleware from '../middlewares/EventTracker'
 exports.default = configureStore;
+
+/***/ }),
+
+/***/ "./src/styles/Collapse.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js?{\"modules\":true,\"localIdentName\":\"[name]-[local]__[hash:base64:4]\",\"importLoaders\":1}!./node_modules/sass-loader/lib/loader.js!./node_modules/postcss-loader/index.js!./src/styles/Collapse.scss");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--3-2!../../node_modules/sass-loader/lib/loader.js!../../node_modules/postcss-loader/index.js!./Collapse.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--3-2!../../node_modules/sass-loader/lib/loader.js!../../node_modules/postcss-loader/index.js!./Collapse.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 

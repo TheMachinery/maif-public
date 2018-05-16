@@ -10124,26 +10124,22 @@ var Home = function (_React$Component) {
               if (docs && docs.length > 0) {
                 console.log(docs);
                 return _react2.default.createElement(
-                  'li',
-                  { key: key },
-                  _react2.default.createElement(
-                    'ul',
-                    { className: _FuneralList2.default.list },
-                    docs.map(function (item, key) {
-                      return item.hasOwnProperty("checked") ? _react2.default.createElement('span', null) : _react2.default.createElement(
-                        'li',
-                        { key: key },
-                        _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
-                          onAdd: function onAdd(e) {
-                            if (item.checked) {
-                              _this3.props.history.push('/data/fcontacts/' + item._id);
-                            } else {
-                              _this3.clickOnContacts(item);
-                            }
-                          } })
-                      );
-                    })
-                  )
+                  'ul',
+                  { className: _FuneralList2.default.list },
+                  docs.map(function (item, key) {
+                    return item.hasOwnProperty("checked") ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                      'li',
+                      { key: key },
+                      _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
+                        onAdd: function onAdd(e) {
+                          if (item.checked) {
+                            _this3.props.history.push('/data/fcontacts/' + item._id);
+                          } else {
+                            _this3.clickOnContacts(item);
+                          }
+                        } })
+                    );
+                  })
                 );
               } else {
                 return null;
