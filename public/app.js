@@ -3822,7 +3822,7 @@ module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"
 /***/ "./src/constants/data/funerals/last_will.json":
 /***/ (function(module, exports) {
 
-module.exports = [{"name":"Mes dernieres Volontés","excerpt":"Les dernières volontés peuvent être des souhaits précis sur la manière dont seront organisées les obsèques.\n Ou uniquement des grandes lignes (cérémonie et sépulture) pour laisser aux proches le soin de l'organisation des obsèques.","description":" ","group":[[{"name":"conservation","display":"Les Soins de Conservation","type":"textarea"}],[{"name":"cercueil","display":"Les choix du cerceuil et de ses accessoires","type":"textarea"}],[{"name":"presentation","display":"La présentation du corps","type":"textarea"}],[{"name":"organisation","display":"L’Organisation des funérailles","type":"textarea"}],[{"name":"ceremonial","display":"Cérémonial","type":"textarea"}],[{"name":"incineration","display":"Crémation ou Inhumation","type":"textarea"},{"name":"ifIncineration","display":"Quel devenir pour les cendres ?","type":"textarea"}],[{"name":"wish","display":"Souhaits Particuliers","type":"textarea"}]]}]
+module.exports = [{"name":"Mes dernieres Volontés","excerpt":"Les dernières volontés peuvent être des souhaits précis sur la manière dont seront organisées les obsèques.\n Ou uniquement des grandes lignes (cérémonie et sépulture) pour laisser aux proches le soin de l'organisation des obsèques.","description":" ","group":[[{"name":"obsequeType","display":"Le type d'obsèques","type":"list","values":["Inhumation","Crémation"]}],[{"name":"cimetiere","display":"Le choix du cimetière","type":"textarea"}],[{"name":"localisation","display":"L'emplacement","type":"list","values":["Avec concession funéraire (pour un cercueil)","Avec concession cinéraire (pour une urne)","Sans concession","Caveau existant"]}],[{"name":"siCremation","display":"Si crélation, le choix du dépôt ou de la dispersion des cendres","type":"list","values":["Columbarium","Sépulture familiale","Dispersion dans le jardin des souvenirs","Dispersion en pleine nature","Dispersion en pleine mer"]}],[{"name":"ceremonial","display":"Le choix du type de cérémonie","type":"list","values":["Pas de cérémonie","Cérémonie civile","Cérémonie catholique","Cérémonie musulmane","Cérémonie protestante","Cérémonie juive","Cérémonie orthodoxe","Autre (à préciser dans le rubrique \"La personalisation de la cérémonie\""]}],[{"name":"personalisation","display":"La personnalisation de la cérémonie","type":"textarea"}]]}]
 
 /***/ }),
 
@@ -12933,13 +12933,13 @@ var LastWill = function (_React$Component) {
               _react2.default.createElement(
                 'h4',
                 null,
-                'Les Soins de Conservation'
+                'Le type d\'obs\xE8ques'
               ),
               ' ',
               _react2.default.createElement(
                 'div',
                 { className: _FuneralList2.default.vitem },
-                this.state.data.conservation
+                this.state.data.obsequeType
               )
             ),
             _react2.default.createElement(
@@ -12948,13 +12948,13 @@ var LastWill = function (_React$Component) {
               _react2.default.createElement(
                 'h4',
                 null,
-                'Les choix du cerceuil et de ses accessoires'
+                'Le choix du cimeti\xE8re'
               ),
               ' ',
               _react2.default.createElement(
                 'div',
                 { className: _FuneralList2.default.vitem },
-                this.state.data.cercueil
+                this.state.data.cimetiere
               )
             ),
             _react2.default.createElement(
@@ -12963,13 +12963,13 @@ var LastWill = function (_React$Component) {
               _react2.default.createElement(
                 'h4',
                 null,
-                'La pr\xE9sentation du corps'
+                'L\'emplacement'
               ),
               ' ',
               _react2.default.createElement(
                 'div',
                 { className: _FuneralList2.default.vitem },
-                this.state.data.presentation
+                this.state.data.localisation
               )
             ),
             _react2.default.createElement(
@@ -12978,13 +12978,13 @@ var LastWill = function (_React$Component) {
               _react2.default.createElement(
                 'h4',
                 null,
-                'L\u2019Organisation des fun\xE9railles'
+                'Si cr\xE9lation, le choix du d\xE9p\xF4t ou de la dispersion des cendres'
               ),
               ' ',
               _react2.default.createElement(
                 'div',
                 { className: _FuneralList2.default.vitem },
-                this.state.data.organisation
+                this.state.data.siCremation
               )
             ),
             _react2.default.createElement(
@@ -12993,7 +12993,7 @@ var LastWill = function (_React$Component) {
               _react2.default.createElement(
                 'h4',
                 null,
-                'C\xE9r\xE9monial'
+                'Le choix du type de c\xE9r\xE9monie'
               ),
               ' ',
               _react2.default.createElement(
@@ -13008,43 +13008,13 @@ var LastWill = function (_React$Component) {
               _react2.default.createElement(
                 'h4',
                 null,
-                'Cr\xE9mation ou Inhumation'
+                'La personnalisation de la c\xE9r\xE9monie'
               ),
               ' ',
               _react2.default.createElement(
                 'div',
                 { className: _FuneralList2.default.vitem },
-                this.state.data.incineration
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'col-md-12' },
-              _react2.default.createElement(
-                'h4',
-                null,
-                'Quel devenir pour les cendres ?'
-              ),
-              ' ',
-              _react2.default.createElement(
-                'div',
-                { className: _FuneralList2.default.vitem },
-                this.state.data.ifIncineration
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'col-md-12' },
-              _react2.default.createElement(
-                'h4',
-                null,
-                'Souhaits Particuliers'
-              ),
-              ' ',
-              _react2.default.createElement(
-                'div',
-                { className: _FuneralList2.default.vitem },
-                this.state.data.wish
+                this.state.data.personalisation
               )
             )
           )
