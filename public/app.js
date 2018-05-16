@@ -13197,12 +13197,10 @@ var Letter = function (_React$Component) {
     key: 'save',
     value: function save() {
 
-      console.log("save");
+      console.log("save" + this.type);
       var myData = {};
 
-      this.type = this.props.match.params.slug;
-
-      var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      var doctype = this.typetype === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
       var fields = (0, _dataFields.getFields)(doctype, this.type);
       console.log(fields);
       if (!fields) return;
