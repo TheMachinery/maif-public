@@ -13223,7 +13223,7 @@ var Letter = function (_React$Component) {
 
       console.log(data);
 
-      // dataSave(this.infos.doctype, myData)
+      (0, _data.dataSave)(data._type, data);
     }
   }, {
     key: 'printElem',
