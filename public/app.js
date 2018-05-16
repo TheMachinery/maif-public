@@ -13705,7 +13705,13 @@ var Letter = function (_React$Component) {
       if (this.state.hasOwnProperty('firstname') === false) return null;
       return _react2.default.createElement(
         _Page2.default,
-        { title: _description2.default[slug].title, subtitle: _description2.default[slug].description },
+        { title: this.state.firstname + " " + this.state.name },
+        _react2.default.createElement(
+          'h3',
+          null,
+          _description2.default[slug].title
+        ),
+        _description2.default[slug].description,
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
