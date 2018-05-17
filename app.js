@@ -433,7 +433,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".DataTable-main__1-ML {\n  margin: 16px 0px;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  border: none;\n  padding: 0px; }\n  .DataTable-main__1-ML .DataTable-row__r6VY {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -ms-flex-direction: row;\n    flex-direction: row;\n    -webkit-box-pack: justify;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    margin: 5px 0; }\n  .DataTable-main__1-ML .DataTable-group__3wOv .DataTable-title__WXmY {\n    font-size: 30px;\n    color: #32363F;\n    letter-spacing: 1.25px;\n    line-height: 40px;\n    padding-right: 15px;\n    padding-left: 15px; }\n  .DataTable-main__1-ML .DataTable-group__3wOv h2 {\n    margin: 0px;\n    padding: 0px;\n    font-size: 30px;\n    color: #32363F;\n    letter-spacing: 1.25px;\n    line-height: 40px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j .DataTable-title__WXmY {\n    color: #757575;\n    font-family: Arial;\n    font-size: 10px;\n    font-weight: bold;\n    line-height: 11px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j .DataTable-value__3Sag {\n    color: #535353;\n    font-family: Arial;\n    font-size: 15px;\n    line-height: 30px; }\n    .DataTable-main__1-ML .DataTable-item__3Y6j .DataTable-value__3Sag .DataTable-vitem__135m {\n      min-height: 50px;\n      background-color: #E1D9CC;\n      padding: 10px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j td, .DataTable-main__1-ML .DataTable-item__3Y6j th {\n    border: 1px solid #AAA;\n    padding: 16px;\n    text-align: left; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j th {\n    font-size: 14px;\n    color: #32363F;\n    letter-spacing: 1.17px;\n    background-color: #F6F6F6;\n    font-weight: lighter;\n    max-width: 320px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j td {\n    font-size: 14px;\n    color: #32363F;\n    letter-spacing: 1.17px;\n    font-weight: 300; }\n    .DataTable-main__1-ML .DataTable-item__3Y6j td input, .DataTable-main__1-ML .DataTable-item__3Y6j td select {\n      -webkit-appearance: none;\n      -moz-appearance: none;\n      appearance: none;\n      background: #FFFFFF;\n      border: 1px solid #9B9B9B;\n      border-radius: 2px;\n      padding: 10px 16px; }\n      .DataTable-main__1-ML .DataTable-item__3Y6j td input[type=\"text\"], .DataTable-main__1-ML .DataTable-item__3Y6j td input[type=\"number\"], .DataTable-main__1-ML .DataTable-item__3Y6j td input[type=\"email\"], .DataTable-main__1-ML .DataTable-item__3Y6j td select[type=\"text\"], .DataTable-main__1-ML .DataTable-item__3Y6j td select[type=\"number\"], .DataTable-main__1-ML .DataTable-item__3Y6j td select[type=\"email\"] {\n        display: block;\n        width: 100%; }\n", ""]);
+exports.push([module.i, ".DataTable-main__1-ML {\n  margin: 16px 0px;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  border: none;\n  padding: 0px; }\n  .DataTable-main__1-ML .DataTable-row__r6VY {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -ms-flex-direction: row;\n    flex-direction: row;\n    -webkit-box-pack: justify;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    margin: 5px 0; }\n  .DataTable-main__1-ML .DataTable-group__3wOv .DataTable-title__WXmY {\n    font-size: 30px;\n    color: #32363F;\n    letter-spacing: 1.25px;\n    line-height: 40px;\n    padding-right: 15px;\n    padding-left: 15px; }\n  .DataTable-main__1-ML .DataTable-group__3wOv h2 {\n    margin: 0px;\n    padding: 0px;\n    font-size: 30px;\n    color: #32363F;\n    letter-spacing: 1.25px;\n    line-height: 40px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j .DataTable-title__WXmY {\n    color: #757575;\n    font-family: Arial;\n    font-size: 10px;\n    font-weight: bold;\n    line-height: 11px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j .DataTable-value__3Sag {\n    color: #535353;\n    font-family: Arial;\n    font-size: 15px;\n    line-height: 30px; }\n    .DataTable-main__1-ML .DataTable-item__3Y6j .DataTable-value__3Sag .DataTable-vitem__135m {\n      min-height: 50px;\n      background-color: #E1D9CC;\n      padding: 10px;\n      margin-bottom: 15px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j td, .DataTable-main__1-ML .DataTable-item__3Y6j th {\n    border: 1px solid #AAA;\n    padding: 16px;\n    text-align: left; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j th {\n    font-size: 14px;\n    color: #32363F;\n    letter-spacing: 1.17px;\n    background-color: #F6F6F6;\n    font-weight: lighter;\n    max-width: 320px; }\n  .DataTable-main__1-ML .DataTable-item__3Y6j td {\n    font-size: 14px;\n    color: #32363F;\n    letter-spacing: 1.17px;\n    font-weight: 300; }\n    .DataTable-main__1-ML .DataTable-item__3Y6j td input, .DataTable-main__1-ML .DataTable-item__3Y6j td select {\n      -webkit-appearance: none;\n      -moz-appearance: none;\n      appearance: none;\n      background: #FFFFFF;\n      border: 1px solid #9B9B9B;\n      border-radius: 2px;\n      padding: 10px 16px; }\n      .DataTable-main__1-ML .DataTable-item__3Y6j td input[type=\"text\"], .DataTable-main__1-ML .DataTable-item__3Y6j td input[type=\"number\"], .DataTable-main__1-ML .DataTable-item__3Y6j td input[type=\"email\"], .DataTable-main__1-ML .DataTable-item__3Y6j td select[type=\"text\"], .DataTable-main__1-ML .DataTable-item__3Y6j td select[type=\"number\"], .DataTable-main__1-ML .DataTable-item__3Y6j td select[type=\"email\"] {\n        display: block;\n        width: 100%; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -842,11 +842,12 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".Retraite-titleRetraite__2Xpa {\n  color: #A05599 !important;\n  font-weight: bolder !important; }\n\n.Retraite-dataTxt__39zR {\n  margin: 10px;\n  line-height: initial;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 20px;\n  margin-bottom: 30px; }\n\nlabel {\n  font-family: Arial, Helvetica, sans-serif;\n  color: #888888;\n  text-transform: uppercase;\n  letter-spacing: normal; }\n\n.Retraite-inputForm__16U1 {\n  width: 100% !important;\n  background-color: #E1D9CC;\n  color: #666666;\n  font-family: Arial;\n  font-size: 15px;\n  line-height: 17px;\n  border: solid 1px #E1D9CC !important;\n  border-radius: 0px !important;\n  max-width: 100% !important; }\n\n.Retraite-adresse__zBAf {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 20px; }\n\n.Retraite-adaptSize__2BCB {\n  margin-left: 30px; }\n\n.Retraite-adaptSizeT__1UDG {\n  width: 300px !important;\n  max-width: 300px !important;\n  margin-right: 20px; }\n\n.Retraite-sizeRue__YDdN {\n  width: 645px !important; }\n\n.Retraite-labelAdresse__1UOw {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start; }\n  .Retraite-labelAdresse__1UOw label {\n    margin-right: 140px; }\n\n.Retraite-labelDemarche__2ln0 {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start; }\n  .Retraite-labelDemarche__2ln0 label {\n    margin-right: 170px; }\n\n.Retraite-afour__3mi3 {\n  background: white;\n  width: 21cm;\n  height: 29.7cm;\n  font-size: 17px;\n  display: block;\n  margin: 0 auto;\n  margin-bottom: 0.5cm;\n  -webkit-box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);\n  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);\n  font-family: Arial, Helvetica, sans-serif; }\n\n@media print {\n  body, .Retraite-afour__3mi3 {\n    margin: 0;\n    -webkit-box-shadow: 0;\n    box-shadow: 0; } }\n\n.Retraite-expediteur__3OPE {\n  width: 220px;\n  padding-top: 40px;\n  padding-left: 50px; }\n\n.Retraite-ToCaisse__3rUB {\n  padding-left: 500px;\n  padding-top: 40px; }\n\n.Retraite-date__1dw3 {\n  margin-top: 40px; }\n\n.Retraite-contentLetter__1DUG {\n  margin: 60px; }\n\n.Retraite-signature__3ZyG {\n  margin-left: 470px;\n  margin-top: 70px; }\n\n.Retraite-mention__AYPc {\n  margin-top: 200px;\n  margin-left: 50px; }\n\n.Retraite-mentionComplementaire__9X7J {\n  margin-top: 100px !important;\n  margin-left: 60px; }\n\n.Retraite-mentionBanque__1JN- {\n  margin-top: 160px;\n  margin-left: 50px; }\n\n.Retraite-mentionEmployeur__c5Ll {\n  margin-top: 90px;\n  margin-left: 50px; }\n\n.Retraite-mentionAssurance__NTFm {\n  margin-top: 80px;\n  margin-left: 50px; }\n\n.Retraite-buttonCustom__3hoq {\n  min-width: 210px;\n  width: auto;\n  background-color: #A05599;\n  color: #dddddd;\n  border: 1px solid #A05599;\n  border: solid 1px #9b9b9b;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  font-family: \"Arvo\", sans-serif;\n  font-size: 0.85em;\n  letter-spacing: 1px;\n  color: #dddddd;\n  padding: 12px 15px;\n  font-weight: 300;\n  cursor: pointer; }\n\n.Retraite-divButton__3cjv {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -ms-flex-pack: distribute;\n  justify-content: space-around;\n  margin-top: 50px;\n  margin-bottom: 50px; }\n\n.Retraite-bloc__10DS {\n  background-color: #E1D9CC;\n  font-family: Arial, Helvetica, sans-serif;\n  color: #333333;\n  height: 30px; }\n  .Retraite-bloc__10DS p {\n    text-transform: uppercase;\n    font-weight: bolder;\n    font-size: 14px;\n    padding: 8px; }\n\n.Retraite-divContact__1tPb {\n  margin: 30px; }\n\n.Retraite-contentContact__1ZAQ {\n  margin-bottom: 40px; }\n\n.Retraite-contactName__1y5k {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Retraite-seperator__27Xr {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Retraite-description__1gl1 {\n  margin-top: 30px; }\n", ""]);
+exports.push([module.i, ".Retraite-titleRetraite__2Xpa {\n  color: #A05599 !important;\n  font-weight: bolder !important; }\n\n.Retraite-titleRetraiteCourrier__2CwV {\n  color: #A05599 !important;\n  font-weight: bolder !important;\n  margin-left: -15px; }\n\n.Retraite-dataTxt__39zR {\n  margin: 10px;\n  line-height: initial;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 20px;\n  margin-bottom: 30px; }\n\nlabel {\n  font-family: Arial, Helvetica, sans-serif;\n  color: #888888;\n  text-transform: uppercase;\n  letter-spacing: normal; }\n\n.Retraite-inputForm__16U1 {\n  width: 100% !important;\n  background-color: #E1D9CC;\n  color: #666666;\n  font-family: Arial;\n  font-size: 15px;\n  line-height: 17px;\n  border: solid 1px #E1D9CC !important;\n  border-radius: 0px !important;\n  max-width: 100% !important; }\n\n.Retraite-adresse__zBAf {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 20px; }\n\n.Retraite-adaptSize__2BCB {\n  margin-left: 30px; }\n\n.Retraite-adaptSizeT__1UDG {\n  width: 300px !important;\n  max-width: 300px !important;\n  margin-right: 20px; }\n\n.Retraite-sizeRue__YDdN {\n  width: 645px !important; }\n\n.Retraite-labelAdresse__1UOw {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start; }\n  .Retraite-labelAdresse__1UOw label {\n    margin-right: 140px; }\n\n.Retraite-labelDemarche__2ln0 {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start; }\n  .Retraite-labelDemarche__2ln0 label {\n    margin-right: 205px; }\n\n.Retraite-afour__3mi3 {\n  background: white;\n  width: 21cm;\n  height: 29.7cm;\n  font-size: 17px;\n  display: block;\n  margin: 0 auto;\n  margin-bottom: 0.5cm;\n  -webkit-box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);\n  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);\n  font-family: Arial, Helvetica, sans-serif; }\n\n@media print {\n  body, .Retraite-afour__3mi3 {\n    margin: 0;\n    -webkit-box-shadow: 0;\n    box-shadow: 0; } }\n\n.Retraite-expediteur__3OPE {\n  width: 220px;\n  padding-top: 40px;\n  padding-left: 50px; }\n\n.Retraite-ToCaisse__3rUB {\n  padding-left: 500px;\n  padding-top: 40px; }\n\n.Retraite-date__1dw3 {\n  margin-top: 40px; }\n\n.Retraite-contentLetter__1DUG {\n  margin: 60px; }\n\n.Retraite-signature__3ZyG {\n  margin-left: 470px;\n  margin-top: 70px; }\n\n.Retraite-mention__AYPc {\n  margin-top: 200px;\n  margin-left: 50px; }\n\n.Retraite-mentionComplementaire__9X7J {\n  margin-top: 100px !important;\n  margin-left: 60px; }\n\n.Retraite-mentionBanque__1JN- {\n  margin-top: 160px;\n  margin-left: 50px; }\n\n.Retraite-mentionEmployeur__c5Ll {\n  margin-top: 90px;\n  margin-left: 50px; }\n\n.Retraite-mentionAssurance__NTFm {\n  margin-top: 80px;\n  margin-left: 50px; }\n\n.Retraite-buttonCustom__3hoq {\n  min-width: 210px;\n  width: auto;\n  background-color: #A05599;\n  color: #dddddd;\n  border: 1px solid #A05599;\n  border: solid 1px #9b9b9b;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  font-family: \"Arvo\", sans-serif;\n  font-size: 0.85em;\n  letter-spacing: 1px;\n  color: #dddddd;\n  padding: 12px 15px;\n  font-weight: 300;\n  cursor: pointer; }\n\n.Retraite-divButton__3cjv {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -ms-flex-pack: distribute;\n  justify-content: space-around;\n  margin-top: 50px;\n  margin-bottom: 50px; }\n\n.Retraite-bloc__10DS {\n  background-color: #E1D9CC;\n  font-family: Arial, Helvetica, sans-serif;\n  color: #333333;\n  height: 30px; }\n  .Retraite-bloc__10DS p {\n    text-transform: uppercase;\n    font-weight: bolder;\n    font-size: 14px;\n    padding: 8px; }\n\n.Retraite-divContact__1tPb {\n  margin: 30px; }\n\n.Retraite-contentContact__1ZAQ {\n  margin-bottom: 40px; }\n\n.Retraite-contactName__1y5k {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Retraite-seperator__27Xr {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Retraite-description__1gl1 {\n  margin-top: 30px; }\n", ""]);
 
 // exports
 exports.locals = {
 	"titleRetraite": "Retraite-titleRetraite__2Xpa",
+	"titleRetraiteCourrier": "Retraite-titleRetraiteCourrier__2CwV",
 	"dataTxt": "Retraite-dataTxt__39zR",
 	"inputForm": "Retraite-inputForm__16U1",
 	"adresse": "Retraite-adresse__zBAf",
@@ -5010,27 +5011,21 @@ var Contacts = function (_Component) {
 
                 list = [];
 
+                console.log(elements);
+
                 var _iteratorNormalCompletion2 = true;
                 var _didIteratorError2 = false;
                 var _iteratorError2 = undefined;
 
                 try {
-                    for (var _iterator2 = sortedKeys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                        var letter = _step2.value;
+                    for (var _iterator2 = elements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                        var user = _step2.value;
 
-                        var peoples = sortedContacts[letter];
+                        console.log(user);
                         list.push(_react2.default.createElement(
                             'div',
-                            { key: letter },
-                            _react2.default.createElement(
-                                _ContactList2.default,
-                                { view: _constants.VIEW_LIST, onClickItem: function onClickItem(item) {
-                                        return _this3.open(item);
-                                    }, onSelectItem: function onSelectItem(item) {
-                                        return _this3.select(item);
-                                    } },
-                                peoples
-                            )
+                            null,
+                            user.firstname
                         ));
                     }
                 } catch (err) {
@@ -5048,6 +5043,7 @@ var Contacts = function (_Component) {
                     }
                 }
 
+                console.log(list);
                 var sharing = cozy.client.files.getCollectionShareLink("dd9d4d75f37d781adf3b0c2b5c3434a2", 'com.empreinte.homeData');
                 console.log(sharing);
             }
@@ -5089,7 +5085,35 @@ var Contacts = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: _Contacts2.default.dataReferent },
-                    list
+                    elements.map(function (item) {
+                        if (item.statut === "ref") if (item.delay === "now") return _react2.default.createElement(
+                            'span',
+                            null,
+                            ' ',
+                            item.firstName,
+                            ' ',
+                            item.lastName,
+                            ' ',
+                            _react2.default.createElement('img', { className: _Contacts2.default.chevron,
+                                src: 'public/media/chevronpurple.svg' }),
+                            ' \xA0\xA0Espace partag\xE9 ',
+                            _react2.default.createElement('br', null),
+                            ' '
+                        );else return _react2.default.createElement(
+                            'span',
+                            null,
+                            ' ',
+                            item.firstName,
+                            ' ',
+                            item.lastName,
+                            ' ',
+                            _react2.default.createElement('img', { className: _Contacts2.default.chevron,
+                                src: 'public/media/chevronpurple.svg' }),
+                            ' \xA0\xA0Partage en attente ',
+                            _react2.default.createElement('br', null),
+                            ' '
+                        );
+                    })
                 ),
                 _react2.default.createElement(
                     'div',
@@ -5121,7 +5145,23 @@ var Contacts = function (_Component) {
                         'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
                     )
                 ),
-                _react2.default.createElement('div', { className: _Contacts2.default.dataPrevenir }),
+                _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.dataPrevenir },
+                    elements.map(function (item) {
+                        if (item.statut === "prev") return _react2.default.createElement(
+                            'span',
+                            null,
+                            ' ',
+                            item.firstName,
+                            ' ',
+                            item.lastName,
+                            ' ',
+                            _react2.default.createElement('br', null),
+                            ' '
+                        );
+                    })
+                ),
                 _react2.default.createElement('hr', { className: _Contacts2.default.seperator }),
                 _react2.default.createElement(
                     'div',
@@ -6058,6 +6098,7 @@ var DataForm = function (_Component) {
               row.push(_react2.default.createElement(
                 'div',
                 { className: Class },
+                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                   'label',
                   null,
@@ -10714,7 +10755,7 @@ var Page = exports.Page = function Page(_ref) {
                 onBackPress && _react2.default.createElement(
                     'button',
                     { onClick: onBackPress, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _Page2.default.back) },
-                    _react2.default.createElement('i', { className: 'ion-ios-arrow-thin-left' })
+                    '\u2190'
                 )
             ),
             _react2.default.createElement(
@@ -19719,7 +19760,7 @@ var ContactModal = function (_Component) {
 
     _this.state = (_this$state = {
       import: true,
-      lastName: item.civility || ''
+      lastName: item.civility || '0'
     }, _defineProperty(_this$state, 'lastName', item.lastName || ''), _defineProperty(_this$state, 'firstName', item.firstName || ''), _defineProperty(_this$state, 'company', item.company || ''), _defineProperty(_this$state, 'type', item.type || ''), _defineProperty(_this$state, 'email', item.email || ''), _defineProperty(_this$state, 'telephones', item.telephones || [{
       phone: '',
       type: 'fixe'
@@ -19731,7 +19772,7 @@ var ContactModal = function (_Component) {
       day: '',
       month: '',
       year: ''
-    }), _defineProperty(_this$state, 'commentary', item.commentary || ''), _defineProperty(_this$state, 'statut', item.statut || ''), _defineProperty(_this$state, 'edit', false), _defineProperty(_this$state, 'warn', false), _this$state);
+    }), _defineProperty(_this$state, 'commentary', item.commentary || ''), _defineProperty(_this$state, 'statut', item.statut || 'prev'), _defineProperty(_this$state, 'delay', item.delay || 'now'), _defineProperty(_this$state, 'edit', false), _defineProperty(_this$state, 'warn', false), _this$state);
 
     return _this;
   }
@@ -19765,6 +19806,7 @@ var ContactModal = function (_Component) {
           type = _state.type,
           email = _state.email,
           statut = _state.statut,
+          delay = _state.delay,
           commentary = _state.commentary;
 
 
@@ -19785,6 +19827,7 @@ var ContactModal = function (_Component) {
         telephones: telephones,
         address: address,
         statut: statut,
+        delay: delay,
         birth: birth
       };
 
@@ -19860,6 +19903,7 @@ var ContactModal = function (_Component) {
         });
       });
 
+      console.log(newContact);
       this.props.onSave(newContact);
       this.close(e);
     }
@@ -19910,22 +19954,9 @@ var ContactModal = function (_Component) {
           'div',
           { className: _ContactRecallModal2.default.header },
           _react2.default.createElement(
-            'div',
+            'h1',
             null,
-            _react2.default.createElement(
-              'h1',
-              null,
-              this.props.title
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio orci, facilisis eget congue eget, fermentum eget massa. Nam id pretium ligula.'
-            )
+            this.props.title
           )
         ),
         this.state.import == false && _react2.default.createElement(
@@ -20015,7 +20046,7 @@ var ContactModal = function (_Component) {
                 'Date de Naissance'
               ),
               _react2.default.createElement('input', {
-                type: 'number',
+                type: 'text',
                 placeholder: 'Jour',
                 value: this.state.birth.day,
                 onChange: function onChange(e) {
@@ -20033,78 +20064,16 @@ var ContactModal = function (_Component) {
                 null,
                 '\xA0'
               ),
-              _react2.default.createElement(
-                'select',
-                {
-                  placeholder: 'Mois',
-                  value: this.state.birth.month,
-                  onChange: function onChange(e) {
-                    return _this3.setState({
-                      birth: _extends({}, _this3.state.birth, {
-                        month: e.target.value
-                      }) });
-                  } },
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Janvier' },
-                  'Janvier'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'F\xE9vrier' },
-                  'F\xE9vrier'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Mars' },
-                  'Mars'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Avril' },
-                  'Avril'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Mai' },
-                  'Mai'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Juin' },
-                  'Juin'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Juillet' },
-                  'Juillet'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Aout' },
-                  'Aout'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Septembre' },
-                  'Septembre'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Octobre' },
-                  'Octobre'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'Novembre' },
-                  'Novembre'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'D\xE9cembre' },
-                  'D\xE9cembre'
-                )
-              )
+              _react2.default.createElement('input', {
+                type: 'text',
+                placeholder: 'Mois',
+                value: this.state.birth.month,
+                onChange: function onChange(e) {
+                  return _this3.setState({
+                    birth: _extends({}, _this3.state.birth, {
+                      month: e.target.value
+                    }) });
+                } })
             ),
             _react2.default.createElement(
               'div',
@@ -20115,7 +20084,7 @@ var ContactModal = function (_Component) {
                 '\xA0'
               ),
               _react2.default.createElement('input', {
-                type: 'number',
+                type: 'text',
                 placeholder: 'Ann\xE9e',
                 value: this.state.birth.year,
                 onChange: function onChange(e) {
@@ -20240,7 +20209,11 @@ var ContactModal = function (_Component) {
                     } })
                 );
               })
-            ),
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _ContactRecallModal2.default.row },
             _react2.default.createElement(
               'div',
               { className: _ContactRecallModal2.default.group },
@@ -20252,7 +20225,7 @@ var ContactModal = function (_Component) {
               _react2.default.createElement(
                 'select',
                 {
-                  placeholder: 'Prochqsdfe \xE0 pr\xE9venir ou proche r\xE9f\xE9rent',
+                  placeholder: 'Proche \xE0 pr\xE9venir ou proche r\xE9f\xE9rent',
                   value: this.state.statut,
                   onChange: function onChange(e) {
                     return _this3.setState({ statut: e.target.value });
@@ -20267,6 +20240,35 @@ var ContactModal = function (_Component) {
                   'option',
                   { value: 'ref' },
                   'Proche r\xE9f\xE9rent'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _ContactRecallModal2.default.group },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Quand pr\xE9venir ?'
+              ),
+              _react2.default.createElement(
+                'select',
+                {
+                  placeholder: 'Quand pr\xE9venir ?',
+                  value: this.state.delay,
+                  onChange: function onChange(e) {
+                    return _this3.setState({ delay: e.target.value });
+                  }
+                },
+                _react2.default.createElement(
+                  'option',
+                  { value: 'now' },
+                  'D\xE8s maintenant'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'death' },
+                  'Au moment de mon d\xE9c\xE8s'
                 )
               )
             )
@@ -20284,12 +20286,7 @@ var ContactModal = function (_Component) {
             ' ',
             _react2.default.createElement('br', null),
             'Cr\xE9er votre contact ',
-            _react2.default.createElement('br', null),
-            _react2.default.createElement(
-              'span',
-              null,
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio orci.'
-            )
+            _react2.default.createElement('br', null)
           ),
           _react2.default.createElement(
             'div',
@@ -20299,12 +20296,7 @@ var ContactModal = function (_Component) {
             ' ',
             _react2.default.createElement('br', null),
             'Importer votre contact ',
-            _react2.default.createElement('br', null),
-            _react2.default.createElement(
-              'span',
-              null,
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio orci.'
-            )
+            _react2.default.createElement('br', null)
           )
         ),
         _react2.default.createElement(
