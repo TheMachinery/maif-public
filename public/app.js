@@ -12871,6 +12871,10 @@ var _share2 = _interopRequireDefault(_share);
 
 var _tools = __webpack_require__("./src/tools/index.js");
 
+var _classnames = __webpack_require__("./node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12904,9 +12908,18 @@ var LastWill = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return this.state.getData === true ? _react2.default.createElement(
         _Page2.default,
         { title: 'TITLE', subtitle: 'subtitle' },
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return _this2.props.history.goBack();
+            }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
+          '\u2190'
+        ),
         _react2.default.createElement(
           'div',
           { className: _FuneralList2.default.main },
@@ -14853,12 +14866,20 @@ var ProchesPrevenir = function (_Component) {
   _createClass(ProchesPrevenir, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
 
       if (!this.state.hasOwnProperty('proches')) return null;
       console.log(this.state);
       return _react2.default.createElement(
         _Page2.default,
         { title: 'Proches \xE0 pr\xE9venir', subtitle: 'Liste des proches \xE0 pr\xE9venir' },
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return _this2.props.history.goBack();
+            }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _Contacts2.default.back) },
+          '\u2190'
+        ),
         _react2.default.createElement(
           'div',
           { className: _Contacts2.default.dataReferent },
@@ -15031,12 +15052,20 @@ var ProchesReferent = function (_Component) {
   _createClass(ProchesReferent, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
 
       if (!this.state.hasOwnProperty('proches')) return null;
       console.log(this.state);
       return _react2.default.createElement(
         _Page2.default,
         { title: 'Proches r\xE9f\xE9rents', subtitle: 'Liste des r\xE9f\xE9rents' },
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return _this2.props.history.goBack();
+            }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _Contacts2.default.back) },
+          '\u2190'
+        ),
         _react2.default.createElement(
           'div',
           { className: _Contacts2.default.dataReferent },
@@ -15123,6 +15152,10 @@ var _share2 = _interopRequireDefault(_share);
 
 var _tools = __webpack_require__("./src/tools/index.js");
 
+var _classnames = __webpack_require__("./node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15156,9 +15189,18 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return this.state.getData === true ? _react2.default.createElement(
         _Page2.default,
         { title: this.state.data.name, subtitle: 'subtitle' },
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return _this2.props.history.goBack();
+            }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
+          '\u2190'
+        ),
         _react2.default.createElement(
           'div',
           { className: _FuneralList2.default.main },
