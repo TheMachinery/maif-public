@@ -352,7 +352,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".ContactRecallModal-main__1Bwn {\n  border: 1px solid #DDD;\n  overflow-y: auto;\n  max-height: 80vh;\n  max-width: 800px;\n  width: 100vw; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B {\n    height: 165px;\n    width: 330px;\n    padding: 25px 20px;\n    text-align: center;\n    margin-left: 6%;\n    border: 1px solid #A05599;\n    background-color: #FFFFFF;\n    font-family: \"Arvo\", sans-serif;\n    font-size: 21px;\n    cursor: pointer; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B.ContactRecallModal-disable__wQUc {\n      cursor: no-drop; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B .ContactRecallModal-overlay__3a5F {\n      position: absolute;\n      top: 0;\n      left: 0;\n      right: 0;\n      bottom: 0;\n      background: rgba(0, 0, 0, 0.2); }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B span {\n      color: #666666;\n      font-family: Arial;\n      font-size: 15px;\n      line-height: 17px;\n      text-align: center; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B i {\n      font-size: 23px;\n      background-color: rgba(160, 85, 153, 0.2);\n      padding: 0 15px;\n      color: #A05599; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj {\n    background-color: white;\n    height: 160px;\n    -webkit-box-pack: justify;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    padding: 10px 1px;\n    text-align: justify;\n    text-align-last: center;\n    text-transform: uppercase; }\n    @media (min-width: 770px) {\n      .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj {\n        padding: 16px; } }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj h1 {\n      -webkit-box-flex: 1;\n      -ms-flex: 1;\n      flex: 1;\n      font-size: 24px;\n      color: #32363F;\n      letter-spacing: 1px;\n      line-height: 40px;\n      font-weight: 500; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj h2 {\n      font-size: 17px;\n      color: #535353; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj button {\n      margin-left: 5px;\n      height: 54px; }\n      @media (min-width: 770px) {\n        .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj button {\n          margin-left: 16px; } }\n      .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj button i {\n        line-height: 20px; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy {\n    padding: 16px;\n    background-color: white; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy h3 {\n      font-size: 16px;\n      color: #95999D;\n      letter-spacing: 1.14px;\n      line-height: 24px;\n      margin: 0;\n      margin-bottom: 10px;\n      font-weight: lighter; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy p {\n      font-size: 16px;\n      color: #4A4A4A;\n      letter-spacing: 1.14px;\n      line-height: 24px;\n      margin: 0;\n      margin-bottom: 32px;\n      font-weight: lighter; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy p + p {\n      margin-top: -32px; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy a,\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy a:visited {\n      color: #4A4A4A; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-footer__3FH- {\n    background-color: white;\n    padding: 0 0 30px 0; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-footer__3FH- .ContactRecallModal-footerRight__yCeu {\n      text-align: right; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-footer__3FH- .ContactRecallModal-button__MYdg {\n      margin-right: 40px;\n      margin-top: 10px; }\n\n.ContactRecallModal-edition__3FH0 { }\n  .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L {\n    margin-bottom: 15px; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L label {\n      font-size: 16px;\n      color: #A05599;\n      letter-spacing: 1.14px;\n      line-height: 24px;\n      margin-bottom: 16px;\n      display: block; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L input, .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L select, .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L textarea {\n      background: #FFFFFF;\n      font-size: 16px;\n      color: #4A4A4A;\n      letter-spacing: 1.14px;\n      border-radius: 2px;\n      display: block;\n      width: 100%;\n      height: 50px;\n      padding: 25px 20px;\n      border: 1px solid #A05599; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L textarea {\n      height: auto;\n      resize: vertical;\n      padding: 0; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L .ContactRecallModal-inline__3ofS {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      margin-bottom: 10px; }\n  .ContactRecallModal-edition__3FH0 .ContactRecallModal-row__3yOE {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -webkit-box-align: start;\n    -ms-flex-align: start;\n    align-items: flex-start; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-row__3yOE .ContactRecallModal-group__150L {\n      -webkit-box-flex: 1;\n      -ms-flex: 1;\n      flex: 1;\n      margin-right: 10px; }\n", ""]);
+exports.push([module.i, ".ContactRecallModal-main__1Bwn {\n  border: 1px solid #DDD;\n  overflow-y: auto;\n  max-height: 80vh;\n  max-width: 800px;\n  width: 100vw; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B {\n    height: 200px;\n    width: 330px;\n    padding: 25px 20px;\n    text-align: center;\n    margin-left: 6%;\n    border: 1px solid #A05599;\n    background-color: #FFFFFF;\n    font-family: \"Arvo\", sans-serif;\n    font-size: 21px;\n    cursor: pointer; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B.ContactRecallModal-disable__wQUc {\n      cursor: no-drop; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B .ContactRecallModal-overlay__3a5F {\n      position: absolute;\n      top: 0;\n      left: 0;\n      right: 0;\n      bottom: 0;\n      background: rgba(0, 0, 0, 0.2); }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B span {\n      color: #666666;\n      font-family: Arial;\n      font-size: 15px;\n      line-height: 17px;\n      text-align: center; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-importCard__144B i {\n      font-size: 23px;\n      background-color: rgba(160, 85, 153, 0.2);\n      padding: 0 15px;\n      color: #A05599; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj {\n    background-color: white;\n    height: 160px;\n    -webkit-box-pack: justify;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    padding: 10px 1px;\n    text-align: justify;\n    text-align-last: center;\n    text-transform: uppercase; }\n    @media (min-width: 770px) {\n      .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj {\n        padding: 16px; } }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj h1 {\n      -webkit-box-flex: 1;\n      -ms-flex: 1;\n      flex: 1;\n      font-size: 24px;\n      color: #32363F;\n      letter-spacing: 1px;\n      line-height: 40px;\n      font-weight: 500; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj h2 {\n      font-size: 17px;\n      color: #535353; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj button {\n      margin-left: 5px;\n      height: 54px; }\n      @media (min-width: 770px) {\n        .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj button {\n          margin-left: 16px; } }\n      .ContactRecallModal-main__1Bwn .ContactRecallModal-header__16Fj button i {\n        line-height: 20px; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy {\n    padding: 16px;\n    background-color: white; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy h3 {\n      font-size: 16px;\n      color: #95999D;\n      letter-spacing: 1.14px;\n      line-height: 24px;\n      margin: 0;\n      margin-bottom: 10px;\n      font-weight: lighter; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy p {\n      font-size: 16px;\n      color: #4A4A4A;\n      letter-spacing: 1.14px;\n      line-height: 24px;\n      margin: 0;\n      margin-bottom: 32px;\n      font-weight: lighter; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy p + p {\n      margin-top: -32px; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy a,\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-content__1ATy a:visited {\n      color: #4A4A4A; }\n  .ContactRecallModal-main__1Bwn .ContactRecallModal-footer__3FH- {\n    background-color: white;\n    padding: 0 0 30px 0; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-footer__3FH- .ContactRecallModal-footerRight__yCeu {\n      text-align: right; }\n    .ContactRecallModal-main__1Bwn .ContactRecallModal-footer__3FH- .ContactRecallModal-button__MYdg {\n      margin-right: 40px;\n      margin-top: 10px; }\n\n.ContactRecallModal-edition__3FH0 { }\n  .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L {\n    margin-bottom: 15px; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L label {\n      font-size: 16px;\n      color: #A05599;\n      letter-spacing: 1.14px;\n      line-height: 24px;\n      margin-bottom: 16px;\n      display: block; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L input, .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L select, .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L textarea {\n      background: #FFFFFF;\n      font-size: 16px;\n      color: #4A4A4A;\n      letter-spacing: 1.14px;\n      border-radius: 2px;\n      display: block;\n      width: 100%;\n      height: 50px;\n      padding: 25px 20px;\n      border: 1px solid #A05599; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L textarea {\n      height: auto;\n      resize: vertical;\n      padding: 0; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-group__150L .ContactRecallModal-inline__3ofS {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      margin-bottom: 10px; }\n  .ContactRecallModal-edition__3FH0 .ContactRecallModal-row__3yOE {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -webkit-box-align: start;\n    -ms-flex-align: start;\n    align-items: flex-start; }\n    .ContactRecallModal-edition__3FH0 .ContactRecallModal-row__3yOE .ContactRecallModal-group__150L {\n      -webkit-box-flex: 1;\n      -ms-flex: 1;\n      flex: 1;\n      margin-right: 10px; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -381,7 +381,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".Contacts-add__CQJY {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3PGV {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__22MQ {\n  margin-left: 10px; }\n\n.Contacts-divContact__2RSd {\n  margin: 10px; }\n\n.Contacts-divContact__2RSd:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__2UqI {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__wUY8 {\n  margin-left: 10px; }\n\n.Contacts-seperator__WBCK {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__1owt {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-row__2wVu {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__DAWe {\n  font-size: 20px; }\n", ""]);
+exports.push([module.i, ".Contacts-add__CQJY {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3PGV {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__22MQ {\n  margin-left: 10px; }\n\n.Contacts-divContact__2RSd {\n  margin: 10px; }\n\n.Contacts-divContact__2RSd:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__2UqI {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__wUY8 {\n  margin-left: 10px; }\n\n.Contacts-seperator__WBCK {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__1owt {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-row__2wVu {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__DAWe {\n  font-size: 20px; }\n\n.Contacts-proche__32-4 {\n  font-weight: bolder;\n  font-size: 20px; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -394,7 +394,8 @@ exports.locals = {
 	"seperator": "Contacts-seperator__WBCK",
 	"titlePage": "Contacts-titlePage__1owt",
 	"row": "Contacts-row__2wVu",
-	"introProches": "Contacts-introProches__DAWe"
+	"introProches": "Contacts-introProches__DAWe",
+	"proche": "Contacts-proche__32-4"
 };
 
 /***/ }),
@@ -4386,7 +4387,7 @@ var AssistanceList = function AssistanceList(props) {
               { className: _AssistanceList2.default.content },
               _react2.default.createElement(
                 "h3",
-                null,
+                { id: "medical" },
                 "M\xE9dical"
               ),
               _react2.default.createElement(
@@ -4446,7 +4447,7 @@ var AssistanceList = function AssistanceList(props) {
               { className: _AssistanceList2.default.content },
               _react2.default.createElement(
                 "h3",
-                null,
+                { id: "rapatriement" },
                 "Rapatriement"
               ),
               _react2.default.createElement(
@@ -4511,7 +4512,7 @@ var AssistanceList = function AssistanceList(props) {
               { className: _AssistanceList2.default.content },
               _react2.default.createElement(
                 "h3",
-                null,
+                { id: "quotidien" },
                 "Quotidien"
               ),
               _react2.default.createElement(
@@ -4530,7 +4531,7 @@ var AssistanceList = function AssistanceList(props) {
                 _react2.default.createElement(
                   "li",
                   null,
-                  "T \u2022 Aide au transport du conjoint non autonome."
+                  "\u2022 Aide au transport du conjoint non autonome."
                 ),
                 _react2.default.createElement(
                   "li",
@@ -4581,7 +4582,7 @@ var AssistanceList = function AssistanceList(props) {
               { className: _AssistanceList2.default.content },
               _react2.default.createElement(
                 "h3",
-                null,
+                { id: "adm" },
                 "Administratif"
               ),
               _react2.default.createElement(
@@ -4589,7 +4590,7 @@ var AssistanceList = function AssistanceList(props) {
                 null,
                 "Ce service, inclus dans le contrat Sollicitudes, propose de r\xE9aliser par t\xE9l\xE9phone un diagnostic de la situation administrative du d\xE9funt pour faciliter la prise en charge du conjoint, du partenaire de pacs ou du concubin ou du repr\xE9sentant de la famille.",
                 _react2.default.createElement("div", { className: _AssistanceList2.default.separator }),
-                "Ce service est accessible pendant les 180 jours cons\xE9cutif au d\xE9c\xE8s de l\u2019adh\xE9rent."
+                "Ce service est accessible pendant les 180 jours cons\xE9cutifs au d\xE9c\xE8s de l\u2019adh\xE9rent."
               )
             )
           )
@@ -5057,9 +5058,8 @@ var Contacts = function (_Component) {
                     { className: _Contacts2.default.row },
                     _react2.default.createElement(
                         'h3',
-                        { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Lorem Ipsum' },
-                        'Mes proches r\xE9f\xE9rents ',
-                        _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
+                        { className: _Contacts2.default.titlePage },
+                        'Mes proches r\xE9f\xE9rents'
                     ),
                     _react2.default.createElement(
                         'ul',
@@ -5079,7 +5079,7 @@ var Contacts = function (_Component) {
                     _react2.default.createElement(
                         'p',
                         { className: _Contacts2.default.introProches },
-                        'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici'
+                        'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici.'
                     )
                 ),
                 _react2.default.createElement(
@@ -5088,7 +5088,7 @@ var Contacts = function (_Component) {
                     elements.map(function (item) {
                         if (item.statut === "ref") if (item.delay === "now") return _react2.default.createElement(
                             'span',
-                            null,
+                            { className: _Contacts2.default.proche },
                             ' ',
                             item.firstName,
                             ' ',
@@ -5101,7 +5101,7 @@ var Contacts = function (_Component) {
                             ' '
                         );else return _react2.default.createElement(
                             'span',
-                            null,
+                            { className: _Contacts2.default.proche },
                             ' ',
                             item.firstName,
                             ' ',
@@ -5120,9 +5120,8 @@ var Contacts = function (_Component) {
                     { className: _Contacts2.default.row },
                     _react2.default.createElement(
                         'h3',
-                        { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026). ' },
-                        'Mes autres proches \xE0 pr\xE9venir ',
-                        _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
+                        { className: _Contacts2.default.titlePage },
+                        'Mes autres proches \xE0 pr\xE9venir '
                     ),
                     _react2.default.createElement(
                         'ul',
@@ -5151,7 +5150,7 @@ var Contacts = function (_Component) {
                     elements.map(function (item) {
                         if (item.statut === "prev") return _react2.default.createElement(
                             'span',
-                            null,
+                            { className: _Contacts2.default.proche },
                             ' ',
                             item.firstName,
                             ' ',
@@ -10198,7 +10197,9 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: _FuneralList2.default.Adtext },
-                'Visitez notre site d\'information pour anticiper au mieux vos obs\xE8ques'
+                'Visitez notre site d\'information pour anticiper au mieux vos obs\xE8ques. ',
+                _react2.default.createElement('br', null),
+                'D\xE9couvrez Faire Face Au D\xE9c\xE8s, le site qui met \xE0 votre disposition des informations autour du d\xE9c\xE8s, des obs\xE8ques, du deuil...'
               ),
               _react2.default.createElement(
                 'div',
@@ -10648,16 +10649,6 @@ var Navigation = exports.Navigation = function Navigation(props) {
                         _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
                         ' Contact'
                     )
-                ),
-                _react2.default.createElement(
-                    'li',
-                    { className: _Navigation2.default.button },
-                    _react2.default.createElement(
-                        ActiveLink,
-                        { to: '/faq', activeClassName: _Navigation2.default.active, title: 'FAQ' },
-                        _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
-                        ' FAQ'
-                    )
                 )
             )
         ),
@@ -11087,6 +11078,11 @@ var Prestataire = function (_React$Component) {
                 { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
                 _react2.default.createElement(
                     'div',
+                    null,
+                    'Afin de pr\xE9parer au mieux vos obs\xE8ques, vous devez choisir un professionnel des prestations dun\xE9raires. Lui seul est habilit\xE9 \xE0 faire certaines t\xE2ches comme la toilette mortuaire, le transport du corps. Contact\xE9 en amont, il suivra scrupuleusement les directives et les co\xFBts que vous aurez devis\xE9s avec lui. Une mani\xE8re de ma\xEEtriser les choses et de d\xE9charger vos proches qui n\'auront qu\'\xE0 le pr\xE9venir afin de d\xE9clencher son intervention.'
+                ),
+                _react2.default.createElement(
+                    'div',
                     { className: _FuneralList2.default.main },
                     _react2.default.createElement(
                         'div',
@@ -11180,7 +11176,7 @@ var Prestataire = function (_React$Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            'Lorem Ipsum dolor sit amen Lorem ipsum dolor sit amen'
+                            'Gr\xE2ce \xE0 notre partenaire tarificateur vous \xE9z le co\xFBt des obs\xE8ques en fonction des options choisies. vous prenez conscience des prix pratiqu\xE9s sur le march\xE9 fun\xE9raire.'
                         )
                     ),
                     _react2.default.createElement(
@@ -11206,7 +11202,7 @@ var Prestataire = function (_React$Component) {
                             _react2.default.createElement(
                                 'p',
                                 null,
-                                'Lorem Ipsum dolor sit amen Lorem ipsum dolor sit amen'
+                                'Le service de g\xE9olocalisation Google maps vous permet d\'identifier les prestataires dun\xE9raires sur la commune et le p\xE9rim\xE8tre de votre choix. Demandez des devis estimatifs aux professionnels correspondants \xE0 vos crit\xE8res g\xE9ographiques.'
                             )
                         )
                     ),
@@ -11233,7 +11229,7 @@ var Prestataire = function (_React$Component) {
                             _react2.default.createElement(
                                 'p',
                                 null,
-                                'Contactez les professionnels correspondant \xE0 vos crit\xE8res g\xE9ographiques et demandez-leur des devis estimatifs. Pour simplifier la d\xE9marche, transmettez-leur le document type associ\xE9 \xE0 votre Espace-priv\xE9.'
+                                'Stocker ici le devis sign\xE9 avec le prestatire fun\xE9raire de votre choix.'
                             )
                         )
                     )
@@ -19814,7 +19810,6 @@ var ContactModal = function (_Component) {
 
       var telephones = [].concat(_toConsumableArray(this.state.telephones));
       var address = _extends({}, this.state.address);
-      var birth = _extends({}, this.state.birth);
 
       var newContact = {
         civility: civility,
@@ -19827,8 +19822,7 @@ var ContactModal = function (_Component) {
         telephones: telephones,
         address: address,
         statut: statut,
-        delay: delay,
-        birth: birth
+        delay: delay
       };
 
       var infos = null;
@@ -19841,67 +19835,69 @@ var ContactModal = function (_Component) {
       });
 
       // SEND SHARING MAIL
-      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
-        data: {
-          type: 'io.cozy.permissions',
-          attributes: {
-            permissions: {
-              "settings": {
-                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
-                "type": "io.cozy.settings",
-                "verbs": ["ALL"]
-              },
-              "data-funerals-lastwill": {
-                "description": "App required data Last Will access",
-                "type": "com.empreinte.FLastWill",
-                "verbs": ["ALL"]
-              },
-              "data-funerals-contacts": {
-                "description": "App required data Last Will access",
-                "type": "com.empreinte.Fcontacts",
-                "verbs": ["ALL"]
-              },
-              "data-funerals-custom-contacts": {
-                "description": "App required data Last Will access",
-                "type": "com.empreinte.Fcustomcontacts",
-                "verbs": ["ALL"]
-              },
-              "data-homeData": {
-                "description": "App required data homeData access",
-                "type": "com.empreinte.homeData",
-                "verbs": ["ALL"]
-              },
-              "contacts": {
-                "description": "App required contacts access",
-                "type": "com.empreinte.contacts",
-                "verbs": ["ALL"]
-              },
-              "metas": {
-                "description": "App required metas access",
-                "type": "com.empreinte.meta",
-                "verbs": ["ALL"]
-              },
-              "contact": {
-                "description": "App required contact access",
-                "type": "io.cozy.contacts",
-                "verbs": ["ALL"]
+      if (newContact.delay === "now") {
+        cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+          data: {
+            type: 'io.cozy.permissions',
+            attributes: {
+              permissions: {
+                "settings": {
+                  "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                  "type": "io.cozy.settings",
+                  "verbs": ["ALL"]
+                },
+                "data-funerals-lastwill": {
+                  "description": "App required data Last Will access",
+                  "type": "com.empreinte.FLastWill",
+                  "verbs": ["ALL"]
+                },
+                "data-funerals-contacts": {
+                  "description": "App required data Last Will access",
+                  "type": "com.empreinte.Fcontacts",
+                  "verbs": ["ALL"]
+                },
+                "data-funerals-custom-contacts": {
+                  "description": "App required data Last Will access",
+                  "type": "com.empreinte.Fcustomcontacts",
+                  "verbs": ["ALL"]
+                },
+                "data-homeData": {
+                  "description": "App required data homeData access",
+                  "type": "com.empreinte.homeData",
+                  "verbs": ["ALL"]
+                },
+                "contacts": {
+                  "description": "App required contacts access",
+                  "type": "com.empreinte.contacts",
+                  "verbs": ["ALL"]
+                },
+                "metas": {
+                  "description": "App required metas access",
+                  "type": "com.empreinte.meta",
+                  "verbs": ["ALL"]
+                },
+                "contact": {
+                  "description": "App required contact access",
+                  "type": "io.cozy.contacts",
+                  "verbs": ["ALL"]
+                }
               }
             }
           }
-        }
-      }).then(function (result) {
-        _this2.sharing = result.attributes.codes['partage'];
-        console.log(_this2.sharing);
+        }).then(function (result) {
+          _this2.sharing = result.attributes.codes['partage'];
+          console.log(_this2.sharing);
 
-        var job = cozy.client.jobs.create('sendmail', {
-          mode: 'from',
-          to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
-          subject: infos.attributes.public_name + ' vous donne accès à ses informations.',
-          parts: [{ type: 'text/plain', body: window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/' }]
-        }).then(function (res) {
-          console.log(res);
+          var job = cozy.client.jobs.create('sendmail', {
+            mode: 'from',
+            to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
+            subject: infos.attributes.public_name + ' vous donne accès à ses informations.',
+            parts: [{ type: 'text/plain', body: window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/' }]
+          }).then(function (res) {
+            console.log(res);
+          });
         });
-      });
+      }
 
       console.log(newContact);
       this.props.onSave(newContact);
@@ -20031,67 +20027,6 @@ var ContactModal = function (_Component) {
                 value: this.state.firstName,
                 onChange: function onChange(e) {
                   return _this3.setState({ firstName: e.target.value });
-                } })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _ContactRecallModal2.default.row },
-            _react2.default.createElement(
-              'div',
-              { className: _ContactRecallModal2.default.group },
-              _react2.default.createElement(
-                'label',
-                null,
-                'Date de Naissance'
-              ),
-              _react2.default.createElement('input', {
-                type: 'text',
-                placeholder: 'Jour',
-                value: this.state.birth.day,
-                onChange: function onChange(e) {
-                  return _this3.setState({
-                    birth: _extends({}, _this3.state.birth, {
-                      day: e.target.value
-                    }) });
-                } })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: _ContactRecallModal2.default.group },
-              _react2.default.createElement(
-                'label',
-                null,
-                '\xA0'
-              ),
-              _react2.default.createElement('input', {
-                type: 'text',
-                placeholder: 'Mois',
-                value: this.state.birth.month,
-                onChange: function onChange(e) {
-                  return _this3.setState({
-                    birth: _extends({}, _this3.state.birth, {
-                      month: e.target.value
-                    }) });
-                } })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: _ContactRecallModal2.default.group },
-              _react2.default.createElement(
-                'label',
-                null,
-                '\xA0'
-              ),
-              _react2.default.createElement('input', {
-                type: 'text',
-                placeholder: 'Ann\xE9e',
-                value: this.state.birth.year,
-                onChange: function onChange(e) {
-                  return _this3.setState({
-                    birth: _extends({}, _this3.state.birth, {
-                      year: e.target.value
-                    }) });
                 } })
             )
           ),
@@ -20286,7 +20221,12 @@ var ContactModal = function (_Component) {
             ' ',
             _react2.default.createElement('br', null),
             'Cr\xE9er votre contact ',
-            _react2.default.createElement('br', null)
+            _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'div',
+              null,
+              'Plus tard, il sera possible d\'importer vos contacts depuis votre espace MAIF'
+            )
           ),
           _react2.default.createElement(
             'div',
