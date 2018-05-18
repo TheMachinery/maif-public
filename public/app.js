@@ -121,7 +121,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".Contacts-add__knhv {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3VZR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__1oVp {\n  margin-left: 10px; }\n\n.Contacts-divContact__1Oiq {\n  margin: 10px; }\n\n.Contacts-divContact__1Oiq:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__1XrQ {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__1Ad7 {\n  margin-left: 10px; }\n\n.Contacts-seperator__3xJD {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__2JUb {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-titlePageCollapseOpen__1J7h {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n  .Contacts-titlePageCollapseOpen__1J7h:hover {\n    cursor: pointer; }\n  .Contacts-titlePageCollapseOpen__1J7h:after {\n    content: '  \\2193'; }\n\n.Contacts-titlePageCollapseClose__3BSq {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n  .Contacts-titlePageCollapseClose__3BSq:hover {\n    cursor: pointer; }\n  .Contacts-titlePageCollapseClose__3BSq:after {\n    content: '  \\2192'; }\n\n.Contacts-Collapsible__trigger__3JzT is-closed {\n  color: red; }\n\n.Contacts-row__Vpte {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__2Ipg {\n  font-size: 20px; }\n\n.Contacts-done__3LR2 {\n  max-width: 50px; }\n\n.Contacts-waiting__1F3j {\n  max-width: 50px; }\n", ""]);
+exports.push([module.i, ".Contacts-add__knhv {\n  margin-right: 10px; }\n\n.Contacts-contentContact__3VZR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  margin-bottom: 40px; }\n\n.Contacts-information__1oVp {\n  margin-left: 10px; }\n\n.Contacts-divContact__1Oiq {\n  margin: 10px; }\n\n.Contacts-divContact__1Oiq:hover {\n  cursor: pointer; }\n\n.Contacts-contactName__1XrQ {\n  margin: 0;\n  font-size: 25px;\n  font-weight: 500; }\n\n.Contacts-chevron__1Ad7 {\n  margin-left: 10px; }\n\n.Contacts-seperator__3xJD {\n  margin-top: 20px;\n  margin-bottom: 20px;\n  border: 0;\n  border-top: 1px solid #ddd; }\n\n.Contacts-titlePage__2JUb {\n  color: #A05599;\n  font-weight: bolder; }\n\n.Contacts-titlePageCollapseOpen__1J7h {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n  .Contacts-titlePageCollapseOpen__1J7h:hover {\n    cursor: pointer; }\n  .Contacts-titlePageCollapseOpen__1J7h:after {\n    content: '  \\2193'; }\n\n.Contacts-titlePageCollapseClose__3BSq {\n  color: #A05599;\n  font-weight: bolder;\n  font-size: 2rem; }\n  .Contacts-titlePageCollapseClose__3BSq:hover {\n    cursor: pointer; }\n  .Contacts-titlePageCollapseClose__3BSq:after {\n    content: '  \\2192'; }\n\n.Contacts-Collapsible__trigger__3JzT is-closed {\n  color: red; }\n\n.Contacts-row__Vpte {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  margin-bottom: 30px; }\n\n.Contacts-introProches__2Ipg {\n  font-size: 20px; }\n\n.Contacts-done__3LR2 {\n  max-width: 50px; }\n\n.Contacts-waiting__1F3j {\n  max-width: 50px; }\n\n.Contacts-proche__rmXV {\n  font-weight: bolder;\n  font-size: 20px; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -139,7 +139,8 @@ exports.locals = {
 	"row": "Contacts-row__Vpte",
 	"introProches": "Contacts-introProches__2Ipg",
 	"done": "Contacts-done__3LR2",
-	"waiting": "Contacts-waiting__1F3j"
+	"waiting": "Contacts-waiting__1F3j",
+	"proche": "Contacts-proche__rmXV"
 };
 
 /***/ }),
@@ -11226,7 +11227,7 @@ var Dossier = function (_Component) {
             ),
             _react2.default.createElement(
               _reactRouterDom.Link,
-              { to: '/relation' },
+              { to: '/proches-referents' },
               _react2.default.createElement(
                 'div',
                 { className: _Contacts2.default.divContact },
@@ -11250,7 +11251,7 @@ var Dossier = function (_Component) {
             ),
             _react2.default.createElement(
               _reactRouterDom.Link,
-              { to: '/relation' },
+              { to: '/proches-a-prevenir' },
               _react2.default.createElement(
                 'div',
                 { className: _Contacts2.default.divContact },
@@ -13591,6 +13592,41 @@ var Letter = function (_React$Component) {
                   )
                 )
               );
+            } else if (item[0].type == 'telephone') {
+              return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  item[0].display
+                ),
+                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this4.state.data[item[0].name],
+                  onChange: function onChange(e) {
+                    return _this4.refs[item[0].name].innerHTML = e.target.value;
+                  },
+                  className: _Retraite2.default.inputForm }),
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  item[1].display
+                ),
+                _react2.default.createElement('input', { type: 'text', id: item[1].name, placeholder: _this4.state.data[item[0].name],
+                  onChange: function onChange(e) {
+                    return _this4.refs[item[1].name].innerHTML = e.target.value;
+                  },
+                  className: _Retraite2.default.inputForm }),
+                _react2.default.createElement(
+                  'label',
+                  null,
+                  item[2].display
+                ),
+                _react2.default.createElement('input', { type: 'text', id: item[2].name, placeholder: _this4.state.data[item[0].name],
+                  onChange: function onChange(e) {
+                    return _this4.refs[item[2].name].innerHTML = e.target.value;
+                  },
+                  className: _Retraite2.default.inputForm })
+              );
             } else {
               return _react2.default.createElement(
                 'span',
@@ -14752,6 +14788,10 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
 
+var _reactCollapsible = __webpack_require__("./node_modules/react-collapsible/dist/Collapsible.js");
+
+var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
+
 var _Page = __webpack_require__("./src/public/components/elements/Page.js");
 
 var _Page2 = _interopRequireDefault(_Page);
@@ -14802,97 +14842,79 @@ var ProchesPrevenir = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (ProchesPrevenir.__proto__ || Object.getPrototypeOf(ProchesPrevenir)).call(this, props, context));
 
-    _this.state = {
-      current: null,
-      modalOpen: false,
-      edition: false,
-      id: 0,
-      data: [],
-      customData: [],
-      getdata: false
-    };
+    _this.state = {};
 
-    _this.arr = [];
-    Object.keys(_shareHome2.default).forEach(function (key) {
-      _this.arr.push(_shareHome2.default[key]);
-    });
-
-    (0, _meta.getMeta)().then(function (result) {
-      _this.setTypeGroup(result[0].value);
-
-      (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
-        if (res.length > 0) {
-          (function () {
-            var type = result[0].value;
-
-            var _loop = function _loop(n) {
-              var exist = _lodash2.default.find(res, function (t) {
-                return t.type === type[0].types[n].name;
-              });
-              if (exist) {
-                type[0].types[n].checked = true;
-                type[0].types[n]._id = exist._id;
-              }
-            };
-
-            for (var n in type[0].types) {
-              _loop(n);
-            }
-            _this.setTypeGroup(type);
-          })();
-        }
-
-        console.log(res);
-        _this.state.data = res;
-        console.log(_this.state.data);
-        _this.setState({ getData: true });
-        console.log(_this.state.getData);
-      });
-    });
-
-    (0, _meta2.getCustomContactMeta)().then(function (result) {
-      _this.setCustomTypeGroup(result[0].value);
-
-      (0, _tools.getDataElements)(_constants.DOCTYPE_F_CUSTOMCONTACTS).then(function (res) {
-        if (res.length > 0) {
-          (function () {
-            var type = result[0].value;
-
-            var _loop2 = function _loop2(n) {
-              var exist = _lodash2.default.find(res, function (t) {
-                return t.type === type[0].types[n].name;
-              });
-              if (exist) {
-                type[0].types[n].checked = true;
-                type[0].types[n]._id = exist._id;
-              }
-            };
-
-            for (var n in type[0].types) {
-              _loop2(n);
-            }
-            _this.setCustomTypeGroup(type);
-          })();
-        }
-        console.log(res);
-        _this.state.customData = res;
-        console.log(_this.state.customData);
-      });
-    });
-
-    _this.getID = _this.getID.bind(_this);
-
-    cozy.client.settings.getInstance().then(function (res) {
-      console.log(res);
-      _this.user = res.attributes;
-      console.log(_this.user);
+    cozy.client.data.findAll("com.empreinte.contacts").then(function (index) {
+      _this.setState({ proches: index });
     });
     return _this;
   }
 
   _createClass(ProchesPrevenir, [{
     key: 'render',
-    value: function render() {}
+    value: function render() {
+
+      if (!this.state.hasOwnProperty('proches')) return null;
+      console.log(this.state);
+      return _react2.default.createElement(
+        _Page2.default,
+        { title: 'Proches \xE0 pr\xE9venir', subtitle: 'Liste des proches \xE0 pr\xE9venir' },
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.dataReferent },
+          this.state.proches.map(function (item) {
+            if (item.statut === "prev") return _react2.default.createElement(
+              _reactCollapsible2.default,
+              { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: item.firstName + " " + item.lastName },
+              item.hasOwnProperty('address') ? _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.row },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.group },
+                    _react2.default.createElement(
+                      'label',
+                      null,
+                      'Adresse'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      item.address.way + " " + item.address.code + " " + item.address.city + " " + item.address.land
+                    )
+                  )
+                )
+              ) : _react2.default.createElement('span', null),
+              item.hasOwnProperty('telephones') ? _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.row },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.group },
+                    _react2.default.createElement(
+                      'label',
+                      null,
+                      'T\xE9l\xE9phone'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      item.telephones[0].phone
+                    )
+                  )
+                )
+              ) : _react2.default.createElement('span', null)
+            );
+          })
+        )
+      );
+    }
   }]);
 
   return ProchesPrevenir;
@@ -14998,97 +15020,58 @@ var ProchesReferent = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (ProchesReferent.__proto__ || Object.getPrototypeOf(ProchesReferent)).call(this, props, context));
 
-    _this.state = {
-      current: null,
-      modalOpen: false,
-      edition: false,
-      id: 0,
-      data: [],
-      customData: [],
-      getdata: false
-    };
+    _this.state = {};
 
-    _this.arr = [];
-    Object.keys(_shareHome2.default).forEach(function (key) {
-      _this.arr.push(_shareHome2.default[key]);
-    });
-
-    (0, _meta.getMeta)().then(function (result) {
-      _this.setTypeGroup(result[0].value);
-
-      (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
-        if (res.length > 0) {
-          (function () {
-            var type = result[0].value;
-
-            var _loop = function _loop(n) {
-              var exist = _lodash2.default.find(res, function (t) {
-                return t.type === type[0].types[n].name;
-              });
-              if (exist) {
-                type[0].types[n].checked = true;
-                type[0].types[n]._id = exist._id;
-              }
-            };
-
-            for (var n in type[0].types) {
-              _loop(n);
-            }
-            _this.setTypeGroup(type);
-          })();
-        }
-
-        console.log(res);
-        _this.state.data = res;
-        console.log(_this.state.data);
-        _this.setState({ getData: true });
-        console.log(_this.state.getData);
-      });
-    });
-
-    (0, _meta2.getCustomContactMeta)().then(function (result) {
-      _this.setCustomTypeGroup(result[0].value);
-
-      (0, _tools.getDataElements)(_constants.DOCTYPE_F_CUSTOMCONTACTS).then(function (res) {
-        if (res.length > 0) {
-          (function () {
-            var type = result[0].value;
-
-            var _loop2 = function _loop2(n) {
-              var exist = _lodash2.default.find(res, function (t) {
-                return t.type === type[0].types[n].name;
-              });
-              if (exist) {
-                type[0].types[n].checked = true;
-                type[0].types[n]._id = exist._id;
-              }
-            };
-
-            for (var n in type[0].types) {
-              _loop2(n);
-            }
-            _this.setCustomTypeGroup(type);
-          })();
-        }
-        console.log(res);
-        _this.state.customData = res;
-        console.log(_this.state.customData);
-      });
-    });
-
-    _this.getID = _this.getID.bind(_this);
-
-    cozy.client.settings.getInstance().then(function (res) {
-      console.log(res);
-      _this.user = res.attributes;
-      console.log(_this.user);
+    cozy.client.data.findAll("com.empreinte.contacts").then(function (index) {
+      _this.setState({ proches: index });
     });
     return _this;
   }
 
   _createClass(ProchesReferent, [{
     key: 'render',
-    value: function render() {}
+    value: function render() {
+
+      if (!this.state.hasOwnProperty('proches')) return null;
+      console.log(this.state);
+      return _react2.default.createElement(
+        _Page2.default,
+        { title: 'Proches r\xE9f\xE9rents', subtitle: 'Liste des r\xE9f\xE9rents' },
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.dataReferent },
+          this.state.proches.map(function (item) {
+            if (item.statut === "ref") if (item.delay === "now") return _react2.default.createElement(
+              'span',
+              { className: _Contacts2.default.proche },
+              ' ',
+              item.firstName,
+              ' ',
+              item.lastName,
+              ' ',
+              _react2.default.createElement('img', { className: _Contacts2.default.chevron,
+                src: 'public/media/chevronpurple.svg' }),
+              ' \xA0\xA0Espace partag\xE9 ',
+              _react2.default.createElement('br', null),
+              ' '
+            );else return _react2.default.createElement(
+              'span',
+              { className: _Contacts2.default.proche },
+              ' ',
+              item.firstName,
+              ' ',
+              item.lastName,
+              ' ',
+              _react2.default.createElement('img', { className: _Contacts2.default.chevron,
+                src: 'public/media/chevronpurple.svg' }),
+              ' \xA0\xA0Partage en attente ',
+              _react2.default.createElement('br', null),
+              ' '
+            );
+          })
+        )
+      );
+    }
   }]);
 
   return ProchesReferent;

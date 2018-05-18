@@ -10394,7 +10394,7 @@ exports.default = Loader;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -10475,68 +10475,245 @@ var _reactHoverImage2 = _interopRequireDefault(_reactHoverImage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var Data = function Data(props) {
+  console.log(props.open_hours);
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: _Localisation2.default.row },
+      _react2.default.createElement(
+        'div',
+        { className: _Localisation2.default.name },
+        _react2.default.createElement(
+          'div',
+          null,
+          props.name
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: (0, _classnames2.default)(_FuneralList2.default.row) },
+      _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: _Localisation2.default.dataAdress },
+          props.formatted_address
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Localisation2.default.dataOpening },
+          ' ',
+          props.open_hours == true ? "Ouvert maintenant" : "Fermé",
+          ' '
+        )
+      )
+    ),
+    _react2.default.createElement('div', { className: _FuneralList2.default.separator })
+  );
+};
+
 var Localisation = function (_React$Component) {
-    _inherits(Localisation, _React$Component);
+  _inherits(Localisation, _React$Component);
 
-    function Localisation(props) {
-        _classCallCheck(this, Localisation);
+  function Localisation(props) {
+    _classCallCheck(this, Localisation);
 
-        var _this = _possibleConstructorReturn(this, (Localisation.__proto__ || Object.getPrototypeOf(Localisation)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Localisation.__proto__ || Object.getPrototypeOf(Localisation)).call(this, props));
 
-        _this.state = {
-            open: false,
-            current: '',
-            hiddenType: '',
-            search: '',
-            typeGroup: [],
-            customTypeGroup: [],
-            TypeOpen: false,
-            InfoOpen: false,
-            infoHeader: "",
-            infoText: "",
-            firstname: "",
-            formType: "",
-            newTypeType: "",
-            lastname: "",
-            link: ''
-        };
-        return _this;
+    _this.state = {
+      open: false,
+      current: '',
+      hiddenType: '',
+      search: '',
+      typeGroup: [],
+      customTypeGroup: [],
+      TypeOpen: false,
+      InfoOpen: false,
+      infoHeader: "",
+      infoText: "",
+      firstname: "",
+      formType: "",
+      newTypeType: "",
+      lastname: "",
+      link: '',
+      zoom: 11,
+      currentMap: {},
+      dataAdress: {}
+    };
+    _this.initMap = _this.initMap.bind(_this);
+    _this.searchBox = _this.searchBox.bind(_this);
+
+    return _this;
+  }
+
+  _createClass(Localisation, [{
+    key: 'loadJS',
+    value: function loadJS(src) {
+      var ref = window.document.getElementsByTagName("script")[0];
+      var script = window.document.createElement("script");
+      script.src = src;
+      script.async = true;
+      ref.parentNode.insertBefore(script, ref);
     }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      window.initMap = this.initMap;
+      window.loadJS = this.loadJS;
+      window.searchBox = this.searchBox;
+      loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+    }
+  }, {
+    key: 'initMap',
+    value: function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 11
+      });
+      this.setState({ currentMap: map });
+      var infoWindow = new google.maps.InfoWindow();
 
-    _createClass(Localisation, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _Page2.default,
-                { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
-                _react2.default.createElement(
-                    'div',
-                    { className: _FuneralList2.default.main },
-                    _react2.default.createElement(
-                        'div',
-                        { className: _FuneralList2.default.header },
-                        _react2.default.createElement(
-                            'div',
-                            { className: _Prestataire2.default.titlePresta },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                'G\xE9o-localisation de votre prestataire fun\xE9raire'
-                            )
-                        )
-                    )
-                )
-            );
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Location found.');
+          infoWindow.open(map);
+          map.setCenter(pos);
+          searchBox(map);
+        }, function () {
+          //   handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        // handleLocationError(false, infoWindow, map.getCenter());
+      }
+    }
+  }, {
+    key: 'searchBox',
+    value: function searchBox(map) {
+      var _this2 = this;
+
+      map = this.state.currentMap;
+      var input = document.getElementById('input');
+      var searchBox = new google.maps.places.SearchBox(input);
+      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+      map.addListener('bounds_changed', function () {
+        searchBox.setBounds(map.getBounds());
+      });
+      var markers = [];
+      searchBox.addListener('places_changed', function () {
+        var places = searchBox.getPlaces();
+        console.log(places);
+        _this2.setState({ dataAdress: places });
+        if (places.length == 0) {
+          return;
         }
-    }]);
 
-    return Localisation;
+        markers.forEach(function (marker) {
+          marker.setMap(null);
+        });
+        markers = [];
+
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function (place) {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+          }
+          var icon = {
+            url: "/media/marqueur.png",
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+          };
+
+          markers.push(new google.maps.Marker({
+            map: map,
+            icon: icon,
+            title: place.name,
+            position: place.geometry.location
+          }));
+
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var allData = this.state.dataAdress;
+      return _react2.default.createElement(
+        _Page2.default,
+        { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+        _react2.default.createElement(
+          'div',
+          { className: _FuneralList2.default.main },
+          _react2.default.createElement(
+            'div',
+            { className: _FuneralList2.default.header },
+            _react2.default.createElement(
+              'div',
+              { className: _Prestataire2.default.titlePresta },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'G\xE9o-localisation de votre prestataire fun\xE9raire'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: _Localisation2.default.contentMap },
+              _react2.default.createElement(
+                'div',
+                { className: _Localisation2.default.right },
+                _react2.default.createElement('div', _defineProperty({ className: _Localisation2.default.map, id: 'map' }, 'className', _Localisation2.default.map))
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('input', { onBlur: this.searchBox, id: 'input', defaultValue: 'pompes funebres generales (pfg)', className: _Localisation2.default.controls, type: 'text' }),
+                _react2.default.createElement(
+                  'div',
+                  { className: _Localisation2.default.printedAddress },
+                  Object.keys(allData).length === 0 && allData.constructor === Object ? _react2.default.createElement('div', null) : this.state.dataAdress.map(function (item, key) {
+                    console.log(item.opening_hours.open_now);
+                    return _react2.default.createElement(Data, { name: item.name, formatted_address: item.formatted_address, open_hours: item.opening_hours.open_now });
+                  })
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Localisation;
 }(_react2.default.Component);
 
 exports.default = Localisation;
