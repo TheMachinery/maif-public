@@ -11195,7 +11195,7 @@ var Dossier = function (_Component) {
                     'p',
                     { className: _Contacts2.default.contactName },
                     'Profil de ',
-                    this.user.public_name
+                    this.state.user.firstname + " " + this.state.user.name
                   ),
                   _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' })
                 ),
