@@ -11046,6 +11046,12 @@ var Dossier = function (_Component) {
     (0, _meta.getMeta)().then(function (result) {
       _this.setTypeGroup(result[0].value);
 
+      (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
+        _this.setState({ user: res[0] });
+        console.log(res);
+        console.log(_this.state);
+      });
+
       (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
         if (res.length > 0) {
           (function () {
@@ -11107,11 +11113,6 @@ var Dossier = function (_Component) {
     });
 
     _this.getID = _this.getID.bind(_this);
-
-    cozy.client.settings.getInstance().then(function (res) {
-      _this.user = res.attributes;
-      console.log(_this.user);
-    });
     return _this;
   }
 
