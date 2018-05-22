@@ -11351,6 +11351,15 @@ var Dossier = function (_Component) {
                     return _react2.default.createElement(
                       'li',
                       { key: key },
+                      _react2.default.createElement(
+                        'div',
+                        { className: _Dossier2.default.delai },
+                        _react2.default.createElement(
+                          'p',
+                          null,
+                          item.delay
+                        )
+                      ),
                       _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                         onAdd: function onAdd(e) {
                           if (item.checked) {
@@ -13804,7 +13813,7 @@ var Letter = function (_React$Component) {
 
       return _react2.default.createElement(
         _Page2.default,
-        { title: this.state.firstname + " " + this.state.name },
+        { title: this.state.firstname + " " + this.state.lastname },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
