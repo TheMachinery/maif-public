@@ -11378,6 +11378,7 @@ var Dossier = function (_Component) {
             this.state.customTypeGroup.map(function (group, key) {
               var docs = group.types;
               if (docs && docs.length > 0) {
+                console.log(docs);
                 return _react2.default.createElement(
                   'ul',
                   { className: _FuneralList2.default.list },
