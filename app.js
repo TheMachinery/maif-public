@@ -9208,7 +9208,7 @@ var FuneralList = function (_React$Component) {
         excerpt: this.state.newTypeExcerpt,
         type: this.state.newTypeType,
         key: (0, _index2.string_to_slug)(this.state.newTypeName),
-        delay: _types2.default[type].delay,
+        delay: _types2.default[this.state.newTypeType].delay,
         doctype: _index.DOCTYPE_F_CUSTOMCONTACTS
       };
 
