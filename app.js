@@ -9208,8 +9208,10 @@ var FuneralList = function (_React$Component) {
         excerpt: this.state.newTypeExcerpt,
         type: this.state.newTypeType,
         key: (0, _index2.string_to_slug)(this.state.newTypeName),
+        delay: _types2.default[type].delay,
         doctype: _index.DOCTYPE_F_CUSTOMCONTACTS
       };
+
       (0, _meta.getCustomContactMeta)().then(function (result) {
         var newDoc = result;
         newDoc[0].value[0].types.push(newDocType);
@@ -9742,7 +9744,7 @@ var FuneralList = function (_React$Component) {
                       _react2.default.createElement(
                         'label',
                         null,
-                        'Type de contact'
+                        'Nom du contact'
                       ),
                       _react2.default.createElement('input', {
                         type: 'text',
