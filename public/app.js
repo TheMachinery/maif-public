@@ -11245,18 +11245,6 @@ var Dossier = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'button',
-              { onClick: function onClick() {
-                  return _this3.deathDate();
-                }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-              _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-              'VALIDER'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
             { className: 'col-md-4' },
             _react2.default.createElement(
               'button',
@@ -11428,6 +11416,18 @@ var Dossier = function (_Component) {
               'p',
               null,
               ' Un d\xE9c\xE8s occasionne nombre de formalit\xE9s. Notre assistant administratif hi\xE9rarchise les priorit\xE9s, synchronise les donn\xE9es personnelles (noms, adresses, contacts ...) avec les courriers-types et permet le suivi de chaque d\xE9marche.'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-3' },
+            _react2.default.createElement(
+              'button',
+              { onClick: function onClick() {
+                  return _this3.deathDate();
+                }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+              _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
+              'VALIDER'
             )
           ),
           _react2.default.createElement(
