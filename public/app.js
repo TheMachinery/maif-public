@@ -3963,6 +3963,13 @@ var MAX_FILE_SIZE = exports.MAX_FILE_SIZE = 20 * 1024 * 1024; //20Mo
 
 /***/ }),
 
+/***/ "./src/constants/types.json":
+/***/ (function(module, exports) {
+
+module.exports = [{"type":"medecin","unique":false,"name":"Médecin Traitant"},{"type":"mairie","unique":false,"name":"Mairie"},{"type":"pole_emploi","unique":false,"name":"Pôle Emploi"},{"type":"employeur","unique":false,"name":"Employeur"},{"type":"banque","unique":false,"name":"Banque"},{"type":"credit","unique":false,"name":"Organisme de crédit"},{"type":"complementaire_maladie","unique":false,"name":"Mutuelle de santé complémentaire"},{"type":"service_domicile","unique":false,"name":"Salarié ou association de service à domicile"},{"type":"cpam","unique":false,"name":"Régime Général de santé"},{"type":"assurance_material","unique":false,"name":"Assurance matériel"},{"type":"assurance_person","unique":false,"name":"Assurance vie"},{"type":"notaire","unique":false,"name":"Notaire"},{"type":"retraite","unique":false,"name":"Caisse de retraite"},{"type":"bailleur","unique":false,"name":"Bailleur"},{"type":"locataire","unique":false,"delay":"DANS LE MOIS","name":"Locataire"},{"type":"caf","unique":false,"delay":"DANS LE MOIS","name":"Caisse d'allocations familiales"},{"type":"organism_payer","unique":false,"delay":"DANS LE MOIS","name":"Organismes payeurs"},{"type":"impot","unique":false,"delay":"DANS LES 6 MOIS","name":"Centre des impôts"},{"type":"default","unique":false,"delay":"DANS LES 6 MOIS","name":"Autre"}]
+
+/***/ }),
+
 /***/ "./src/public/App.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10979,6 +10986,10 @@ var _shareHome2 = _interopRequireDefault(_shareHome);
 
 var _dataFields = __webpack_require__("./src/scripts/dataFields.js");
 
+var _types = __webpack_require__("./src/constants/types.json");
+
+var _types2 = _interopRequireDefault(_types);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11169,6 +11180,33 @@ var Dossier = function (_Component) {
       return false;
     }
   }, {
+    key: 'addTypeGroup',
+    value: function addTypeGroup() {
+      var _this2 = this;
+
+      console.log(_types2.default);
+      var newDocType = {
+        name: this.state.newTypeName,
+        excerpt: this.state.newTypeExcerpt,
+        type: this.state.newTypeType,
+        key: this.state.newTypeType,
+        delay: this.search_array(this.state.newTypeType),
+        doctype: _constants.DOCTYPE_F_CUSTOMCONTACTS
+      };
+
+      console.log(newDocType);
+
+      (0, _meta2.getCustomContactMeta)().then(function (result) {
+        var newDoc = result;
+        newDoc[0].value[0].types.push(newDocType);
+        cozy.client.data.update(_constants2.DOCTYPE_META, result[0], newDoc[0]).then(function (newresult) {
+          var item = (0, _dataFields.getInfosFromDoctype)(newDocType.doctype);
+          _this2.setState({ TypeOpen: false, current: item.slug, open: true, formType: newDocType.type, hiddenType: newDocType.name });
+          _this2.setCustomTypeGroup(newresult.value);
+        });
+      });
+    }
+  }, {
     key: 'clickOnAddContacts',
     value: function clickOnAddContacts() {
       var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
@@ -11178,7 +11216,7 @@ var Dossier = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
@@ -11186,7 +11224,7 @@ var Dossier = function (_Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this2.clickOnAddContacts();
+              return _this3.clickOnAddContacts();
             }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
           _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
           'AJOUTER UN CONTACT'
@@ -11378,9 +11416,9 @@ var Dossier = function (_Component) {
                       _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                         onAdd: function onAdd(e) {
                           if (item.checked) {
-                            _this2.props.history.push("/letter/contact/" + item.key + "/" + item._id);
+                            _this3.props.history.push("/letter/contact/" + item.key + "/" + item._id);
                           } else {
-                            _this2.clickOnContacts(item);
+                            _this3.clickOnContacts(item);
                           }
                         } })
                     );
@@ -11413,9 +11451,9 @@ var Dossier = function (_Component) {
                       _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                         onAdd: function onAdd(e) {
                           if (item.checked) {
-                            _this2.props.history.push("/letter/custom/" + item.type + "/" + item._id);
+                            _this3.props.history.push("/letter/custom/" + item.type + "/" + item._id);
                           } else {
-                            _this2.clickOnContacts(item);
+                            _this3.clickOnContacts(item);
                           }
                         } })
                     );
@@ -11430,7 +11468,7 @@ var Dossier = function (_Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.open, closeOnEsc: true, onClose: function onClose() {
-              return _this2.setState({ open: false });
+              return _this3.setState({ open: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -11442,7 +11480,7 @@ var Dossier = function (_Component) {
               formType: this.state.formType,
               onboard: false,
               close: function close() {
-                _this2.setState({ open: false });
+                _this3.setState({ open: false });
               }
             })
           )
@@ -11450,7 +11488,7 @@ var Dossier = function (_Component) {
         _react2.default.createElement(
           _reactPortal2.default,
           { closeOnOutsideClick: false, isOpened: this.state.TypeOpen, closeOnEsc: true, onClose: function onClose() {
-              return _this2.setState({ TypeOpen: false });
+              return _this3.setState({ TypeOpen: false });
             } },
           _react2.default.createElement(
             _Modal2.default,
@@ -11496,9 +11534,9 @@ var Dossier = function (_Component) {
                           type: 'text',
                           placeholder: 'Employeur',
                           value: this.state.newTypeType, onChange: function onChange(e) {
-                            return _this2.setState({ newTypeType: e.target.value });
+                            return _this3.setState({ newTypeType: e.target.value });
                           } },
-                        customtypes.map(function (item, key) {
+                        _types2.default.map(function (item, key) {
                           if (!item.unique) return _react2.default.createElement(
                             'option',
                             { value: item.type },
@@ -11524,7 +11562,7 @@ var Dossier = function (_Component) {
                         placeholder: 'Mairie, Medecin traitant, Banque',
                         value: this.state.newTypeName,
                         onChange: function onChange(e) {
-                          return _this2.setState({ newTypeName: e.target.value });
+                          return _this3.setState({ newTypeName: e.target.value });
                         } })
                     )
                   ),
@@ -11543,7 +11581,7 @@ var Dossier = function (_Component) {
                         type: 'text',
                         placeholder: 'Courte description du contact',
                         onChange: function onChange(e) {
-                          return _this2.setState({ newTypeExcerpt: e.target.value });
+                          return _this3.setState({ newTypeExcerpt: e.target.value });
                         } })
                     )
                   )
@@ -11558,7 +11596,7 @@ var Dossier = function (_Component) {
                       'button',
                       {
                         onClick: function onClick(e) {
-                          return _this2.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
+                          return _this3.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
                         },
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
                       },
@@ -11569,7 +11607,7 @@ var Dossier = function (_Component) {
                       {
                         className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default),
                         onClick: function onClick(e) {
-                          return _this2.addTypeGroup(e);
+                          return _this3.addTypeGroup(e);
                         } },
                       'VALIDER'
                     )
