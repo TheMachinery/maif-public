@@ -11210,20 +11210,44 @@ var Dossier = function (_Component) {
       this.setState({ TypeOpen: true });
     }
   }, {
+    key: 'deathDate',
+    value: function deathDate() {
+      cozy.client.data.update(com.empreinte.homeData, this.user._id, document.getElementById("deathDate").value).then(function (res) {
+        console.lof(res);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this3 = this;
 
+      var deathDate = this.state.user.deathDate;
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
         { title: this.state.user.firstname + " " + this.state.user.name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
         _react2.default.createElement(
-          'button',
-          { onClick: function onClick() {
-              return _this3.clickOnAddContacts();
-            }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-          _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-          'AJOUTER UN CONTACT'
+          'div',
+          null,
+          'Date du d\xE9c\xE8s : ',
+          _react2.default.createElement('input', { type: 'text', id: 'deathDate', value: deathDate != null ? deathDate : "01/01/2001",
+            className: [styleRetraite.inputForm, styleRetraite.sizeRue].join(' ')
+          }),
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                return _this3.deathDate();
+              }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+            _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
+            'VALIDER'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                return _this3.clickOnAddContacts();
+              }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+            _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
+            'AJOUTER UN CONTACT'
+          )
         ),
         _react2.default.createElement(
           _reactCollapsible2.default,
