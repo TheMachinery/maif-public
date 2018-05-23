@@ -13815,6 +13815,11 @@ var Letter = function (_React$Component) {
                         return _this5.refs.city.innerHTML = e.target.value;
                       } })
                   )
+                ),
+                _react2.default.createElement(
+                  'h3',
+                  { className: _Retraite2.default.titleRetraite },
+                  'Champs propre au courrier'
                 )
               );
             } else if (item[0].type == 'interlocuteur') {
@@ -14041,7 +14046,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'h3',
           { className: _Retraite2.default.titleRetraite },
-          'Coordon\xE9es du proche r\xE9f\xE9rent'
+          'Coordonn\xE9e du proche r\xE9f\xE9rent'
         ),
         this.myFormsReferent(),
         _react2.default.createElement(
@@ -14056,9 +14061,9 @@ var Letter = function (_React$Component) {
           { className: _Retraite2.default.buttonCustom, onClick: mySave },
           'Enregistrer les donn\xE9es'
         ),
-        this.myFormsSuivit(),
         this.myLetterButton(),
-        this.renderLetter()
+        this.renderLetter(),
+        this.myFormsSuivit()
       );
     }
 
