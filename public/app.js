@@ -13626,8 +13626,9 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('input', { type: 'text', id: 'suite', placeholder: this.state.suite === null ? "à donner" : this.state.suite, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+          _react2.default.createElement('input', { type: 'text', id: 'suite', placeholder: this.state.data.suite === null ? "à donner" : this.state.data.suite, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         ),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
           { className: _Retraite2.default.buttonCustom, onClick: function onClick() {
@@ -13867,7 +13868,7 @@ var Letter = function (_React$Component) {
                     _react2.default.createElement(
                       'label',
                       null,
-                      'D\xE9marche faite le '
+                      'Date du courrier '
                     )
                   ),
                   _react2.default.createElement(
