@@ -9202,7 +9202,10 @@ var FuneralList = function (_React$Component) {
     key: 'search_array',
     value: function search_array(valuetofind) {
       for (var i = 0; i < _types2.default.length; i++) {
-        if (_types2.default[i] === valuetofind) {
+        console.log(_types2.default[i]);
+        console.log(valuetofind);
+        console.log(_types2.default[i] == valuetofind);
+        if (_types2.default[i] == valuetofind) {
           return _types2.default[i].delay;
         }
       }
