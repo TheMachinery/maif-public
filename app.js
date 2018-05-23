@@ -9199,6 +9199,16 @@ var FuneralList = function (_React$Component) {
       this.render();
     }
   }, {
+    key: 'search_array',
+    value: function search_array(valuetofind) {
+      for (i = 0; i < _types2.default.length; i++) {
+        if (_types2.default[i]['id'] === valuetofind) {
+          return _types2.default[i].delay;
+        }
+      }
+      return "DANS LES 6 MOIS";
+    }
+  }, {
     key: 'addTypeGroup',
     value: function addTypeGroup() {
       var _this2 = this;
@@ -9209,7 +9219,7 @@ var FuneralList = function (_React$Component) {
         excerpt: this.state.newTypeExcerpt,
         type: this.state.newTypeType,
         key: (0, _index2.string_to_slug)(this.state.newTypeName),
-        delay: _types2.default[this.state.newTypeType].delay,
+        delay: this.search_array(this.state.newTypeType),
         doctype: _index.DOCTYPE_F_CUSTOMCONTACTS
       };
 
