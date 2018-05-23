@@ -11232,13 +11232,13 @@ var Dossier = function (_Component) {
           'div',
           null,
           _react2.default.createElement(
-            'label',
-            null,
-            'Date du d\xE9c\xE8s '
-          ),
-          _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
+            _react2.default.createElement(
+              'label',
+              null,
+              'Date du d\xE9c\xE8s '
+            ),
             _react2.default.createElement('input', { type: 'text', id: 'deathDate', placeholder: this.dDate,
               className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
             })
