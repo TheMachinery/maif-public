@@ -13560,6 +13560,9 @@ var Letter = function (_React$Component) {
     value: function myFormsSuivit() {
       var _this4 = this;
 
+      var slug = this.props.match.params.slug;
+      if (_share2.default.hasOwnProperty(slug) === false) return null;
+
       return _react2.default.createElement(
         'span',
         null,
@@ -13574,11 +13577,6 @@ var Letter = function (_React$Component) {
           _react2.default.createElement(
             'label',
             null,
-            'D\xE9marche faite le '
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
             'Acte re\xE7u le '
           ),
           _react2.default.createElement(
@@ -13590,9 +13588,6 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: _Retraite2.default.adresse },
-          _react2.default.createElement('input', { onChange: function onChange(e) {
-              return _this4.refs.date.innerHTML = e.target.value;
-            }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
           _react2.default.createElement('input', { onChange: function onChange(e) {
               return _this4.refs.deces.innerHTML = e.target.value;
             }, type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
@@ -14077,9 +14072,13 @@ var Letter = function (_React$Component) {
         this.renderData(),
         _react2.default.createElement('br', null),
         _react2.default.createElement(
-          'button',
-          { className: _Retraite2.default.buttonCustom, onClick: mySave },
-          'Enregistrer les donn\xE9es'
+          'div',
+          { className: 'col-md-3' },
+          _react2.default.createElement(
+            'button',
+            { className: _Retraite2.default.buttonCustom, onClick: mySave },
+            'Enregistrer'
+          )
         ),
         this.myLetterButton(),
         this.renderLetter(),
