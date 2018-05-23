@@ -10588,7 +10588,7 @@ var Localisation = function (_React$Component) {
       window.initMap = this.initMap;
       window.loadJS = this.loadJS;
       window.searchBox = this.searchBox;
-      //loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyBdd6Nuox--OwV-YwUAXlVdDGHyXNbCYk4&callback=initMap&libraries=places')
+      loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyBdd6Nuox--OwV-YwUAXlVdDGHyXNbCYk4&callback=initMap&libraries=places');
     }
   }, {
     key: 'initMap',
