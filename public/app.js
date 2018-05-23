@@ -13584,7 +13584,7 @@ var Letter = function (_React$Component) {
           _react2.default.createElement(
             'label',
             null,
-            'Acte re\xE7u le '
+            'Suite donn\xE9e ou \xE0 donner '
           )
         ),
         _react2.default.createElement(
@@ -13816,7 +13816,7 @@ var Letter = function (_React$Component) {
                       } })
                   )
                 ),
-                _react2.default.createElement(
+                _share2.default.hasOwnProperty(slug) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
                   'h3',
                   { className: _Retraite2.default.titleRetraite },
                   'Champs propre au courrier'
@@ -13903,6 +13903,26 @@ var Letter = function (_React$Component) {
             }
           }
         }),
+        _share2.default.hasOwnProperty(slug) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+          'span',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: _Retraite2.default.labelDemarche },
+            _react2.default.createElement(
+              'label',
+              null,
+              'D\xE9marche faite le '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: _Retraite2.default.adresse },
+            _react2.default.createElement('input', { onChange: function onChange(e) {
+                return _this5.refs.date.innerHTML = e.target.value;
+              }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+          )
+        ),
         this.state.getData = true
       );
     }
@@ -14046,7 +14066,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'h3',
           { className: _Retraite2.default.titleRetraite },
-          'Coordonn\xE9e du proche r\xE9f\xE9rent'
+          'Coordonn\xE9es du proche r\xE9f\xE9rent'
         ),
         this.myFormsReferent(),
         _react2.default.createElement(
