@@ -9290,7 +9290,7 @@ var FuneralList = function (_React$Component) {
     value: function clickOnAddContacts() {
       var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-      this.setState({ open: true });
+      this.setState({ TypeOpen: true });
     }
   }, {
     key: 'clickOninfo',
