@@ -11169,6 +11169,13 @@ var Dossier = function (_Component) {
       return false;
     }
   }, {
+    key: 'clickOnAddContacts',
+    value: function clickOnAddContacts() {
+      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      this.setState({ TypeOpen: true });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -11176,6 +11183,14 @@ var Dossier = function (_Component) {
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
         { title: this.state.user.firstname + " " + this.state.user.name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return _this2.clickOnAddContacts();
+            }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+          _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
+          'AJOUTER UN CONTACT'
+        ),
         _react2.default.createElement(
           _reactCollapsible2.default,
           { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: 'Informations personnelles du d\xE9funt' },
@@ -11430,6 +11445,138 @@ var Dossier = function (_Component) {
                 _this2.setState({ open: false });
               }
             })
+          )
+        ),
+        _react2.default.createElement(
+          _reactPortal2.default,
+          { closeOnOutsideClick: false, isOpened: this.state.TypeOpen, closeOnEsc: true, onClose: function onClose() {
+              return _this2.setState({ TypeOpen: false });
+            } },
+          _react2.default.createElement(
+            _Modal2.default,
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: _Contacts2.default.ModalMain },
+              _react2.default.createElement(
+                'div',
+                { className: _Contacts2.default.edition, onClick: function onClick(e) {
+                    return e.stopPropagation();
+                  } },
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.header },
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      'h1',
+                      null,
+                      'Ajouter un type de contact'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'form',
+                  { className: _Contacts2.default.content },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.row },
+                    _react2.default.createElement(
+                      'div',
+                      { className: _Contacts2.default.group },
+                      _react2.default.createElement(
+                        'label',
+                        null,
+                        'Type de contact'
+                      ),
+                      _react2.default.createElement(
+                        'select',
+                        {
+                          type: 'text',
+                          placeholder: 'Employeur',
+                          value: this.state.newTypeType, onChange: function onChange(e) {
+                            return _this2.setState({ newTypeType: e.target.value });
+                          } },
+                        customtypes.map(function (item, key) {
+                          if (!item.unique) return _react2.default.createElement(
+                            'option',
+                            { value: item.type },
+                            item.name
+                          );
+                        })
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.row },
+                    _react2.default.createElement(
+                      'div',
+                      { className: _Contacts2.default.group },
+                      _react2.default.createElement(
+                        'label',
+                        null,
+                        'Nom du contact'
+                      ),
+                      _react2.default.createElement('input', {
+                        type: 'text',
+                        placeholder: 'Mairie, Medecin traitant, Banque',
+                        value: this.state.newTypeName,
+                        onChange: function onChange(e) {
+                          return _this2.setState({ newTypeName: e.target.value });
+                        } })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.row },
+                    _react2.default.createElement(
+                      'div',
+                      { className: _Contacts2.default.group },
+                      _react2.default.createElement(
+                        'label',
+                        null,
+                        'Description'
+                      ),
+                      _react2.default.createElement('input', {
+                        type: 'text',
+                        placeholder: 'Courte description du contact',
+                        onChange: function onChange(e) {
+                          return _this2.setState({ newTypeExcerpt: e.target.value });
+                        } })
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: _Contacts2.default.footer },
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Contacts2.default.footerRight },
+                    _react2.default.createElement(
+                      'button',
+                      {
+                        onClick: function onClick(e) {
+                          return _this2.setState({ TypeOpen: false, newTypeExcerpt: '', newTypeName: '' });
+                        },
+                        className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.defaultLight)
+                      },
+                      'FERMER'
+                    ),
+                    _react2.default.createElement(
+                      'button',
+                      {
+                        className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default),
+                        onClick: function onClick(e) {
+                          return _this2.addTypeGroup(e);
+                        } },
+                      'VALIDER'
+                    )
+                  )
+                )
+              )
+            )
           )
         )
       ) : _react2.default.createElement(
@@ -13745,19 +13892,15 @@ var Letter = function (_React$Component) {
                     return _react2.default.createElement(
                       'span',
                       null,
-                      _react2.default.createElement(
-                        'p',
-                        null,
-                        'Je vous informe que le notaire charge\u0301 de la succession est Mai\u0302tre ',
-                        _this6.state.notaire.notaire_name,
-                        ' domicili\xE9 ',
-                        _this6.state.notaire.address.way,
-                        ' ',
-                        _this6.state.notaire.address.code,
-                        ' ',
-                        _this6.state.notaire.address.ville,
-                        '.'
-                      )
+                      'Mai\u0302tre ',
+                      _this6.state.notaire.notaire_name,
+                      ' domicili\xE9 ',
+                      _this6.state.notaire.address.way,
+                      ' ',
+                      _this6.state.notaire.address.code,
+                      ' ',
+                      _this6.state.notaire.address.ville,
+                      '.'
                     );
                   }
                 } else if (keyName === "name") {
@@ -25980,7 +26123,7 @@ module.exports = [{"name":"Fiche Info","excerpt":"Cette fiche contact permet d'i
 /***/ "./src/public/constants/data/share.json":
 /***/ (function(module, exports) {
 
-module.exports = {"employeur":{"info":"qui était employé(e) au sein de votre entreprise, en qualité de","end":",je procède aux formalités qui m’incombent.<br />Je vous saurais gré :<br />&nbsp;&nbsp;– de verser les sommes restant dues,<br />&nbsp;&nbsp;– de me faire parvenir :<br />&nbsp;&nbsp;- le solde de tout compte,<br />&nbsp;&nbsp;- un certificat de travail,<br />&nbsp;&nbsp;- une attestation de présence dans votre entreprise, - une attestation de salaire,<br />&nbsp;&nbsp;- les trois derniers bulletins de salaire,<br />&nbsp;&nbsp;– de me préciser quelles sont les aides ou prestations prévues dans votre société et de m’indiquer la démarche à effectuer pour y prétendre.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.<br />"},"pole_emploi":{"identifiant":"n° d’identifiant ","contract_owner":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de procéder :<br />&nbsp;&nbsp;– au versement des sommes dues à la date du décès,<br />&nbsp;&nbsp;– de vérifier mes droits, les droits de  ","end":"<br/><br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"banque":{"account_to_delete":"je procède aux formalités qui m’incombent.<br />Aussi, je vous prie de :<br />&nbsp;&nbsp;– bloquer le(s) compte(s) n° :","account_to_transform":"<br/>&nbsp;&nbsp;– transformer le compte joint n°","person_name":"en compte personnel au nom de","assurence_number":"<br/>&nbsp;&nbsp;–m’indiquer la marche à suivre pour bénéficier de la clause d’assurance décès du(des) prêts n°","notaire":true,"end":"<br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"credit":{"credit_number":"n° de crédit.","then":"Je vous saurais gré de :<br />&nbsp;&nbsp;-– m’indiquer les pièces nécessaires à fournir pour l’arrêt du crédit référencé ci-dessus, sachant qu’une assurance décès a été soucrite,<br />&nbsp;&nbsp;– m’indiquer le montant des sommes vous restant dûes, ce crédit n’étant pas assorti d’une assurance décès,<br />&nbsp;&nbsp;-– m’indiquer si ce crédit était assorti d’une assurance crédit,<br />&nbsp;&nbsp;-– m’indiquer les conditions éventuelles de reprise du crédit,<br />","notaire":true,"end":"<br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"complementaire_maladie":{"health_number":" n° ","keep_person":",<br /> je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"},"service_domicile":{"start":"domicilié","address":true,"then":"À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de bien vouloir arrêter vos interventions pour le compte de","name":true,"end":"en cas d’emploi par une association mandataire,<br />&nbsp;&nbsp;– de dresser un état estimatif des sommes restant dues en cas d’emploi direct. Le solde de tout compte vous parviendra dans les meilleurs délais.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"cpam":{"ss_number":"n° de Sécurité sociale ","person":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;–– de m’indiquer la marche à suivre pour faire valoir mes droits éventuels, ou ceux de : - au capital décès,<br />&nbsp;&nbsp;–- à l’allocation veuvage,<br />&nbsp;&nbsp;–- à la pension de veuf ou veuve invalide,<br />&nbsp;&nbsp;–– de procéder aux remboursements des frais de maladie restant dus au défunt, – de procéder à mon immatriculation personnelle.<br />Merci de préciser éventuellement si d’autres démarches sont à effectuer pour faire valoir mes droits ou ceux de ","end":"<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"assurance_material":{"societaire_number":"n° de sociétaire","transfert_name":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de :<br />&nbsp;&nbsp;– maintenir l’ensemble des contrats et de les transférer au nom de","contrat_type":"<br />&nbsp;&nbsp;– résilier les contrats","new_address":"<br />&nbsp;&nbsp;– prendre note que l’adresse et le mode de facturation ne changent pas,<br />&nbsp;&nbsp;– adresser la facturation au nom et à l’adresse suivante","remboursement":"<br />&nbsp;&nbsp;– cesser les prélèvements, le compte étant bloqué dans l’attente du règlement de la succession,<br />&nbsp;&nbsp;– procéder au remboursement de la partie de la cotisation versée par anticipation pour la période du","notaire":true,"end":"<br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"assurance_person":{"societaire_number":"n° de contrat","presta_adresse":"<br />&nbsp;&nbsp;En tant que bénéficiaire je vous demande :<br />&nbsp;&nbsp;– de bien vouloir procéder au versement des capitaux prévus au contrat,<br />&nbsp;&nbsp;– ou, selon le contrat, de régler l’entreprise de pompes funèbres","end":"<br /><br />Je vous remercie par avance et vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"notaire":{"end":"Aussi, je vous demande de procéder à l’ouverture de la succession.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"retraite":{"subscribe_number":"n° d’inscription ","capital":"<br />&nbsp;&nbsp;je procède aux formalités qui m’incombent.<br />&nbsp;&nbsp;À ces fins, je vous saurais gré de :<br />&nbsp;&nbsp;– vérifier mes droits ou ceux de","pension":"au capital décès,<br />&nbsp;&nbsp;– faire valoir mes droits ou ceux de ","end":"à la pension de réversion, – de procéder au règlement des arriérés dus à la date du décès.<br />&nbsp;&nbsp;Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"bailleur":{"start":"votre locataire domicilié(e) ","address":true,"date":"<br />Je procède aux formalités qui m’incombent.<br />À ces fins, je vous demande de bien vouloir :<br />&nbsp;&nbsp;– résilier sans délai le bail établi le","bail":"au bénéfice du défunt,<br />&nbsp;&nbsp;– maintenir le bail en l’état dans l’attente du règlement de la succession,<br />&nbsp;&nbsp;– transférer le bail au nom de","notaire":true,"end":"Je reste à votre disposition pour l’état des lieux et la remise des clés.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"caf":{"allocation_number":"n° d’allocataire","contract_owner":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de bien vouloir me faire parvenir les formulaires pour : - l’allocation de parent isolé,<br />&nbsp;&nbsp;- l’allocation de soutien familial,<br />&nbsp;&nbsp;– d’étudier ma nouvelle situation ou celle de","end":"afin de vérifier si d’autres droits me sont / lui sont ouverts,<br />&nbsp;&nbsp;– d’effectuer le changement d’allocataire,<br />&nbsp;&nbsp;– d’arrêter le versement des prestations sociales éventuelles.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"organism_payer":{"start":"domicilié","address":true,"contract_number":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de résilier l’abonnement ou contrat n°","transfert":"<br />&nbsp;&nbsp;– de transférer cet abonnement ou contrat au nom de","compte_number":"<br />&nbsp;&nbsp;- d’effectuer le prélèvement sur le n° de compte","end":"(RIB/RIP ci-joint).<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"impot":{"start":"domicilié","address":true,"end":"<br />je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de me faire parvenir un formulaire de déclaration de revenus et de m’indiquer les autres formalités à accomplir auprès de vos services.<br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"locataire":{"start":"je procède aux formalités qui m’incombent. Je vous informe que les loyers sont à verser à :","notaire":true,"end":"en attente du réglement de la succession.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."}}
+module.exports = {"employeur":{"info":"qui était employé(e) au sein de votre entreprise, en qualité de","end":",je procède aux formalités qui m’incombent.<br />Je vous saurais gré :<br />&nbsp;&nbsp;– de verser les sommes restant dues,<br />&nbsp;&nbsp;– de me faire parvenir :<br />&nbsp;&nbsp;- le solde de tout compte,<br />&nbsp;&nbsp;- un certificat de travail,<br />&nbsp;&nbsp;- une attestation de présence dans votre entreprise, - une attestation de salaire,<br />&nbsp;&nbsp;- les trois derniers bulletins de salaire,<br />&nbsp;&nbsp;– de me préciser quelles sont les aides ou prestations prévues dans votre société et de m’indiquer la démarche à effectuer pour y prétendre.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.<br />"},"pole_emploi":{"identifiant":"n° d’identifiant ","contract_owner":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de procéder :<br />&nbsp;&nbsp;– au versement des sommes dues à la date du décès,<br />&nbsp;&nbsp;– de vérifier mes droits, les droits de  ","end":"<br/><br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"banque":{"account_to_delete":"je procède aux formalités qui m’incombent.<br />Aussi, je vous prie de :<br />&nbsp;&nbsp;– bloquer le(s) compte(s) n° :","account_to_transform":"<br/>&nbsp;&nbsp;– transformer le compte joint n°","person_name":"en compte personnel au nom de","assurence_number":"<br/>&nbsp;&nbsp;–m’indiquer la marche à suivre pour bénéficier de la clause d’assurance décès du(des) prêts n°","then":"Je vous informe que le notaire chargé de la succession est ","notaire":true,"end":"<br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"credit":{"credit_number":"n° de crédit.","then":"Je vous saurais gré de :<br />&nbsp;&nbsp;-– m’indiquer les pièces nécessaires à fournir pour l’arrêt du crédit référencé ci-dessus, sachant qu’une assurance décès a été soucrite,<br />&nbsp;&nbsp;– m’indiquer le montant des sommes vous restant dûes, ce crédit n’étant pas assorti d’une assurance décès,<br />&nbsp;&nbsp;-– m’indiquer si ce crédit était assorti d’une assurance crédit,<br />&nbsp;&nbsp;-– m’indiquer les conditions éventuelles de reprise du crédit,<br />","thenn":"Je vous informe que le notaire chargé de la succession est ","notaire":true,"end":"<br/>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"complementaire_maladie":{"health_number":" n° ","keep_person":",<br /> je procède aux formalités qui m’incombent.<br />Pourriez-vous m’indiquer si votre mutuelle :<br />&nbsp;&nbsp;– verse une allocation particulière pour les frais d’obsèques ?<br />&nbsp;&nbsp;– si elle pratique le “tiers payant obsèques” auprès de l’entreprise de pompes funébres ?<br />&nbsp;&nbsp;– propose le versement d’un capital décès ?<br />&nbsp;&nbsp;– pratique le remboursement d’une partie des cotisations acquittées ?<br />Je vous remercie, par ailleurs, de bien vouloir procéder au remboursement des sommes dues à la date du décès et de m’indiquer les modalités afin que je ou que ","end":" reste assuré(e) par votre mutuelle.</p><br /><p>Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs.</p>"},"service_domicile":{"start":"domicilié","address":true,"then":"À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de bien vouloir arrêter vos interventions pour le compte de","name":true,"end":"en cas d’emploi par une association mandataire,<br />&nbsp;&nbsp;– de dresser un état estimatif des sommes restant dues en cas d’emploi direct. Le solde de tout compte vous parviendra dans les meilleurs délais.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"cpam":{"ss_number":"n° de Sécurité sociale ","person":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;–– de m’indiquer la marche à suivre pour faire valoir mes droits éventuels, ou ceux de : - au capital décès,<br />&nbsp;&nbsp;–- à l’allocation veuvage,<br />&nbsp;&nbsp;–- à la pension de veuf ou veuve invalide,<br />&nbsp;&nbsp;–– de procéder aux remboursements des frais de maladie restant dus au défunt, – de procéder à mon immatriculation personnelle.<br />Merci de préciser éventuellement si d’autres démarches sont à effectuer pour faire valoir mes droits ou ceux de ","end":"<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"assurance_material":{"societaire_number":"n° de sociétaire","transfert_name":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de :<br />&nbsp;&nbsp;– maintenir l’ensemble des contrats et de les transférer au nom de","contrat_type":"<br />&nbsp;&nbsp;– résilier les contrats","new_address":"<br />&nbsp;&nbsp;– prendre note que l’adresse et le mode de facturation ne changent pas,<br />&nbsp;&nbsp;– adresser la facturation au nom et à l’adresse suivante","remboursement":"<br />&nbsp;&nbsp;– cesser les prélèvements, le compte étant bloqué dans l’attente du règlement de la succession,<br />&nbsp;&nbsp;– procéder au remboursement de la partie de la cotisation versée par anticipation pour la période du","then":"Je vous informe que le notaire chargé de la succession est ","notaire":true,"end":"<br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"assurance_person":{"societaire_number":"n° de contrat","presta_adresse":"<br />&nbsp;&nbsp;En tant que bénéficiaire je vous demande :<br />&nbsp;&nbsp;– de bien vouloir procéder au versement des capitaux prévus au contrat,<br />&nbsp;&nbsp;– ou, selon le contrat, de régler l’entreprise de pompes funèbres","end":"<br /><br />Je vous remercie par avance et vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"notaire":{"end":"Aussi, je vous demande de procéder à l’ouverture de la succession.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"retraite":{"subscribe_number":"n° d’inscription ","capital":"<br />&nbsp;&nbsp;je procède aux formalités qui m’incombent.<br />&nbsp;&nbsp;À ces fins, je vous saurais gré de :<br />&nbsp;&nbsp;– vérifier mes droits ou ceux de","pension":"au capital décès,<br />&nbsp;&nbsp;– faire valoir mes droits ou ceux de ","end":"à la pension de réversion, – de procéder au règlement des arriérés dus à la date du décès.<br />&nbsp;&nbsp;Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"bailleur":{"start":"votre locataire domicilié(e) ","address":true,"date":"<br />Je procède aux formalités qui m’incombent.<br />À ces fins, je vous demande de bien vouloir :<br />&nbsp;&nbsp;– résilier sans délai le bail établi le","bail":"au bénéfice du défunt,<br />&nbsp;&nbsp;– maintenir le bail en l’état dans l’attente du règlement de la succession,<br />&nbsp;&nbsp;– transférer le bail au nom de","then":"Je vous informe que le notaire chargé de la succession est ","notaire":true,"end":"<br />Je reste à votre disposition pour l’état des lieux et la remise des clés.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"caf":{"allocation_number":"n° d’allocataire","contract_owner":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de bien vouloir me faire parvenir les formulaires pour : - l’allocation de parent isolé,<br />&nbsp;&nbsp;- l’allocation de soutien familial,<br />&nbsp;&nbsp;– d’étudier ma nouvelle situation ou celle de","end":"afin de vérifier si d’autres droits me sont / lui sont ouverts,<br />&nbsp;&nbsp;– d’effectuer le changement d’allocataire,<br />&nbsp;&nbsp;– d’arrêter le versement des prestations sociales éventuelles.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"organism_payer":{"start":"domicilié","address":true,"contract_number":"je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré :<br />&nbsp;&nbsp;– de résilier l’abonnement ou contrat n°","transfert":"<br />&nbsp;&nbsp;– de transférer cet abonnement ou contrat au nom de","compte_number":"<br />&nbsp;&nbsp;- d’effectuer le prélèvement sur le n° de compte","end":"(RIB/RIP ci-joint).<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"impot":{"start":"domicilié","address":true,"end":"<br />je procède aux formalités qui m’incombent.<br />À ces fins, je vous saurais gré de me faire parvenir un formulaire de déclaration de revenus et de m’indiquer les autres formalités à accomplir auprès de vos services.<br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."},"locataire":{"start":"je procède aux formalités qui m’incombent. Je vous informe que les loyers sont à verser à ","notaire":true,"end":"en attente du réglement de la succession.<br /><br />Je vous prie d’agréer, Madame, Monsieur, l’expression de mes sentiments les meilleurs."}}
 
 /***/ }),
 
