@@ -13562,12 +13562,13 @@ var Letter = function (_React$Component) {
     key: 'suivit',
     value: function suivit() {
       console.log(document.getElementById("quand"));
-      this.state.quand = document.getElementById("quand").value === "" ? document.getElementById("quand").placeholder : document.getElementById("quand").value;
-      this.state.recu = document.getElementById("recu").value === "" ? document.getElementById("recu").placeholder : document.getElementById("recu").value;
-      this.state.qui = document.getElementById("qui").value === "" ? document.getElementById("qui").placeholder : document.getElementById("qui").value;
-      this.state.suite = document.getElementById("suite").value === "" ? document.getElementById("suite").placeholder : document.getElementById("suite").value;
+      this.state.data.quand = document.getElementById("quand").value === "" ? document.getElementById("quand").placeholder : document.getElementById("quand").value;
+      this.state.data.recu = document.getElementById("recu").value === "" ? document.getElementById("recu").placeholder : document.getElementById("recu").value;
+      this.state.data.qui = document.getElementById("qui").value === "" ? document.getElementById("qui").placeholder : document.getElementById("qui").value;
+      this.state.data.suite = document.getElementById("suite").value === "" ? document.getElementById("suite").placeholder : document.getElementById("suite").value;
 
-      cozy.client.data.updateAttributes('com.empreinte.homeData', this.state.user._id, this.state.user).then(function (res) {
+      var doctype = this.props.match.params.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      cozy.client.data.updateAttributes(doctype, this.props.match.params.id, this.state.data).then(function (res) {
         console.log(res);
       });
     }
@@ -13609,9 +13610,9 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: _Retraite2.default.adresse },
-          _react2.default.createElement('input', { type: 'text', id: 'quand', placeholder: this.state.quand === null ? "12/12/2012" : this.state.quand, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-          _react2.default.createElement('input', { type: 'text', id: 'recu', placeholder: this.state.recu === null ? "12/12/2012" : this.state.recu, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-          _react2.default.createElement('input', { type: 'text', id: 'qui', placeholder: this.state.qui === null ? "Jhon" : this.state.qui, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+          _react2.default.createElement('input', { type: 'text', id: 'quand', placeholder: this.state.data.quand === null ? "12/12/2012" : this.state.data.quand, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { type: 'text', id: 'recu', placeholder: this.state.data.recu === null ? "12/12/2012" : this.state.data.recu, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { type: 'text', id: 'qui', placeholder: this.state.data.qui === null ? "Jhon" : this.state.data.qui, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         ),
         _react2.default.createElement(
           'div',
