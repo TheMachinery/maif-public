@@ -11063,7 +11063,7 @@ var Dossier = function (_Component) {
 
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
         _this.setState({ user: res[0] });
-        _this.deathDate = res[0].deathDate;
+        _this.dDate = res[0].deathDate;
       });
 
       (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
@@ -11215,7 +11215,7 @@ var Dossier = function (_Component) {
   }, {
     key: 'deathDate',
     value: function deathDate() {
-      this.state.user["deathDate"] = document.getElementById("deathDate").value;
+      this.state.user["deathDate"] = document.getElementById("deathDate").value === "" ? document.getElementById("deathDate").placeholder : document.getElementById("deathDate").value;
       cozy.client.data.updateAttributes('com.empreinte.homeData', this.state.user._id, this.state.user).then(function (res) {
         console.log(res);
       });
@@ -11232,7 +11232,7 @@ var Dossier = function (_Component) {
           'div',
           null,
           'Date du d\xE9c\xE8s : ',
-          _react2.default.createElement('input', { type: 'text', id: 'deathDate', value: this.deathDate,
+          _react2.default.createElement('input', { type: 'text', id: 'deathDate', placeholder: this.dDate,
             className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
           }),
           _react2.default.createElement(
