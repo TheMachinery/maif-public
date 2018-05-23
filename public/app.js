@@ -11216,7 +11216,7 @@ var Dossier = function (_Component) {
   }, {
     key: 'deathDate',
     value: function deathDate() {
-      cozy.client.data.update('com.empreinte.homeData', this.state.user._id, document.getElementById("deathDate").value).then(function (res) {
+      cozy.client.data.updateAttributes('com.empreinte.homeData', this.state.user._id, document.getElementById("deathDate").value).then(function (res) {
         console.lof(res);
       });
     }
