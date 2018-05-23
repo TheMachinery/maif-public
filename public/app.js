@@ -11257,6 +11257,8 @@ var Dossier = function (_Component) {
           )
         ),
         _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           _reactCollapsible2.default,
           { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: 'Informations personnelles du d\xE9funt' },
@@ -13624,7 +13626,7 @@ var Letter = function (_React$Component) {
         ),
         _react2.default.createElement(
           'button',
-          { className: _Retraite2.default.buttonCustom, onClick: suivit },
+          { className: _Retraite2.default.buttonCustom, onClick: this.suivit() },
           'Enregistrer'
         )
       );
