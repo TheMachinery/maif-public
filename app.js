@@ -9226,6 +9226,8 @@ var FuneralList = function (_React$Component) {
         doctype: _index.DOCTYPE_F_CUSTOMCONTACTS
       };
 
+      console.log(newDocType);
+
       (0, _meta.getCustomContactMeta)().then(function (result) {
         var newDoc = result;
         newDoc[0].value[0].types.push(newDocType);
