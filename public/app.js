@@ -13816,7 +13816,7 @@ var Letter = function (_React$Component) {
                       } })
                   )
                 ),
-                _share2.default.hasOwnProperty(slug) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
                   'h3',
                   { className: _Retraite2.default.titleRetraite },
                   'Champs propre au courrier'
@@ -13903,7 +13903,7 @@ var Letter = function (_React$Component) {
             }
           }
         }),
-        _share2.default.hasOwnProperty(slug) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+        _share2.default.hasOwnProperty(this.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
           'span',
           null,
           _react2.default.createElement(
