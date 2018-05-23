@@ -11233,20 +11233,19 @@ var Dossier = function (_Component) {
           null,
           _react2.default.createElement(
             'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'label',
-              null,
-              'Date du d\xE9c\xE8s '
-            ),
+            { className: 'col-md-3' },
+            'Date du d\xE9c\xE8s :'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-3' },
             _react2.default.createElement('input', { type: 'text', id: 'deathDate', placeholder: this.dDate,
               className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
             })
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement('label', null),
+            { className: 'col-md-3' },
             _react2.default.createElement(
               'button',
               { onClick: function onClick() {
@@ -11258,12 +11257,7 @@ var Dossier = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'label',
-              null,
-              ' '
-            ),
+            { className: 'col-md-3' },
             _react2.default.createElement(
               'button',
               { onClick: function onClick() {
@@ -11274,6 +11268,7 @@ var Dossier = function (_Component) {
             )
           )
         ),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           _reactCollapsible2.default,
           { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: 'Informations personnelles du d\xE9funt' },
