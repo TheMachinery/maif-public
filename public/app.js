@@ -11398,7 +11398,7 @@ var Dossier = function (_Component) {
                       _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                         onAdd: function onAdd(e) {
                           if (item.checked) {
-                            _this2.props.history.push("/letter/" + item.key + "/" + item._id);
+                            _this2.props.history.push("/letter/" + item.type + "/" + item._id);
                           } else {
                             _this2.clickOnContacts(item);
                           }
