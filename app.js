@@ -9203,6 +9203,7 @@ var FuneralList = function (_React$Component) {
     value: function addTypeGroup() {
       var _this2 = this;
 
+      console.log(_types2.default);
       var newDocType = {
         name: this.state.newTypeName,
         excerpt: this.state.newTypeExcerpt,
