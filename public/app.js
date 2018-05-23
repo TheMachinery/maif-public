@@ -3817,7 +3817,7 @@ module.exports = [{"name":"Informations principales","group":[{"name":"type","di
 /***/ "./src/constants/data/funerals/contact.json":
 /***/ (function(module, exports) {
 
-module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'employeur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"banque":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la banque"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Transformer le compte join n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Assurance Décès du prêt n°"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}]]}],"complementaire_maladie":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}],[{"name":"name","hide":true}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"},{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
+module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"banque":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la banque"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Transformer le compte join n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Assurance Décès du prêt n°"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}]]}],"complementaire_maladie":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}],[{"name":"name","hide":true}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"},{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
 
 /***/ }),
 
@@ -13558,8 +13558,6 @@ var Letter = function (_React$Component) {
   }, {
     key: 'myFormsSuivit',
     value: function myFormsSuivit() {
-      var _this4 = this;
-
       var slug = this.props.match.params.slug;
       if (_share2.default.hasOwnProperty(slug) === false) return null;
 
@@ -13567,7 +13565,7 @@ var Letter = function (_React$Component) {
         'span',
         null,
         _react2.default.createElement(
-          'h3',
+          'h2',
           { className: _Retraite2.default.titleRetraite },
           'Suivi de dossier'
         ),
@@ -13577,8 +13575,29 @@ var Letter = function (_React$Component) {
           _react2.default.createElement(
             'label',
             null,
+            'D\xE9marche faite le '
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
             'Acte re\xE7u le '
           ),
+          _react2.default.createElement(
+            'label',
+            null,
+            'D\xE9marche faite par '
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Retraite2.default.adresse },
+          _react2.default.createElement('input', { type: 'text', id: 'quand', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { type: 'text', id: 'qui', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
           _react2.default.createElement(
             'label',
             null,
@@ -13587,10 +13606,7 @@ var Letter = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: _Retraite2.default.adresse },
-          _react2.default.createElement('input', { onChange: function onChange(e) {
-              return _this4.refs.deces.innerHTML = e.target.value;
-            }, type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          null,
           _react2.default.createElement('input', { type: 'text', id: 'suite', placeholder: '\xE0 donner', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         )
       );
@@ -13752,7 +13768,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'renderData',
     value: function renderData() {
-      var _this5 = this;
+      var _this4 = this;
 
       this.type = this.props.match.params.slug;
 
@@ -13786,10 +13802,10 @@ var Letter = function (_React$Component) {
                     'div',
                     { className: _Retraite2.default.adresse },
                     console.log,
-                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].way : "voie",
+                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].way : "voie",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' '),
                       onChange: function onChange(e) {
-                        return _this5.refs.way.innerHTML = e.target.value;
+                        return _this4.refs.way.innerHTML = e.target.value;
                       } })
                   )
                 ),
@@ -13799,22 +13815,42 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].code : "code",
+                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].code : "code",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this5.refs.code.innerHTML = e.target.value;
+                        return _this4.refs.code.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].city : "ville",
+                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].city : "ville",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this5.refs.city.innerHTML = e.target.value;
+                        return _this4.refs.city.innerHTML = e.target.value;
                       } })
                   )
                 ),
-                _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                _share2.default.hasOwnProperty(_this4.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
                   'h3',
                   { className: _Retraite2.default.titleRetraite },
-                  'Champs propre au courrier'
+                  'Informations sp\xE9cifiques au courrier type'
+                ),
+                _share2.default.hasOwnProperty(_this4.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                  'span',
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Retraite2.default.labelDemarche },
+                    _react2.default.createElement(
+                      'label',
+                      null,
+                      'D\xE9marche faite le '
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Retraite2.default.adresse },
+                    _react2.default.createElement('input', { onChange: function onChange(e) {
+                        return _this4.refs.date.innerHTML = e.target.value;
+                      }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+                  )
                 )
               );
             } else if (item[0].type == 'interlocuteur') {
@@ -13832,15 +13868,15 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'firstname', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].firstname : "prenom",
+                    _react2.default.createElement('input', { type: 'text', id: 'firstname', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].firstname : "prenom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this5.refs.firstname.innerHTML = e.target.value;
+                        return _this4.refs.firstname.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'lastname', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].lastname : "nom",
+                    _react2.default.createElement('input', { type: 'text', id: 'lastname', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].lastname : "nom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this5.refs.lastname.innerHTML = e.target.value;
+                        return _this4.refs.lastname.innerHTML = e.target.value;
                       } })
                   )
                 )
@@ -13854,9 +13890,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[0].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this5.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this4.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this5.refs[item[0].name].innerHTML = e.target.value;
+                    return _this4.refs[item[0].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm }),
                 _react2.default.createElement(
@@ -13864,9 +13900,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[1].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[1].name, placeholder: _this5.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[1].name, placeholder: _this4.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this5.refs[item[1].name].innerHTML = e.target.value;
+                    return _this4.refs[item[1].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm }),
                 _react2.default.createElement(
@@ -13874,9 +13910,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[2].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[2].name, placeholder: _this5.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[2].name, placeholder: _this4.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this5.refs[item[2].name].innerHTML = e.target.value;
+                    return _this4.refs[item[2].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm })
               );
@@ -13889,42 +13925,22 @@ var Letter = function (_React$Component) {
                   null,
                   item[0].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this5.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this4.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this5.refs[item[0].name].innerHTML = e.target.value;
+                    return _this4.refs[item[0].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm })
               );
             }
           }
         }),
-        _share2.default.hasOwnProperty(this.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
-          'span',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: _Retraite2.default.labelDemarche },
-            _react2.default.createElement(
-              'label',
-              null,
-              'D\xE9marche faite le '
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _Retraite2.default.adresse },
-            _react2.default.createElement('input', { onChange: function onChange(e) {
-                return _this5.refs.date.innerHTML = e.target.value;
-              }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
-          )
-        ),
         this.state.getData = true
       );
     }
   }, {
     key: 'renderLetter',
     value: function renderLetter() {
-      var _this6 = this;
+      var _this5 = this;
 
       if (this.state.hasOwnProperty('address') === false) return null;
       if (this.state.hasOwnProperty('getData') === false) return null;
@@ -13976,24 +13992,24 @@ var Letter = function (_React$Component) {
                   return _react2.default.createElement(
                     'span',
                     null,
-                    _this6.state.address
+                    _this5.state.address
                   );
                 } else if (keyName === "notaire") {
-                  console.log(_this6.state);
-                  console.log(_this6.state.hasOwnProperty('data'));
-                  console.log("data" in _this6.state);
-                  if (_this6.state.hasOwnProperty('notaire')) {
+                  console.log(_this5.state);
+                  console.log(_this5.state.hasOwnProperty('data'));
+                  console.log("data" in _this5.state);
+                  if (_this5.state.hasOwnProperty('notaire')) {
                     return _react2.default.createElement(
                       'span',
                       null,
                       'Mai\u0302tre ',
-                      _this6.state.notaire.notaire_name,
+                      _this5.state.notaire.notaire_name,
                       ' domicili\xE9 ',
-                      _this6.state.notaire.address.way,
+                      _this5.state.notaire.address.way,
                       ' ',
-                      _this6.state.notaire.address.code,
+                      _this5.state.notaire.address.code,
                       ' ',
-                      _this6.state.notaire.address.ville,
+                      _this5.state.notaire.address.ville,
                       '.'
                     );
                   }
@@ -14001,9 +14017,9 @@ var Letter = function (_React$Component) {
                   return _react2.default.createElement(
                     'span',
                     null,
-                    _this6.state.firstname,
+                    _this5.state.firstname,
                     ' ',
-                    _this6.state.name,
+                    _this5.state.name,
                     ' '
                   );
                 } else {
@@ -14032,14 +14048,14 @@ var Letter = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this7 = this;
+      var _this6 = this;
 
       var slug = this.props.match.params.slug;
       console.log(_description2.default);
       if (this.state.hasOwnProperty('firstname') === false) return null;
 
       var mySave = function mySave() {
-        _this7.save(_this7.state.data);
+        _this6.save(_this6.state.data);
       };
 
       return _react2.default.createElement(
@@ -14048,7 +14064,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this7.props.history.goBack();
+              return _this6.props.history.goBack();
             }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
           '\u2190'
         ),
@@ -14059,15 +14075,20 @@ var Letter = function (_React$Component) {
         ),
         _react2.default.createElement('span', { className: _Retraite2.default.dataTxt, dangerouslySetInnerHTML: { __html: _description2.default[slug].description } }),
         _react2.default.createElement(
+          'h2',
+          { className: _Retraite2.default.titleRetraite },
+          'Constitution du courrier'
+        ),
+        _react2.default.createElement(
           'h3',
           { className: _Retraite2.default.titleRetraite },
-          'Coordonn\xE9es du proche r\xE9f\xE9rent'
+          'L\'exp\xE9diteur'
         ),
         this.myFormsReferent(),
         _react2.default.createElement(
           'h3',
           { className: _Retraite2.default.titleRetraite },
-          'Coordonn\xE9es'
+          'Le destinataire'
         ),
         this.renderData(),
         _react2.default.createElement('br', null),
