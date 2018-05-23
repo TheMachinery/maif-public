@@ -9204,8 +9204,8 @@ var FuneralList = function (_React$Component) {
       for (var i = 0; i < _types2.default.length; i++) {
         console.log(_types2.default[i]);
         console.log(valuetofind);
-        console.log(_types2.default[i] == valuetofind);
-        if (_types2.default[i] == valuetofind) {
+        console.log(_types2.default[i].type == valuetofind);
+        if (_types2.default[i].type == valuetofind) {
           return _types2.default[i].delay;
         }
       }
