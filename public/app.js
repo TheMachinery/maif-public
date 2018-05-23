@@ -13561,6 +13561,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'suivit',
     value: function suivit() {
+      console.log(document.getElementById("quand"));
       this.state.quand = document.getElementById("quand").value === "" ? document.getElementById("quand").placeholder : document.getElementById("quand").value;
       this.state.recu = document.getElementById("recu").value === "" ? document.getElementById("recu").placeholder : document.getElementById("recu").value;
       this.state.qui = document.getElementById("qui").value === "" ? document.getElementById("qui").placeholder : document.getElementById("qui").value;
@@ -13573,6 +13574,8 @@ var Letter = function (_React$Component) {
   }, {
     key: 'myFormsSuivit',
     value: function myFormsSuivit() {
+      var _this4 = this;
+
       var slug = this.props.match.params.slug;
       if (_share2.default.hasOwnProperty(slug) === false) return null;
 
@@ -13626,7 +13629,9 @@ var Letter = function (_React$Component) {
         ),
         _react2.default.createElement(
           'button',
-          { className: _Retraite2.default.buttonCustom, onClick: this.suivit() },
+          { className: _Retraite2.default.buttonCustom, onClick: function onClick() {
+              return _this4.suivit();
+            } },
           'Enregistrer'
         )
       );
@@ -13788,7 +13793,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'renderData',
     value: function renderData() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.type = this.props.match.params.slug;
 
@@ -13822,10 +13827,10 @@ var Letter = function (_React$Component) {
                     'div',
                     { className: _Retraite2.default.adresse },
                     console.log,
-                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].way : "voie",
+                    _react2.default.createElement('input', { type: 'text', id: 'rue', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].way : "voie",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' '),
                       onChange: function onChange(e) {
-                        return _this4.refs.way.innerHTML = e.target.value;
+                        return _this5.refs.way.innerHTML = e.target.value;
                       } })
                   )
                 ),
@@ -13835,24 +13840,24 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].code : "code",
+                    _react2.default.createElement('input', { type: 'text', id: 'postale', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].code : "code",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this4.refs.code.innerHTML = e.target.value;
+                        return _this5.refs.code.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].city : "ville",
+                    _react2.default.createElement('input', { type: 'text', id: 'ville', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].city : "ville",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this4.refs.city.innerHTML = e.target.value;
+                        return _this5.refs.city.innerHTML = e.target.value;
                       } })
                   )
                 ),
-                _share2.default.hasOwnProperty(_this4.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
                   'h3',
                   { className: _Retraite2.default.titleRetraite },
                   'Informations sp\xE9cifiques au courrier type'
                 ),
-                _share2.default.hasOwnProperty(_this4.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
                   'span',
                   null,
                   _react2.default.createElement(
@@ -13868,7 +13873,7 @@ var Letter = function (_React$Component) {
                     'div',
                     { className: _Retraite2.default.adresse },
                     _react2.default.createElement('input', { onChange: function onChange(e) {
-                        return _this4.refs.date.innerHTML = e.target.value;
+                        return _this5.refs.date.innerHTML = e.target.value;
                       }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
                   )
                 )
@@ -13888,15 +13893,15 @@ var Letter = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: _Retraite2.default.adresse },
-                    _react2.default.createElement('input', { type: 'text', id: 'firstname', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].firstname : "prenom",
+                    _react2.default.createElement('input', { type: 'text', id: 'firstname', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].firstname : "prenom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this4.refs.firstname.innerHTML = e.target.value;
+                        return _this5.refs.firstname.innerHTML = e.target.value;
                       } }),
-                    _react2.default.createElement('input', { type: 'text', id: 'lastname', placeholder: _this4.state.data.hasOwnProperty(item[0].type) ? _this4.state.data[item[0].name].lastname : "nom",
+                    _react2.default.createElement('input', { type: 'text', id: 'lastname', placeholder: _this5.state.data.hasOwnProperty(item[0].type) ? _this5.state.data[item[0].name].lastname : "nom",
                       className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' '),
                       onChange: function onChange(e) {
-                        return _this4.refs.lastname.innerHTML = e.target.value;
+                        return _this5.refs.lastname.innerHTML = e.target.value;
                       } })
                   )
                 )
@@ -13910,9 +13915,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[0].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this4.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this5.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this4.refs[item[0].name].innerHTML = e.target.value;
+                    return _this5.refs[item[0].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm }),
                 _react2.default.createElement(
@@ -13920,9 +13925,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[1].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[1].name, placeholder: _this4.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[1].name, placeholder: _this5.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this4.refs[item[1].name].innerHTML = e.target.value;
+                    return _this5.refs[item[1].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm }),
                 _react2.default.createElement(
@@ -13930,9 +13935,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[2].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[2].name, placeholder: _this4.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[2].name, placeholder: _this5.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this4.refs[item[2].name].innerHTML = e.target.value;
+                    return _this5.refs[item[2].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm })
               );
@@ -13945,9 +13950,9 @@ var Letter = function (_React$Component) {
                   null,
                   item[0].display
                 ),
-                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this4.state.data[item[0].name],
+                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this5.state.data[item[0].name],
                   onChange: function onChange(e) {
-                    return _this4.refs[item[0].name].innerHTML = e.target.value;
+                    return _this5.refs[item[0].name].innerHTML = e.target.value;
                   },
                   className: _Retraite2.default.inputForm })
               );
@@ -13960,7 +13965,7 @@ var Letter = function (_React$Component) {
   }, {
     key: 'renderLetter',
     value: function renderLetter() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this.state.hasOwnProperty('address') === false) return null;
       if (this.state.hasOwnProperty('getData') === false) return null;
@@ -14012,24 +14017,24 @@ var Letter = function (_React$Component) {
                   return _react2.default.createElement(
                     'span',
                     null,
-                    _this5.state.address
+                    _this6.state.address
                   );
                 } else if (keyName === "notaire") {
-                  console.log(_this5.state);
-                  console.log(_this5.state.hasOwnProperty('data'));
-                  console.log("data" in _this5.state);
-                  if (_this5.state.hasOwnProperty('notaire')) {
+                  console.log(_this6.state);
+                  console.log(_this6.state.hasOwnProperty('data'));
+                  console.log("data" in _this6.state);
+                  if (_this6.state.hasOwnProperty('notaire')) {
                     return _react2.default.createElement(
                       'span',
                       null,
                       'Mai\u0302tre ',
-                      _this5.state.notaire.notaire_name,
+                      _this6.state.notaire.notaire_name,
                       ' domicili\xE9 ',
-                      _this5.state.notaire.address.way,
+                      _this6.state.notaire.address.way,
                       ' ',
-                      _this5.state.notaire.address.code,
+                      _this6.state.notaire.address.code,
                       ' ',
-                      _this5.state.notaire.address.ville,
+                      _this6.state.notaire.address.ville,
                       '.'
                     );
                   }
@@ -14037,9 +14042,9 @@ var Letter = function (_React$Component) {
                   return _react2.default.createElement(
                     'span',
                     null,
-                    _this5.state.firstname,
+                    _this6.state.firstname,
                     ' ',
-                    _this5.state.name,
+                    _this6.state.name,
                     ' '
                   );
                 } else {
@@ -14068,14 +14073,14 @@ var Letter = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this6 = this;
+      var _this7 = this;
 
       var slug = this.props.match.params.slug;
       console.log(_description2.default);
       if (this.state.hasOwnProperty('firstname') === false) return null;
 
       var mySave = function mySave() {
-        _this6.save(_this6.state.data);
+        _this7.save(_this7.state.data);
       };
 
       return _react2.default.createElement(
@@ -14084,7 +14089,7 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
-              return _this6.props.history.goBack();
+              return _this7.props.history.goBack();
             }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
           '\u2190'
         ),
