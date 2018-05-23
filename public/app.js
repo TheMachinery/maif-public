@@ -11166,18 +11166,14 @@ var Dossier = function (_Component) {
       return null;
     }
   }, {
-    key: 'getValue',
-    value: function getValue(name) {
-      var i = 0;
-
-      while (i < this.state.data.length) {
-        if (this.state.data[i].type == name) {
-          return true;
+    key: 'search_array',
+    value: function search_array(valuetofind) {
+      for (var i = 0; i < _types2.default.length; i++) {
+        if (_types2.default[i].type == valuetofind) {
+          return _types2.default[i].delay;
         }
-        i++;
       }
-
-      return false;
+      return "DANS LES 6 MOIS";
     }
   }, {
     key: 'addTypeGroup',
