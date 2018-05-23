@@ -11231,25 +11231,41 @@ var Dossier = function (_Component) {
         _react2.default.createElement(
           'div',
           null,
-          'Date du d\xE9c\xE8s : ',
-          _react2.default.createElement('input', { type: 'text', id: 'deathDate', placeholder: this.dDate,
-            className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
-          }),
           _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                return _this3.deathDate();
-              }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-            _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-            'VALIDER'
+            'label',
+            null,
+            'Date du d\xE9c\xE8s '
           ),
           _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                return _this3.clickOnAddContacts();
-              }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-            _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-            'AJOUTER UN CONTACT'
+            'div',
+            { className: 'col-md-4' },
+            _react2.default.createElement('input', { type: 'text', id: 'deathDate', placeholder: this.dDate,
+              className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-4' },
+            _react2.default.createElement(
+              'button',
+              { onClick: function onClick() {
+                  return _this3.deathDate();
+                }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+              _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
+              'VALIDER'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-4' },
+            _react2.default.createElement(
+              'button',
+              { onClick: function onClick() {
+                  return _this3.clickOnAddContacts();
+                }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+              _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
+              'AJOUTER UN CONTACT'
+            )
           )
         ),
         _react2.default.createElement(
