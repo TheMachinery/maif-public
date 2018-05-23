@@ -11246,6 +11246,7 @@ var Dossier = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
+            _react2.default.createElement('label', null),
             _react2.default.createElement(
               'button',
               { onClick: function onClick() {
@@ -11258,6 +11259,11 @@ var Dossier = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
+            _react2.default.createElement(
+              'label',
+              null,
+              ' '
+            ),
             _react2.default.createElement(
               'button',
               { onClick: function onClick() {
