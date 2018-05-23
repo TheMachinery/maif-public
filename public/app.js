@@ -11221,7 +11221,7 @@ var Dossier = function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      var deathDate = this.state.user.deathDate;
+      var deathDate = this.state.getData === true ? this.state.user.deathDate : null;
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
         { title: this.state.user.firstname + " " + this.state.user.name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
