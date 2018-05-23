@@ -11249,10 +11249,10 @@ var Dossier = function (_Component) {
             _react2.default.createElement(
               'button',
               { onClick: function onClick() {
-                  return _this3.clickOnAddContacts();
+                  return _this3.deathDate();
                 }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
               _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-              'AJOUTER UN CONTACT'
+              'VALIDER'
             )
           )
         ),
@@ -11420,16 +11420,17 @@ var Dossier = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-3' },
+            { className: 'col-md-4' },
             _react2.default.createElement(
               'button',
               { onClick: function onClick() {
-                  return _this3.deathDate();
+                  return _this3.clickOnAddContacts();
                 }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
               _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-              'VALIDER'
+              'AJOUTER UN CONTACT'
             )
           ),
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'div',
             { className: _FuneralList2.default.list },
@@ -13556,6 +13557,18 @@ var Letter = function (_React$Component) {
       );
     }
   }, {
+    key: 'suivit',
+    value: function suivit() {
+      this.state.quand = document.getElementById("quand").value === "" ? document.getElementById("quand").placeholder : document.getElementById("quand").value;
+      this.state.recu = document.getElementById("recu").value === "" ? document.getElementById("recu").placeholder : document.getElementById("recu").value;
+      this.state.qui = document.getElementById("qui").value === "" ? document.getElementById("qui").placeholder : document.getElementById("qui").value;
+      this.state.suite = document.getElementById("suite").value === "" ? document.getElementById("suite").placeholder : document.getElementById("suite").value;
+
+      cozy.client.data.updateAttributes('com.empreinte.homeData', this.state.user._id, this.state.user).then(function (res) {
+        console.log(res);
+      });
+    }
+  }, {
     key: 'myFormsSuivit',
     value: function myFormsSuivit() {
       var slug = this.props.match.params.slug;
@@ -13591,9 +13604,9 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: _Retraite2.default.adresse },
-          _react2.default.createElement('input', { type: 'text', id: 'quand', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-          _react2.default.createElement('input', { type: 'text', id: 'recu', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
-          _react2.default.createElement('input', { type: 'text', id: 'qui', placeholder: '13/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+          _react2.default.createElement('input', { type: 'text', id: 'quand', placeholder: this.state.quand === null ? "12/12/2012" : this.state.quand, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { type: 'text', id: 'recu', placeholder: this.state.recu === null ? "12/12/2012" : this.state.recu, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+          _react2.default.createElement('input', { type: 'text', id: 'qui', placeholder: this.state.qui === null ? "Jhon" : this.state.qui, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         ),
         _react2.default.createElement(
           'div',
@@ -13607,7 +13620,12 @@ var Letter = function (_React$Component) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('input', { type: 'text', id: 'suite', placeholder: '\xE0 donner', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+          _react2.default.createElement('input', { type: 'text', id: 'suite', placeholder: this.state.suite === null ? "à donner" : this.state.suite, className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+        ),
+        _react2.default.createElement(
+          'button',
+          { className: _Retraite2.default.buttonCustom, onClick: suivit },
+          'Enregistrer'
         )
       );
     }
