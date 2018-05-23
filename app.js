@@ -9202,9 +9202,6 @@ var FuneralList = function (_React$Component) {
     key: 'search_array',
     value: function search_array(valuetofind) {
       for (var i = 0; i < _types2.default.length; i++) {
-        console.log(_types2.default[i]);
-        console.log(valuetofind);
-        console.log(_types2.default[i].type == valuetofind);
         if (_types2.default[i].type == valuetofind) {
           return _types2.default[i].delay;
         }
@@ -9221,7 +9218,7 @@ var FuneralList = function (_React$Component) {
         name: this.state.newTypeName,
         excerpt: this.state.newTypeExcerpt,
         type: this.state.newTypeType,
-        key: (0, _index2.string_to_slug)(this.state.newTypeName),
+        key: this.state.newTypeType,
         delay: this.search_array(this.state.newTypeType),
         doctype: _index.DOCTYPE_F_CUSTOMCONTACTS
       };
