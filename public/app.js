@@ -4195,7 +4195,7 @@ var App = function App(props) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/dernieres-volontees', component: _LastWill2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/proches-referents', component: _ProchesReferent2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/proches-a-prevenir', component: _ProchesPrevenir2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/letter/:slug/:id', component: _Letter2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/letter/:type/:slug/:id', component: _Letter2.default }),
             _react2.default.createElement(_Footer2.default, null)
           )
         )
@@ -11363,7 +11363,7 @@ var Dossier = function (_Component) {
                       _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                         onAdd: function onAdd(e) {
                           if (item.checked) {
-                            _this2.props.history.push("/letter/" + item.key + "/" + item._id);
+                            _this2.props.history.push("/letter/contact/" + item.key + "/" + item._id);
                           } else {
                             _this2.clickOnContacts(item);
                           }
@@ -11398,7 +11398,7 @@ var Dossier = function (_Component) {
                       _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
                         onAdd: function onAdd(e) {
                           if (item.checked) {
-                            _this2.props.history.push("/letter/" + item.type + "/" + item._id);
+                            _this2.props.history.push("/letter/custom/" + item.type + "/" + item._id);
                           } else {
                             _this2.clickOnContacts(item);
                           }
@@ -13204,19 +13204,13 @@ var Letter = function (_React$Component) {
         console.log(_this2.state);
       });
 
-      cozy.client.data.find('io.cozy.contacts', this.props.match.params.id).then(function (res) {
+      var doctype = this.props.match.params.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
+      console.log(doctype);
+      cozy.client.data.find(doctype, this.props.match.params.id).then(function (res) {
         console.log(res);
-        if (!res) {
-          cozy.client.data.find('com.empreinte.Fcustomcontacts', _this2.props.match.params.id).then(function (res) {
-            _this2.setState({
-              data: res
-            });
-          });
-        } else {
-          _this2.setState({
-            data: res
-          });
-        }
+        _this2.setState({
+          data: res
+        });
       });
 
       console.log(this.state);
