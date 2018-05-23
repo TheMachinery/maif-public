@@ -11228,37 +11228,6 @@ var Dossier = function (_Component) {
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
         { title: this.state.user.firstname + " " + this.state.user.name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
-        '/* ',
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-2' },
-            'Date du d\xE9c\xE8s :'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement('input', { type: 'text', id: 'deathDate', placeholder: this.dDate,
-              className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
-            })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'button',
-              { onClick: function onClick() {
-                  return _this3.deathDate();
-                }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-              _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'public/media/add.svg' }),
-              'VALIDER'
-            )
-          )
-        ),
-        '*/',
-        _react2.default.createElement('br', null),
         _react2.default.createElement(
           _reactCollapsible2.default,
           { triggerOpenedClassName: _Contacts2.default.titlePageCollapseOpen, triggerClassName: _Contacts2.default.titlePageCollapseClose, trigger: 'Informations personnelles du d\xE9funt' },
