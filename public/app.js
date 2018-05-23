@@ -11495,15 +11495,15 @@ var Dossier = function (_Component) {
             null,
             _react2.default.createElement(
               'div',
-              { className: _Contacts2.default.ModalMain },
+              { className: _FuneralList2.default.ModalMain },
               _react2.default.createElement(
                 'div',
-                { className: _Contacts2.default.edition, onClick: function onClick(e) {
+                { className: _FuneralList2.default.edition, onClick: function onClick(e) {
                     return e.stopPropagation();
                   } },
                 _react2.default.createElement(
                   'div',
-                  { className: _Contacts2.default.header },
+                  { className: _FuneralList2.default.header },
                   _react2.default.createElement(
                     'div',
                     null,
@@ -11516,13 +11516,13 @@ var Dossier = function (_Component) {
                 ),
                 _react2.default.createElement(
                   'form',
-                  { className: _Contacts2.default.content },
+                  { className: _FuneralList2.default.content },
                   _react2.default.createElement(
                     'div',
-                    { className: _Contacts2.default.row },
+                    { className: _FuneralList2.default.row },
                     _react2.default.createElement(
                       'div',
-                      { className: _Contacts2.default.group },
+                      { className: _FuneralList2.default.group },
                       _react2.default.createElement(
                         'label',
                         null,
@@ -11548,10 +11548,10 @@ var Dossier = function (_Component) {
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: _Contacts2.default.row },
+                    { className: _FuneralList2.default.row },
                     _react2.default.createElement(
                       'div',
-                      { className: _Contacts2.default.group },
+                      { className: _FuneralList2.default.group },
                       _react2.default.createElement(
                         'label',
                         null,
@@ -11568,10 +11568,10 @@ var Dossier = function (_Component) {
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: _Contacts2.default.row },
+                    { className: _FuneralList2.default.row },
                     _react2.default.createElement(
                       'div',
-                      { className: _Contacts2.default.group },
+                      { className: _FuneralList2.default.group },
                       _react2.default.createElement(
                         'label',
                         null,
@@ -11588,10 +11588,10 @@ var Dossier = function (_Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: _Contacts2.default.footer },
+                  { className: _FuneralList2.default.footer },
                   _react2.default.createElement(
                     'div',
-                    { className: _Contacts2.default.footerRight },
+                    { className: _FuneralList2.default.footerRight },
                     _react2.default.createElement(
                       'button',
                       {
