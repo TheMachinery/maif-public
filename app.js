@@ -8919,7 +8919,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.163'
+                        '1.0.164'
                     )
                 )
             );
@@ -21680,7 +21680,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.163';
+var VERSION = exports.VERSION = '1.0.164';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -23225,7 +23225,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.163');
+console.log('Current Version:', '1.0.164');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28509,7 +28509,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.163';
+var VERSION = exports.VERSION = '1.0.164';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';

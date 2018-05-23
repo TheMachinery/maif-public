@@ -3851,7 +3851,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.163';
+var VERSION = exports.VERSION = '1.0.164';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -11375,46 +11375,39 @@ var Dossier = function (_Component) {
                 return null;
               }
             }),
-            this.state.customData.map(function (item) {
-              console.log(item);
-              return _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { className: _Dossier2.default.delai },
-                  _react2.default.createElement(
-                    'p',
-                    null,
-                    'DANS LES 6 MOIS'
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: "/letter/" + item.formType + "/" + item._id },
-                  _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.divContact },
-                    _react2.default.createElement(
-                      'div',
-                      { className: _Contacts2.default.contentContact },
+            this.state.customTypeGroup.map(function (group, key) {
+              var docs = group.types;
+              if (docs && docs.length > 0) {
+                return _react2.default.createElement(
+                  'ul',
+                  { className: _FuneralList2.default.list },
+                  docs.map(function (item, key) {
+                    return _react2.default.createElement(
+                      'li',
+                      { key: key },
                       _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.contactName },
-                        item.type
+                        'div',
+                        { className: _Dossier2.default.delai },
+                        _react2.default.createElement(
+                          'p',
+                          null,
+                          item.delay
+                        )
                       ),
-                      _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'public/media/chevronpurple.svg' }),
-                      _react2.default.createElement('img', { className: _Contacts2.default.done, src: 'public/media/done.png' })
-                    ),
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      'LOREM IPSU'
-                    ),
-                    _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-                  )
-                )
-              );
+                      _react2.default.createElement(Row, { id: item.slug, title: item.name, excerpt: item.excerpt, check: item.checked, unique: true,
+                        onAdd: function onAdd(e) {
+                          if (item.checked) {
+                            _this2.props.history.push("/letter/" + item.key + "/" + item._id);
+                          } else {
+                            _this2.clickOnContacts(item);
+                          }
+                        } })
+                    );
+                  })
+                );
+              } else {
+                return null;
+              }
             })
           )
         ),
@@ -11506,7 +11499,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.163'
+                        '1.0.164'
                     )
                 )
             );
@@ -26013,7 +26006,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.163';
+var VERSION = exports.VERSION = '1.0.164';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -27558,7 +27551,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.163');
+console.log('Current Version:', '1.0.164');
 
 document.addEventListener('DOMContentLoaded', function () {
 
