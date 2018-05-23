@@ -13204,12 +13204,19 @@ var Letter = function (_React$Component) {
         console.log(_this2.state);
       });
 
-      var doctype = this.type === 'custom' ? 'com.empreinte.Fcustomcontacts' : 'io.cozy.contacts';
-      console.log(doctype);
-      cozy.client.data.find(doctype, this.props.match.params.id).then(function (res) {
-        _this2.setState({
-          data: res
-        });
+      cozy.client.data.find('io.cozy.contacts', this.props.match.params.id).then(function (res) {
+        console.log(res);
+        if (!res) {
+          cozy.client.data.find('com.empreinte.Fcustomcontacts', _this2.props.match.params.id).then(function (res) {
+            _this2.setState({
+              data: res
+            });
+          });
+        } else {
+          _this2.setState({
+            data: res
+          });
+        }
       });
 
       console.log(this.state);
