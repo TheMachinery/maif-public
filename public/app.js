@@ -11063,8 +11063,7 @@ var Dossier = function (_Component) {
 
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
         _this.setState({ user: res[0] });
-        console.log(res);
-        console.log(_this.state);
+        _this.deathDate = res[0].deathDate;
       });
 
       (0, _tools.getDataElements)(_constants2.DOCTYPE_F_CONTACTS).then(function (res) {
@@ -11226,7 +11225,6 @@ var Dossier = function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      var deathDate = this.state.getData === true ? this.state.user.deathDate : null;
       return this.state.getData == true ? _react2.default.createElement(
         _Page2.default,
         { title: this.state.user.firstname + " " + this.state.user.name, subtitle: 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.' },
@@ -11234,7 +11232,7 @@ var Dossier = function (_Component) {
           'div',
           null,
           'Date du d\xE9c\xE8s : ',
-          _react2.default.createElement('input', { type: 'text', id: 'deathDate', value: deathDate != null ? deathDate : "01/01/2001",
+          _react2.default.createElement('input', { type: 'text', id: 'deathDate', value: this.deathDate,
             className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
           }),
           _react2.default.createElement(
@@ -13931,11 +13929,7 @@ var Letter = function (_React$Component) {
                 '...'
               ),
               ', survenu le ',
-              _react2.default.createElement(
-                'span',
-                { ref: 'deces' },
-                'jj/mm/yyyy'
-              ),
+              this.state.user.deathDate,
               ',',
               Object.keys(_share2.default[slug]).map(function (keyName) {
                 // use keyName to get current key's name
