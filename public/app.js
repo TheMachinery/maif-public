@@ -10930,6 +10930,10 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
 
+var _Retraite = __webpack_require__("./src/public/styles/Retraite.scss");
+
+var _Retraite2 = _interopRequireDefault(_Retraite);
+
 var _Collapse = __webpack_require__("./src/styles/Collapse.scss");
 
 var _Collapse2 = _interopRequireDefault(_Collapse);
@@ -11230,7 +11234,7 @@ var Dossier = function (_Component) {
           null,
           'Date du d\xE9c\xE8s : ',
           _react2.default.createElement('input', { type: 'text', id: 'deathDate', value: deathDate != null ? deathDate : "01/01/2001",
-            className: [styleRetraite.inputForm, styleRetraite.sizeRue].join(' ')
+            className: [_Retraite2.default.inputForm, _Retraite2.default.sizeRue].join(' ')
           }),
           _react2.default.createElement(
             'button',
