@@ -10534,6 +10534,7 @@ var Localisation = function (_React$Component) {
       script.async = true;
       console.log(script);
       //  ref.parentNode.insertBefore(script, ref);
+      document.body.insertBefore(script, document.body.lastChild);
     }
   }, {
     key: 'componentDidMount',
