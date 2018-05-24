@@ -10533,7 +10533,7 @@ var Localisation = function (_React$Component) {
       script.src = src;
       script.async = true;
       console.log(script);
-      ref.insertBefore(script, ref);
+      ref.parentNode.insertBefore(script, ref);
     }
   }, {
     key: 'componentDidMount',
