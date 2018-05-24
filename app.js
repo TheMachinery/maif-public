@@ -7495,11 +7495,6 @@ var Don = function (_React$Component) {
                                 'Le registre National Des Refus',
                                 _react2.default.createElement('img', { className: _Navigation2.default.chevron, src: 'media/chevronpurple.svg' }),
                                 ' '
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'Lorem Ipsum dolor sit amen Lorem ipsum dolor sit amen'
                             )
                         )
                     ),
@@ -7851,11 +7846,6 @@ var DonDevis = function (_React$Component) {
                                                 { onClick: _this2.handlePdf.bind(_this2), id: _this2.state.urlFile[key] },
                                                 d.attributes.name,
                                                 ' >'
-                                            ),
-                                            _react2.default.createElement(
-                                                'p',
-                                                null,
-                                                'Lorem ipsus dolor sit amet consectetur adipiscing elit. Nullam odio'
                                             )
                                         ),
                                         _react2.default.createElement(
@@ -31857,33 +31847,37 @@ var getMeta = exports.getMeta = function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
+
+            console.log(_constants.DOCTYPE_META);
+            _context.next = 4;
             return cozy.client.data.defineIndex(_constants.DOCTYPE_META, ['name']);
 
-          case 3:
+          case 4:
             indexRef = _context.sent;
-            _context.next = 6;
+            _context.next = 7;
             return cozy.client.data.query(indexRef, {
               selector: {
                 "name": "contactType"
               }
             });
 
-          case 6:
+          case 7:
             result = _context.sent;
+
+            console.log(result);
             return _context.abrupt('return', result);
 
-          case 10:
-            _context.prev = 10;
+          case 12:
+            _context.prev = 12;
             _context.t0 = _context['catch'](0);
             return _context.abrupt('return', []);
 
-          case 13:
+          case 15:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, undefined, [[0, 10]]);
+    }, _callee, undefined, [[0, 12]]);
   }));
 
   return function getMeta() {
