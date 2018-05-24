@@ -10519,14 +10519,6 @@ var Localisation = function (_React$Component) {
     };
     _this.initMap = _this.initMap.bind(_this);
     _this.searchBox = _this.searchBox.bind(_this);
-
-    window.initMap = _this.initMap;
-    window.loadJS = _this.loadJS;
-    window.searchBox = _this.searchBox;
-    //loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places')
-    console.log("MMMMDDDDDRRRR");
-    loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
-
     return _this;
   }
 
@@ -10545,7 +10537,14 @@ var Localisation = function (_React$Component) {
     }
   }, {
     key: 'componentDidMount',
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      window.initMap = this.initMap;
+      window.loadJS = this.loadJS;
+      window.searchBox = this.searchBox;
+      //loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places')
+      console.log("MMMMDDDDDRRRR");
+      loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+    }
   }, {
     key: 'initMap',
     value: function initMap() {
