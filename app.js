@@ -10417,37 +10417,13 @@ var _react = __webpack_require__("./node_modules/react/react.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodash = __webpack_require__("./node_modules/lodash/lodash.js");
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
 var _classnames = __webpack_require__("./node_modules/classnames/index.js");
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _reactPortal = __webpack_require__("./node_modules/react-portal/build/portal.js");
-
-var _reactPortal2 = _interopRequireDefault(_reactPortal);
-
-var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
-
-var _Modal = __webpack_require__("./src/components/modals/Modal.jsx");
-
-var _Modal2 = _interopRequireDefault(_Modal);
-
-var _Importer = __webpack_require__("./src/containers/Importer.js");
-
-var _Importer2 = _interopRequireDefault(_Importer);
-
 var _Page = __webpack_require__("./src/components/elements/Page.js");
 
 var _Page2 = _interopRequireDefault(_Page);
-
-var _fileTypes = __webpack_require__("./src/scripts/fileTypes.js");
-
-var _buttons = __webpack_require__("./src/styles/buttons.scss");
-
-var _buttons2 = _interopRequireDefault(_buttons);
 
 var _FuneralList = __webpack_require__("./src/styles/FuneralList.scss");
 
@@ -10460,32 +10436,6 @@ var _Prestataire2 = _interopRequireDefault(_Prestataire);
 var _Localisation = __webpack_require__("./src/styles/Localisation.scss");
 
 var _Localisation2 = _interopRequireDefault(_Localisation);
-
-var _constants = __webpack_require__("./src/constants/index.js");
-
-var _tools = __webpack_require__("./src/tools/index.js");
-
-var _index = __webpack_require__("./src/constants/index.js");
-
-var _dataFields = __webpack_require__("./src/scripts/dataFields.js");
-
-var _DataForm = __webpack_require__("./src/containers/DataForm.js");
-
-var _DataForm2 = _interopRequireDefault(_DataForm);
-
-var _meta = __webpack_require__("./src/scripts/meta.js");
-
-var _index2 = __webpack_require__("./src/tools/index.js");
-
-var _onboarding = __webpack_require__("./src/scripts/onboarding.js");
-
-var _types = __webpack_require__("./src/constants/types.json");
-
-var _types2 = _interopRequireDefault(_types);
-
-var _reactHoverImage = __webpack_require__("./node_modules/react-hover-image/build/index.js");
-
-var _reactHoverImage2 = _interopRequireDefault(_reactHoverImage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10576,6 +10526,7 @@ var Localisation = function (_React$Component) {
   _createClass(Localisation, [{
     key: 'loadJS',
     value: function loadJS(src) {
+      console.log(src);
       var ref = window.document.getElementsByTagName("script")[0];
       var script = window.document.createElement("script");
       script.src = src;
