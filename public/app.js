@@ -28471,19 +28471,21 @@ var getMeta = exports.getMeta = function () {
 
           case 6:
             result = _context.sent;
+
+            console.log(result);
             return _context.abrupt('return', result);
 
-          case 10:
-            _context.prev = 10;
+          case 11:
+            _context.prev = 11;
             _context.t0 = _context['catch'](0);
             return _context.abrupt('return', []);
 
-          case 13:
+          case 14:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, undefined, [[0, 10]]);
+    }, _callee, undefined, [[0, 11]]);
   }));
 
   return function getMeta() {
