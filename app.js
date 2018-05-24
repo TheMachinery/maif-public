@@ -10527,13 +10527,13 @@ var Localisation = function (_React$Component) {
     key: 'loadJS',
     value: function loadJS(src) {
       console.log(src);
-      var ref = window.document.getElementsByTagName("script")[0];
+      var ref = window.document.getElementsByTagName("script")[1];
       console.log(ref);
       var script = window.document.createElement("script");
       script.src = src;
       script.async = true;
       console.log(script);
-      //ref.parentNode.insertBefore(script, ref);
+      ref.parentNode.insertBefore(script, ref);
     }
   }, {
     key: 'componentDidMount',
