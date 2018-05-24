@@ -11059,6 +11059,7 @@ var Dossier = function (_Component) {
     };
 
     (0, _meta.getMeta)().then(function (result) {
+      console.log(result);
       _this.setTypeGroup(result[0].value);
 
       (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
