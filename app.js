@@ -10528,9 +10528,11 @@ var Localisation = function (_React$Component) {
     value: function loadJS(src) {
       console.log(src);
       var ref = window.document.getElementsByTagName("script")[0];
+      console.log(ref);
       var script = window.document.createElement("script");
       script.src = src;
       script.async = true;
+      console.log(script);
       //ref.parentNode.insertBefore(script, ref);
     }
   }, {
