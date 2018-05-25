@@ -20048,11 +20048,18 @@ var ContactModal = function (_Component) {
           _this2.sharing = result.attributes.codes['partage'];
           console.log(_this2.sharing);
 
+          var url = window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/';
+          var civ = newContact.civility === 0 ? "Madame" : "Monsieur";
+
+          var now = 'Bonjour ' + civ + " " + newContact.lastName + ".<br />Vous recevez ce mail";
+
+          var body = delay === "now" ? now : "";
+
           var job = cozy.client.jobs.create('sendmail', {
             mode: 'from',
             to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
             subject: infos.attributes.public_name + ' vous donne accès à ses informations.',
-            parts: [{ type: 'text/plain', body: window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/' }]
+            parts: [{ type: 'text/plain', body: body }]
           }).then(function (res) {
             console.log(res);
           });
@@ -20272,7 +20279,7 @@ var ContactModal = function (_Component) {
               _react2.default.createElement(
                 'label',
                 null,
-                'Email'
+                'Email (OBLIGATOIRE)'
               ),
               _react2.default.createElement('input', {
                 type: 'email',
@@ -26504,7 +26511,7 @@ var DataForm = function (_Component) {
             }
           } else {
             console.log(_this3.infos);
-            _this3.props.closeModal('/letter/' + _this3.infos.slug + '/' + data.data._id);
+            _this3.props.closeModal('/letter/contact/' + _this3.infos.slug + '/' + data.data._id);
           }
         });
       } else {

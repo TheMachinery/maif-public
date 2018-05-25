@@ -8868,7 +8868,7 @@ var DataForm = function (_Component) {
             }
           } else {
             console.log(_this3.infos);
-            _this3.props.closeModal('/letter/' + _this3.infos.slug + '/' + data.data._id);
+            _this3.props.closeModal('/letter/contact/' + _this3.infos.slug + '/' + data.data._id);
           }
         });
       } else {
