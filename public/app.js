@@ -13440,6 +13440,9 @@ var Letter = function (_React$Component) {
       data['date'] = document.getElementById('date').value === "" ? document.getElementById('date').placeholder : document.getElementById('date').value;
       data['dateDeath'] = document.getElementById('dateDeath').value === "" ? document.getElementById('dateDeath').placeholder : document.getElementById('dateDeath').value;
 
+      data['nameRef'] = document.getElementById('nameRef').value === "" ? document.getElementById('nameRef').placeholder : document.getElementById('nameRef').value;
+      data['parent'] = document.getElementById('parent').value === "" ? document.getElementById('parent').placeholder : document.getElementById('parent').value;
+
       console.log(data);
 
       cozy.client.data.updateAttributes(data._type, data._id, data);
@@ -13485,10 +13488,10 @@ var Letter = function (_React$Component) {
           { className: _Retraite2.default.adresse },
           _react2.default.createElement('input', { onChange: function onChange(e) {
               return _this3.refs.nameRef.innerHTML = e.target.value;
-            }, type: 'text', id: 'faitePar', placeholder: 'Mr Dupont Pierre', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+            }, type: 'text', id: 'nameRef', placeholder: this.state.data.hasOwnProperty('nameRef') ? this.state.data['nameRef'] : "Jhon Doe", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
           _react2.default.createElement('input', { onChange: function onChange(e) {
               return _this3.refs.parent.innerHTML = e.target.value;
-            }, type: 'text', id: 'faite', placeholder: 'Fr\xE8re', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+            }, type: 'text', id: 'parent', placeholder: this.state.data.hasOwnProperty('parent') ? this.state.data['parent'] : "frère", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
         ),
         _react2.default.createElement(
           'div',
@@ -14003,13 +14006,13 @@ var Letter = function (_React$Component) {
                 'span',
                 {
                   ref: 'parent' },
-                '...'
+                this.state.data.parents
               ),
               ', survenu le ',
               _react2.default.createElement(
                 'span',
                 { ref: 'dateDeath' },
-                '...'
+                this.state.data.deathDate
               ),
               ',',
               Object.keys(_share2.default[slug]).map(function (keyName) {
