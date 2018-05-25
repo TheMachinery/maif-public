@@ -13826,7 +13826,26 @@ var Letter = function (_React$Component) {
                   { className: _Retraite2.default.titleRetraite },
                   'Informations sp\xE9cifiques au courrier type'
                 ),
-                _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+                _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement(
+                  'span',
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Retraite2.default.labelDemarche },
+                    _react2.default.createElement(
+                      'label',
+                      null,
+                      'Date du d\xE9c\xE8s '
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: _Retraite2.default.adresse },
+                    _react2.default.createElement('input', { onChange: function onChange(e) {
+                        return _this5.refs.dateDeath.innerHTML = e.target.value;
+                      }, type: 'text', id: 'dateDeath', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+                  )
+                ) : _react2.default.createElement(
                   'span',
                   null,
                   _react2.default.createElement(
@@ -13836,6 +13855,11 @@ var Letter = function (_React$Component) {
                       'label',
                       null,
                       'Date du courrier '
+                    ),
+                    _react2.default.createElement(
+                      'label',
+                      null,
+                      'Date du d\xE9c\xE8s '
                     )
                   ),
                   _react2.default.createElement(
@@ -13843,7 +13867,10 @@ var Letter = function (_React$Component) {
                     { className: _Retraite2.default.adresse },
                     _react2.default.createElement('input', { onChange: function onChange(e) {
                         return _this5.refs.date.innerHTML = e.target.value;
-                      }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+                      }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+                    _react2.default.createElement('input', { onChange: function onChange(e) {
+                        return _this5.refs.dateDeath.innerHTML = e.target.value;
+                      }, type: 'text', id: 'dateDeath', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
                   )
                 )
               );
@@ -13976,7 +14003,11 @@ var Letter = function (_React$Component) {
                 '...'
               ),
               ', survenu le ',
-              this.state.user.deathDate,
+              _react2.default.createElement(
+                'span',
+                { ref: dateDeath },
+                d[keyName]
+              ),
               ',',
               Object.keys(_share2.default[slug]).map(function (keyName) {
                 // use keyName to get current key's name
