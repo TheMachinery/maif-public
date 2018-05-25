@@ -13623,7 +13623,7 @@ var Letter = function (_React$Component) {
           _react2.default.createElement(
             'p',
             { ref: 'nameRef' },
-            'Nom pr\xE9nom'
+            this.state.data.nameRef
           ),
           _react2.default.createElement(
             'p',
@@ -14006,7 +14006,7 @@ var Letter = function (_React$Component) {
                 'span',
                 {
                   ref: 'parent' },
-                this.state.data.parents
+                this.state.data.parent
               ),
               ', survenu le ',
               _react2.default.createElement(
