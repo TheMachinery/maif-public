@@ -13846,7 +13846,7 @@ var Letter = function (_React$Component) {
                     { className: _Retraite2.default.adresse },
                     _react2.default.createElement('input', { onChange: function onChange(e) {
                         return _this5.refs.dateDeath.innerHTML = e.target.value;
-                      }, type: 'text', id: 'dateDeath', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+                      }, type: 'text', id: 'dateDeath', placeholder: _this5.state.data.hasOwnProperty('dateDeath') ? _this5.state.data['dateDeath'].city : "12/12/2012", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
                   )
                 ) : _react2.default.createElement(
                   'span',
@@ -13870,10 +13870,10 @@ var Letter = function (_React$Component) {
                     { className: _Retraite2.default.adresse },
                     _react2.default.createElement('input', { onChange: function onChange(e) {
                         return _this5.refs.date.innerHTML = e.target.value;
-                      }, type: 'text', id: 'date', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+                      }, type: 'text', id: 'date', placeholder: _this5.state.data.hasOwnProperty('date') ? _this5.state.data['date'].city : "12/12/2012", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
                     _react2.default.createElement('input', { onChange: function onChange(e) {
                         return _this5.refs.dateDeath.innerHTML = e.target.value;
-                      }, type: 'text', id: 'dateDeath', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+                      }, type: 'text', id: 'dateDeath', placeholder: _this5.state.data.hasOwnProperty('dateDeath') ? _this5.state.data['dateDeath'].city : "12/12/2012", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
                   )
                 )
               );
