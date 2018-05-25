@@ -14005,8 +14005,8 @@ var Letter = function (_React$Component) {
               ', survenu le ',
               _react2.default.createElement(
                 'span',
-                { ref: dateDeath },
-                d[keyName]
+                { ref: 'dateDeath' },
+                '...'
               ),
               ',',
               Object.keys(_share2.default[slug]).map(function (keyName) {
