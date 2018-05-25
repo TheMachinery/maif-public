@@ -32504,80 +32504,84 @@ var markAsShown = exports.markAsShown = function () {
 
           case 2:
             res = _context5.sent;
+
+
+            console.log("salut");
+
             _iteratorNormalCompletion2 = true;
             _didIteratorError2 = false;
             _iteratorError2 = undefined;
-            _context5.prev = 6;
+            _context5.prev = 7;
             _iterator2 = res[Symbol.iterator]();
 
-          case 8:
+          case 9:
             if (_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done) {
-              _context5.next = 15;
+              _context5.next = 16;
               break;
             }
 
             e = _step2.value;
-            _context5.next = 12;
+            _context5.next = 13;
             return cozy.client.data.delete(_constants.DOCTYPE_META, e);
 
-          case 12:
+          case 13:
             _iteratorNormalCompletion2 = true;
-            _context5.next = 8;
+            _context5.next = 9;
             break;
 
-          case 15:
-            _context5.next = 21;
+          case 16:
+            _context5.next = 22;
             break;
 
-          case 17:
-            _context5.prev = 17;
-            _context5.t0 = _context5["catch"](6);
+          case 18:
+            _context5.prev = 18;
+            _context5.t0 = _context5["catch"](7);
             _didIteratorError2 = true;
             _iteratorError2 = _context5.t0;
 
-          case 21:
-            _context5.prev = 21;
+          case 22:
             _context5.prev = 22;
+            _context5.prev = 23;
 
             if (!_iteratorNormalCompletion2 && _iterator2.return) {
               _iterator2.return();
             }
 
-          case 24:
-            _context5.prev = 24;
+          case 25:
+            _context5.prev = 25;
 
             if (!_didIteratorError2) {
-              _context5.next = 27;
+              _context5.next = 28;
               break;
             }
 
             throw _iteratorError2;
 
-          case 27:
-            return _context5.finish(24);
-
           case 28:
-            return _context5.finish(21);
+            return _context5.finish(25);
 
           case 29:
-            _context5.next = 31;
+            return _context5.finish(22);
+
+          case 30:
+            _context5.next = 32;
             return cozy.client.data.create(_constants.DOCTYPE_META, { name: "onboarding", value: shown });
 
-          case 31:
-            _context5.next = 33;
+          case 32:
+            _context5.next = 34;
             return getContactMeta();
 
-          case 33:
+          case 34:
             contacts = _context5.sent;
-            _context5.next = 36;
+            _context5.next = 37;
             return cozy.client.data.create(_constants.DOCTYPE_META, { name: "contactType", value: [typeContact] });
 
-          case 36:
+          case 37:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, undefined, [[6, 17, 21, 29], [22,, 24, 28]]);
+    }, _callee5, undefined, [[7, 18, 22, 30], [23,, 25, 29]]);
   }));
 
   return function markAsShown() {
