@@ -10015,6 +10015,12 @@ var Home = function (_React$Component) {
     };
 
     (0, _meta.getMeta)().then(function (result) {
+      if (result.length === 0) {
+        console.log("hihi");
+        (0, _onboarding.markAsShown)(true).then(function (res) {
+          console.log(res);
+        });
+      }
       _this.setTypeGroup(result[0].value);
 
       (0, _tools.getDataElements)(_index.DOCTYPE_F_CONTACTS).then(function (res) {
