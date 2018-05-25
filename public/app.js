@@ -14041,7 +14041,7 @@ var Letter = function (_React$Component) {
                       ' ',
                       _this6.state.notaire.address.code,
                       ' ',
-                      _this6.state.notaire.address.ville,
+                      _this6.state.notaire.address.city,
                       '.'
                     );
                   }

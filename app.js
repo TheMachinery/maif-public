@@ -9026,7 +9026,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var Doctypes = [{
   doctype: _index.DOCTYPE_F_LASTWILL,
   display: 'Mes dernieres volontés',
-  excerpt: 'Faites connaître vos choix intimes pour avant, pendant et après les obsèques. Inhumation ou crémation ? Sur quelle commune ? Avec sans cérémonie religieuse ? Choix généraux ou plus précis, vos ultimes volontés s\'expriment dans cette rubrique',
+  excerpt: 'Faites connaître vos choix intimes pour avant, pendant et après les obsèques. Inhumation ou crémation ? Sur quelle commune ? Avec ou sans cérémonie religieuse ? Choix généraux ou plus précis, vos ultimes volontés s\'expriment dans cette rubrique',
   path: '/funerals/lastwill',
   slug: 'lastwill',
   internpath: false,
@@ -9433,12 +9433,12 @@ var FuneralList = function (_React$Component) {
             _react2.default.createElement(
               'h3',
               { className: _FuneralList2.default.titleHome },
-              'Mes Choix Personnels'
+              'Mes choix personnels'
             ),
             _react2.default.createElement(
               'p',
               { className: _FuneralList2.default.introFuneral },
-              'Pr\xE9parer ses obs\xE8ques c\'est tout d\'abord faire conna\xEEtre ses choix pour apr\xE8s son d\xE9c\xE8s. Des d\xE9cisions qui vous appartiennent en propre. En les mentionnant ici, vous \xEAtes assur\xE9s de leur transmission directe au(x) proche(s) r\xE9f\xE9rents que vous aurez choisi(s) et qui seront charg\xE9s de les faire appliquer.'
+              'Pr\xE9parer ses obs\xE8ques, c\'est tout d\'abord faire conna\xEEtre ses choix pour apr\xE8s son d\xE9c\xE8s. Des d\xE9cisions qui vous appartiennent en propre. En les mentionnant ici, vous \xEAtes assur\xE9 de leur transmission directe au(x) proche(s) r\xE9f\xE9rent(s) que vous aurez choisi(s) et qui seront charg\xE9(s) de les faire appliquer.'
             ),
             _react2.default.createElement(
               'ul',
@@ -9542,7 +9542,7 @@ var FuneralList = function (_React$Component) {
               { className: _FuneralList2.default.introContact },
               _react2.default.createElement(
                 'p',
-                null,
+                { className: _FuneralList2.default.introFuneral },
                 'Nous sommes tous li\xE9s \xE0 une administration. Notre lieu d\'habitation, nos sources de revenus, nos activit\xE9s... nous associent \xE0 un service, une organisation. Chacun doit \xEAtre pr\xE9venu d\'un d\xE9c\xE8s ne serait-ce que pour d\xE9clencher des proc\xE9dures. Remplir ces formulaires en amont, une fois pour toutes, simplifiera les d\xE9marches de vos proches et acc\xE9l\xE8rera le r\xE8glement des droits.'
               )
             ),
@@ -10180,7 +10180,7 @@ var Home = function (_React$Component) {
             _react2.default.createElement(
               'p',
               { className: _FuneralList2.default.introHome },
-              ' L\'Espace priv\xE9 est instructif, riche d\'enseignements, pour prendre activement conscience des implications de votre d\xE9c\xE8s pour vos proches. La plateforme s\'appr\xE9hende comme un outil pratique, pour transmettre un relais dans des conditions de clart\xE9 et de s\xE9r\xE9nit\xE9. Il vous permet de r\xE9fl\xE9chir, de rep\xE9rer les \xE9ventuels oublis et de simplifier la t\xE2che de ceux qui organiseront vos obs\xE8ques selon vos d\xE9cisions.'
+              ' Un nombre important d\'informations  personnelles ou administratives sont \xE0 renseigner dans cet espace. Pour faciliter sa compl\xE9tude, cette rubrique restitue les informations qui ne sont pas encore renseign\xE9es.'
             ),
             this.state.typeGroup.map(function (group, key) {
               var docs = group.types;
