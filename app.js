@@ -19994,77 +19994,79 @@ var ContactModal = function (_Component) {
         console.log(error);
       });
 
-      // SEND SHARING MAIL
-      if (newContact.delay === "now") {
-        cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
-          data: {
-            type: 'io.cozy.permissions',
-            attributes: {
-              permissions: {
-                "settings": {
-                  "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
-                  "type": "io.cozy.settings",
-                  "verbs": ["ALL"]
-                },
-                "data-funerals-lastwill": {
-                  "description": "App required data Last Will access",
-                  "type": "com.empreinte.FLastWill",
-                  "verbs": ["ALL"]
-                },
-                "data-funerals-contacts": {
-                  "description": "App required data Last Will access",
-                  "type": "com.empreinte.Fcontacts",
-                  "verbs": ["ALL"]
-                },
-                "data-funerals-custom-contacts": {
-                  "description": "App required data Last Will access",
-                  "type": "com.empreinte.Fcustomcontacts",
-                  "verbs": ["ALL"]
-                },
-                "data-homeData": {
-                  "description": "App required data homeData access",
-                  "type": "com.empreinte.homeData",
-                  "verbs": ["ALL"]
-                },
-                "contacts": {
-                  "description": "App required contacts access",
-                  "type": "com.empreinte.contacts",
-                  "verbs": ["ALL"]
-                },
-                "metas": {
-                  "description": "App required metas access",
-                  "type": "com.empreinte.meta",
-                  "verbs": ["ALL"]
-                },
-                "contact": {
-                  "description": "App required contact access",
-                  "type": "io.cozy.contacts",
-                  "verbs": ["ALL"]
-                }
+      (0, _tools.getDataElements)('com.empreinte.homeData').then(function (res) {
+        _this2.user = res[0];
+        console.log(_this2.user);
+      });
+
+      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+        data: {
+          type: 'io.cozy.permissions',
+          attributes: {
+            permissions: {
+              "settings": {
+                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": ["ALL"]
+              },
+              "data-funerals-lastwill": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.FLastWill",
+                "verbs": ["ALL"]
+              },
+              "data-funerals-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcontacts",
+                "verbs": ["ALL"]
+              },
+              "data-funerals-custom-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcustomcontacts",
+                "verbs": ["ALL"]
+              },
+              "data-homeData": {
+                "description": "App required data homeData access",
+                "type": "com.empreinte.homeData",
+                "verbs": ["ALL"]
+              },
+              "contacts": {
+                "description": "App required contacts access",
+                "type": "com.empreinte.contacts",
+                "verbs": ["ALL"]
+              },
+              "metas": {
+                "description": "App required metas access",
+                "type": "com.empreinte.meta",
+                "verbs": ["ALL"]
+              },
+              "contact": {
+                "description": "App required contact access",
+                "type": "io.cozy.contacts",
+                "verbs": ["ALL"]
               }
             }
           }
-        }).then(function (result) {
-          _this2.sharing = result.attributes.codes['partage'];
-          console.log(_this2.sharing);
+        }
+      }).then(function (result) {
+        _this2.sharing = result.attributes.codes['partage'];
+        console.log(_this2.sharing);
 
-          var url = window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/';
-          var civ = newContact.civility === 0 ? "Madame" : "Monsieur";
+        var url = window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/';
+        var civ = newContact.civility === 0 ? "Madame" : "Monsieur";
 
-          var now = 'Bonjour ' + civ + " " + newContact.lastName + ".<br />Vous recevez ce mail";
+        var now = 'Bonjour ' + civ + 'Vous recevez ce mail d\u2019information car Monsieur Dupont vous a d\xE9sign\xE9 comme proche r\xE9f\xE9rent dans l\u2019espace Faire face au d\xE9c\xE8s de la MAIF. Nous vous en f\xE9licitons. \n\n            Votre proche souhaite anticiper ses obs\xE8ques et pr\xE9parer les d\xE9marches qui en d\xE9couleront. Il a souscrit le contrat obs\xE8ques SOLLICITUDES de la MAIF et a ouvert un espace priv\xE9.  \n            Au moment de son d\xE9c\xE8s, nous vous demandons de contacter imm\xE9diatement Parnasse-MAIF au\xA0: \n            05 49 73 89 43 \n            Celle-ci mettra en place l\u2019ensemble des garanties et des prestations du contrat obs\xE8ques. L\u2019offre souscrite facilitera consid\xE9rablement votre cheminement \n            dans ce moment douloureux. L\u2019objectif est d\u2019all\xE9ger la situation, de l\u2019apaiser au maximum.  \n            L\u2019espace Faire face au d\xE9c\xE8s de votre proche contient des informations qui vous seront pr\xE9cieuses pour l\u2019organisation de ses obs\xE8ques\xA0: derni\xE8res volont\xE9s, don de soi, prestataire fun\xE9raire \u2026 \n            ainsi que les informations et contacts administratifs auxquels il est rattach\xE9. Vous n\u2019aurez pas \xE0 les chercher, tout est ordonn\xE9. Vous aurez acc\xE8s \xE0 un assistant administratif. Il vous facilitera la \n            t\xE2che en vous guidant pas \xE0 pas dans vos d\xE9marches. \u2028\u2028Vous pouvez d\u2019ores et d\xE9j\xE0 acc\xE9der \xE0 certaines informations du dossier en cliquant sur ce lien\xA0: \n            Au nom de notre soci\xE9taire, nous vous remercions vivement pour votre implication.\u2028\u2028Cordialement\u2028\u2028L\u2019\xE9quipe Parnasse-MAIF"';
 
-          var body = delay === "now" ? now : "";
-
-          var job = cozy.client.jobs.create('sendmail', {
-            mode: 'from',
-            to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
-            subject: infos.attributes.public_name + ' vous donne accès à ses informations.',
-            parts: [{ type: 'text/plain', body: body }]
-          }).then(function (res) {
-            console.log(res);
-          });
+        var body = delay === "now" ? now : "";
+        '';
+        var job = cozy.client.jobs.create('sendmail', {
+          mode: 'from',
+          to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
+          subject: infos.attributes.public_name + ' vous donne accès à ses informations.',
+          parts: [{ type: 'text/plain', body: body }]
+        }).then(function (res) {
+          console.log(res);
         });
-      }
+      });
 
       console.log(newContact);
       this.props.onSave(newContact);
