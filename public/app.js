@@ -9630,6 +9630,13 @@ var Devis = function (_React$Component) {
                 _Page2.default,
                 { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
                 _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                            return _this2.props.history.goBack();
+                        }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
+                    '\u2190'
+                ),
+                _react2.default.createElement(
                     'div',
                     { className: [_FuneralList2.default.main, _Devis2.default.mainDevis].join(' ') },
                     _react2.default.createElement(
@@ -10755,6 +10762,13 @@ var DonDevis = function (_React$Component) {
             return _react2.default.createElement(
                 _Page2.default,
                 { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+                _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                            return _this2.props.history.goBack();
+                        }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
+                    '\u2190'
+                ),
                 _react2.default.createElement(
                     'div',
                     { className: [_FuneralList2.default.main, _Devis2.default.mainDevis].join(' ') },
@@ -14901,9 +14915,18 @@ var Prestataire = function (_React$Component) {
     _createClass(Prestataire, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 _Page2.default,
                 { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+                _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                            return _this2.props.history.goBack();
+                        }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.stable, _FuneralList2.default.back) },
+                    '\u2190'
+                ),
                 _react2.default.createElement(
                     'div',
                     { className: _FuneralList2.default.main },

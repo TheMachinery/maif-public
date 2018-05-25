@@ -7816,7 +7816,7 @@ var DonDevis = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Stocker sa carte de don du corps \xE0 la science'
+                                'Stocker le document'
                             )
                         ),
                         _react2.default.createElement(
