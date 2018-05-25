@@ -13443,6 +13443,9 @@ var Letter = function (_React$Component) {
       data['nameRef'] = document.getElementById('nameRef').value === "" ? document.getElementById('nameRef').placeholder : document.getElementById('nameRef').value;
       data['parent'] = document.getElementById('parent').value === "" ? document.getElementById('parent').placeholder : document.getElementById('parent').value;
 
+      data['telephone'] = document.getElementById('telephone').value === "" ? document.getElementById('telephone').placeholder : document.getElementById('telephone').value;
+      data['email'] = document.getElementById('email').value === "" ? document.getElementById('email').placeholder : document.getElementById('email').value;
+
       console.log(data);
 
       cozy.client.data.updateAttributes(data._type, data._id, data);
@@ -13827,6 +13830,30 @@ var Letter = function (_React$Component) {
                       } })
                   )
                 ),
+                _react2.default.createElement(
+                  'div',
+                  { className: _Retraite2.default.labelDemarche },
+                  _react2.default.createElement(
+                    'label',
+                    null,
+                    'T\xE9l\xE9phone'
+                  ),
+                  _react2.default.createElement(
+                    'label',
+                    null,
+                    'Email'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: _Retraite2.default.adresse },
+                  _react2.default.createElement('input', { onChange: function onChange(e) {
+                      return _this5.refs.telephone.innerHTML = e.target.value;
+                    }, type: 'text', id: 'telephone', placeholder: _this5.state.data.hasOwnProperty('telephone') ? _this5.state.data['telephone'] : "telephone", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+                  _react2.default.createElement('input', { onChange: function onChange(e) {
+                      return _this5.refs.email.innerHTML = e.target.value;
+                    }, type: 'text', id: 'email', placeholder: _this5.state.data.hasOwnProperty('email') ? _this5.state.data['email'] : "email", className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
+                ),
                 _share2.default.hasOwnProperty(_this5.type) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
                   'h3',
                   { className: _Retraite2.default.titleRetraite },
@@ -13909,40 +13936,7 @@ var Letter = function (_React$Component) {
                 )
               );
             } else if (item[0].type == 'telephone') {
-              return _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement(
-                  'label',
-                  null,
-                  item[0].display
-                ),
-                _react2.default.createElement('input', { type: 'text', id: item[0].name, placeholder: _this5.state.data[item[0].name],
-                  onChange: function onChange(e) {
-                    return _this5.refs[item[0].name].innerHTML = e.target.value;
-                  },
-                  className: _Retraite2.default.inputForm }),
-                _react2.default.createElement(
-                  'label',
-                  null,
-                  item[1].display
-                ),
-                _react2.default.createElement('input', { type: 'text', id: item[1].name, placeholder: _this5.state.data[item[0].name],
-                  onChange: function onChange(e) {
-                    return _this5.refs[item[1].name].innerHTML = e.target.value;
-                  },
-                  className: _Retraite2.default.inputForm }),
-                _react2.default.createElement(
-                  'label',
-                  null,
-                  item[2].display
-                ),
-                _react2.default.createElement('input', { type: 'text', id: item[2].name, placeholder: _this5.state.data[item[0].name],
-                  onChange: function onChange(e) {
-                    return _this5.refs[item[2].name].innerHTML = e.target.value;
-                  },
-                  className: _Retraite2.default.inputForm })
-              );
+              return null;
             } else {
               return _react2.default.createElement(
                 'span',
@@ -14012,7 +14006,7 @@ var Letter = function (_React$Component) {
               _react2.default.createElement(
                 'span',
                 { ref: 'dateDeath' },
-                this.state.data.deathDate
+                this.state.data.dateDeath
               ),
               ',',
               Object.keys(_share2.default[slug]).map(function (keyName) {
