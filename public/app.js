@@ -13437,6 +13437,9 @@ var Letter = function (_React$Component) {
         }
       });
 
+      data['date'] = document.getElementById('date').value === "" ? document.getElementById('date').placeholder : document.getElementById('date').value;
+      data['dateDeath'] = document.getElementById('dateDeath').value === "" ? document.getElementById('dateDeath').placeholder : document.getElementById('dateDeath').value;
+
       console.log(data);
 
       cozy.client.data.updateAttributes(data._type, data._id, data);
@@ -13867,7 +13870,7 @@ var Letter = function (_React$Component) {
                     { className: _Retraite2.default.adresse },
                     _react2.default.createElement('input', { onChange: function onChange(e) {
                         return _this5.refs.date.innerHTML = e.target.value;
-                      }, type: 'text', id: 'faite', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
+                      }, type: 'text', id: 'date', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') }),
                     _react2.default.createElement('input', { onChange: function onChange(e) {
                         return _this5.refs.dateDeath.innerHTML = e.target.value;
                       }, type: 'text', id: 'dateDeath', placeholder: '12/12/2017', className: [_Retraite2.default.inputForm, _Retraite2.default.adaptSizeT].join(' ') })
