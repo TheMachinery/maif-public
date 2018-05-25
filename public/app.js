@@ -10988,6 +10988,8 @@ var _types = __webpack_require__("./src/constants/types.json");
 
 var _types2 = _interopRequireDefault(_types);
 
+var _onboarding = __webpack_require__("./src/scripts/onboarding.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11051,6 +11053,10 @@ var Dossier = function (_Component) {
       customData: [],
       getdata: false
     };
+
+    (0, _onboarding.markAsShown)(true).then(function (res) {
+      console.log(res);
+    });
 
     (0, _meta.getMeta)().then(function (result) {
       console.log(result);
@@ -13468,6 +13474,7 @@ var Letter = function (_React$Component) {
     value: function myFormsReferent() {
       var _this3 = this;
 
+      var slug = this.props.match.params.slug;
       if (_share2.default.hasOwnProperty(slug) === false) return null;
       return _react2.default.createElement(
         'span',
@@ -31933,6 +31940,631 @@ var contactExist = exports.contactExist = function () {
 
   return function contactExist(_x) {
     return _ref3.apply(this, arguments);
+  };
+}();
+
+/***/ }),
+
+/***/ "./src/scripts/onboarding.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.markAsShown = exports.isAlreadyShown = exports.getCustomContactMeta = exports.getContactMeta = exports.getMeta = undefined;
+
+var _constants = __webpack_require__("./src/constants/index.js");
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var typeContact = {
+  "name": "Mes contacts administratifs",
+  "location": "/Contacts Administratifs",
+  "types": [{
+    "key": "medecin",
+    "name": "Médecin Traitant",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il est la première personne à prévenir en cas de décès à domicile. Si la mort survient à l'hôpital, les services se chargeront de la démarche. Le médecin constate la mort et produit le certificat indispensable à l’établissement de l'acte de décès.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "medecin",
+    "letter": false,
+    "delay": "IMMÉDIATEMENT",
+    "perso": 0
+  }, {
+    "key": "mairie",
+    "name": "Mairie",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Prévenir la mairie sera l'une des toutes premières démarches à effectuer, dans les 24 heures après le constat de décès. C'est l'administration qui établira l'acte de décès. Ses copies seront souvent demandées par la suite.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "mairie",
+    "letter": false,
+    "delay": "DANS LES 24 HEURES",
+    "perso": 0
+  }, {
+    "key": "pole_emploi",
+    "name": "Pôle Emploi",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Pour interrompre le versement des allocations chômages, l'établissement administratif Pôle emploi doit être prévenu du décès de la personne par simple courrier. La démarche peut également donner lieu au versement d'une allocation décès pour le conjoint.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "pole_emploi",
+    "letter": true,
+    "delay": "DANS LES 48 HEURES",
+    "perso": 0
+  }, {
+    "key": "employeur",
+    "name": "Employeur",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Informer l'employeur du décès du salarié pour obtenir le solde de tout compte, le certificat de travail, …",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "employeur",
+    "letter": true,
+    "delay": "DANS LES 48 HEURES",
+    "perso": 0
+  }, {
+    "key": "banque",
+    "name": "Banque",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "L'une des premières démarches d'ordre administratif à effectuer est de transmettre un acte de décès à la banque du défunt. L'établissement est dans l'obligation de bloquer le compte à la date du décès, d'annuler les procurations, de récupérer les moyens de paiements. Les sommes d'argent seront rendues disponibles après le règlement de la succession.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "banque",
+    "letter": true,
+    "delay": "DANS LA SEMAINE",
+    "perso": 0
+  }, {
+    "key": "credit",
+    "name": "Organisme de crédit",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "En cas de crédit en cours de remboursement, l'organisme prêteur doit être prévenu du décès. L'assurance éventuellement souscrite pourra alors acquitter les sommes restantes dues. Sinon, ce sont les avoirs du défunt qui servent à solder les dettes en cours.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "credit",
+    "letter": true,
+    "delay": "DANS LA SEMAINE",
+    "perso": 0
+  }, {
+    "key": "complementaire_maladie",
+    "name": "Mutuelle de santé complémentaire",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il s’agit des complémentaires santé. Ces organismes peuvent verser un capital décès aux conjoint, enfants ou ascendants.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "complementaire_maladie",
+    "letter": true,
+    "delay": "DANS LA SEMAINE",
+    "perso": 0
+  }, {
+    "key": "service_domicile",
+    "name": "Salarié ou association de service à domicile",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Si vous ou votre proche employait une aide à domicile selon un contrat CESU (Chèque emploi service universel), le décès entraîne la fin automatique du contrat de travail. Il sera toutefois nécessaire de lui adresser une lettre de licenciement.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "salarie_association",
+    "letter": true,
+    "delay": "DANS LES 7 JOURS",
+    "perso": 0
+  }, {
+    "key": "cpam",
+    "name": "Régime de santé générale",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "cpam",
+    "letter": true,
+    "delay": "DANS LES 7 JOURS",
+    "perso": 0
+  }, {
+    "key": "assurance_material",
+    "name": "Assurances",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Transférer ou résilier les assurances habitation, responsabilité civile et véhicule.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "assurance_material",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "assurance_person",
+    "name": "Assurances-vie/décès",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Prévenir la mutuelle d'assurance est l'une des actions prioritaires à effectuer. La mise à jour du dossier stoppe le versement des cotisations et peut donner droit à des allocations ou même faire bénéficier du tiers payant obsèques dans certains cas.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "assurance_person",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "notaire",
+    "name": "Notaire",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "notaire",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "retraite",
+    "name": "Caisse de retraite",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Le conjoint ou ex-conjoint peut bénéficier du versement d'une pension de réversion versée par la caisse de retraite. L'organisme, dont les coordonnées auront été renseignées dans l'Espace privé, pourra initier les règlements (souvent trimestriels) dans les délais d'autant plus raisonnables qu'il sera prévenu tôt.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "retraite",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "caf",
+    "name": "Caisse d'allocations familiales",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "La CAF dispose de lettres types qui servent à prévenir l’organisme du décès d’un proche. Ici, vous pourrez renseigner l’adresse de la caisse dont vous dépendez et votre numéro d’allocataire. La démarche peut donner lieu à l’ouverture de droits. Un certificat de décès sera également nécessaire.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "administratif",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "bailleur",
+    "name": "Bailleur ou syndic si co-propriété",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il est un intervenant clé dans le règlement de la succession du défunt. Ici, la fiche contact du notaire à qui le testament a été confié ou celui qui connait la situation familiale et patrimoniale, sera d'une grande utilité pour la suite.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "bailleur",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "locataire",
+    "name": "Locataire",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "locataire",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "conseil_general",
+    "name": "Conseil général",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Des prestations sociales comme l’allocation personnalisée d’autonomie seront interrompues.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "prefecture",
+    "name": "Préfecture",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Les coordonnées de la Préfecture dont vous dépendez seront utiles pour effectuer des démarches relatives à l'automobile notamment : changer de nom sur la carte grise suite à une succession par exemple.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "poste",
+    "name": "Poste",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Le service de distribution du courrier a lui-même une adresse postale. Le cas échéant, en cas de changement d'adresse, il faudra le prévenir de la nécessité de faire suivre le courrier.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "telecom",
+    "name": "Opérateur Télécom",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Il faut prévenir l'opérateur qui détient les contrats téléphonique, internet, télévision... afin de les résilier ou les transférer sur un nouveau titulaire.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "energy",
+    "name": "Fournisseur d'énergie",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Les contrats qui vous lient aux fournisseurs d'énergie doivent être résiliés ou mis à jour s'ils étaient établis au nom du défunt.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "water",
+    "name": "Régie de l'eau",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Comme tous les fournisseurs d'énergie à votre domicile, les services des eaux ont conclu un contrat avec le propriétaire. Si vous l'êtes, les proches devront signaler votre décès pour résilier l'acte ou le mettre à jour.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "organism_payer",
+    "letter": true,
+    "delay": "DANS LE MOIS",
+    "perso": 0
+  }, {
+    "key": "impot",
+    "name": "Centre d'impot",
+    "doctype": "com.empreinte.Fcontacts",
+    "excerpt": "Quand la succession sera réglée, l'administration fiscale devra être prévenue pour prendre en compte les nouvelles situations financières. L’aide d’un notaire pour bien comprendre et suivre les événements s’avère souvent nécessaire.",
+    "location": "/Empreinte/Funerals Contact",
+    "type": "impot",
+    "letter": true,
+    "delay": "DANS LES 6 MOIS",
+    "perso": 0
+  }]
+};
+
+var getMeta = exports.getMeta = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var indexRef, result;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return cozy.client.data.defineIndex(_constants.DOCTYPE_META, ['name']);
+
+          case 3:
+            indexRef = _context.sent;
+            _context.next = 6;
+            return cozy.client.data.query(indexRef, {
+              selector: {
+                "name": "onboarding"
+              }
+            });
+
+          case 6:
+            result = _context.sent;
+            return _context.abrupt("return", result);
+
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](0);
+            return _context.abrupt("return", []);
+
+          case 13:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, undefined, [[0, 10]]);
+  }));
+
+  return function getMeta() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var getContactMeta = exports.getContactMeta = function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+    var indexRef, result;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return cozy.client.data.defineIndex(_constants.DOCTYPE_META, ['name']);
+
+          case 3:
+            indexRef = _context2.sent;
+            _context2.next = 6;
+            return cozy.client.data.query(indexRef, {
+              selector: {
+                "name": "contactType"
+              }
+            });
+
+          case 6:
+            result = _context2.sent;
+            return _context2.abrupt("return", result);
+
+          case 10:
+            _context2.prev = 10;
+            _context2.t0 = _context2["catch"](0);
+            return _context2.abrupt("return", []);
+
+          case 13:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, undefined, [[0, 10]]);
+  }));
+
+  return function getContactMeta() {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
+var getCustomContactMeta = exports.getCustomContactMeta = function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+    var indexRef, result;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return cozy.client.data.defineIndex(_constants.DOCTYPE_META, ['name']);
+
+          case 3:
+            indexRef = _context3.sent;
+            _context3.next = 6;
+            return cozy.client.data.query(indexRef, {
+              selector: {
+                "name": "customContactType"
+              }
+            });
+
+          case 6:
+            result = _context3.sent;
+            return _context3.abrupt("return", result);
+
+          case 10:
+            _context3.prev = 10;
+            _context3.t0 = _context3["catch"](0);
+            return _context3.abrupt("return", []);
+
+          case 13:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, undefined, [[0, 10]]);
+  }));
+
+  return function getCustomContactMeta() {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+var isAlreadyShown = exports.isAlreadyShown = function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+    var res, contacts, customContacts, value, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, e;
+
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return getMeta();
+
+          case 2:
+            res = _context4.sent;
+            _context4.next = 5;
+            return getContactMeta();
+
+          case 5:
+            contacts = _context4.sent;
+            _context4.next = 8;
+            return getCustomContactMeta();
+
+          case 8:
+            customContacts = _context4.sent;
+
+
+            console.log(res);
+            console.log(contacts);
+
+            if (!(contacts.length > 0)) {
+              _context4.next = 16;
+              break;
+            }
+
+            _context4.next = 14;
+            return cozy.client.data.delete(_constants.DOCTYPE_META, contacts[0]);
+
+          case 14:
+            _context4.next = 16;
+            return cozy.client.data.create(_constants.DOCTYPE_META, { name: "contactType", value: [typeContact] });
+
+          case 16:
+            console.log(customContacts);
+
+            if (!(customContacts.length === 0)) {
+              _context4.next = 20;
+              break;
+            }
+
+            _context4.next = 20;
+            return cozy.client.data.create(_constants.DOCTYPE_META, { name: "customContactType", value: [{
+                "name": "Mes contacts custom",
+                "location": "/Contacts custom",
+                "types": []
+              }] });
+
+          case 20:
+            if (!(res.length === 0)) {
+              _context4.next = 24;
+              break;
+            }
+
+            return _context4.abrupt("return", false);
+
+          case 24:
+            if (!(res.length === 1)) {
+              _context4.next = 28;
+              break;
+            }
+
+            return _context4.abrupt("return", res[0].value);
+
+          case 28:
+            value = res.shift();
+            //remove all others info
+
+            _iteratorNormalCompletion = true;
+            _didIteratorError = false;
+            _iteratorError = undefined;
+            _context4.prev = 32;
+            _iterator = res[Symbol.iterator]();
+
+          case 34:
+            if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+              _context4.next = 41;
+              break;
+            }
+
+            e = _step.value;
+            _context4.next = 38;
+            return cozy.client.data.delete(_constants.DOCTYPE_META, e);
+
+          case 38:
+            _iteratorNormalCompletion = true;
+            _context4.next = 34;
+            break;
+
+          case 41:
+            _context4.next = 47;
+            break;
+
+          case 43:
+            _context4.prev = 43;
+            _context4.t0 = _context4["catch"](32);
+            _didIteratorError = true;
+            _iteratorError = _context4.t0;
+
+          case 47:
+            _context4.prev = 47;
+            _context4.prev = 48;
+
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+
+          case 50:
+            _context4.prev = 50;
+
+            if (!_didIteratorError) {
+              _context4.next = 53;
+              break;
+            }
+
+            throw _iteratorError;
+
+          case 53:
+            return _context4.finish(50);
+
+          case 54:
+            return _context4.finish(47);
+
+          case 55:
+            return _context4.abrupt("return", value);
+
+          case 56:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, undefined, [[32, 43, 47, 55], [48,, 50, 54]]);
+  }));
+
+  return function isAlreadyShown() {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
+var markAsShown = exports.markAsShown = function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+    var shown = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    var res, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, e, contacts;
+
+    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return getMeta();
+
+          case 2:
+            res = _context5.sent;
+
+
+            console.log("salut");
+
+            _iteratorNormalCompletion2 = true;
+            _didIteratorError2 = false;
+            _iteratorError2 = undefined;
+            _context5.prev = 7;
+            _iterator2 = res[Symbol.iterator]();
+
+          case 9:
+            if (_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done) {
+              _context5.next = 16;
+              break;
+            }
+
+            e = _step2.value;
+            _context5.next = 13;
+            return cozy.client.data.delete(_constants.DOCTYPE_META, e);
+
+          case 13:
+            _iteratorNormalCompletion2 = true;
+            _context5.next = 9;
+            break;
+
+          case 16:
+            _context5.next = 22;
+            break;
+
+          case 18:
+            _context5.prev = 18;
+            _context5.t0 = _context5["catch"](7);
+            _didIteratorError2 = true;
+            _iteratorError2 = _context5.t0;
+
+          case 22:
+            _context5.prev = 22;
+            _context5.prev = 23;
+
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+              _iterator2.return();
+            }
+
+          case 25:
+            _context5.prev = 25;
+
+            if (!_didIteratorError2) {
+              _context5.next = 28;
+              break;
+            }
+
+            throw _iteratorError2;
+
+          case 28:
+            return _context5.finish(25);
+
+          case 29:
+            return _context5.finish(22);
+
+          case 30:
+            _context5.next = 32;
+            return cozy.client.data.create(_constants.DOCTYPE_META, { name: "onboarding", value: shown });
+
+          case 32:
+            _context5.next = 34;
+            return getContactMeta();
+
+          case 34:
+            contacts = _context5.sent;
+            _context5.next = 37;
+            return cozy.client.data.create(_constants.DOCTYPE_META, { name: "contactType", value: [typeContact] });
+
+          case 37:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, undefined, [[7, 18, 22, 30], [23,, 25, 29]]);
+  }));
+
+  return function markAsShown() {
+    return _ref5.apply(this, arguments);
   };
 }();
 
