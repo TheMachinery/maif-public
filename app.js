@@ -20063,7 +20063,7 @@ var ContactModal = function (_Component) {
             mode: 'from',
             to: [{ name: 'COZY - MAIF OBSEQUE', email: newContact.email }],
             subject: _this2.user.firstname + " " + _this2.user.name + ' vous donne accès à ses informations.',
-            parts: [{ type: 'text/plain', body: body }]
+            parts: [{ type: 'text/html', body: body }]
           }).then(function (res) {
             console.log(res);
           });
