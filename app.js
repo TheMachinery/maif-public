@@ -10060,6 +10060,7 @@ var Home = function (_React$Component) {
       this.steps = 1;
 
       (0, _onboarding.isAlreadyShown)().then(function (res) {
+        console.log(res);
         if (res) {
           return _this2.closeFirstOnboarding(true);
         }
@@ -32366,117 +32367,121 @@ var isAlreadyShown = exports.isAlreadyShown = function () {
           case 8:
             customContacts = _context4.sent;
 
+
+            console.log(res);
+            console.log(contacts);
+
             if (!(contacts.length > 0)) {
-              _context4.next = 14;
+              _context4.next = 16;
               break;
             }
 
-            _context4.next = 12;
+            _context4.next = 14;
             return cozy.client.data.delete(_constants.DOCTYPE_META, contacts[0]);
 
-          case 12:
-            _context4.next = 14;
+          case 14:
+            _context4.next = 16;
             return cozy.client.data.create(_constants.DOCTYPE_META, { name: "contactType", value: [typeContact] });
 
-          case 14:
+          case 16:
             console.log(customContacts);
 
             if (!(customContacts.length === 0)) {
-              _context4.next = 18;
+              _context4.next = 20;
               break;
             }
 
-            _context4.next = 18;
+            _context4.next = 20;
             return cozy.client.data.create(_constants.DOCTYPE_META, { name: "customContactType", value: [{
                 "name": "Mes contacts custom",
                 "location": "/Contacts custom",
                 "types": []
               }] });
 
-          case 18:
+          case 20:
             if (!(res.length === 0)) {
-              _context4.next = 22;
+              _context4.next = 24;
               break;
             }
 
             return _context4.abrupt("return", false);
 
-          case 22:
+          case 24:
             if (!(res.length === 1)) {
-              _context4.next = 26;
+              _context4.next = 28;
               break;
             }
 
             return _context4.abrupt("return", res[0].value);
 
-          case 26:
+          case 28:
             value = res.shift();
             //remove all others info
 
             _iteratorNormalCompletion = true;
             _didIteratorError = false;
             _iteratorError = undefined;
-            _context4.prev = 30;
+            _context4.prev = 32;
             _iterator = res[Symbol.iterator]();
 
-          case 32:
+          case 34:
             if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-              _context4.next = 39;
+              _context4.next = 41;
               break;
             }
 
             e = _step.value;
-            _context4.next = 36;
+            _context4.next = 38;
             return cozy.client.data.delete(_constants.DOCTYPE_META, e);
 
-          case 36:
+          case 38:
             _iteratorNormalCompletion = true;
-            _context4.next = 32;
-            break;
-
-          case 39:
-            _context4.next = 45;
+            _context4.next = 34;
             break;
 
           case 41:
-            _context4.prev = 41;
-            _context4.t0 = _context4["catch"](30);
+            _context4.next = 47;
+            break;
+
+          case 43:
+            _context4.prev = 43;
+            _context4.t0 = _context4["catch"](32);
             _didIteratorError = true;
             _iteratorError = _context4.t0;
 
-          case 45:
-            _context4.prev = 45;
-            _context4.prev = 46;
+          case 47:
+            _context4.prev = 47;
+            _context4.prev = 48;
 
             if (!_iteratorNormalCompletion && _iterator.return) {
               _iterator.return();
             }
 
-          case 48:
-            _context4.prev = 48;
+          case 50:
+            _context4.prev = 50;
 
             if (!_didIteratorError) {
-              _context4.next = 51;
+              _context4.next = 53;
               break;
             }
 
             throw _iteratorError;
 
-          case 51:
-            return _context4.finish(48);
-
-          case 52:
-            return _context4.finish(45);
-
           case 53:
-            return _context4.abrupt("return", value);
+            return _context4.finish(50);
 
           case 54:
+            return _context4.finish(47);
+
+          case 55:
+            return _context4.abrupt("return", value);
+
+          case 56:
           case "end":
             return _context4.stop();
         }
       }
-    }, _callee4, undefined, [[30, 41, 45, 53], [46,, 48, 52]]);
+    }, _callee4, undefined, [[32, 43, 47, 55], [48,, 50, 54]]);
   }));
 
   return function isAlreadyShown() {
