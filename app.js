@@ -10020,34 +10020,34 @@ var Home = function (_React$Component) {
         (0, _onboarding.markAsShown)(true).then(function (res) {
           console.log(res);
         });
-      }
-      _this.setTypeGroup(result[0].value);
+      } else {
+        _this.setTypeGroup(result[0].value);
 
-      (0, _tools.getDataElements)(_index.DOCTYPE_F_CONTACTS).then(function (res) {
-        if (res.length > 0) {
-          (function () {
-            var type = result[0].value;
+        (0, _tools.getDataElements)(_index.DOCTYPE_F_CONTACTS).then(function (res) {
+          if (res.length > 0) {
+            (function () {
+              var type = result[0].value;
 
-            var _loop = function _loop(n) {
-              var exist = _lodash2.default.find(res, function (t) {
-                return t.type === type[0].types[n].name;
-              });
-              if (exist) {
-                type[0].types[n].checked = true;
-                type[0].types[n]._id = exist._id;
+              var _loop = function _loop(n) {
+                var exist = _lodash2.default.find(res, function (t) {
+                  return t.type === type[0].types[n].name;
+                });
+                if (exist) {
+                  type[0].types[n].checked = true;
+                  type[0].types[n]._id = exist._id;
+                }
+              };
+
+              for (var n in type[0].types) {
+                _loop(n);
               }
-            };
-
-            for (var n in type[0].types) {
-              _loop(n);
-            }
-            _this.setTypeGroup(type);
-          })();
-        }
-        console.log(res);
-      });
+              _this.setTypeGroup(type);
+            })();
+          }
+          console.log(res);
+        });
+      }
     });
-
     return _this;
   }
 
