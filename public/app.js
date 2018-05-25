@@ -9649,11 +9649,6 @@ var Devis = function (_React$Component) {
                                 'h3',
                                 null,
                                 'Stocker les devis'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in ex vel dolor sagittis aliquet. Nullam eget dolor euismod, laoreet diam vehicula, dignissim magna'
                             )
                         ),
                         _react2.default.createElement(
@@ -9683,11 +9678,6 @@ var Devis = function (_React$Component) {
                                                 { onClick: _this2.handlePdf.bind(_this2), id: _this2.state.urlFile[key] },
                                                 d.attributes.name,
                                                 ' >'
-                                            ),
-                                            _react2.default.createElement(
-                                                'p',
-                                                null,
-                                                'Lorem ipsus dolor sit amet consectetur adipiscing elit. Nullam odio'
                                             )
                                         ),
                                         _react2.default.createElement(
@@ -10781,7 +10771,7 @@ var DonDevis = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Stocker sa carte de don du corps \xE0 la science'
+                                'Stocker le document'
                             )
                         ),
                         _react2.default.createElement(
@@ -10811,11 +10801,6 @@ var DonDevis = function (_React$Component) {
                                                 { onClick: _this2.handlePdf.bind(_this2), id: _this2.state.urlFile[key] },
                                                 d.attributes.name,
                                                 ' >'
-                                            ),
-                                            _react2.default.createElement(
-                                                'p',
-                                                null,
-                                                'Lorem ipsus dolor sit amet consectetur adipiscing elit. Nullam odio'
                                             )
                                         ),
                                         _react2.default.createElement(
