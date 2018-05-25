@@ -8921,7 +8921,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.166'
+                        '1.0.167'
                     )
                 )
             );
@@ -21652,7 +21652,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.166';
+var VERSION = exports.VERSION = '1.0.167';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -23197,7 +23197,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.166');
+console.log('Current Version:', '1.0.167');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28481,7 +28481,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.166';
+var VERSION = exports.VERSION = '1.0.167';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -31854,30 +31854,32 @@ var getMeta = exports.getMeta = function () {
 
           case 4:
             indexRef = _context.sent;
-            _context.next = 7;
+
+            console.log(indexRef);
+            _context.next = 8;
             return cozy.client.data.query(indexRef, {
               selector: {
                 "name": "contactType"
               }
             });
 
-          case 7:
+          case 8:
             result = _context.sent;
 
             console.log(result);
             return _context.abrupt('return', result);
 
-          case 12:
-            _context.prev = 12;
+          case 13:
+            _context.prev = 13;
             _context.t0 = _context['catch'](0);
             return _context.abrupt('return', []);
 
-          case 15:
+          case 16:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, undefined, [[0, 12]]);
+    }, _callee, undefined, [[0, 13]]);
   }));
 
   return function getMeta() {
