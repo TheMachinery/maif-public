@@ -8926,7 +8926,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.167'
+                        '1.0.168'
                     )
                 )
             );
@@ -20053,9 +20053,9 @@ var ContactModal = function (_Component) {
           var url = 'http://' + window.location.hostname + '/public?sharecode=' + _this2.sharing + '#/';
           var civ = newContact.civility === 0 ? "Madame" : "Monsieur";
 
-          var now = "Bonjour " + civ + " " + newContact.lastName + ". Vous recevez ce mail d’information car" + _this2.user.civilite + " " + _this2.user.name + " vous a désigné comme proche référent dans l’espace <b><i>Faire face au décès</b></i> de la MAIF. Nous vous en félicitons.<br />Votre proche souhaite anticiper ses obsèques et préparer les démarches qui en découleront. Il a souscrit le contrat obsèques SOLLICITUDES de la MAIF et a ouvert un espace privé.<br /><br />Au moment de son décès, nous vous demandons de contacter immédiatement Parnasse-MAIF au :<br /><center>05 49 73 89 43</center><br />Celle-ci mettra en place l’ensemble des garanties et des prestations du contrat obsèques. L’offre souscrite facilitera considérablement votre cheminement dans ce moment douloureux. L’objectif est d’alléger la situation, de l’apaiser au maximum. <br />L’espace <b><i>Faire face au décès</b></i> de votre proche contient des informations qui vous seront précieuses pour l’organisation de ses obsèques : dernières volontés, don de soi, prestataire funéraire … ainsi que les informations et contacts administratifs auxquels il est rattaché. Vous n’aurez pas à les chercher, tout est ordonné. Vous aurez accès à un assistant administratif. Il vous facilitera la tâche en vous guidant pas à pas dans vos démarches. <br />Vous pouvez d’ores et déjà accéder à certaines informations du dossier en cliquant sur ce lien : " + url + "<br />Au nom de notre sociétaire, nous vous remercions vivement pour votre implication. <br /><br />Cordialement <br /><br />L’équipe Parnasse-MAIF";
+          var now = "Bonjour " + civ + " " + newContact.lastName + ". Vous recevez ce mail d’information car" + _this2.user.civilite + " " + _this2.user.name + " vous a désigné comme proche référent dans l’espace <b><i>Faire face au décès</b></i> de la MAIF. Nous vous en félicitons.<br />Votre proche souhaite anticiper ses obsèques et préparer les démarches qui en découleront. Il a souscrit le contrat obsèques SOLLICITUDES de la MAIF et a ouvert un espace privé.<br /><br />Au moment de son décès, nous vous demandons de contacter immédiatement Parnasse-MAIF au :<br /><center><b>05 49 73 89 43</b></center><br />Celle-ci mettra en place l’ensemble des garanties et des prestations du contrat obsèques. L’offre souscrite facilitera considérablement votre cheminement dans ce moment douloureux. L’objectif est d’alléger la situation, de l’apaiser au maximum. <br />L’espace <b><i>Faire face au décès</b></i> de votre proche contient des informations qui vous seront précieuses pour l’organisation de ses obsèques : dernières volontés, don de soi, prestataire funéraire … ainsi que les informations et contacts administratifs auxquels il est rattaché. Vous n’aurez pas à les chercher, tout est ordonné. Vous aurez accès à un assistant administratif. Il vous facilitera la tâche en vous guidant pas à pas dans vos démarches. <br /><br />Vous pouvez d’ores et déjà accéder à certaines informations du dossier en cliquant sur ce lien : " + url + "<br />Au nom de notre sociétaire, nous vous remercions vivement pour votre implication. <br /><br />Cordialement <br /><br />L’équipe Parnasse-MAIF";
 
-          var diff = 'Bonjour ' + civ + '. Vous recevez ce mail d\u2019information car' + _this2.user.civilite + " " + _this2.user.name + ' vous a d\xE9sign\xE9 comme proche r\xE9f\xE9rent dans l\u2019espace Faire face au d\xE9c\xE8s de la MAIF. Nous vous en f\xE9licitons.\n          Votre proche souhaite anticiper ses obs\xE8ques et pr\xE9parer les d\xE9marches qui en d\xE9couleront. Il a souscrit le contrat obs\xE8ques SOLLICITUDES de la MAIF et a ouvert un espace priv\xE9. \n\n          Au moment de son d\xE9c\xE8s, nous vous demandons de contacter imm\xE9diatement Parnasse-MAIF au\xA0:\n            05 49 73 89 43 \n          Celle-ci mettra en place l\u2019ensemble des garanties et des prestations du contrat obs\xE8ques. L\u2019offre souscrite facilitera consid\xE9rablement votre cheminement \n          dans ce moment douloureux. L\u2019objectif est d\u2019all\xE9ger la situation, de l\u2019apaiser au maximum.  \n          L\u2019espace Faire face au d\xE9c\xE8s de votre proche contient des informations qui vous seront pr\xE9cieuses pour l\u2019organisation de ses obs\xE8ques\xA0: derni\xE8res volont\xE9s, don de soi, prestataire fun\xE9raire \u2026 \n          ainsi que les informations et contacts administratifs auxquels il est rattach\xE9. Vous n\u2019aurez pas \xE0 les chercher, tout est ordonn\xE9. Vous aurez acc\xE8s \xE0 un assistant administratif. Il vous facilitera la \n          t\xE2che en vous guidant pas \xE0 pas dans vos d\xE9marches. \u2028\u2028\n\n          Lors de la d\xE9claration du d\xE9c\xE8s, Parnasse-MAIF vous adressera un mail contenant le lien vers l\u2019espace de votre proche.\n          Au nom de notre soci\xE9taire, nous vous remercions vivement pour votre implication. \n\n          \u2028\u2028Cordialement \n\n          \u2028\u2028L\u2019\xE9quipe Parnasse-MAIF';
+          var diff = "Bonjour " + civ + " " + newContact.lastName + ". Vous recevez ce mail d’information car" + _this2.user.civilite + " " + _this2.user.name + " vous a désigné comme proche référent dans l’espace <b><i>Faire face au décès</b></i> de la MAIF. Nous vous en félicitons.<br />Votre proche souhaite anticiper ses obsèques et préparer les démarches qui en découleront. Il a souscrit le contrat obsèques SOLLICITUDES de la MAIF et a ouvert un espace privé.<br /><br />Au moment de son décès, nous vous demandons de contacter immédiatement Parnasse-MAIF au :<br /><center><b>05 49 73 89 43</b></center><br />Celle-ci mettra en place l’ensemble des garanties et des prestations du contrat obsèques. L’offre souscrite facilitera considérablement votre cheminement dans ce moment douloureux. L’objectif est d’alléger la situation, de l’apaiser au maximum. <br />L’espace <b><i>Faire face au décès</b></i> de votre proche contient des informations qui vous seront précieuses pour l’organisation de ses obsèques : dernières volontés, don de soi, prestataire funéraire … ainsi que les informations et contacts administratifs auxquels il est rattaché. Vous n’aurez pas à les chercher, tout est ordonné. Vous aurez accès à un assistant administratif. Il vous facilitera la tâche en vous guidant pas à pas dans vos démarches.<br /><br />Lors de la déclaration du décès, Parnasse-MAIF vous adressera un mail contenant le lien vers l’espace de votre proche.<br />Au nom de notre sociétaire, nous vous remercions vivement pour votre implication. <br /><br />Cordialement <br /><br />L’équipe Parnasse-MAIF";
 
           var body = delay === "now" ? now : diff;
 
@@ -21675,7 +21675,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.167';
+var VERSION = exports.VERSION = '1.0.168';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -23220,7 +23220,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.167');
+console.log('Current Version:', '1.0.168');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28504,7 +28504,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.167';
+var VERSION = exports.VERSION = '1.0.168';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
