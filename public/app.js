@@ -3817,7 +3817,7 @@ module.exports = [{"name":"Informations principales","group":[{"name":"type","di
 /***/ "./src/constants/data/funerals/contact.json":
 /***/ (function(module, exports) {
 
-module.exports = {"employeur":[{"name":"Mes contacts administratifs","excerpt":"sartek la guepe","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}],[{"name":"lien","display":"Lien de parenté"}]]}],"banque":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"type":"info","data":"<p>À la suite du décès, 2 possibilités concernant le compte :<br />1. bloquer le compte<br />2. transformer le compte joint</p>"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la banque"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Demander à ransformer le compte joint n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Si prêt, demande du capital décès"}]]}],"credit":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}]]}],"complementaire_maladie":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}],[{"name":"name","hide":true}]]}],"cpam":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}]]}],"assurance_person":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"caf":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":"Mes contacts administratifs","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"EMAIL","type":"email"}]]}]}
+module.exports = {"employeur":[{"name":" ","excerpt":"sartek la guepe","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"info","display":"Intitulé de l'emploi"}]]}],"pole_emploi":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"identifiant","display":"N°d'identifiant"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}],[{"name":"lien","display":"Lien de parenté"}]]}],"banque":[{"name":" ","excerpt":"","import":true,"group":[[{"type":"info","data":"<p>À la suite du décès, 2 possibilités concernant le compte :<br />1. bloquer le compte<br />2. transformer le compte joint</p>"}],[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la banque"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"account_to_delete","display":"Bloquer le compte n°"}],[{"name":"account_to_transform","display":"Demander à ransformer le compte joint n°"}],[{"name":"person_name","display":"Nom de la personne pour le compte"}],[{"name":"assurence_number","display":"Si prêt, demande du capital décès"}]]}],"credit":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"credit_number","display":"N° de crédit"}]]}],"complementaire_maladie":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"health_number","display":"N° d'assuré"}],[{"name":"keep_person","display":"Nom de la personne restant assurée"}]]}],"salarie_association":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse du salarié","type":"address"}],[{"name":"address","hide":true}],[{"name":"name","hide":true}]]}],"cpam":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"ss_number","display":"N° d'immatriculation"}],[{"name":"person","display":"Nom de la personne ayant droit"}]]}],"assurance_material":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° sociétaire"}],[{"name":"transfert_name","display":"Nom de la personne pour le transfert"}],[{"name":"contrat_type","display":"Types de contrats à résilier"}],[{"name":"new_address","display":"Nouvelle adresse de facturation"}],[{"name":"remboursement","display":"Remboursement pour la préiode suivante"}]]}],"assurance_person":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"societaire_number","display":"N° contrat"}],[{"name":"presta_adresse","display":"Coordonnée du prestataire funéraire à régler"}]]}],"notaire":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"notaire_name","display":"Nom et prénom du Notaire"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"retraite":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"subscribe_number","display":"N° d'inscription"}],[{"name":"capital","display":"Nom de la personne pour le capital décès"}],[{"name":"pension","display":"Nom de la personne pour la pension de réversion"}]]}],"bailleur":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"bailleur_name","display":"Nom du bailleur"}],[{"name":"address","display":"Adresse du bailleur","type":"address"}],[{"name":"date","display":"Date d'établissement du bail"}],[{"name":"bail","display":"Nom de la personne pour le transfert du bail"}],[{"name":"address","hide":true}]]}],"locataire":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de la personne"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"caf":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"allocation_number","display":"N° d'allocataire"}],[{"name":"contract_owner","display":"Nom de la personne ayant droit"}]]}],"organism_payer":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"contract_number","display":"N° du contrat"}],[{"name":"transfert","display":"Nom de la personne pour transfert du contrat"}],[{"name":"compte_number","display":"Prélèvement sur n°de compte"}],[{"name":"address","hide":true}]]}],"impot":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Nom de l'organisme"}],[{"name":"address","display":"Adresse","type":"address"}]]}],"default":[{"name":" ","excerpt":"","import":true,"group":[[{"name":"type","hide":true,"display":"Type"}],[{"name":"organism","display":"Organisme"}],[{"name":"interlocuteur","display":"Interlocuteur","type":"interlocuteur"}],[{"name":"address","display":"Adresse","type":"address"}],[{"name":"telephone","type":"telephone","display":"Numéro de  téléphone"},{"name":"telecopie","display":"Numéro de  télécopie"},{"name":"email","display":"Email","type":"email"}]]}]}
 
 /***/ }),
 
@@ -10336,7 +10336,7 @@ var Don = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _Page2.default,
-                { title: 'Pr\xE9parer mes obs\xE8ques', subtitle: 'Cet espace vous permet de renseigner l\'ensemble des informations qui seront utiles \xE0 vos proches. ' },
+                { title: ' ', subtitle: ' ' },
                 _react2.default.createElement(
                     'div',
                     { className: _FuneralList2.default.main },
@@ -13116,7 +13116,7 @@ var LastWill = function (_React$Component) {
 
       return this.state.getData === true ? _react2.default.createElement(
         _Page2.default,
-        { title: 'TITLE', subtitle: 'subtitle' },
+        { title: ' ', subtitle: ' ' },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
@@ -14106,18 +14106,23 @@ var Letter = function (_React$Component) {
           _description2.default[slug].title
         ),
         _react2.default.createElement('span', { className: _Retraite2.default.dataTxt, dangerouslySetInnerHTML: { __html: _description2.default[slug].description } }),
-        _react2.default.createElement(
-          'h2',
-          { className: _Retraite2.default.titleRetraite },
-          'Constitution du courrier'
-        ),
-        _react2.default.createElement(
-          'h3',
-          { className: _Retraite2.default.titleRetraite },
-          'L\'exp\xE9diteur'
+        _share2.default.hasOwnProperty(slug) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
+          'span',
+          null,
+          _react2.default.createElement(
+            'h2',
+            { className: _Retraite2.default.titleRetraite },
+            'Constitution du courrier'
+          ),
+          _react2.default.createElement(
+            'h3',
+            { className: _Retraite2.default.titleRetraite },
+            'L\'exp\xE9diteur'
+          ),
+          ' '
         ),
         this.myFormsReferent(),
-        _react2.default.createElement(
+        _share2.default.hasOwnProperty(slug) === false ? _react2.default.createElement('span', null) : _react2.default.createElement(
           'h3',
           { className: _Retraite2.default.titleRetraite },
           'Le destinataire'
@@ -15201,7 +15206,7 @@ var ProchesPrevenir = function (_Component) {
       console.log(this.state);
       return _react2.default.createElement(
         _Page2.default,
-        { title: 'Proches \xE0 pr\xE9venir', subtitle: 'Liste des proches \xE0 pr\xE9venir' },
+        { title: ' ', subtitle: ' ' },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
@@ -15387,7 +15392,7 @@ var ProchesReferent = function (_Component) {
       console.log(this.state);
       return _react2.default.createElement(
         _Page2.default,
-        { title: 'Proches r\xE9f\xE9rents', subtitle: 'Liste des r\xE9f\xE9rents' },
+        { title: ' ', subtitle: ' ' },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
@@ -15522,7 +15527,7 @@ var Profile = function (_React$Component) {
 
       return this.state.getData === true ? _react2.default.createElement(
         _Page2.default,
-        { title: this.state.data.name, subtitle: 'subtitle' },
+        { title: ' ', subtitle: ' ' },
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
