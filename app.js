@@ -26572,7 +26572,7 @@ var DataForm = function (_Component) {
           } else {
             console.log(_this3.infos);
             console.log(data);
-            _this3.props.closeModal('/letter/' + data.data.formType + '/' + data.data._id);
+            _this3.props.closeModal('/letter/contact/' + data.data.formType + '/' + data.data._id);
           }
         });
       }
