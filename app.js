@@ -11262,7 +11262,7 @@ var Prestataire = function (_React$Component) {
                         { className: _Prestataire2.default.containerPicto },
                         _react2.default.createElement(
                             'a',
-                            { href: 'https://production-underwriter-app.seniormedia.io/', target: '_blank' },
+                            { href: 'https://meilleures-pompes-funebres.com/tarificateur', target: '_blank' },
                             _react2.default.createElement(
                                 'div',
                                 { className: _Prestataire2.default.contentCube },
