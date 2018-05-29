@@ -10200,6 +10200,12 @@ var Home = function (_React$Component) {
       e.stopPropagation();
       this.setState({ InfoOpen: true, infoText: text, infoHeader: header });
     }
+  }, {
+    key: 'openFile',
+    value: function openFile() {
+      var win = window.open('/media/tutorial.pdf', '_blank');
+      win.focus;
+    }
     // render
 
   }, {
@@ -10218,8 +10224,8 @@ var Home = function (_React$Component) {
             'div',
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
-              'a',
-              { href: '/media/tutorial.pdf', target: '_blank', className: _Devis2.default.devisType },
+              'button',
+              { onClick: this.openFile(), className: _Devis2.default.devisType },
               'Tutorial'
             ),
             _react2.default.createElement(
