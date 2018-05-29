@@ -6749,7 +6749,7 @@ var Devis = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'a',
-                { href: '/media/devis.pdf', target: '_blank', className: _Devis2.default.devisType, onClick: this.printPdf.bind(this) },
+                { href: '/media/devis.pdf', target: '_blank', className: _Devis2.default.devisType },
                 'DEVIS TYPE'
               )
             ),
@@ -10219,7 +10219,7 @@ var Home = function (_React$Component) {
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
               'a',
-              { href: '/media/tutorial.pdf', target: '_blank', className: _Devis2.default.devisType, onClick: this.printPdf.bind(this) },
+              { href: '/media/tutorial.pdf', target: '_blank', className: _Devis2.default.devisType },
               'Tutorial'
             ),
             _react2.default.createElement(
