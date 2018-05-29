@@ -10592,7 +10592,7 @@ var Localisation = function (_React$Component) {
       window.searchBox = this.searchBox;
       //loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places')
       console.log("MMMMDDDDDRRRR");
-      loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+      loadJS('https://maps.googleapis.com/maps/api/js?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
     }
   }, {
     key: 'initMap',
@@ -10632,7 +10632,7 @@ var Localisation = function (_React$Component) {
 
       map = this.state.currentMap;
       var input = document.getElementById('input');
-      var searchBox = new google.maps.places.Autocomplete(input, { types: ['funeral_home'] });
+      var searchBox = new google.maps.places.SearchBox(input, { types: ['funeral_home'] });
       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
       map.addListener('bounds_changed', function () {
         searchBox.setBounds(map.getBounds());
