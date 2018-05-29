@@ -6747,9 +6747,9 @@ var Devis = function (_React$Component) {
                 'Vous pouvez obtenir un devis type en cliquant sur ce lien \xBB, puis ajouter la phrase : \xAB N\'h\xE9sitez pas \xE0 contacter Parnasse-MAIF au 05 49 04 49 04 qui vous mettra en relation avec son coordinateur fun\xE9raire. Celui-ci vous indiquera un r\xE9seau de prestataires fun\xE9raires pour la r\xE9alisation des prestations'
               ),
               _react2.default.createElement(
-                'button',
-                { href: '', className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
-                'IMPRIMER'
+                'a',
+                { href: '/media/devis.pdf', target: '_blank', className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
+                'DEVIS TYPE'
               )
             ),
             _react2.default.createElement(
