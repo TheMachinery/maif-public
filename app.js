@@ -6741,7 +6741,16 @@ var Devis = function (_React$Component) {
                 null,
                 'Stocker le devis'
               ),
-              _react2.default.createElement('p', null)
+              _react2.default.createElement(
+                'p',
+                null,
+                'Vous pouvez obtenir un devis type en cliquant sur ce lien \xBB, puis ajouter la phrase : \xAB N\'h\xE9sitez pas \xE0 contacter Parnasse-MAIF au 05 49 04 49 04 qui vous mettra en relation avec son coordinateur fun\xE9raire. Celui-ci vous indiquera un r\xE9seau de prestataires fun\xE9raires pour la r\xE9alisation des prestations'
+              ),
+              _react2.default.createElement(
+                'button',
+                { href: '', className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
+                'IMPRIMER'
+              )
             ),
             _react2.default.createElement(
               'div',
@@ -10583,7 +10592,7 @@ var Localisation = function (_React$Component) {
       window.searchBox = this.searchBox;
       //loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places')
       console.log("MMMMDDDDDRRRR");
-      loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+      loadJS('https://maps.googleapis.com/maps/api/js?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
     }
   }, {
     key: 'initMap',
