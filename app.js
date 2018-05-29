@@ -456,7 +456,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".Devis-mainDevis__24ke {\n  line-height: unset !important; }\n\n.Devis-titleDevis__3NGT p {\n  font-size: 17px; }\n\n.Devis-contentDevisUpload__1spo {\n  margin-top: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  -webkit-box-align: end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n  margin-bottom: 50px; }\n\n.Devis-contentDevisUpload__1spo h3 {\n  color: #A05599;\n  font-weight: bold; }\n\n.Devis-buttonAddDevis__3-7q {\n  min-width: 210px;\n  width: auto;\n  background-color: #A05599;\n  color: #dddddd;\n  border: 1px solid #A05599;\n  border: solid 1px #9b9b9b;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  font-family: \"Arvo\", sans-serif;\n  font-size: 0.85em;\n  letter-spacing: 1px;\n  color: #dddddd;\n  padding: 12px 15px;\n  font-weight: 300;\n  cursor: pointer; }\n\n.Devis-dataDevis__Gntm {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n  justify-content: space-around;\n  border-bottom: solid 1px #b3b3b3;\n  -ms-flex-line-pack: center;\n  align-content: center;\n  padding-bottom: 15px;\n  margin-bottom: 20px; }\n\n.Devis-txtDataDevis__3nr7 {\n  border-right: solid 1px #b3b3b3;\n  padding-right: 15px; }\n  .Devis-txtDataDevis__3nr7 h3 {\n    width: 560px; }\n  .Devis-txtDataDevis__3nr7 h3:hover {\n    cursor: pointer; }\n\n.Devis-dateDataDevis__djYj {\n  background-color: #cecece;\n  height: 40px;\n  width: 185px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center; }\n  .Devis-dateDataDevis__djYj p {\n    margin: 0; }\n\n.Devis-ctnDataDateDevis__33kR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center; }\n\n.Devis-previewPDF__2plR {\n  height: auto;\n  width: 100%; }\n", ""]);
+exports.push([module.i, ".Devis-mainDevis__24ke {\n  line-height: unset !important; }\n\n.Devis-titleDevis__3NGT p {\n  font-size: 17px; }\n\n.Devis-contentDevisUpload__1spo {\n  margin-top: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  -webkit-box-align: end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n  margin-bottom: 50px; }\n\n.Devis-contentDevisUpload__1spo h3 {\n  color: #A05599;\n  font-weight: bold; }\n\n.Devis-buttonAddDevis__3-7q {\n  min-width: 210px;\n  width: auto;\n  background-color: #A05599;\n  color: #dddddd;\n  border: 1px solid #A05599;\n  border: solid 1px #9b9b9b;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  font-family: \"Arvo\", sans-serif;\n  font-size: 0.85em;\n  letter-spacing: 1px;\n  color: #dddddd;\n  padding: 12px 15px;\n  font-weight: 300;\n  cursor: pointer; }\n\n.Devis-devisType__3OUI {\n  min-width: 210px;\n  width: auto;\n  background-color: #A05599;\n  color: #dddddd !important;\n  border: 1px solid #A05599;\n  border: solid 1px #9b9b9b;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  font-family: \"Arvo\", sans-serif;\n  font-size: 0.85em;\n  letter-spacing: 1px;\n  color: #dddddd;\n  padding: 12px 15px;\n  font-weight: 300;\n  cursor: pointer; }\n\n.Devis-dataDevis__Gntm {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n  justify-content: space-around;\n  border-bottom: solid 1px #b3b3b3;\n  -ms-flex-line-pack: center;\n  align-content: center;\n  padding-bottom: 15px;\n  margin-bottom: 20px; }\n\n.Devis-txtDataDevis__3nr7 {\n  border-right: solid 1px #b3b3b3;\n  padding-right: 15px; }\n  .Devis-txtDataDevis__3nr7 h3 {\n    width: 560px; }\n  .Devis-txtDataDevis__3nr7 h3:hover {\n    cursor: pointer; }\n\n.Devis-dateDataDevis__djYj {\n  background-color: #cecece;\n  height: 40px;\n  width: 185px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center; }\n  .Devis-dateDataDevis__djYj p {\n    margin: 0; }\n\n.Devis-ctnDataDateDevis__33kR {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center; }\n\n.Devis-previewPDF__2plR {\n  height: auto;\n  width: 100%; }\n", ""]);
 
 // exports
 exports.locals = {
@@ -464,6 +464,7 @@ exports.locals = {
 	"titleDevis": "Devis-titleDevis__3NGT",
 	"contentDevisUpload": "Devis-contentDevisUpload__1spo",
 	"buttonAddDevis": "Devis-buttonAddDevis__3-7q",
+	"devisType": "Devis-devisType__3OUI",
 	"dataDevis": "Devis-dataDevis__Gntm",
 	"txtDataDevis": "Devis-txtDataDevis__3nr7",
 	"dateDataDevis": "Devis-dateDataDevis__djYj",
@@ -6748,7 +6749,7 @@ var Devis = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'a',
-                { href: '/media/devis.pdf', target: '_blank', className: _Devis2.default.buttonAddDevis, onClick: this.printPdf.bind(this) },
+                { href: '/media/devis.pdf', target: '_blank', className: _Devis2.default.devisType, onClick: this.printPdf.bind(this) },
                 'DEVIS TYPE'
               )
             ),
@@ -9928,6 +9929,10 @@ var _Contacts = __webpack_require__("./src/styles/Contacts.scss");
 
 var _Contacts2 = _interopRequireDefault(_Contacts);
 
+var _Devis = __webpack_require__("./src/styles/Devis.scss");
+
+var _Devis2 = _interopRequireDefault(_Devis);
+
 var _Navigation = __webpack_require__("./src/styles/Navigation.scss");
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
@@ -10212,6 +10217,11 @@ var Home = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: _FuneralList2.default.entries },
+            _react2.default.createElement(
+              'a',
+              { href: '/media/tutorial.pdf', target: '_blank', className: _Devis2.default.devisType, onClick: this.printPdf.bind(this) },
+              'Tutorial'
+            ),
             _react2.default.createElement(
               'h3',
               { className: _FuneralList2.default.titleHome },
