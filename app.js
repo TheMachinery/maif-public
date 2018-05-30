@@ -4700,7 +4700,7 @@ exports.default = ContactList;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -4770,504 +4770,488 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Contacts = function (_Component) {
-    _inherits(Contacts, _Component);
+  _inherits(Contacts, _Component);
 
-    function Contacts(props, context) {
-        _classCallCheck(this, Contacts);
+  function Contacts(props, context) {
+    _classCallCheck(this, Contacts);
 
-        var _this = _possibleConstructorReturn(this, (Contacts.__proto__ || Object.getPrototypeOf(Contacts)).call(this, props, context));
+    var _this = _possibleConstructorReturn(this, (Contacts.__proto__ || Object.getPrototypeOf(Contacts)).call(this, props, context));
 
-        _this.state = {
-            current: null,
-            modalOpen: false,
-            edition: false
-        };
+    _this.state = {
+      current: null,
+      modalOpen: false,
+      edition: false
+    };
 
-        _this.idDetected = false;
-        return _this;
+    _this.idDetected = false;
+    return _this;
+  }
+
+  _createClass(Contacts, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.onLoadContacts();
     }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      if (newProps.elements.length !== newProps.count) return newProps.onLoadContacts();
 
-    _createClass(Contacts, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.props.onLoadContacts();
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(newProps) {
-            if (newProps.elements.length !== newProps.count) return newProps.onLoadContacts();
+      if (this.props.match.params.id && !this.idDetected && newProps.elements.length > 0) {
+        //Compute id
+        this.idDetected = true;
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
 
-            if (this.props.match.params.id && !this.idDetected && newProps.elements.length > 0) {
-                //Compute id
-                this.idDetected = true;
-                var _iteratorNormalCompletion = true;
-                var _didIteratorError = false;
-                var _iteratorError = undefined;
+        try {
+          for (var _iterator = newProps.elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var e = _step.value;
 
-                try {
-                    for (var _iterator = newProps.elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                        var e = _step.value;
-
-                        if (e._id === this.props.match.params.id) {
-                            this.setState({
-                                current: e,
-                                modalOpen: true
-                            });
-                            break;
-                        }
-                    }
-                } catch (err) {
-                    _didIteratorError = true;
-                    _iteratorError = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion && _iterator.return) {
-                            _iterator.return();
-                        }
-                    } finally {
-                        if (_didIteratorError) {
-                            throw _iteratorError;
-                        }
-                    }
-                }
-            }
-        }
-    }, {
-        key: 'add',
-        value: function add() {
-            this.setState({
-                current: null,
-                modalOpen: true,
-                edition: true
-            });
-        }
-    }, {
-        key: 'open',
-        value: function open(item) {
-            this.setState({
-                current: item,
+            if (e._id === this.props.match.params.id) {
+              this.setState({
+                current: e,
                 modalOpen: true
-            });
-        }
-    }, {
-        key: 'select',
-        value: function select(item) {
-            this.props.onSelectContact(item);
-        }
-    }, {
-        key: 'remove',
-        value: function remove() {
-            if (!this.state.current) return;
-            this.props.onRemoveContacts([this.state.current]);
-            this.setState({
-                modalOpen: false,
-                current: null
-            });
-        }
-    }, {
-        key: 'addOrSaveContact',
-        value: function addOrSaveContact(contact) {
-            if (this.state.current) {
-                this.props.onSaveContact(this.state.current._id, contact);
-            } else {
-                this.props.onNewContact(contact.firstName, contact);
+              });
+              break;
             }
-            this.setState({
-                modalOpen: false,
-                current: null
-            });
-        }
-    }, {
-        key: 'profilePreview',
-        value: function profilePreview() {
-            var _this2 = this;
-
-            cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
-                data: {
-                    type: 'io.cozy.permissions',
-                    attributes: {
-                        permissions: {
-                            "settings": {
-                                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
-                                "type": "io.cozy.settings",
-                                "verbs": ["ALL"]
-                            },
-                            "data-funerals-lastwill": {
-                                "description": "App required data Last Will access",
-                                "type": "com.empreinte.FLastWill",
-                                "verbs": ["ALL"]
-                            },
-                            "data-funerals-contacts": {
-                                "description": "App required data Last Will access",
-                                "type": "com.empreinte.Fcontacts",
-                                "verbs": ["ALL"]
-                            },
-                            "data-funerals-custom-contacts": {
-                                "description": "App required data Last Will access",
-                                "type": "com.empreinte.Fcustomcontacts",
-                                "verbs": ["ALL"]
-                            },
-                            "data-homeData": {
-                                "description": "App required data homeData access",
-                                "type": "com.empreinte.homeData",
-                                "verbs": ["ALL"]
-                            },
-                            "contacts": {
-                                "description": "App required contacts access",
-                                "type": "com.empreinte.contacts",
-                                "verbs": ["ALL"]
-                            },
-                            "metas": {
-                                "description": "App required metas access",
-                                "type": "com.empreinte.meta",
-                                "verbs": ["ALL"]
-                            },
-                            "contact": {
-                                "description": "App required contact access",
-                                "type": "io.cozy.contacts",
-                                "verbs": ["ALL"]
-                            }
-                        }
-                    }
-                }
-            }).then(function (result) {
-                _this2.sharing = result.attributes.codes['partage'];
-                console.log(_this2.sharing);
-
-                window.open('/public?sharecode=' + _this2.sharing + '#/', '_blank');
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
-
-            cozy.client.data.findAll("com.empreinte.contacts").then(function (index) {
-                console.log(index);
-            });
-            var _props = this.props,
-                elements = _props.elements,
-                count = _props.count,
-                selectedCount = _props.selectedCount,
-                status = _props.status;
-
-
-            var loading = status === _constants.STATUS_LOAD;
-
-            var add = _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        return _this3.add();
-                    }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
-                _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'media/add.svg' }),
-                'AJOUTER UN R\xC9F\xC9RENT'
-            );
-            var toolbox = _react2.default.createElement(
-                _ToolBoxOptions2.default,
-                null,
-                _react2.default.createElement(
-                    'ul',
-                    null,
-                    _react2.default.createElement(
-                        'li',
-                        { onClick: function onClick() {
-                                _this3.props.onSelectAll();
-                            } },
-                        _react2.default.createElement(
-                            'i',
-                            { className: 'ion-ios-checkmark-outline' },
-                            'TOUT SELECTIONNER'
-                        )
-                    )
-                )
-            );
-            var remove = _react2.default.createElement(
-                'button',
-                { onClick: function onClick() {
-                        return _this3.props.onRemoveContacts(elements.filter(function (f) {
-                            return f.selected;
-                        }));
-                    }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.assertive) },
-                _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'media/add.svg' }),
-                'SUPPRIMER'
-            );
-
-            var actions = [add];
-            if (selectedCount > 0) actions.unshift(remove);
-
-            var list = undefined;
-            if (!loading && elements.length > 0) {
-                var sort = elements.sort(function (a, b) {
-                    if (a.lastName < b.lastName) return -1;
-                    if (a.lastName > b.lastName) return 1;
-                    return 0;
-                });
-
-                var sortedContacts = _lodash2.default.groupBy(sort, function (item) {
-                    var name = item.lastName || item.firstName || item.company || '_';
-                    name = name.trim().toUpperCase();
-
-                    var firstLetter = name[0];
-
-                    if (/[0-9]/g.test(firstLetter)) {
-                        return '#';
-                    }
-                    return firstLetter;
-                });
-
-                var keys = Object.keys(sortedContacts);
-                var sortedKeys = keys.sort(function (a, b) {
-                    if (a < b) return -1;
-                    if (a > b) return 1;
-                    return 0;
-                });
-
-                list = [];
-
-                console.log(elements);
-
-                var _iteratorNormalCompletion2 = true;
-                var _didIteratorError2 = false;
-                var _iteratorError2 = undefined;
-
-                try {
-                    for (var _iterator2 = elements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                        var user = _step2.value;
-
-                        console.log(user);
-                        list.push(_react2.default.createElement(
-                            'div',
-                            null,
-                            user.firstname
-                        ));
-                    }
-                } catch (err) {
-                    _didIteratorError2 = true;
-                    _iteratorError2 = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                            _iterator2.return();
-                        }
-                    } finally {
-                        if (_didIteratorError2) {
-                            throw _iteratorError2;
-                        }
-                    }
-                }
-
-                console.log(list);
-                var sharing = cozy.client.files.getCollectionShareLink("dd9d4d75f37d781adf3b0c2b5c3434a2", 'com.empreinte.homeData');
-                console.log(sharing);
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
             }
-
-            return _react2.default.createElement(
-                _Page2.default,
-                { title: 'Mes proches', subtitle: 'Titulaire du compte ou proche d\xE9sign\xE9 par celui-ci, vous avez acc\xE8s aux m\xEAmes informations, mais pas en m\xEAme temps. Le premier remplit le dossier selon ses choix intimes, renseigne les contacts, d\xE9signe les intervenants... Quelque part, il met en sc\xE8ne son d\xE9part. Quant au second, il suit les indications, \xAB\xA0d\xE9roule le sc\xE9nario\xA0\xBB sereinement et accompagne l\u2019application des d\xE9cisions. Un lien fort se concr\xE9tise dans cet Espace priv\xE9.' },
-                _react2.default.createElement(_Loader2.default, { display: loading }),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'h3',
-                        { className: _Contacts2.default.titlePage },
-                        'Mes proches r\xE9f\xE9rents'
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: _Contacts2.default.actions },
-                        actions && actions.map(function (item, key) {
-                            return _react2.default.createElement(
-                                'li',
-                                { key: key },
-                                item
-                            );
-                        })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.introProches },
-                        'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici.',
-                        _react2.default.createElement('br', null),
-                        'En cr\xE9ant un proche r\xE9f\xE9rent, le proche re\xE7oit un mail l\'informant de la cr\xE9ation de l\'espace d\xE9c\xE8s du titulaire et de son adh\xE9sion au contrat obs\xE8que de la MAIF. il y est notifi\xE9 qu\'en cas de d\xE9c\xE8s, le proche r\xE9f\xE9rent doit pr\xE9venir Parnasse-MAIF au 05 49 73 89 43. Celle-ci met en place les garanties et prestations du contrat obs\xE8ques d\xE8s qu\'elle en est inform\xE9e.',
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement('br', null),
-                        'Pour autoriser l\'acc\xE8s du proche \xE0 son espace d\xE9c\xE8s, le titulaire choisit entre deux possibilit\xE9s : ',
-                        _react2.default.createElement('br', null),
-                        '- ',
-                        _react2.default.createElement(
-                            'b',
-                            null,
-                            'De son vivant'
-                        ),
-                        '. Dans ce cas, il coche dans la fiche "Ajouter un r\xE9f\xE9rent" la mention "Partage imm\xE9diat". Le mail contenant le lien est automatiquement envoy\xE9 au proche. ',
-                        _react2.default.createElement('br', null),
-                        '- ',
-                        _react2.default.createElement(
-                            'b',
-                            null,
-                            'Au moment du d\xE9c\xE8s'
-                        ),
-                        '. Dans ce cas, il coche dans la fiche "Ajouter un r\xE9f\xE9rent" la mention "Partage diff\xE9r\xE9". D\xE8s que Parnasse-MAIF est pr\xE9venue par le proche du d\xE9c\xE8s du titulaire, elle lui envoie le lien vers l\'espace d\xE9c\xE8s.'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.dataReferent },
-                    elements.map(function (item) {
-                        if (item.statut === "ref") if (item.delay === "now") return _react2.default.createElement(
-                            'span',
-                            { className: _Contacts2.default.proche },
-                            ' ',
-                            item.firstName,
-                            ' ',
-                            item.lastName,
-                            ' ',
-                            _react2.default.createElement('img', { className: _Contacts2.default.chevron,
-                                src: 'public/media/chevronpurple.svg' }),
-                            ' \xA0\xA0Partage imm\xE9diat ',
-                            _react2.default.createElement('br', null),
-                            ' '
-                        );else return _react2.default.createElement(
-                            'span',
-                            { className: _Contacts2.default.proche },
-                            ' ',
-                            item.firstName,
-                            ' ',
-                            item.lastName,
-                            ' ',
-                            _react2.default.createElement('img', { className: _Contacts2.default.chevron,
-                                src: 'public/media/chevronpurple.svg' }),
-                            ' \xA0\xA0Partage diff\xE9r\xE9 ',
-                            _react2.default.createElement('br', null),
-                            ' '
-                        );
-                    })
-                ),
-                _react2.default.createElement('br', null),
-                _react2.default.createElement('br', null),
-                _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'h3',
-                        { className: _Contacts2.default.titlePage },
-                        'Mes autres proches \xE0 pr\xE9venir '
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: _Contacts2.default.actions },
-                        actions && actions.map(function (item, key) {
-                            return _react2.default.createElement(
-                                'li',
-                                { key: key },
-                                item
-                            );
-                        })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.introProches },
-                        'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.dataPrevenir },
-                    elements.map(function (item) {
-                        if (item.statut === "prev") return _react2.default.createElement(
-                            'span',
-                            { className: _Contacts2.default.proche },
-                            ' ',
-                            item.firstName,
-                            ' ',
-                            item.lastName,
-                            ' ',
-                            _react2.default.createElement('br', null),
-                            ' '
-                        );
-                    })
-                ),
-                _react2.default.createElement('hr', { className: _Contacts2.default.seperator }),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'h3',
-                        { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches. ' },
-                        'Mon dossier obs\xE8ques accessible par mes proches',
-                        _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.row },
-                    _react2.default.createElement(
-                        'p',
-                        { className: _Contacts2.default.introProches },
-                        'Les proches r\xE9f\xE9rents acc\xE8dent au dossier obs\xE8ques du titulaire. Il contient les derni\xE8res volont\xE9s de la personne ainsi qu\'un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: _Contacts2.default.dataObseque },
-                    _react2.default.createElement(
-                        'span',
-                        { onClick: function onClick() {
-                                return _this3.profilePreview();
-                            } },
-                        _react2.default.createElement(
-                            'div',
-                            { className: _Contacts2.default.divContact },
-                            _react2.default.createElement(
-                                'div',
-                                { className: _Contacts2.default.contentContact },
-                                _react2.default.createElement(
-                                    'p',
-                                    { className: _Contacts2.default.contactName },
-                                    'Mon dossier obs\xE8que'
-                                ),
-                                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'media/chevronpurple.svg' })
-                            ),
-                            _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
-                        )
-                    )
-                ),
-                _react2.default.createElement(_reactTooltip2.default, null),
-                _react2.default.createElement(
-                    _reactPortal2.default,
-                    { isOpened: this.state.modalOpen, closeOnEsc: true, onClose: function onClose() {
-                            return _this3.setState({ modalOpen: false, current: null, edition: false });
-                        } },
-                    _react2.default.createElement(
-                        _Modal2.default,
-                        null,
-                        _react2.default.createElement(_ContactsModal2.default, {
-                            item: this.state.current,
-                            title: this.state.current ? "Modifier votre contact" : "Créer votre contact",
-                            onSave: function onSave(contact) {
-                                return _this3.addOrSaveContact(contact);
-                            },
-                            onRemove: function onRemove() {
-                                return _this3.remove();
-                            },
-                            edit: this.state.edition })
-                    )
-                )
-            );
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
         }
-    }]);
+      }
+    }
+  }, {
+    key: 'add',
+    value: function add(value) {
+      this.setState({
+        current: null,
+        modalOpen: true,
+        edition: true,
+        statut: value
+      });
+    }
+  }, {
+    key: 'open',
+    value: function open(item) {
+      this.setState({
+        current: item,
+        modalOpen: true
+      });
+    }
+  }, {
+    key: 'select',
+    value: function select(item) {
+      this.props.onSelectContact(item);
+    }
+  }, {
+    key: 'remove',
+    value: function remove() {
+      if (!this.state.current) return;
+      this.props.onRemoveContacts([this.state.current]);
+      this.setState({
+        modalOpen: false,
+        current: null
+      });
+    }
+  }, {
+    key: 'addOrSaveContact',
+    value: function addOrSaveContact(contact) {
+      if (this.state.current) {
+        this.props.onSaveContact(this.state.current._id, contact);
+      } else {
+        this.props.onNewContact(contact.firstName, contact);
+      }
+      this.setState({
+        modalOpen: false,
+        current: null
+      });
+    }
+  }, {
+    key: 'profilePreview',
+    value: function profilePreview() {
+      var _this2 = this;
 
-    return Contacts;
+      cozy.client.fetchJSON('POST', '/permissions?codes=partage', {
+        data: {
+          type: 'io.cozy.permissions',
+          attributes: {
+            permissions: {
+              "settings": {
+                "description": "Required by the cozy-bar display Claudy and to know which applications are coming soon",
+                "type": "io.cozy.settings",
+                "verbs": ["ALL"]
+              },
+              "data-funerals-lastwill": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.FLastWill",
+                "verbs": ["ALL"]
+              },
+              "data-funerals-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcontacts",
+                "verbs": ["ALL"]
+              },
+              "data-funerals-custom-contacts": {
+                "description": "App required data Last Will access",
+                "type": "com.empreinte.Fcustomcontacts",
+                "verbs": ["ALL"]
+              },
+              "data-homeData": {
+                "description": "App required data homeData access",
+                "type": "com.empreinte.homeData",
+                "verbs": ["ALL"]
+              },
+              "contacts": {
+                "description": "App required contacts access",
+                "type": "com.empreinte.contacts",
+                "verbs": ["ALL"]
+              },
+              "metas": {
+                "description": "App required metas access",
+                "type": "com.empreinte.meta",
+                "verbs": ["ALL"]
+              },
+              "contact": {
+                "description": "App required contact access",
+                "type": "io.cozy.contacts",
+                "verbs": ["ALL"]
+              }
+            }
+          }
+        }
+      }).then(function (result) {
+        _this2.sharing = result.attributes.codes['partage'];
+        console.log(_this2.sharing);
+
+        window.open('/public?sharecode=' + _this2.sharing + '#/', '_blank');
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      cozy.client.data.findAll("com.empreinte.contacts").then(function (index) {
+        console.log(index);
+      });
+      var _props = this.props,
+          elements = _props.elements,
+          count = _props.count,
+          selectedCount = _props.selectedCount,
+          status = _props.status;
+
+
+      var loading = status === _constants.STATUS_LOAD;
+      var toolbox = _react2.default.createElement(
+        _ToolBoxOptions2.default,
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(
+            'li',
+            { onClick: function onClick() {
+                _this3.props.onSelectAll();
+              } },
+            _react2.default.createElement(
+              'i',
+              { className: 'ion-ios-checkmark-outline' },
+              'TOUT SELECTIONNER'
+            )
+          )
+        )
+      );
+      var remove = _react2.default.createElement(
+        'button',
+        { onClick: function onClick() {
+            return _this3.props.onRemoveContacts(elements.filter(function (f) {
+              return f.selected;
+            }));
+          }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.assertive) },
+        _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'media/add.svg' }),
+        'SUPPRIMER'
+      );
+
+      var list = undefined;
+      if (!loading && elements.length > 0) {
+        var sort = elements.sort(function (a, b) {
+          if (a.lastName < b.lastName) return -1;
+          if (a.lastName > b.lastName) return 1;
+          return 0;
+        });
+
+        var sortedContacts = _lodash2.default.groupBy(sort, function (item) {
+          var name = item.lastName || item.firstName || item.company || '_';
+          name = name.trim().toUpperCase();
+
+          var firstLetter = name[0];
+
+          if (/[0-9]/g.test(firstLetter)) {
+            return '#';
+          }
+          return firstLetter;
+        });
+
+        var keys = Object.keys(sortedContacts);
+        var sortedKeys = keys.sort(function (a, b) {
+          if (a < b) return -1;
+          if (a > b) return 1;
+          return 0;
+        });
+
+        list = [];
+
+        console.log(elements);
+
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+          for (var _iterator2 = elements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var user = _step2.value;
+
+            console.log(user);
+            list.push(_react2.default.createElement(
+              'div',
+              null,
+              user.firstname
+            ));
+          }
+        } catch (err) {
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+              _iterator2.return();
+            }
+          } finally {
+            if (_didIteratorError2) {
+              throw _iteratorError2;
+            }
+          }
+        }
+
+        console.log(list);
+        var sharing = cozy.client.files.getCollectionShareLink("dd9d4d75f37d781adf3b0c2b5c3434a2", 'com.empreinte.homeData');
+        console.log(sharing);
+      }
+
+      return _react2.default.createElement(
+        _Page2.default,
+        { title: 'Mes proches', subtitle: 'Titulaire du compte ou proche d\xE9sign\xE9 par celui-ci, vous avez acc\xE8s aux m\xEAmes informations, mais pas en m\xEAme temps. Le premier remplit le dossier selon ses choix intimes, renseigne les contacts, d\xE9signe les intervenants... Quelque part, il met en sc\xE8ne son d\xE9part. Quant au second, il suit les indications, \xAB\xA0d\xE9roule le sc\xE9nario\xA0\xBB sereinement et accompagne l\u2019application des d\xE9cisions. Un lien fort se concr\xE9tise dans cet Espace priv\xE9.' },
+        _react2.default.createElement(_Loader2.default, { display: loading }),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.row },
+          _react2.default.createElement(
+            'h3',
+            { className: _Contacts2.default.titlePage },
+            'Mes proches r\xE9f\xE9rents'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                return _this3.add("ref");
+              }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+            _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'media/add.svg' }),
+            'AJOUTER UN R\xC9F\xC9RENT'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.row },
+          _react2.default.createElement(
+            'p',
+            { className: _Contacts2.default.introProches },
+            'Le titulaire du compte d\xE9signe un ou plusieurs de ses proches qui auront acc\xE8s aux donn\xE9es apr\xE8s le d\xE9c\xE8s. Ils les utiliseront pour organiser les obs\xE8ques selon les choix et pourront s\'acquitter ais\xE9ment de l\'ensemble des d\xE9marches administratives. Le titulaire d\xE9signe cette ou ces personne(s) de confiance ici.',
+            _react2.default.createElement('br', null),
+            'En cr\xE9ant un proche r\xE9f\xE9rent, le proche re\xE7oit un mail l\'informant de la cr\xE9ation de l\'espace d\xE9c\xE8s du titulaire et de son adh\xE9sion au contrat obs\xE8que de la MAIF. il y est notifi\xE9 qu\'en cas de d\xE9c\xE8s, le proche r\xE9f\xE9rent doit pr\xE9venir Parnasse-MAIF au 05 49 73 89 43. Celle-ci met en place les garanties et prestations du contrat obs\xE8ques d\xE8s qu\'elle en est inform\xE9e.',
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('br', null),
+            'Pour autoriser l\'acc\xE8s du proche \xE0 son espace d\xE9c\xE8s, le titulaire choisit entre deux possibilit\xE9s : ',
+            _react2.default.createElement('br', null),
+            '- ',
+            _react2.default.createElement(
+              'b',
+              null,
+              'De son vivant'
+            ),
+            '. Dans ce cas, il coche dans la fiche "Ajouter un r\xE9f\xE9rent" la mention "Partage imm\xE9diat". Le mail contenant le lien est automatiquement envoy\xE9 au proche. ',
+            _react2.default.createElement('br', null),
+            '- ',
+            _react2.default.createElement(
+              'b',
+              null,
+              'Au moment du d\xE9c\xE8s'
+            ),
+            '. Dans ce cas, il coche dans la fiche "Ajouter un r\xE9f\xE9rent" la mention "Partage diff\xE9r\xE9". D\xE8s que Parnasse-MAIF est pr\xE9venue par le proche du d\xE9c\xE8s du titulaire, elle lui envoie le lien vers l\'espace d\xE9c\xE8s.'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.dataReferent },
+          elements.map(function (item) {
+            if (item.statut === "ref") if (item.delay === "now") return _react2.default.createElement(
+              'span',
+              { className: _Contacts2.default.proche },
+              ' ',
+              item.firstName,
+              ' ',
+              item.lastName,
+              ' ',
+              _react2.default.createElement('img', { className: _Contacts2.default.chevron,
+                src: '/media/chevronpurple.svg' }),
+              ' \xA0\xA0Partage imm\xE9diat ',
+              _react2.default.createElement('br', null),
+              ' '
+            );else return _react2.default.createElement(
+              'span',
+              { className: _Contacts2.default.proche },
+              ' ',
+              item.firstName,
+              ' ',
+              item.lastName,
+              ' ',
+              _react2.default.createElement('img', { className: _Contacts2.default.chevron,
+                src: '/media/chevronpurple.svg' }),
+              ' \xA0\xA0Partage diff\xE9r\xE9 ',
+              _react2.default.createElement('br', null),
+              ' '
+            );
+          })
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.row },
+          _react2.default.createElement(
+            'h3',
+            { className: _Contacts2.default.titlePage },
+            'Mes autres proches \xE0 pr\xE9venir '
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                return _this3.add("prev");
+              }, className: (0, _classnames2.default)(_buttons2.default.button, _buttons2.default.default) },
+            _react2.default.createElement('img', { className: _Contacts2.default.add, src: 'media/add.svg' }),
+            'AJOUTER UN PROCHE'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.row },
+          _react2.default.createElement(
+            'p',
+            { className: _Contacts2.default.introProches },
+            'Le titulaire entre ici la liste des personnes qui seront pr\xE9venues de son d\xE9c\xE8s. Notamment celles dont les coordonn\xE9es ne sont peut-\xEAtre pas connues des proches r\xE9f\xE9rents (voisin, ami d\u2019enfance, femme de m\xE9nage \u2026).'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.dataPrevenir },
+          elements.map(function (item) {
+            if (item.statut === "prev") return _react2.default.createElement(
+              'span',
+              { className: _Contacts2.default.proche },
+              ' ',
+              item.firstName,
+              ' ',
+              item.lastName,
+              ' ',
+              _react2.default.createElement('br', null),
+              ' '
+            );
+          })
+        ),
+        _react2.default.createElement('hr', { className: _Contacts2.default.seperator }),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.row },
+          _react2.default.createElement(
+            'h3',
+            { className: _Contacts2.default.titlePage, 'data-type': 'light', 'data-tip': 'Ce dossier s\u2019adresse aux proches r\xE9f\xE9rents. Il contient les derni\xE8res volont\xE9s du titulaire et un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches. ' },
+            'Mon dossier obs\xE8ques accessible par mes proches',
+            _react2.default.createElement('img', { src: 'media/information.svg', className: _Contacts2.default.information })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.row },
+          _react2.default.createElement(
+            'p',
+            { className: _Contacts2.default.introProches },
+            'Les proches r\xE9f\xE9rents acc\xE8dent au dossier obs\xE8ques du titulaire. Il contient les derni\xE8res volont\xE9s de la personne ainsi qu\'un assistant administratif qui hi\xE9rarchise et automatise les d\xE9marches.'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _Contacts2.default.dataObseque },
+          _react2.default.createElement(
+            'span',
+            { onClick: function onClick() {
+                return _this3.profilePreview();
+              } },
+            _react2.default.createElement(
+              'div',
+              { className: _Contacts2.default.divContact },
+              _react2.default.createElement(
+                'div',
+                { className: _Contacts2.default.contentContact },
+                _react2.default.createElement(
+                  'p',
+                  { className: _Contacts2.default.contactName },
+                  'Mon dossier obs\xE8que'
+                ),
+                _react2.default.createElement('img', { className: _Contacts2.default.chevron, src: 'media/chevronpurple.svg' })
+              ),
+              _react2.default.createElement('hr', { className: _Contacts2.default.seperator })
+            )
+          )
+        ),
+        _react2.default.createElement(_reactTooltip2.default, null),
+        _react2.default.createElement(
+          _reactPortal2.default,
+          { isOpened: this.state.modalOpen, closeOnEsc: true, onClose: function onClose() {
+              return _this3.setState({ modalOpen: false, current: null, edition: false });
+            } },
+          _react2.default.createElement(
+            _Modal2.default,
+            null,
+            _react2.default.createElement(_ContactsModal2.default, {
+              status: this.state.status,
+              item: this.state.current,
+              title: this.state.current ? "Modifier votre contact" : "Créer votre contact",
+              onSave: function onSave(contact) {
+                return _this3.addOrSaveContact(contact);
+              },
+              onRemove: function onRemove() {
+                return _this3.remove();
+              },
+              edit: this.state.edition })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Contacts;
 }(_react.Component);
 
 exports.default = Contacts;
@@ -20400,39 +20384,6 @@ var ContactModal = function (_Component) {
                 'option',
                 { value: 'death' },
                 'Partage diff\xE9r\xE9'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _ContactRecallModal2.default.row },
-            _react2.default.createElement(
-              'div',
-              { className: _ContactRecallModal2.default.group },
-              _react2.default.createElement(
-                'label',
-                null,
-                'Statut du proche'
-              ),
-              _react2.default.createElement(
-                'select',
-                {
-                  placeholder: 'Proche \xE0 pr\xE9venir ou proche r\xE9f\xE9rent',
-                  value: this.state.statut,
-                  onChange: function onChange(e) {
-                    return _this3.setState({ statut: e.target.value });
-                  }
-                },
-                _react2.default.createElement(
-                  'option',
-                  { value: 'prev' },
-                  'Proche \xE0 pr\xE9venir'
-                ),
-                _react2.default.createElement(
-                  'option',
-                  { value: 'ref' },
-                  'Proche r\xE9f\xE9rent'
-                )
               )
             )
           )
