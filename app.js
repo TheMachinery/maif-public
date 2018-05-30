@@ -10212,8 +10212,8 @@ var Home = function (_React$Component) {
             'div',
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
-              _reactDownload2.default,
-              { file: '../../store/tutorial.pdf' },
+              'a',
+              { href: _tutorial2.default },
               'Tutorial'
             ),
             _react2.default.createElement(
