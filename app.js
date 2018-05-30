@@ -4835,11 +4835,12 @@ var Contacts = function (_Component) {
   }, {
     key: 'add',
     value: function add(value) {
+      console.log(value);
+      this.setState({ status: value });
       this.setState({
         current: null,
         modalOpen: true,
-        edition: true,
-        statut: value
+        edition: true
       });
     }
   }, {
