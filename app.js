@@ -10224,8 +10224,12 @@ var Home = function (_React$Component) {
             'div',
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
-              'button',
-              { onClick: this.openFile(), className: _Devis2.default.devisType },
+              _reactRouterDom.Link,
+              {
+                to: 'route',
+                onClick: function onClick(event) {
+                  event.preventDefault();window.open("../../store/tutorial.pdf");
+                } },
               'Tutorial'
             ),
             _react2.default.createElement(
