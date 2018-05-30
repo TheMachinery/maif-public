@@ -10213,7 +10213,7 @@ var Home = function (_React$Component) {
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
               'a',
-              { href: _tutorial2.default },
+              { href: '/media/tutorial.pdf' },
               'Tutorial'
             ),
             _react2.default.createElement(
