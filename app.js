@@ -20361,7 +20361,7 @@ var ContactModal = function (_Component) {
               })
             )
           ),
-          _react2.default.createElement(
+          this.props.status === "ref" ? _react2.default.createElement(
             'div',
             { className: _ContactRecallModal2.default.group },
             _react2.default.createElement(
@@ -20389,7 +20389,7 @@ var ContactModal = function (_Component) {
                 'Partage diff\xE9r\xE9'
               )
             )
-          )
+          ) : _react2.default.createElement('span', null)
         ),
         this.state.import == true && _react2.default.createElement(
           'div',
