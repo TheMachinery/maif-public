@@ -9862,7 +9862,7 @@ exports.default = FuneralList;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9897,6 +9897,10 @@ var _Importer2 = _interopRequireDefault(_Importer);
 var _Page = __webpack_require__("./src/components/elements/Page.js");
 
 var _Page2 = _interopRequireDefault(_Page);
+
+var _reactDownload = __webpack_require__("./node_modules/@axetroy/react-download/index.js");
+
+var _reactDownload2 = _interopRequireDefault(_reactDownload);
 
 var _reactRouterDom = __webpack_require__("./node_modules/react-router-dom/es/index.js");
 
@@ -10204,8 +10208,8 @@ var Home = function (_React$Component) {
             'div',
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
-              'a',
-              { href: process.env.PUBLIC_URL + '../../store/tutorial.pdf', className: _Devis2.default.devisType },
+              _reactDownload2.default,
+              { file: '../../store/tutorial.pdf' },
               'Tutorial'
             ),
             _react2.default.createElement(
@@ -10406,7 +10410,6 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/node-libs-browser/node_modules/process/browser.js")))
 
 /***/ }),
 
