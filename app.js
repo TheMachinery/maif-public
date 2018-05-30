@@ -19953,6 +19953,7 @@ var ContactModal = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (ContactModal.__proto__ || Object.getPrototypeOf(ContactModal)).call(this, props, context));
 
+    console.log(props);
     var item = props.item || {};
 
     _this.state = (_this$state = {
