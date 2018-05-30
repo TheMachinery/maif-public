@@ -10106,16 +10106,13 @@ var Home = function (_React$Component) {
       (0, _onboarding.isAlreadyShown)().then(function (res) {
         console.log(res);
         if (res) {
-          return _this2.closeFirstOnboarding(true);
+          (0, _tools.getDataElements)(_constants.DOCTYPE_HOMEDATA).then(function (res) {
+            console.log(res);
+            if (res.length <= 0) {
+              _this2.openFirstOnboarding();
+            } else return _this2.closeFirstOnboarding(true);
+          });
         }
-
-        (0, _tools.getDataElements)(_constants.DOCTYPE_HOMEDATA).then(function (res) {
-          console.log(res);
-          if (res.length <= 0) {
-            _this2.openFirstOnboarding();
-          }
-        });
-
         return (0, _onboarding.markAsShown)(true).then(function () {
           _this2.openFirstOnboarding();
         });
