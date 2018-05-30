@@ -19955,6 +19955,7 @@ var ContactModal = function (_Component) {
 
     console.log(props);
     var item = props.item || {};
+    var status = props.status;
 
     _this.state = (_this$state = {
       import: true,
@@ -19970,7 +19971,7 @@ var ContactModal = function (_Component) {
       day: '',
       month: '',
       year: ''
-    }), _defineProperty(_this$state, 'commentary', item.commentary || ''), _defineProperty(_this$state, 'statut', item.statut || 'prev'), _defineProperty(_this$state, 'delay', item.delay || 'now'), _defineProperty(_this$state, 'edit', false), _defineProperty(_this$state, 'warn', false), _this$state);
+    }), _defineProperty(_this$state, 'commentary', item.commentary || ''), _defineProperty(_this$state, 'statut', status), _defineProperty(_this$state, 'delay', item.delay || 'now'), _defineProperty(_this$state, 'edit', false), _defineProperty(_this$state, 'warn', false), _this$state);
 
     return _this;
   }
