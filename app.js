@@ -6730,7 +6730,7 @@ var Devis = function (_React$Component) {
               _react2.default.createElement(
                 'p',
                 null,
-                'Vous pouvez obtenir un devis type en cliquant sur ce lien \xBB, puis ajouter la phrase : \xAB N\'h\xE9sitez pas \xE0 contacter Parnasse-MAIF au 05 49 04 49 04 qui vous mettra en relation avec son coordinateur fun\xE9raire. Celui-ci vous indiquera un r\xE9seau de prestataires fun\xE9raires pour la r\xE9alisation des prestations'
+                'N\'h\xE9sitez pas \xE0 contacter Parnasse-MAIF au 05 49 04 49 04 qui vous mettra en relation avec son coordinateur fun\xE9raire. Celui-ci vous indiquera un r\xE9seau de prestataires fun\xE9raires pour la r\xE9alisation des prestations'
               ),
               _react2.default.createElement(
                 'a',
@@ -8947,7 +8947,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.170'
+                        '1.0.171'
                     )
                 )
             );
@@ -10109,13 +10109,14 @@ var Home = function (_React$Component) {
           (0, _tools.getDataElements)(_constants.DOCTYPE_HOMEDATA).then(function (res) {
             console.log(res);
             if (res.length <= 0) {
+              console.log('OnBoarding');
               _this2.openFirstOnboarding();
-            } else return _this2.closeFirstOnboarding(true);
+            } else {
+              console.log("CLOSE");
+              return _this2.closeFirstOnboarding(true);
+            }
           });
         }
-        return (0, _onboarding.markAsShown)(true).then(function () {
-          _this2.openFirstOnboarding();
-        });
       });
     }
   }, {
@@ -10217,7 +10218,7 @@ var Home = function (_React$Component) {
             { className: _FuneralList2.default.entries },
             _react2.default.createElement(
               'a',
-              { href: '/media/tutorial.pdf' },
+              { href: '/media/tutorial.pdf', target: '_blank', className: _Devis2.default.devisType },
               'Tutorial'
             ),
             _react2.default.createElement(
@@ -11371,7 +11372,7 @@ var Prestataire = function (_React$Component) {
                         { className: _Prestataire2.default.contentStep },
                         _react2.default.createElement(
                             'a',
-                            { href: 'https://production-underwriter-app.seniormedia.io/', target: '_blank' },
+                            { href: 'https://meilleures-pompes-funebres.com/tarificateur', target: '_blank' },
                             _react2.default.createElement(
                                 'h3',
                                 null,
@@ -21689,7 +21690,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.170';
+var VERSION = exports.VERSION = '1.0.171';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -23234,7 +23235,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.170');
+console.log('Current Version:', '1.0.171');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28518,7 +28519,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.170';
+var VERSION = exports.VERSION = '1.0.171';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
