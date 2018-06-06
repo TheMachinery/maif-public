@@ -10594,11 +10594,12 @@ var Localisation = function (_React$Component) {
       window.initMap = this.initMap;
       window.loadJS = this.loadJS;
       window.searchBox = this.searchBox;
-      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU');
     }
   }, {
     key: 'initMap',
     value: function initMap() {
+      console.log("Init map");
       var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 11
@@ -10627,29 +10628,33 @@ var Localisation = function (_React$Component) {
         // handleLocationError(false, infoWindow, map.getCenter());
       }
     }
+  }, {
+    key: 'searchBox',
+    value: function searchBox(map) {
+      var _this2 = this;
 
-    /*
-    searchBox(map) {
       map = this.state.currentMap;
       var input = document.getElementById('input');
-      var searchBox = new google.maps.places.SearchBox(input, { types: ['funeral_home']});
+      var searchBox = new google.maps.places.SearchBox(input);
       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
       map.addListener('bounds_changed', function () {
         searchBox.setBounds(map.getBounds());
       });
       var markers = [];
-      searchBox.addListener('places_changed', () => {
+      searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
-        console.log(places)
-        this.setState({ dataAdress: places })
+        console.log(places);
+        _this2.setState({ dataAdress: places });
         if (places.length == 0) {
           return;
         }
-         markers.forEach(function (marker) {
+
+        markers.forEach(function (marker) {
           marker.setMap(null);
         });
         markers = [];
-         var bounds = new google.maps.LatLngBounds();
+
+        var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
           if (!place.geometry) {
             console.log("Returned place contains no geometry");
@@ -10662,13 +10667,15 @@ var Localisation = function (_React$Component) {
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
           };
-           markers.push(new google.maps.Marker({
+
+          markers.push(new google.maps.Marker({
             map: map,
             icon: icon,
             title: place.name,
             position: place.geometry.location
           }));
-           if (place.geometry.viewport) {
+
+          if (place.geometry.viewport) {
             bounds.union(place.geometry.viewport);
           } else {
             bounds.extend(place.geometry.location);
@@ -10676,14 +10683,6 @@ var Localisation = function (_React$Component) {
         });
         map.fitBounds(bounds);
       });
-    }
-    */
-
-  }, {
-    key: 'mySearch',
-    value: function mySearch() {
-      var input = document.getElementById('input');
-      console.log(input);
     }
   }, {
     key: 'render',
@@ -10718,20 +10717,13 @@ var Localisation = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement('input', { id: 'input', defaultValue: 'pompes funebres generales (pfg)', className: _Localisation2.default.controls, type: 'text' }),
-                _react2.default.createElement(
-                  'button',
-                  { onClick: this.mySearch },
-                  'Rechercher'
-                ),
+                _react2.default.createElement('input', { onBlur: this.searchBox, id: 'input', defaultValue: 'pompes funebres generales (pfg)', className: _Localisation2.default.controls, type: 'text' }),
                 _react2.default.createElement(
                   'div',
                   { className: _Localisation2.default.printedAddress },
                   Object.keys(allData).length === 0 && allData.constructor === Object ? _react2.default.createElement('div', null) : this.state.dataAdress.map(function (item, key) {
-                    if (item.hasOwnProperty('opening_hours')) {
-                      console.log(item.opening_hours.open_now);
-                      return _react2.default.createElement(Data, { name: item.name, formatted_address: item.formatted_address, open_hours: item.opening_hours.open_now });
-                    }
+                    console.log(item.opening_hours.open_now);
+                    return _react2.default.createElement(Data, { name: item.name, formatted_address: item.formatted_address, open_hours: item.opening_hours.open_now });
                   })
                 )
               )
