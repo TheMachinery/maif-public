@@ -8947,7 +8947,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.171'
+                        '1.0.172'
                     )
                 )
             );
@@ -10219,7 +10219,7 @@ var Home = function (_React$Component) {
             _react2.default.createElement(
               'a',
               { href: '/media/tutorial.pdf', target: '_blank', className: _Devis2.default.devisType },
-              'Tutorial'
+              'D\xE9couvrir le service en image'
             ),
             _react2.default.createElement(
               'h3',
@@ -10576,7 +10576,7 @@ var Localisation = function (_React$Component) {
       dataAdress: {}
     };
     _this.initMap = _this.initMap.bind(_this);
-    _this.searchBox = _this.searchBox.bind(_this);
+    _this.mySearch = _this.mySearch.bind(_this);
     return _this;
   }
 
@@ -10587,7 +10587,7 @@ var Localisation = function (_React$Component) {
       var ref = window.document.getElementsByTagName("script")[0];
       console.log(ref);
       var script = window.document.createElement("script");
-      script.src = src;
+      script.src = "https://maps.googleapis.com/maps/api/place/nearbysearch/output?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places&radius=10000;";
       script.async = true;
       console.log(script);
       //  ref.parentNode.insertBefore(script, ref);
@@ -10597,11 +10597,11 @@ var Localisation = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       window.initMap = this.initMap;
-      window.loadJS = this.loadJS;
-      window.searchBox = this.searchBox;
-      //loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places')
-      console.log("MMMMDDDDDRRRR");
-      loadJS('https://maps.googleapis.com/maps/api/js?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+
+      var script = window.document.createElement("script");
+      script.src = "https://maps.googleapis.com/maps/api/js";
+      script.async = true;
+      document.body.insertBefore(script, document.body.lastChild);
     }
   }, {
     key: 'initMap',
@@ -10634,33 +10634,29 @@ var Localisation = function (_React$Component) {
         // handleLocationError(false, infoWindow, map.getCenter());
       }
     }
-  }, {
-    key: 'searchBox',
-    value: function searchBox(map) {
-      var _this2 = this;
 
+    /*
+    searchBox(map) {
       map = this.state.currentMap;
       var input = document.getElementById('input');
-      var searchBox = new google.maps.places.SearchBox(input, { types: ['funeral_home'] });
+      var searchBox = new google.maps.places.SearchBox(input, { types: ['funeral_home']});
       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
       map.addListener('bounds_changed', function () {
         searchBox.setBounds(map.getBounds());
       });
       var markers = [];
-      searchBox.addListener('places_changed', function () {
+      searchBox.addListener('places_changed', () => {
         var places = searchBox.getPlaces();
-        console.log(places);
-        _this2.setState({ dataAdress: places });
+        console.log(places)
+        this.setState({ dataAdress: places })
         if (places.length == 0) {
           return;
         }
-
-        markers.forEach(function (marker) {
+         markers.forEach(function (marker) {
           marker.setMap(null);
         });
         markers = [];
-
-        var bounds = new google.maps.LatLngBounds();
+         var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
           if (!place.geometry) {
             console.log("Returned place contains no geometry");
@@ -10673,21 +10669,42 @@ var Localisation = function (_React$Component) {
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
           };
-
-          markers.push(new google.maps.Marker({
+           markers.push(new google.maps.Marker({
             map: map,
             icon: icon,
             title: place.name,
             position: place.geometry.location
           }));
-
-          if (place.geometry.viewport) {
+           if (place.geometry.viewport) {
             bounds.union(place.geometry.viewport);
           } else {
             bounds.extend(place.geometry.location);
           }
         });
         map.fitBounds(bounds);
+      });
+    }
+    */
+
+  }, {
+    key: 'mySearch',
+    value: function mySearch() {
+      var input = document.getElementById('input');
+      console.log(input);
+
+      var address = input.value;
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+        'address': address
+      }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var Lat = results[0].geometry.location.lat();
+          var Lng = results[0].geometry.location.lng();
+
+          console.log(Lat);
+          console.log(Lng);
+        }
       });
     }
   }, {
@@ -10723,7 +10740,12 @@ var Localisation = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement('input', { onBlur: this.searchBox, id: 'input', defaultValue: 'pompes funebres generales (pfg)', className: _Localisation2.default.controls, type: 'text' }),
+                _react2.default.createElement('input', { id: 'input', defaultValue: 'pompes funebres generales (pfg)', className: _Localisation2.default.controls, type: 'text' }),
+                _react2.default.createElement(
+                  'button',
+                  { onClick: this.mySearch },
+                  'Rechercher'
+                ),
                 _react2.default.createElement(
                   'div',
                   { className: _Localisation2.default.printedAddress },
@@ -21690,7 +21712,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.171';
+var VERSION = exports.VERSION = '1.0.172';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -23235,7 +23257,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.171');
+console.log('Current Version:', '1.0.172');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28519,7 +28541,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.171';
+var VERSION = exports.VERSION = '1.0.172';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -32113,7 +32135,7 @@ var typeContact = {
     "perso": 0
   }, {
     "key": "cpam",
-    "name": "Régime de santé générale",
+    "name": "Régime Général de santé",
     "doctype": "com.empreinte.Fcontacts",
     "excerpt": "Comme tous les autres organismes, la Sécurité sociale doit être prévenu dans de courts délais après un décès. La démarche, assortie de la production de l’acte de décès, déclenchera une série d’ajustements administratifs et l’éventuel versement de droits.",
     "location": "/Empreinte/Funerals Contact",
