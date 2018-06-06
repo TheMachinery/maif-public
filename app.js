@@ -10576,7 +10576,7 @@ var Localisation = function (_React$Component) {
       dataAdress: {}
     };
     _this.initMap = _this.initMap.bind(_this);
-    _this.mySearch = _this.mySearch.bind(_this);
+    _this.searchBox = _this.searchBox.bind(_this);
     return _this;
   }
 
