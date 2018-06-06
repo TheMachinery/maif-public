@@ -10591,10 +10591,16 @@ var Localisation = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      window.initMap = this.initMap;
+      /*window.initMap = this.initMap;
       window.loadJS = this.loadJS;
-      window.searchBox = this.searchBox;
-      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU');
+      window.searchBox = this.searchBox
+      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU')*/
+
+      fetch('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU').then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        console.log(res);
+      });
     }
   }, {
     key: 'initMap',
