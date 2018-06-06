@@ -10587,7 +10587,8 @@ var Localisation = function (_React$Component) {
       var ref = window.document.getElementsByTagName("script")[0];
       console.log(ref);
       var script = window.document.createElement("script");
-      script.src = "https://maps.googleapis.com/maps/api/place/nearbysearch/output?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places&radius=10000;";
+      script.src = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=funeral_home+in+" + src + "&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU";
+      //script.src = "https://maps.googleapis.com/maps/api/place/nearbysearch/output?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places&radius=10000;"
       script.async = true;
       console.log(script);
       //  ref.parentNode.insertBefore(script, ref);
@@ -10692,20 +10693,19 @@ var Localisation = function (_React$Component) {
       var input = document.getElementById('input');
       console.log(input);
 
-      var address = input.value;
-
-      var geocoder = new google.maps.Geocoder();
+      this.loadJS(input.value);
+      /*var address = input.value;
+       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({
         'address': address
-      }, function (results, status) {
+      }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var Lat = results[0].geometry.location.lat();
           var Lng = results[0].geometry.location.lng();
-
-          console.log(Lat);
+           console.log(Lat);
           console.log(Lng);
         }
-      });
+      });*/
     }
   }, {
     key: 'render',
