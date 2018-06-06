@@ -10594,7 +10594,7 @@ var Localisation = function (_React$Component) {
       window.initMap = this.initMap;
       window.loadJS = this.loadJS;
       window.searchBox = this.searchBox;
-      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
+      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU');
     }
   }, {
     key: 'initMap',
