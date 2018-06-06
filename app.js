@@ -10583,26 +10583,18 @@ var Localisation = function (_React$Component) {
   _createClass(Localisation, [{
     key: 'loadJS',
     value: function loadJS(src) {
-      console.log(src);
-      var ref = window.document.getElementsByTagName("script")[0];
-      console.log(ref);
       var script = window.document.createElement("script");
-      script.src = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=funeral_home+in+" + src + "&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU";
-      //script.src = "https://maps.googleapis.com/maps/api/place/nearbysearch/output?type=funeral_home&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places&radius=10000;"
+      script.src = src;
       script.async = true;
-      console.log(script);
-      //  ref.parentNode.insertBefore(script, ref);
       document.body.insertBefore(script, document.body.lastChild);
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       window.initMap = this.initMap;
-
-      var script = window.document.createElement("script");
-      script.src = "https://maps.googleapis.com/maps/api/js";
-      script.async = true;
-      document.body.insertBefore(script, document.body.lastChild);
+      window.loadJS = this.loadJS;
+      window.searchBox = this.searchBox;
+      loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU&callback=initMap&libraries=places');
     }
   }, {
     key: 'initMap',
@@ -10692,20 +10684,6 @@ var Localisation = function (_React$Component) {
     value: function mySearch() {
       var input = document.getElementById('input');
       console.log(input);
-
-      this.loadJS(input.value);
-      /*var address = input.value;
-       var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({
-        'address': address
-      }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          var Lat = results[0].geometry.location.lat();
-          var Lng = results[0].geometry.location.lng();
-           console.log(Lat);
-          console.log(Lng);
-        }
-      });*/
     }
   }, {
     key: 'render',
