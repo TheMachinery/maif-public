@@ -8947,7 +8947,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.172'
+                        '1.0.173'
                     )
                 )
             );
@@ -10596,7 +10596,7 @@ var Localisation = function (_React$Component) {
       window.searchBox = this.searchBox
       loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU')*/
 
-      fetch('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU').then(function (res) {
+      fetch('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU', { mode: 'no-cors' }).then(function (res) {
         return res.json();
       }).then(function (res) {
         console.log(res);
@@ -21688,7 +21688,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.172';
+var VERSION = exports.VERSION = '1.0.173';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -23233,7 +23233,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.172');
+console.log('Current Version:', '1.0.173');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -28517,7 +28517,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.172';
+var VERSION = exports.VERSION = '1.0.173';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';

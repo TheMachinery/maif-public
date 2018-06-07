@@ -3851,7 +3851,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.172';
+var VERSION = exports.VERSION = '1.0.173';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -11700,7 +11700,7 @@ var Footer = function (_Component) {
                         'span',
                         null,
                         'V',
-                        '1.0.172'
+                        '1.0.173'
                     )
                 )
             );
@@ -26315,7 +26315,7 @@ module.exports = [{"name":"Données contractuelles de propriétés","location":"
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var VERSION = exports.VERSION = '1.0.172';
+var VERSION = exports.VERSION = '1.0.173';
 
 var DOCTYPE_EQUIPMENTS = exports.DOCTYPE_EQUIPMENTS = 'com.empreinte.equipment';
 var DOCTYPE_WORKS = exports.DOCTYPE_WORKS = 'com.empreinte.work';
@@ -27860,7 +27860,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var root = document.querySelector('[role=application]');
 var data = root.dataset;
 
-console.log('Current Version:', '1.0.172');
+console.log('Current Version:', '1.0.173');
 
 document.addEventListener('DOMContentLoaded', function () {
 
