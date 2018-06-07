@@ -10597,8 +10597,6 @@ var Localisation = function (_React$Component) {
       loadJS('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU')*/
 
       fetch('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCu4Xg-71dwXAhpvwe3Vhqqj51NmWkmQtU', { mode: 'no-cors' }).then(function (res) {
-        return res.json();
-      }).then(function (res) {
         console.log(res);
       });
     }
